@@ -1,7 +1,7 @@
 <p align="center">
 	<img alt="sweclockersdark-logo" src="images/banner.png" width="720">
 	<br>
-	<a href="https://img.shields.io/badge/SweClockers-Thread-F47447">
+	<a href="https://www.sweclockers.com/forum/trad/1515628-sweclockers-dark-ett-modernt-morkt-tema">
 		<img src="https://img.shields.io/badge/SweClockers-Thread-F47447" alt="SweClockers Thread">
 	</a>
 	<a href="https://github.com/Soitora/SweClockers-Dark/tags">

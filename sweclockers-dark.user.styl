@@ -1,0 +1,161 @@
+/* ==UserStyle==
+@name			SweClockers Dark
+@namespace		https://github.com/Soitora
+@version		3.0.0-alpha.1
+@description	A modern dark theme for SweClockers
+@author			Soitora <soitora@outlook.com> (https://soitora.com)
+@homepageURL	https://github.com/Soitora/SweClockers-Dark
+@supportURL		https://github.com/Soitora/SweClockers-Dark/issues
+@updateURL		https://raw.githubusercontent.com/Soitora/SweClockers-Dark/master/sweclockers-dark.user.styl
+@license		MPL-2.0
+@preprocessor	stylus
+@var	color	colorTheme "Orange theme color" #F47447
+@var	color	colorThemeRed "Red theme color" #EF4A4B
+@var	color	colorBackgroundPrimary "Primary background color" #1A1A1D
+@var	color	colorBackgroundSecondary "Secondary background color" #1E1E21
+@var	color	colorTextPrimary "Primary text color" #C8C8C8
+@var	color	colorTextSecondary "Secondary text color" #AAAAAA
+@var	color	colorBorder "Border color" #17171A
+@var	color	colorHighlight "Highlight color" #232326
+@var	text	defaultBorder "Default border" 1px solid black
+@var	text	filterGrey "Grey Filter" sepia(0) saturate(0.29) brightness(67%) contrast(184%) hue-rotate(179deg) invert(8%)
+@var	text	filterTheme "Theme Filter" brightness(0) saturate(100%) invert(70%) sepia(63%) saturate(4179%) hue-rotate(330deg) brightness(98%) contrast(96%) !important
+@var	text	hoverOpacity "Hover opacity" 0.75
+@var	text	hoverTextDecoration "Hover text decoration" none
+@var	text	borderRadius "Border radius" 0.6rem
+==/UserStyle== */
+@-moz-document domain("sweclockers.com")
+	body
+		background-color colorBackgroundPrimary
+		color colorTextBody
+	.header
+		background-color colorBackgroundPrimary
+		color colorTextBody
+		.mainMenu
+			.rborder
+				border-bottom defaultBorder
+			.menu
+				li
+					border-top defaultBorder
+					border-left defaultBorder
+					border-right defaultBorder
+					&.menuItem
+						background-color colorBackgroundSecondary
+						a
+							color colorTextSecondary
+						&.isSelected
+							background-color colorBackgroundSecondary
+							a
+								color colorTextPrimary
+						&:hover
+							background-color colorHighlight
+		.subMenu
+			.rborder
+				border-bottom defaultBorder
+			.menu
+				li
+					border-top defaultBorder
+					border-left defaultBorder
+					border-right defaultBorder
+					&.menuItem
+						background-color colorBackgroundPrimary
+						a
+							color colorTextSecondary
+						&:hover
+							background-color colorHighlight
+						&.isSelected
+							background-color colorBackgroundPrimary
+							a
+								color colorTextPrimary
+		.main
+			background-color colorBackgroundSecondary
+			border-bottom defaultBorder
+			.ticker
+				.latest
+					color colorTextPrimary
+				.current
+					.date
+						color colorTheme
+					.title
+						color colorTextSecondary
+					&:hover .date, &:hover .title
+						opacity hoverOpacity
+						text-decoration hoverTextDecoration
+			.ninjaSearch
+				border-left defaultBorder
+				h5
+					color colorTextSecondary
+				.searchField .fieldWrap
+					background-color colorBackgroundPrimary
+					border defaultBorder
+					input
+						color colorTextSecondary
+						&:focus
+							color colorTextPrimary
+			.ninjaSearchResult
+				color colorTextSecondary
+				h6
+					color colorTextPrimary
+				.showMore
+					color colorTheme
+					text-decoration none
+					&:hover
+						opacity hoverOpacity
+						text-decoration hoverTextDecoration
+				.resultList
+					a
+						color colorTextSecondary
+						&:hover
+							opacity hoverOpacity
+							text-decoration hoverTextDecoration
+					.icon
+						filter filterTheme
+						-webkit-filter filterTheme
+				.externalSearch a
+					color colorTheme
+					&:hover
+						opacity hoverOpacity
+						text-decoration hoverTextDecoration
+			.profile
+				border-left defaultBorder
+				h5
+					color colorTextSecondary
+				.options
+					color colorTextSecondary
+					.icon
+						filter filterGrey
+						-webkit-filter filterGrey
+					.signout button
+						&:hover
+							color colorThemeRed
+			.signin
+				border-left defaultBorder
+				h5
+					color colorTextSecondary
+				.actions
+					.button
+						border defaultBorder
+						color colorTextSecondary
+						background-color colorBackgroundPrimary
+						&:hover
+							background-color colorHighlight
+	.carousel
+		a
+			color colorTextPrimary
+		.slide
+			&:hover h3 a
+				opacity hoverOpacity
+				text-decoration hoverTextDecoration
+			.inner
+				border-top-right-radius 0
+		.nav
+			&.left .handle
+			&.right .handle
+				filter filterTheme
+				&:hover
+					opacity hoverOpacity
+		.bg-orange
+			background-color transparentify(colorBackgroundSecondary, 0.5) !important
+			border-bottom-left-radius borderRadius
+			&:hover
+				background-color colorHighlight !important

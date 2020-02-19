@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name			SweClockers Dark
 @namespace		https://github.com/Soitora
-@version		3.0.0-alpha.5
+@version		3.0.0-alpha.6
 @description	A modern dark theme for SweClockers
 @author			Soitora <soitora@outlook.com> (https://soitora.com)
 @homepageURL	https://github.com/Soitora/SweClockers-Dark
@@ -10,985 +10,1112 @@
 @license		MPL-2.0
 @preprocessor	stylus
 
-@var	color	colorTheme "Theme | Orange" #F47447
-@var	color	colorThemeText "Theme | Orange | Text" #FFFFFF
-@var	color	colorThemeRed "Theme | Red" #EF4A4B
-@var	color	colorBackgroundPrimary "Background | Primary" #1A1A1D
-@var	color	colorBackgroundSecondary "Background | Secondary" #1E1E21
-@var	color	colorTextPrimary "Text | Primary" #C8C8C8
-@var	color	colorTextSecondary "Text | Secondary" #AAAAAA
-@var	color	colorBorder "Border | Primary" #121215
-@var	color	colorBorderMenus "Border | Menus" #000000
-@var	color	colorHighlight "Highlight | Primary" #232326
-@var	color	colorFields "Fields | Primary" #131315
-@var	text	defaultBorder "Border | Default style" 1px solid colorBorder
-@var	text	defaultBoxShadow "Box Shadow | Default style" 0 0 0 1px colorBorder
-@var	text	defaultBorderRadius "Border Radius | Default" 0.6rem
-@var	text	filterGrey "Filter | Grey" sepia(0) saturate(0.29) brightness(67%) contrast(184%) hue-rotate(179deg) invert(8%)
-@var	text	filterTheme "Filter | Theme | Orange" brightness(0) saturate(100%) invert(70%) sepia(63%) saturate(4179%) hue-rotate(330deg) brightness(98%) contrast(96%) !important
-@var	text	hoverOpacity "Hover | Opacity" 0.75
-@var	text	hoverTextDecoration "Hover | Text Decoration" none
+@var	color	usercss-background-1 "Background color 1" #101013
+@var	color	usercss-background-2 "Background color 2" #17171A
+@var	color	usercss-background-3 "Background color 3" #0B0B0D
+@var	color	usercss-border "Border color" #08080B
+@var	color	usercss-border-menus "Menu border color" #000000
+@var	color	usercss-text-1 "Text color 1" #C8C8C8
+@var	color	usercss-text-2 "Text color 2" #AAAAAA
+@var	color	usercss-highlight "Highlight color" #232326
+@var	color	usercss-warning "Warning color" #EF4A4B
+@var	color	usercss-theme "Theme color" #F19A57
+@var	color	usercss-theme-text "Theme text color" #FFFFFF
+@var	text	usercss-theme-filter "Theme filter" brightness(0) saturate(100%) invert(82%) sepia(26%) saturate(3168%) hue-rotate(320deg) brightness(99%) contrast(91%)
+
 ==/UserStyle== */
 @-moz-document domain("sweclockers.com")
-    // Scrollbar
-    ::-webkit-scrollbar
-        width 14px
-        height 12px
+	// Mixins
+	border-radius(n)
+		border-radius: n
+		-moz-border-radius: n
+		-webkit-border-radius: n
+	box-shadow(n)
+		box-shadow: n
+		-webkit-box-shadow: n
+		-moz-box-shadow: n
 
-    ::-webkit-scrollbar-thumb
-        background-color colorTheme
-        border-left 2px solid colorBackgroundPrimary
-        border-right 2px solid colorBackgroundPrimary
+	// User variables
+	$background-1 = usercss-background-1
+	$background-2 = usercss-background-2
+	$background-3 = usercss-background-3
+	$border = usercss-border
+	$border-menus = usercss-border-menus
+	$text-1 = usercss-text-1
+	$text-2 = usercss-text-2
+	$highlight = usercss-highlight
+	$warning = usercss-warning
+	$theme = usercss-theme
+	$theme-text = usercss-theme-text
+	$filter-theme = usercss-theme-filter
 
-    ::-webkit-scrollbar-track
-    ::-webkit-scrollbar-corner
-        background-color colorBackgroundPrimary
+	// Global variables
+	$border-style = 1px solid $border
+	$border-radius = .6rem
+	$hover-opacity = .75
+	$hover-text = none
+	$box-shadow = 0 0 0 1px $border
+	$text-shadow = 1px 1px 2px #000000
+	$filter-grey = sepia(0) saturate(.29) brightness(67%) contrast(184%) hue-rotate(179deg) invert(8%)
 
-    // Body
-    body
-        background-color colorBackgroundPrimary
+	// Scrollbar
+	::-webkit-scrollbar
+		width: 14px
+		height: 12px
+	::-webkit-scrollbar-thumb
+		border-right: 2px solid $background-1
+		border-left: 2px solid $background-1
+		background-color: $theme
+	::-webkit-scrollbar-track
+	::-webkit-scrollbar-corner
+		background-color: $background-1
 
-    // Top
-    .top
-        .header
-            background-color colorBackgroundPrimary
-            color colorTextSecondary
-            .logo
-                background-image url('https://soitora.com/SweClockers-Dark/images/logo.svg')
-            .mainMenu .menu li.menuItem.isSelected
-                background-color colorBackgroundSecondary
-            .subMenu .menu li.menuItem.isSelected
-                background-color colorBackgroundPrimary
-            .mainMenu
-            .subMenu
-                .rborder
-                    border-bottom defaultBorder
-                .menu li
-                    border 1px solid colorBorderMenus
-                    &.menuItem
-                        background-color colorFields
-                        &.isSelected
-                            border-bottom 0
-                            a
-                                color colorTextPrimary
-                        &:hover
-                            background-color colorHighlight
-                        a
-                            color colorTextSecondary
-                            &:hover
-                                color colorTextPrimary
-            .main
-                background-color colorBackgroundSecondary
-                border-bottom defaultBorder
-                border-right defaultBorder
-                .ninjaSearch
-                    border-left defaultBorder
-                    h5
-                        color colorTextSecondary
-                    .searchField .fieldWrap
-                        background-color colorFields
-                        border defaultBorder
-                        border-radius 0.25rem
-                        input
-                            color colorTextSecondary
-                            &:focus
-                                color colorTextPrimary
-                .ninjaSearchResult
-                    color colorTextSecondary
-                    h6
-                        color colorTextPrimary
-                    .showMore
-                        color colorTheme
-                        text-decoration none
-                        &:hover
-                            opacity hoverOpacity
-                            text-decoration hoverTextDecoration
-                    .resultList
-                        a
-                        color colorTextSecondary
-                            &:hover
-                                opacity hoverOpacity
-                                text-decoration hoverTextDecoration
-                        .icon
-                            filter filterTheme
-                            -webkit-filter filterTheme
-                    .externalSearch a
-                        color colorTheme
-                        &:hover
-                            opacity hoverOpacity
-                            text-decoration hoverTextDecoration
-                .profile
-                    border-left defaultBorder
-                    h5 a
-                        color colorTextSecondary
-                        &:hover
-                            text-decoration hoverTextDecoration
-                            opacity hoverOpacity
-                    .options
-                        color colorTextSecondary
-                        .icon
-                            filter filterGrey
-                            -webkit-filter filterGrey
-                        a.label:hover
-                            &::after
-                            span
-                                opacity hoverOpacity
-                                text-decoration hoverTextDecoration
-                        .signout button:hover
-                            color colorThemeRed
-                            opacity hoverOpacity
-                            text-decoration hoverTextDecoration
-                        .hasUnread
-                            color colorTheme
-                            .icon
-                                filter filterTheme
-                                -webkit-filter filterTheme
-                .signin
-                    border-left defaultBorder
-                    h5
-                        color colorTextSecondary
-                    .actions .button
-                        border defaultBorder
-                        color colorTextSecondary
-                        background-color colorFields
-                        &:hover
-                            background-color colorHighlight
-        .carousel
-            a
-                color colorTextPrimary
-            .slide
-                &:hover h3 a
-                    opacity hoverOpacity
-                    text-decoration hoverTextDecoration
-                .inner
-                    border-top-right-radius 0
-            .nav
-                &.left
-                &.right
-                    .handle
-                        filter filterTheme
-                        -webkit-filter filterTheme
-                        &:hover
-                            opacity hoverOpacity
-            .bg-orange
-                background-color transparentify(colorBackgroundSecondary, 0.5) !important
-                border-bottom-left-radius defaultBorderRadius
-                &:hover
-                    background-color colorHighlight !important
-        .mainContent
-            border defaultBorder
-            background-color colorBackgroundSecondary
-            .newsList
-                .pubItem
-                    border-bottom defaultBorder
-                .itemBanner
-                    .sponsoredArticle
-                        color colorTextPrimary
-                        font-weight 700
-                        font-size 1.2em
-                        background-color transparent
-                    .inner
-                        border-radius defaultBorderRadius
-                        box-shadow defaultBoxShadow
-                        -webkit-box-shadow defaultBoxShadow
-                        -moz-box-shadow defaultBoxShadow
-                    img
-                        border-radius defaultBorderRadius
-                .itemBody
-                    h2 a
-                        color colorTheme
-                        &:hover
-                            opacity hoverOpacity
-                            text-decoration hoverTextDecoration
-                    .itemMeta
-                        .category a
-                            color colorTheme
-                            &:hover
-                                opacity hoverOpacity
-                                text-decoration hoverTextDecoration
-                        .date
-                            color colorTextPrimary
-                    .itemText
-                        color colorTextSecondary
-                        .bbLink
-                            color colorTheme
-                            text-decoration none
-                            &:hover
-                                opacity hoverOpacity
-                                text-decoration hoverTextDecoration
-                    .commentsBubble
-                        border-top defaultBorder
-                        border-left defaultBorder
-                        border-bottom defaultBorder
-                        background-color colorFields
-                        color colorTextPrimary
-                        &.isHot
-                            color colorThemeText
-                            background-color colorTheme
-                        &:hover
-                            background-color colorHighlight
-                            text-decoration hoverTextDecoration
-                .read-more-archive
-                    color colorTheme
-                    text-decoration none
-                    &:hover
-                        opacity hoverOpacity
-                        text-decoration hoverTextDecoration
-        .sideBox
-            &.articleByline
-                h5
-                    color colorTextPrimary
-                    border-bottom defaultBorder
-                .author a
-                    color colorTheme
-                    &:hover
-                        opacity hoverOpacity
-                        text-decoration hoverTextDecoration
-                .crediter a
-                    color colorTheme
-                    &:hover
-                        opacity hoverOpacity
-                        text-decoration hoverTextDecoration
-            &.sideShare
-                h5
-                    color colorTextPrimary
-                    border-bottom defaultBorder
-                .menuItem a
-                    color colorTextSecondary
-                    &:hover
-                    &:hover .label
-                        opacity hoverOpacity
-                        text-decoration hoverTextDecoration
-                    .icon
-                        filter filterTheme
-                        -webkit-filter filterTheme
-            &.videoPush
-                h5
-                    border-bottom defaultBorder
-                    a
-                        color colorTextPrimary
-                        &:hover
-                            opacity hoverOpacity
-                            text-decoration hoverTextDecoration
-                img
-                    box-shadow defaultBoxShadow
-                    -webkit-box-shadow defaultBoxShadow
-                    -moz-box-shadow defaultBoxShadow
-                h3 a
-                    color colorTextSecondary
-                    &:hover
-                        opacity hoverOpacity
-                        text-decoration hoverTextDecoration
-            &.popularGalleries
-                h5
-                    border-bottom defaultBorder
-                    a
-                        color colorTextPrimary
-                        &:hover
-                            opacity hoverOpacity
-                            text-decoration hoverTextDecoration
-                .image
-                    box-shadow defaultBoxShadow
-                    -webkit-box-shadow defaultBoxShadow
-                    -moz-box-shadow defaultBoxShadow
-                h3 a
-                    color colorTheme
-                    &:hover
-                        opacity hoverOpacity
-                        text-decoration hoverTextDecoration
-                .author
-                .cat
-                .rating
-                    color colorTextSecondary
-                    a
-                        &:hover
-                            opacity hoverOpacity
-                            text-decoration hoverTextDecoration
+	// Body
+	body
+		border: default-border
+		border-radius: 10rem
+		background-color: $background-1
 
-    // Bottom
-    .bottom
-        .footer
-            border-top defaultBorder
-            .top
-                border-top defaultBorder
-                background-color colorBackgroundSecondary
-                color colorTextSecondary
-                .block
-                    h6
-                        color colorTextPrimary
-                    p
-                        color colorTextSecondary
-                    a
-                        color colorTheme
-                        &::before
-                            filter filterTheme
-                            -webkit-filter filterTheme
-                        &:hover
-                            opacity hoverOpacity
-                            text-decoration hoverTextDecoration
-                    .rssFeeds
-                        a:hover .label
-                            opacity hoverOpacity
-                            text-decoration hoverTextDecoration
-                    &:not(:last-child)
-                        border-right defaultBorder
-            .bottom
-                background-color colorBackgroundSecondary
-                color colorTextSecondary
-                a
-                    color colorTextPrimary
-                    &:hover
-                        opacity hoverOpacity
-                        text-decoration hoverTextDecoration
-                .bahnhof-logo
-                    color colorTextPrimary
-                    &:hover span
-                        opacity hoverOpacity
-                        text-decoration hoverTextDecoration !important
+	// Top
+	.top
+		.header
+			background-color: $background-1
+			color: $text-2
 
-    // Widgets
-    #wdgtSideRecentThreads
-        box-shadow defaultBoxShadow
-        -webkit-box-shadow defaultBoxShadow
-        -moz-box-shadow defaultBoxShadow
-        background-color colorBackgroundSecondary
-        .plHead
-            h5 a
-                color colorTheme
-                &:hover
-                    opacity hoverOpacity
-                    text-decoration hoverTextDecoration
-        .plBody
-            .plItemList
-                .plLabel
-                    .plLabelIcon
-                        filter filterTheme
-                        -webkit-filter filterTheme
-                    .plLabelText
-                        color colorTextSecondary
-                    &:hover
-                        .plLabelHover
-                            opacity hoverOpacity
-                            text-decoration hoverTextDecoration
-                .plComments
-                    .plLabelText
-                        color colorTheme
-                    &:hover
-                        .plIcon
-                        .plLabelHover
-                            opacity hoverOpacity
-                            text-decoration hoverTextDecoration
-            .button
-                box-shadow defaultBoxShadow
-                -webkit-box-shadow defaultBoxShadow
-                -moz-box-shadow defaultBoxShadow
-                background-color colorFields !important
-                color colorTextSecondary
-                &:hover
-                    background-color colorHighlight !important
+			.logo
+				background-image: url('https://soitora.com/SweClockers-Dark/images/logo.svg')
+			.mainMenu .menu li.menuItem.isSelected
+				background-color: $background-2
+			.subMenu .menu li.menuItem.isSelected
+				background-color: $background-1
+			.mainMenu
+			.subMenu
+				.rborder
+					border-bottom: $border-style
+				.menu li
+					border: 1px solid $border-menus
 
-    #wdgtSideRecentClassifieds
-        box-shadow defaultBoxShadow
-        -webkit-box-shadow defaultBoxShadow
-        -moz-box-shadow defaultBoxShadow
-        background-color colorBackgroundSecondary
-        .plHead
-            h5 a
-                color colorTheme
-                &:hover
-                    opacity hoverOpacity
-                    text-decoration hoverTextDecoration
-        .plBody
-            .plItemList
-                .plLabel
-                    .plLabelIcon
-                        filter filterTheme
-                        -webkit-filter filterTheme
-                    .plLabelText
-                        color colorTextSecondary
-                    &:hover
-                        .plLabelHover
-                            opacity hoverOpacity
-                            text-decoration hoverTextDecoration
+					&.menuItem
+						background-color: $background-3
 
-    #wdgtSideGeeksShop
-        border defaultBorder
-        background-color colorBackgroundSecondary
-        h5
-            color colorTheme
-        a
-            &:hover
-                .productName
-                .productPrice
-                    opacity hoverOpacity
-                    text-decoration hoverTextDecoration
-        .productWrapper
-            .productImage
-                box-shadow defaultBoxShadow
-                -webkit-box-shadow defaultBoxShadow
-                -moz-box-shadow defaultBoxShadow
-            .productName
-                color colorTextSecondary
-            .productPrice
-                color colorTextPrimary
-            .buyButton
-                background-color colorTheme
-                box-shadow defaultBoxShadow
-                -webkit-box-shadow defaultBoxShadow
-                -moz-box-shadow defaultBoxShadow
-                &:hover
-                    background-color colorHighlight
+						&.isSelected
+							border-bottom: 0
 
-    #wdgtSidePopularProducts
-        background-color colorBackgroundSecondary
-        box-shadow defaultBoxShadow
-        -webkit-box-shadow defaultBoxShadow
-        -moz-box-shadow defaultBoxShadow
-        h5 a
-            color colorTheme
-            &:hover
-                opacity hoverOpacity
-                text-decoration hoverTextDecoration
-        .descr
-            color colorTextSecondary
-        .ppProducts
-            a
-                &:hover
-                    opacity hoverOpacity
-                    .ppTitle
-                    .ppPrice
-                        text-decoration hoverTextDecoration
-            .ppTitle
-                color colorTextPrimary
-            .ppPrice
-                color colorTextSecondary
+							a
+								color: $text-1
+						&:hover
+							background-color: $highlight
+						a
+							color: $text-2
 
-    #wdgtSideRecentReviews
-        box-shadow defaultBoxShadow
-        -webkit-box-shadow defaultBoxShadow
-        -moz-box-shadow defaultBoxShadow
-        background-color colorBackgroundSecondary
-        .plHead
-            h5 a
-                color colorTheme
-                &:hover
-                    opacity hoverOpacity
-                    text-decoration hoverTextDecoration
-            p
-                color colorTextSecondary
-                a
-                    color colorTextPrikmary
-                    &:hover
-                        opacity hoverOpacity
-                        text-decoration hoverTextDecoration
-        .plBody
-            .plItemList
-                .plLabel
-                    .plLabelIcon
-                        filter filterTheme
-                        -webkit-filter filterTheme
-                    .plLabelText
-                        color colorTextSecondary
-                    &:hover
-                        .plLabelHover
-                            opacity hoverOpacity
-                            text-decoration hoverTextDecoration
-                .plComments
-                    .plLabelText
-                        color colorTheme
-                    &:hover
-                        .plIcon
-                        .plLabelHover
-                            opacity hoverOpacity
-                            text-decoration hoverTextDecoration
-            .plNyhetstips
-                .plLabel
-                    color colorTextPrimary
-                    .plLabelIcon
-                        filter filterTheme
-                        -webkit-filter filterTheme
-                    &:hover
-                        opacity hoverOpacity
-                        .plLabelHover
-                            text-decoration hoverTextDecoration
+							&:hover
+								color: $text-1
+			.main
+				border-right: $border-style
+				border-bottom: $border-style
+				background-color: $background-2
 
-    #wdgtSideExternalFeeds
-        .plHead
-            h5
-                color colorTheme
-            p
-                color colorTextSecondary
-        .plBody
-            h6
-                color colorTextPrimary
-            .plItemList
-                .plLabel
-                    .plLabelIcon
-                        filter filterTheme
-                        -webkit-filter filterTheme
-                    .plLabelText
-                        color colorTextSecondary
-                    .plLabelDate
-                        color colorTextPrimary
-                    &:hover
-                        .plLabelHover
-                        .plLabelDate
-                            opacity hoverOpacity
-                            text-decoration hoverTextDecoration
+				.ninjaSearch
+					border-left: $border-style
 
-    #wdgtMainRecentNews
-        box-shadow defaultBoxShadow
-        -webkit-box-shadow defaultBoxShadow
-        -moz-box-shadow defaultBoxShadow
-        background-color colorBackgroundSecondary
-        .mwHead
-            h5 a
-                color colorTheme
-                &:hover
-                    opacity hoverOpacity
-                    text-decoration hoverTextDecoration
-        .mwBody
-            h6
-                color colorTextPrimary
-            .mwItemList
-                .mwLabel
-                    .mwLabelIcon
-                        filter filterTheme
-                        -webkit-filter filterTheme
-                    .mwLabelDate
-                        color colorTextPrimary
-                    .mwLabelText
-                        color colorTextSecondary
-                    &:hover
-                        .mwLabelDate
-                        .mwLabelHover
-                            opacity hoverOpacity
-                            text-decoration hoverTextDecoration
-                .mwComments
-                    .mwLabelText
-                        color colorTheme
-                    &:hover
-                        .mwIcon
-                        .mwLabelHover
-                            opacity hoverOpacity
-                            text-decoration hoverTextDecoration
+					h5
+						color: $text-2
+					.searchField .fieldWrap
+						border: $border-style
+						border-radius: .25rem
+						background-color: $background-3
 
-    #wdgtMainRecentThreads
-        box-shadow defaultBoxShadow
-        -webkit-box-shadow defaultBoxShadow
-        -moz-box-shadow defaultBoxShadow
-        background-color colorBackgroundSecondary
-        .mwHead
-            h5 a
-                color colorTheme
-                &:hover
-                    opacity hoverOpacity
-                    text-decoration hoverTextDecoration
-        .mwBody
-            h6
-                color colorTextPrimary
-            .mwItemList
-                .mwLabel
-                    .mwLabelIcon
-                        filter filterTheme
-                        -webkit-filter filterTheme
-                    .mwLabelText
-                        color colorTextSecondary
-                    &:hover
-                        .mwLabelHover
-                            opacity hoverOpacity
-                            text-decoration hoverTextDecoration
+						input
+							color: $text-2
 
-    // Forms
-    #signinForm
-        fieldset
-            border defaultBorder
-            legend
-                color colorTextPrimary
-            input
-                color colorTextSecondary
-                background-color colorFields
-                border defaultBorder
-                &:focus
-                    color colorTextPrimary
-            .tcLabel
-                color colorTextPrimary
-                &::after
-                    color colorThemeRed
-            .tcHint
-                color colorTextSecondary
-            button
-                background-color colorFields
-                border defaultBorder
-                color colorTextSecondary
-                &:hover
-                    background-color colorHighlight
-                    color colorTextPrimary
-            .checkboxItem
-                color colorTextPrimary
+							&:focus
+								color: $text-1
+				.ninjaSearchResult
+					color: $text-2
 
-    #registerForm
-        input
-            color colorTextSecondary
-            background-color colorFields
-            border defaultBorder
-        .tcLabel
-            color colorTextPrimary
-            &::after
-                color colorThemeRed
-        .tcHint
-            color colorTextSecondary
-        hr
-            border defaultBorder
-        .termsAndConditionsTitle
-            color colorTextPrimary
-        .infoTextWindow
-            border defaultBorder
-            background-color colorFields
-            .rulesList
-                h2
-                    color colorTextPrimary
-                h4
-                    color colorTextPrimary
-                p
-                    color colorTextSecondary
-                a
-                    color colorTheme
-                    &:hover
-                        opacity hoverOpacity
-                        text-decoration hoverTextDecoration
-        p
-            color colorTextSecondary
-            a
-                color colorTheme
-                &:hover
-                    opacity hoverOpacity
-                    text-decoration hoverTextDecoration
-        .termsAndConditions
-            color colorTextPrimary
-        button
-            background-color colorFields
-            border defaultBorder
-            color colorTextSecondary
-            &:hover
-                background-color colorHighlight
-                color colorTextPrimary
+					h6
+						color: $text-1
+					.showMore
+						color: $theme
+						text-decoration: none
 
-    // Advertisements
-    .ad
-        &.adPanorama
-        &.adModule
-        &.adInsider
-        &.adOutsider
-            iframe
-                background-color colorFields
-                border-radius defaultBorderRadius
-                box-shadow defaultBoxShadow
-                -webkit-box-shadow defaultBoxShadow
-                -moz-box-shadow defaultBoxShadow
-        &.adModule
-            border-bottom defaultBorder !important
+						&:hover
+							text-decoration: $hover-text
+							opacity: $hover-opacity
+					.resultList
+						a
+							color: $text-2
 
-    // Orphans
-    .infoText
-        h1
-            color colorTextPrimary
-        p
-            color colorTextSecondary
-        a
-            color colorTheme
-            &:hover
-                opacity hoverOpacity
-                text-decoration hoverTextDecoration
+							&:hover
+								text-decoration: $hover-text
+								opacity: $hover-opacity
+						.icon
+							filter: $filter-theme
+							-webkit-filter: $filter-theme
+					.externalSearch a
+						color: $theme
 
-    .whiteHeader
-        h1
-            color colorTextPrimary
-        .descr
-            color colorTextSecondary
+						&:hover
+							text-decoration: $hover-text
+							opacity: $hover-opacity
+				.profile
+					border-left: $border-style
 
-    // Articles
-    .tv-frame
-        .tvf-top
-        .tvf-bottom
-        .tvf-left
-        .tvf-right
-            display none
-        iframe
-            background-color colorFields
-            border-radius defaultBorderRadius
-            box-shadow defaultBoxShadow
-            -webkit-box-shadow defaultBoxShadow
-            -moz-box-shadow defaultBoxShadow
+					h5 a
+						color: $text-2
 
-    .articleHeader
-        h1
-            color colorTheme
-        .meta
-            color colorTextPrimary
-            a
-                color colorTheme
-                &:hover
-                    opacity hoverOpacity
-                    text-decoration hoverTextDecoration
-        .preamble
-            color colorTextSecondary
-        .bbImage img
-            border-radius defaultBorderRadius
-            box-shadow defaultBoxShadow
-            -webkit-box-shadow defaultBoxShadow
-            -moz-box-shadow defaultBoxShadow
-        .sponsoredArticle
-            color colorTextPrimary
-            font-weight 700
-            font-size 1.2em
-            background-color transparent
-        .bbRelatedBox
-            border defaultBorder
-            background-color colorFields
-            border-radius defaultBorderRadius
-            color colorTextSecondary
-            a
-                color colorTheme
-                text-decoration none
-                &:hover
-                    opacity hoverOpacity
-                    text-decoration hoverTextDecoration
+						&:hover
+							text-decoration: $hover-text
+							opacity: $hover-opacity
+					.options
+						color: $text-2
 
-    .articleContent
-        .bbParagraph
-            color colorTextSecondary
-            .bbLink
-                color colorTheme
-                text-decoration none
-                &:hover
-                    opacity hoverOpacity
-                    text-decoration hoverTextDecoration
-        h3
-            color colorTextPrimary
-        .articlePage
-            h2.pageTitle
-                color colorTextPrimary
-            .body
-                color colorTextSecondary
-                .bbRelatedBox
-                    border defaultBorder
-                    background-color colorBackgroundPrimary
-                    border-radius defaultBorderRadius
-                    color colorTextSecondary
-                    a
-                        color colorTheme
-                        text-decoration none
-                        &:hover
-                            opacity hoverOpacity
-                            text-decoration hoverTextDecoration
-            .bbBlockQuote::after
-                color colorTheme
-        .bbImage img
-            border-radius defaultBorderRadius
-            box-shadow defaultBoxShadow
-            -webkit-box-shadow defaultBoxShadow
-            -moz-box-shadow defaultBoxShadow
-        img[src*='/artikel/diagram/']
-            -webkit-filter invert(85%)
-            -o-filter invert(85%)
-            filter invert(85%)
-        .bbList
-            color colorTextSecondary
+						.icon
+							filter: $filter-grey
+							-webkit-filter: $filter-grey
+						a.label:hover
+							&::after
+							span
+								text-decoration: $hover-text
+								opacity: $hover-opacity
+						.signout button:hover
+							color: $warning
+							text-decoration: $hover-text
+							opacity: $hover-opacity
+						.hasUnread
+							color: $theme
 
-    .articleNavi
-        .head
-            border-bottom defaultBorder
-            h5
-                color colorTextPrimary
-        .pageButton
-            color colorTheme
-            &:hover
-                opacity hoverOpacity
-                text-decoration hoverTextDecoration
-                background-color transparent
-        .pageItem
-            &::before
-                color colorTextPrimary
-            &.isCurrent a
-                color colorTextSecondary
-            a
-                color colorTheme
-                text-decoration none
-                &:hover
-                    opacity hoverOpacity
-                    text-decoration hoverTextDecoration
+							.icon
+								filter: $filter-theme
+								-webkit-filter: $filter-theme
+				.signin
+					border-left: $border-style
 
-    .articleBBCode
-        .bbTable
-            background-color colorBackgroundPrimary
-            border-top defaultBorder
-            border-left defaultBorder
-            thead
-            tbody
-                th
-                    color colorTextPrimary
-                    background-color colorFields
-            th
-            td
-                border-bottom defaultBorder
-                border-right defaultBorder
-            a
-                color colorTheme
-                &:hover
-                    opacity hoverOpacity
-                    text-decoration hoverTextDecoration
+					h5
+						color: $text-2
+					.actions .button
+						border: $border-style
+						background-color: $background-3
+						color: $text-2
 
-    .articleFooter
-        .bbRelatedBox
-            border defaultBorder
-            background-color colorBackgroundPrimary
-            h3
-                color colorTextPrimary
-            .bbParagraph
-                color colorTextSecondary
-            .bbImage img
-                border-radius defaultBorderRadius
-                box-shadow defaultBoxShadow
-                -webkit-box-shadow defaultBoxShadow
-                -moz-box-shadow defaultBoxShadow
-            .bbLink
-                color colorTheme
-                text-decoration none
-                &:hover
-                    opacity hoverOpacity
-                    text-decoration hoverTextDecoration
-        .bbPrisjakt
-            .pjTitle
-                border-bottom defaultBorder
-                span
-                    color colorTextPrimary
-                a
-                    color colorTheme
-                    &:hover
-                        opacity hoverOpacity
-                        text-decoration hoverTextDecoration
-            .pjVendors
-                .name
-                    color colorTextSecondary
-                    a:hover
-                        opacity hoverOpacity
-                        text-decoration hoverTextDecoration
-                .bar
-                    border-left defaultBorder
-                    border-right defaultBorder
-                .price a
-                    color colorTheme
-                    &:hover
-                        opacity hoverOpacity
-                        text-decoration hoverTextDecoration
-            .pjFooter
-                .seeMore
-                    color colorTheme
-                    text-decoration none
-                    &:hover
-                        opacity hoverOpacity
-                        text-decoration hoverTextDecoration
-                .withPrisjakt
-                    color colorTextSecondary
-                    &:hover
-                        opacity hoverOpacity
+						&:hover
+							background-color: $highlight
+		.carousel
+			a
+				color: $text-1
+			.slide
+				&:hover h3 a
+					text-decoration: $hover-text
+					opacity: $hover-opacity
+				.inner
+					border-top-right-radius: 0
+			.nav
+				&.left
+				&.right
+					.handle
+						filter: $filter-theme
+						-webkit-filter: $filter-theme
 
-    .articleKeywords a
-        color colorTextSecondary
-        background-color colorFields
-        border defaultBorder
-        &:hover
-            color colorTextPrimary
-            background-color colorHighlight
-            text-decoration hoverTextDecoration
+						&:hover
+							opacity: $hover-opacity
+			.bg-orange
+				border-bottom-left-radius: $border-radius
+				background-color: transparentify($background-2, .5) !important
 
-    .articleActions
-        .actionIcon
-            filter filterTheme
-            -webkit-filter filterTheme
-        .actionLabel
-            color colorTheme
-            &:hover
-                text-decoration hoverTextDecoration !important
-        .actionLink:hover
-            .actionIcon
-            .actionLabel
-                opacity hoverOpacity
+				&:hover
+					background-color: $highlight !important
+		.mainContent
+			border: $border-style
+			background-color: $background-2
 
-    .wndWindowArea
-        .wndFrameDecorator
-            border defaultBorder
-        .table
-            background-color colorBackgroundPrimary
-            .wndToolbarInner
-                border-bottom defaultBorder
-                .wndToolbarTitle
-                    h4
-                        color colorTextPrimary
-                .wndToolbarControl
-                    filter filterTheme
-                    -webkit-filter filterTheme
-        .wndToolbarContents
-            .infoText p
-                color colorTextSecondary
-            .tcLabel
-                color colorTextPrimary
-                &::after
-                    color colorThemeRed
-            textarea
-                color colorTextSecondary
-                border defaultBorder
-                background-color colorFields
-                &:focus
-                    color colorTextPrimary
-            select
-                color colorTextSecondary
-                border defaultBorder
-                background-color colorFields
-            button
-                color colorTextSecondary
-                border defaultBorder
-                background-color colorFields
-                &:hover
-                    color colorTextPrimary
-                    background-color colorHighlight
-        .wndStatusbarMenu .inner
-            border-top defaultBorder
+			.newsList
+				.pubItem
+					border-bottom: $border-style
+				.itemBanner
+					.sponsoredArticle
+						background-color: transparent
+						color: $text-1
+						font-weight: 700
+						font-size: 1.2em
+					.inner
+						border-radius: $border-radius
+						box-shadow: $box-shadow
+						-webkit-box-shadow: $box-shadow
+						-moz-box-shadow: $box-shadow
+					img
+						border-radius: $border-radius
+				.itemBody
+					h2 a
+						color: $theme
 
-    .widget.bg-orange
-        background-color colorBackgroundSecondary !important
-        box-shadow defaultBoxShadow
-        -webkit-box-shadow defaultBoxShadow
-        -moz-box-shadow defaultBoxShadow
-        .widget-head
-            .title
-                span
-                    color colorTheme
-                &:hover
-                    opacity hoverOpacity
-                    text-decoration hoverTextDecoration
-        .widget-body
-            .list-link
-                &:hover
-                    opacity hoverOpacity
-                    text-decoration hoverTextDecoration
-                .icon
-                    filter filterTheme
-                    -webkit-filter filterTheme
-                .text-bold
-                    color colorTextPrimary
-                .list-link-text
-                    color colorTextSecondary
-        .widget-foot
-            a
-                &:hover
-                    opacity hoverOpacity
-                    text-decoration hoverTextDecoration
-                span
-                    color colorTextPrimary
+						&:hover
+							text-decoration: $hover-text
+							opacity: $hover-opacity
+					.itemMeta
+						.category a
+							color: $theme
+
+							&:hover
+								text-decoration: $hover-text
+								opacity: $hover-opacity
+						.date
+							color: $text-1
+					.itemText
+						color: $text-2
+
+						.bbLink
+							color: $theme
+							text-decoration: none
+
+							&:hover
+								text-decoration: $hover-text
+								opacity: $hover-opacity
+					.commentsBubble
+						border-top: $border-style
+						border-bottom: $border-style
+						border-left: $border-style
+						background-color: $background-3
+						color: $text-1
+
+						&.isHot
+							background-color: $theme
+							color: $theme-text
+							text-shadow: $text-shadow
+						&:hover
+							background-color: $highlight
+							text-decoration: $hover-text
+			.read-more-archive
+				color: $theme
+				text-decoration: none
+
+				&:hover
+					text-decoration: $hover-text
+					opacity: $hover-opacity
+		.sideBox
+			&.articleByline
+				h5
+					border-bottom: $border-style
+					color: $text-1
+				.author a
+					color: $theme
+
+					&:hover
+						text-decoration: $hover-text
+						opacity: $hover-opacity
+				.crediter a
+					color: $theme
+
+					&:hover
+						text-decoration: $hover-text
+						opacity: $hover-opacity
+			&.sideShare
+				h5
+					border-bottom: $border-style
+					color: $text-1
+				.menuItem a
+					color: $text-2
+
+					&:hover
+					&:hover .label
+						text-decoration: $hover-text
+						opacity: $hover-opacity
+					.icon
+						filter: $filter-theme
+						-webkit-filter: $filter-theme
+			&.videoPush
+				h5
+					border-bottom: $border-style
+
+					a
+						color: $text-1
+
+						&:hover
+							text-decoration: $hover-text
+							opacity: $hover-opacity
+				img
+					box-shadow: $box-shadow
+					-webkit-box-shadow: $box-shadow
+					-moz-box-shadow: $box-shadow
+				h3 a
+					color: $text-2
+
+					&:hover
+						text-decoration: $hover-text
+						opacity: $hover-opacity
+			&.popularGalleries
+				h5
+					border-bottom: $border-style
+
+					a
+						color: $text-1
+
+						&:hover
+							text-decoration: $hover-text
+							opacity: $hover-opacity
+				.image
+					box-shadow: $box-shadow
+					-webkit-box-shadow: $box-shadow
+					-moz-box-shadow: $box-shadow
+				h3 a
+					color: $theme
+
+					&:hover
+						text-decoration: $hover-text
+						opacity: $hover-opacity
+				.author
+				.cat
+				.rating
+					color: $text-2
+
+					a
+						&:hover
+							text-decoration: $hover-text
+							opacity: $hover-opacity
+	// Bottom
+	.bottom
+		.footer
+			border-top: $border-style
+
+			.top
+				border-top: $border-style
+				background-color: $background-2
+				color: $text-2
+
+				.block
+					h6
+						color: $text-1
+					p
+						color: $text-2
+					a
+						color: $theme
+
+						&::before
+							filter: $filter-theme
+							-webkit-filter: $filter-theme
+						&:hover
+							text-decoration: $hover-text
+							opacity: $hover-opacity
+					.rssFeeds
+						a:hover .label
+							text-decoration: $hover-text
+							opacity: $hover-opacity
+					&:not(:last-child)
+						border-right: $border-style
+			.bottom
+				background-color: $background-2
+				color: $text-2
+
+				a
+					color: $text-1
+
+					&:hover
+						text-decoration: $hover-text
+						opacity: $hover-opacity
+				.bahnhof-logo
+					color: $text-1
+
+					&:hover span
+						text-decoration: $hover-text !important
+						opacity: $hover-opacity
+	// Widgets
+	#wdgtSideRecentThreads
+		background-color: $background-2
+		box-shadow: $box-shadow
+		-webkit-box-shadow: $box-shadow
+		-moz-box-shadow: $box-shadow
+
+		.plHead
+			h5 a
+				color: $theme
+
+				&:hover
+					text-decoration: $hover-text
+					opacity: $hover-opacity
+		.plBody
+			.plItemList
+				.plLabel
+					.plLabelIcon
+						filter: $filter-theme
+						-webkit-filter: $filter-theme
+					.plLabelText
+						color: $text-2
+					&:hover
+						.plLabelHover
+							text-decoration: $hover-text
+							opacity: $hover-opacity
+				.plComments
+					.plLabelText
+						color: $theme
+					&:hover
+						.plIcon
+						.plLabelHover
+							text-decoration: $hover-text
+							opacity: $hover-opacity
+			.button
+				background-color: $background-3 !important
+				box-shadow: $box-shadow
+				color: $text-2
+				-webkit-box-shadow: $box-shadow
+				-moz-box-shadow: $box-shadow
+
+				&:hover
+					background-color: $highlight !important
+	#wdgtSideRecentClassifieds
+		background-color: $background-2
+		box-shadow: $box-shadow
+		-webkit-box-shadow: $box-shadow
+		-moz-box-shadow: $box-shadow
+
+		.plHead
+			h5 a
+				color: $theme
+
+				&:hover
+					text-decoration: $hover-text
+					opacity: $hover-opacity
+		.plBody
+			.plItemList
+				.plLabel
+					.plLabelIcon
+						filter: $filter-theme
+						-webkit-filter: $filter-theme
+					.plLabelText
+						color: $text-2
+					&:hover
+						.plLabelHover
+							text-decoration: $hover-text
+							opacity: $hover-opacity
+	#wdgtSideGeeksShop
+		border: $border-style
+		background-color: $background-2
+
+		h5
+			color: $theme
+		a
+			&:hover
+				.productName
+				.productPrice
+					text-decoration: $hover-text
+					opacity: $hover-opacity
+		.productWrapper
+			.productImage
+				box-shadow: $box-shadow
+				-webkit-box-shadow: $box-shadow
+				-moz-box-shadow: $box-shadow
+			.productName
+				color: $text-2
+			.productPrice
+				color: $text-1
+			.buyButton
+				background-color: $theme
+				box-shadow: $box-shadow
+				-webkit-box-shadow: $box-shadow
+				-moz-box-shadow: $box-shadow
+
+				&:hover
+					background-color: $highlight
+	#wdgtSidePopularProducts
+		background-color: $background-2
+		box-shadow: $box-shadow
+		-webkit-box-shadow: $box-shadow
+		-moz-box-shadow: $box-shadow
+
+		h5 a
+			color: $theme
+
+			&:hover
+				text-decoration: $hover-text
+				opacity: $hover-opacity
+		.descr
+			color: $text-2
+		.ppProducts
+			a
+				&:hover
+					opacity: $hover-opacity
+
+					.ppTitle
+					.ppPrice
+						text-decoration: $hover-text
+			.ppTitle
+				color: $text-1
+			.ppPrice
+				color: $text-2
+	#wdgtSideRecentReviews
+		background-color: $background-2
+		box-shadow: $box-shadow
+		-webkit-box-shadow: $box-shadow
+		-moz-box-shadow: $box-shadow
+
+		.plHead
+			h5 a
+				color: $theme
+
+				&:hover
+					text-decoration: $hover-text
+					opacity: $hover-opacity
+			p
+				color: $text-2
+
+				a
+					color: $text-1
+
+					&:hover
+						text-decoration: $hover-text
+						opacity: $hover-opacity
+		.plBody
+			.plItemList
+				.plLabel
+					.plLabelIcon
+						filter: $filter-theme
+						-webkit-filter: $filter-theme
+					.plLabelText
+						color: $text-2
+					&:hover
+						.plLabelHover
+							text-decoration: $hover-text
+							opacity: $hover-opacity
+				.plComments
+					.plLabelText
+						color: $theme
+					&:hover
+						.plIcon
+						.plLabelHover
+							text-decoration: $hover-text
+							opacity: $hover-opacity
+			.plNyhetstips
+				.plLabel
+					color: $text-1
+
+					.plLabelIcon
+						filter: $filter-theme
+						-webkit-filter: $filter-theme
+					&:hover
+						opacity: $hover-opacity
+
+						.plLabelHover
+							text-decoration: $hover-text
+	#wdgtSideExternalFeeds
+		.plHead
+			h5
+				color: $theme
+			p
+				color: $text-2
+		.plBody
+			h6
+				color: $text-1
+			.plItemList
+				.plLabel
+					.plLabelIcon
+						filter: $filter-theme
+						-webkit-filter: $filter-theme
+					.plLabelText
+						color: $text-2
+					.plLabelDate
+						color: $text-1
+					&:hover
+						.plLabelHover
+						.plLabelDate
+							text-decoration: $hover-text
+							opacity: $hover-opacity
+	#wdgtMainRecentNews
+		background-color: $background-2
+		box-shadow: $box-shadow
+		-webkit-box-shadow: $box-shadow
+		-moz-box-shadow: $box-shadow
+
+		.mwHead
+			h5 a
+				color: $theme
+
+				&:hover
+					text-decoration: $hover-text
+					opacity: $hover-opacity
+		.mwBody
+			h6
+				color: $text-1
+			.mwItemList
+				.mwLabel
+					.mwLabelIcon
+						filter: $filter-theme
+						-webkit-filter: $filter-theme
+					.mwLabelDate
+						color: $text-1
+					.mwLabelText
+						color: $text-2
+					&:hover
+						.mwLabelDate
+						.mwLabelHover
+							text-decoration: $hover-text
+							opacity: $hover-opacity
+				.mwComments
+					.mwLabelText
+						color: $theme
+					&:hover
+						.mwIcon
+						.mwLabelHover
+							text-decoration: $hover-text
+							opacity: $hover-opacity
+	#wdgtMainRecentThreads
+		background-color: $background-2
+		box-shadow: $box-shadow
+		-webkit-box-shadow: $box-shadow
+		-moz-box-shadow: $box-shadow
+
+		.mwHead
+			h5 a
+				color: $theme
+
+				&:hover
+					text-decoration: $hover-text
+					opacity: $hover-opacity
+		.mwBody
+			h6
+				color: $text-1
+			.mwItemList
+				.mwLabel
+					.mwLabelIcon
+						filter: $filter-theme
+						-webkit-filter: $filter-theme
+					.mwLabelText
+						color: $text-2
+					&:hover
+						.mwLabelHover
+							text-decoration: $hover-text
+							opacity: $hover-opacity
+	// Forms
+	#signinForm
+		fieldset
+			border: $border-style
+
+			legend
+				color: $text-1
+			input
+				border: $border-style
+				background-color: $background-3
+				color: $text-2
+
+				&:focus
+					color: $text-1
+			.tcLabel
+				color: $text-1
+
+				&::after
+					color: $warning
+			.tcHint
+				color: $text-2
+			button
+				border: $border-style
+				background-color: $background-3
+				color: $text-2
+
+				&:hover
+					background-color: $highlight
+					color: $text-1
+			.checkboxItem
+				color: $text-1
+	#registerForm
+		input
+			border: $border-style
+			background-color: $background-3
+			color: $text-2
+		.tcLabel
+			color: $text-1
+
+			&::after
+				color: $warning
+		.tcHint
+			color: $text-2
+		hr
+			border: $border-style
+		.termsAndConditionsTitle
+			color: $text-1
+		.infoTextWindow
+			border: $border-style
+			background-color: $background-3
+
+			.rulesList
+				h2
+					color: $text-1
+				h4
+					color: $text-1
+				p
+					color: $text-2
+				a
+					color: $theme
+
+					&:hover
+						text-decoration: $hover-text
+						opacity: $hover-opacity
+		p
+			color: $text-2
+
+			a
+				color: $theme
+
+				&:hover
+					text-decoration: $hover-text
+					opacity: $hover-opacity
+		.termsAndConditions
+			color: $text-1
+		button
+			border: $border-style
+			background-color: $background-3
+			color: $text-2
+
+			&:hover
+				background-color: $highlight
+				color: $text-1
+	// Advertisements
+	.ad
+		&.adPanorama
+		&.adModule
+		&.adInsider
+		&.adOutsider
+			iframe
+				border-radius: $border-radius
+				background-color: $background-3
+				box-shadow: $box-shadow
+				-webkit-box-shadow: $box-shadow
+				-moz-box-shadow: $box-shadow
+		&.adModule
+			border-bottom: $border-style !important
+	// Orphans
+	.infoText
+		h1
+			color: $text-1
+		p
+			color: $text-2
+		a
+			color: $theme
+
+			&:hover
+				text-decoration: $hover-text
+				opacity: $hover-opacity
+	.whiteHeader
+		h1
+			color: $text-1
+		.descr
+			color: $text-2
+	// Articles
+	.tv-frame
+		.tvf-top
+		.tvf-bottom
+		.tvf-left
+		.tvf-right
+			display: none
+		iframe
+			border-radius: $border-radius
+			background-color: $background-3
+			box-shadow: $box-shadow
+			-webkit-box-shadow: $box-shadow
+			-moz-box-shadow: $box-shadow
+	.articleHeader
+		h1
+			color: $theme
+		.meta
+			color: $text-1
+
+			a
+				color: $theme
+
+				&:hover
+					text-decoration: $hover-text
+					opacity: $hover-opacity
+		.preamble
+			color: $text-2
+		.bbImage img
+			border-radius: $border-radius
+			box-shadow: $box-shadow
+			-webkit-box-shadow: $box-shadow
+			-moz-box-shadow: $box-shadow
+		.sponsoredArticle
+			background-color: transparent
+			color: $text-1
+			font-weight: 700
+			font-size: 1.2em
+		.bbRelatedBox
+			border: $border-style
+			border-radius: $border-radius
+			background-color: $background-3
+			color: $text-2
+
+			a
+				color: $theme
+				text-decoration: none
+
+				&:hover
+					text-decoration: $hover-text
+					opacity: $hover-opacity
+	.articleContent
+		.bbParagraph
+			color: $text-2
+
+			.bbLink
+				color: $theme
+				text-decoration: none
+
+				&:hover
+					text-decoration: $hover-text
+					opacity: $hover-opacity
+		h3
+			color: $text-1
+		.articlePage
+			h2.pageTitle
+				color: $text-1
+			.body
+				color: $text-2
+
+				.bbRelatedBox
+					border: $border-style
+					border-radius: $border-radius
+					background-color: $background-1
+					color: $text-2
+
+					a
+						color: $theme
+						text-decoration: none
+
+						&:hover
+							text-decoration: $hover-text
+							opacity: $hover-opacity
+			.bbBlockQuote::after
+				color: $theme
+		.bbImage img
+			border-radius: $border-radius
+			box-shadow: $box-shadow
+			-webkit-box-shadow: $box-shadow
+			-moz-box-shadow: $box-shadow
+		img[src*='/artikel/diagram/']
+			filter: invert(85%)
+			-webkit-filter: invert(85%)
+			-o-filter: invert(85%)
+		.bbList
+			color: $text-2
+	.articleNavi
+		.head
+			border-bottom: $border-style
+
+			h5
+				color: $text-1
+		.pageButton
+			color: $theme
+
+			&:hover
+				background-color: transparent
+				text-decoration: $hover-text
+				opacity: $hover-opacity
+		.pageItem
+			&::before
+				color: $text-1
+			&.isCurrent a
+				color: $text-2
+			a
+				color: $theme
+				text-decoration: none
+
+				&:hover
+					text-decoration: $hover-text
+					opacity: $hover-opacity
+	.articleBBCode
+		.bbTable
+			border-top: $border-style
+			border-left: $border-style
+			background-color: $background-1
+
+			thead
+			tbody
+				th
+					background-color: $background-3
+					color: $text-1
+			thead
+				tr
+					&:first-child th
+						border-right: 1px solid lighten($border, 5%)
+						border-bottom: 1px solid darken($border, 50%)
+
+						&:first-child
+							border-right: 1px solid lighten($border, 5%)
+							border-bottom: 1px solid lighten($border, 5%)
+						&:last-child
+							border-right: 1px solid $border
+			tbody
+				tr
+					th
+						border-right: 1px solid darken($border, 50%)
+						border-bottom: 1px solid lighten($border, 5%)
+					&:last-child th
+						border-bottom: 1px solid $border
+					td
+						border-right: 1px solid $border
+						border-bottom: 1px solid $border
+			a
+				color: $theme
+
+				&:hover
+					text-decoration: $hover-text
+					opacity: $hover-opacity
+	.articleFooter
+		.bbRelatedBox
+			border: $border-style
+			background-color: $background-1
+
+			h3
+				color: $text-1
+			.bbParagraph
+				color: $text-2
+			.bbImage img
+				border-radius: $border-radius
+				box-shadow: $box-shadow
+				-webkit-box-shadow: $box-shadow
+				-moz-box-shadow: $box-shadow
+			.bbLink
+				color: $theme
+				text-decoration: none
+
+				&:hover
+					text-decoration: $hover-text
+					opacity: $hover-opacity
+		.bbPrisjakt
+			.pjTitle
+				border-bottom: $border-style
+
+				span
+					color: $text-1
+				a
+					color: $theme
+
+					&:hover
+						text-decoration: $hover-text
+						opacity: $hover-opacity
+			.pjVendors
+				.name
+					color: $text-2
+
+					a:hover
+						text-decoration: $hover-text
+						opacity: $hover-opacity
+				.bar
+					border-right: $border-style
+					border-left: $border-style
+				.price a
+					color: $theme
+
+					&:hover
+						text-decoration: $hover-text
+						opacity: $hover-opacity
+			.pjFooter
+				.seeMore
+					color: $theme
+					text-decoration: none
+
+					&:hover
+						text-decoration: $hover-text
+						opacity: $hover-opacity
+				.withPrisjakt
+					color: $text-2
+
+					&:hover
+						opacity: $hover-opacity
+	.articleKeywords a
+		border: $border-style
+		background-color: $background-3
+		color: $text-2
+
+		&:hover
+			background-color: $highlight
+			color: $text-1
+			text-decoration: $hover-text
+	.articleActions
+		.actionIcon
+			filter: $filter-theme
+			-webkit-filter: $filter-theme
+		.actionLabel
+			color: $theme
+
+			&:hover
+				text-decoration: $hover-text !important
+		.actionLink:hover
+			.actionIcon
+			.actionLabel
+				opacity: $hover-opacity
+	.wndWindowArea
+		.wndFrameDecorator
+			border: $border-style
+		.table
+			background-color: $background-1
+
+			.wndToolbarInner
+				border-bottom: $border-style
+
+				.wndToolbarTitle
+					h4
+						color: $text-1
+				.wndToolbarControl
+					filter: $filter-theme
+					-webkit-filter: $filter-theme
+		.wndToolbarContents
+			.infoText p
+				color: $text-2
+			.tcLabel
+				color: $text-1
+
+				&::after
+					color: $warning
+			textarea
+				border: $border-style
+				background-color: $background-3
+				color: $text-2
+
+				&:focus
+					color: $text-1
+			select
+				border: $border-style
+				background-color: $background-3
+				color: $text-2
+			button
+				border: $border-style
+				background-color: $background-3
+				color: $text-2
+
+				&:hover
+					background-color: $highlight
+					color: $text-1
+		.wndStatusbarMenu .inner
+			border-top: $border-style
+	.widget.bg-orange
+		background-color: $background-2 !important
+		box-shadow: $box-shadow
+		-webkit-box-shadow: $box-shadow
+		-moz-box-shadow: $box-shadow
+
+		.widget-head
+			.title
+				span
+					color: $theme
+				&:hover
+					text-decoration: $hover-text
+					opacity: $hover-opacity
+		.widget-body
+			.list-link
+				&:hover
+					text-decoration: $hover-text
+					opacity: $hover-opacity
+				.icon
+					filter: $filter-theme
+					-webkit-filter: $filter-theme
+				.text-bold
+					color: $text-1
+				.list-link-text
+					color: $text-2
+		.widget-foot
+			a
+				&:hover
+					text-decoration: $hover-text
+					opacity: $hover-opacity
+				span
+					color: $text-1
 
 @-moz-document domain("m.sweclockers.com")
 	.wrapinner
-		background-color colorBackgroundPrimary
-		color colorTextSecondary
+		background-color: $background-1
+		color: $text-2

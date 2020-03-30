@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name			SweClockers Dark
 @namespace		https://github.com/Soitora
-@version		3.0.0-beta.4
+@version		3.0.0-beta.5
 @description	A modern dark theme for SweClockers
 @author			Soitora <simon.mattila@protonmail.com> (https://soitora.com)
 @homepageURL	https://github.com/Soitora/SweClockers-Dark
@@ -10,15 +10,16 @@
 @license		MPL-2.0
 @preprocessor	stylus
 
-@var	color	usercss-background-1 "Background color 1" #1A1A1D
-@var	color	usercss-background-2 "Background color 2" #1E1E21
-@var	color	usercss-background-3 "Background color 3" #18181B
-@var	color	usercss-background-4 "Background color 4" #121215
+@var	color	usercss-background-1 "Background color 1" #101013
+@var	color	usercss-background-2 "Background color 2" #17171A
+@var	color	usercss-background-3 "Background color 3" #0B0B0D
 @var	color	usercss-text-1 "Text color 1" #C8C8C8
 @var	color	usercss-text-2 "Text color 2" #AAAAAA
-@var	color	usercss-border "Border color" #17171A
+@var	color	usercss-border "Border color" #08080B
+@var	color	usercss-border-menus "Border menu color" #000000
 @var	color	usercss-highlight "Highlight color" #232326
-@var	color	usercss-warning "Warning color" #EF4A4B
+@var	color	usercss-warning "Warning color" #EE4757
+@var	text	usercss-warning-filter "Warning filter" brightness(0) saturate(100%) invert(43%) sepia(88%) saturate(1483%) hue-rotate(326deg) brightness(89%) contrast(113%)
 @var	color	usercss-theme "Theme color" #F19A57
 @var	text	usercss-theme-filter "Theme filter" brightness(0) saturate(100%) invert(82%) sepia(26%) saturate(3168%) hue-rotate(320deg) brightness(99%) contrast(91%)
 
@@ -28,64 +29,68 @@
 	$background-1 = usercss-background-1
 	$background-2 = usercss-background-2
 	$background-3 = usercss-background-3
-	$background-4 = usercss-background-4
 	$text-1 = usercss-text-1
 	$text-2 = usercss-text-2
 	$border = usercss-border
+	$border-menus = usercss-border-menus
 	$highlight = usercss-highlight
 	$warning = usercss-warning
+	$warning-filter = usercss-warning-filter
 	$theme = usercss-theme
 	$theme-filter = usercss-theme-filter
 	/* Global variables */
 	$border-style = 1px solid $border
 	$border-radius = 0.6rem
-	$hover-opacity = 0.75
+	$hover-opacity = 0.8
 	$hover-text = none
 	$box-shadow = 0 0 0 1px $border
-	$text-shadow = 1px 1px 2px #000000
+	$text-shadow = 1px 1px 2px $black
 	$grey-filter = sepia(0) saturate(0.29) brightness(67%) contrast(184%) hue-rotate(179deg) invert(8%)
-	/* Misc colors */
+	$light-filter = brightness(0) saturate(100%) invert(92%) sepia(0) saturate(489%) hue-rotate(229deg) brightness(90%) contrast(86%)
+	$blue-filter = brightness(0) saturate(100%) invert(41%) sepia(50%) saturate(563%) hue-rotate(159deg) brightness(94%) contrast(89%)
+	/* Colors variables */
 	$black = #000000
 	$white = #ffffff
-	$color-bg-beige = #9c6500
-	$color-bg-blue = #305d84
-	$color-bg-green = #1c5a00
-	$color-bg-pink = #b34d84
-	$color-bbMark = #8e78a2
-	$color-optionCes = #639b48
-	$color-optionCes-border = #51743e
-	$color-optionCes-text = #222222
-	$color-optionJulkalender = #cc0000
-	$color-optionJulkalender-text = #cccccc
-	$color-optionMellandagsrea = #ac0c38
-	$color-optionMellandagsrea-border = #780024
-	$color-optionMellandagsrea-text = #cccccc
-	$color-optionBlackFriday = #000000
-	$color-optionBack2school = #4d9edd
-	$color-optionBack2school-text = #222222
-	$color-optionComputex = #e4007f
-	$color-optionComputex-border = #c6006e
-	$color-optionComputex-text = #cccccc
-	$color-optionCybermonday = #49b2d6
-	$color-optionCybermonday-border = #419fbf
-	$color-optionCybermonday-text = #222222
-	$color-optionDreamhack = #5e2f8e
-	$color-optionDreamhack-border = #402061
-	$color-optionDreamhack-text = #cccccc
-	$color-optionE3 = #ea2238
-	$color-optionE3-border = #aa1929
-	$color-optionE3-text = #cccccc
-	$color-optionGreenfriday = #41a500
-	$color-optionGreenfriday-border = #2b760a
-	$color-optionGreenfriday-text = #222222
-	$color-optionPaskrea = #ffd200
-	$color-optionPaskrea-border = #d9a92b
-	$color-optionPaskrea-text = #222222
-	$color-optionVr = #8111e1
-	$color-optionVr-border = #6a0eb9
-	$color-optionVr-text = #cccccc
-	$color-bbSpoiler = #3779a1
-	$color-postHeader = #3779a1
+	$beige = #9c6500
+	$blue = #305d84
+	$green = #1c5a00
+	$pink = #b34d84
+	/* Misc color variables */
+	$c-bbMark = #8e78a2
+	$c-optionCes = #639b48
+	$c-optionCes-border = #51743e
+	$c-optionCes-text = #222222
+	$c-optionJulkalender = #cc0000
+	$c-optionJulkalender-text = #cccccc
+	$c-optionMellandagsrea = #ac0c38
+	$c-optionMellandagsrea-border = #780024
+	$c-optionMellandagsrea-text = #cccccc
+	$c-optionBlackFriday = #000000
+	$c-optionBack2school = #4d9edd
+	$c-optionBack2school-text = #222222
+	$c-optionComputex = #e4007f
+	$c-optionComputex-border = #c6006e
+	$c-optionComputex-text = #cccccc
+	$c-optionCybermonday = #49b2d6
+	$c-optionCybermonday-border = #419fbf
+	$c-optionCybermonday-text = #222222
+	$c-optionDreamhack = #5e2f8e
+	$c-optionDreamhack-border = #402061
+	$c-optionDreamhack-text = #cccccc
+	$c-optionE3 = #ea2238
+	$c-optionE3-border = #aa1929
+	$c-optionE3-text = #cccccc
+	$c-optionGreenfriday = #41a500
+	$c-optionGreenfriday-border = #2b760a
+	$c-optionGreenfriday-text = #222222
+	$c-optionPaskrea = #ffd200
+	$c-optionPaskrea-border = #d9a92b
+	$c-optionPaskrea-text = #222222
+	$c-optionVr = #8111e1
+	$c-optionVr-border = #6a0eb9
+	$c-optionVr-text = #cccccc
+	$c-bbSpoiler = #3779a1
+	$c-postHeader = #3779a1
 	/* Mixins */
 	filter(n)
 		filter n
@@ -124,14 +129,14 @@
 	#__laika_cnt\.select\.2,
 	#__laika_cnt\.select\.3,
 	#__laika_cnt\.select\.4
-		background-color $background-4 !important
+		background-color $background-3 !important
 		color $text-2
 	#__laika_cnt\.textbox\.0,
 	#__laika_cnt\.textbox\.1,
 	#__laika_cnt\.textbox\.2,
 	#__laika_cnt\.textbox\.3,
 	#__laika_cnt\.textbox\.4
-		background-color $background-4 !important
+		background-color $background-3 !important
 		color $text-2
 		&:focus
 			box-shadow 0 0 0 !important
@@ -146,11 +151,8 @@
 		background-image url('https://www.sweclockers.com/gfx/spritemap2x.png') !important
 		background-position -466px -95px
 		background-size 600px auto
-		background-color $background-4 !important
+		background-color $background-3 !important
 		opacity 1
-	#carousel div.slide:hover > div > div.front > h3 > a
-		text-decoration $hover-text !important
-		opacity $hover-opacity !important
 	#contactForm
 		button
 			background $background-1 !important
@@ -186,17 +188,17 @@
 			color $text-2 !important
 	#recent-classifieds
 		background-color $background-2 !important
-		box-shadow inset 0 0 0 1px $border !important
-		-webkit-box-shadow inset 0 0 0 1px $border !important
-		-moz-box-shadow inset 0 0 0 1px $border !important
+		box-shadow $box-shadow !important
+		p.title span
+			color $theme !important
 		.bg-beige
-			background-color $color-bg-beige !important
+			background-color $beige !important
 		.bg-blue
-			background-color $color-bg-blue !important
+			background-color $blue !important
 		.bg-green
-			background-color $color-bg-green !important
+			background-color $green !important
 		.bg-pink
-			background-color $color-bg-pink !important
+			background-color $pink !important
 		.list-link-text
 			color $text-1
 		.text-bold
@@ -229,41 +231,8 @@
 			background -o-linear-gradient(top, transparent 0, transparent 10%, $background-1 100%) !important
 			background -ms-linear-gradient(top, transparent 0, transparent 10%, $background-1 100%) !important
 			background linear-gradient(to bottom, transparent 0, transparent 10%, $background-1 100%) !important
-	#search .searchField>a[title*="Google"]
-		background-color $background-4 !important
-		color $text-2
-		&:hover
-			background-color $highlight !important
-			color $text-1 !important
 	#single.content_holder
 		background-color $background-2 !important
-	#siteHeader
-		> div.main > div > div.sections > div.section.profile > ul > li.option
-			&.quote,
-			&.watched
-				&.hasUnread > a > span.icon
-					filter brightness(0) saturate(100%) invert(70%) sepia(63%) saturate(4179%) hue-rotate(330deg) brightness(98%) contrast(96%) !important
-					-webkit-filter brightness(0) saturate(100%) invert(70%) sepia(63%) saturate(4179%) hue-rotate(330deg) brightness(98%) contrast(96%) !important
-		.ninjaSearchResult .row td a
-			&:hover
-				text-decoration $hover-text !important
-				opacity $hover-opacity !important
-		.profile .icon
-			filter $grey-filter !important
-		.signin
-			h5
-				color $text-2 !important
-			.actions .button
-				background-color $background-1 !important
-				color $text-2 !important
-				&:hover
-					background-color $highlight !important
-					color $text-1 !important
-		.ticker a:hover
-			.date,
-			.title
-				text-decoration $hover-text !important
-				opacity $hover-opacity !important
 	#subscribeForm > fieldset > button
 		background $background-1 !important
 		background-color $background-1 !important
@@ -277,12 +246,12 @@
 			color $text-1 !important
 		.table .head .cell
 			color $text-1 !important
-			border-top 1px solid $border !important
-			border-bottom 1px solid $border !important
+			border-top $border-style !important
+			border-bottom $border-style !important
 			&.select
-				border-right 1px solid $border !important
+				border-right $border-style !important
 			&.status
-				border-left 1px solid $border !important
+				border-left $border-style !important
 		tr.hasUnreadPosts td.status
 			box-shadow inset 5px 0 0 0 $highlight !important
 	#wdgtSideRecentClassifieds > div
@@ -297,10 +266,20 @@
 		&:hover
 			text-decoration $hover-text !important
 			opacity $hover-opacity !important
+	.ad
+		&.adPanorama,
+		&.adModule,
+		&.adInsider,
+		&.adOutsider
+			iframe
+				border-radius $border-radius
+				background-color $background-3
+				box-shadow $box-shadow
+		&.adModule
+			border-bottom $border-style !important
 	.articleActions .action.proofArticle
 		.actionIcon
-			filter brightness(0) saturate(100%) invert(70%) sepia(63%) saturate(4179%) hue-rotate(330deg) brightness(98%) contrast(96%) !important
-			-webkit-filter brightness(0) saturate(100%) invert(70%) sepia(63%) saturate(4179%) hue-rotate(330deg) brightness(98%) contrast(96%) !important
+			filter $theme-filter !important
 		.actionLabel
 			color $theme !important
 			&:hover
@@ -337,13 +316,13 @@
 					color $text-2 !important
 			.pollQuestion
 				color $text-1 !important
-				border-bottom 1px solid $border !important
+				border-bottom $border-style !important
 			.pollSums
 				.pollMessage
 					color $text-2 !important
 				.totalVotes
 					color $text-1 !important
-					border-top 1px solid $border !important
+					border-top $border-style !important
 			> .inner
 				background $background-1 !important
 				background-color $background-1 !important
@@ -358,27 +337,54 @@
 		.bbRelatedBox
 			background-color $background-2 !important
 			border none !important
-			box-shadow inset 0 0 0 1px $border !important
-			-webkit-box-shadow inset 0 0 0 1px $border !important
-			-moz-box-shadow inset 0 0 0 1px $border !important
+			box-shadow $box-shadow !important
 			padding-bottom 1px
 		.bbSlideshow .slideFooter
 			color $text-2 !important
 		.bbTable
-			td
-				background $background-1 !important
-				background-color $background-1 !important
+			border-top $border-style !important
+			border-left $border-style !important
+			background-color $background-1 !important
+			thead,
+			tbody
+				th
+					background-color $background-3 !important
+					color $theme !important
+			thead
+				tr
+					&:first-child th
+						border-right 1px solid lighten($border, 5%) !important
+						border-bottom 1px solid darken($border, 50%) !important
+						&:first-child
+							border-right 1px solid lighten($border, 5%) !important
+							border-bottom 1px solid lighten($border, 5%) !important
+						&:last-child
+							border-right 1px solid $border !important
+				th
+					background-color $background-3 !important
+			tbody
+				tr
+					th
+						border-right 1px solid darken($border, 50%) !important
+						border-bottom 1px solid lighten($border, 5%) !important
+					&:last-child th
+						border-bottom 1px solid $border !important
+					td
+						border-right 1px solid $border !important
+						border-bottom 1px solid $border !important
+			a
+				color $theme !important
+				&:hover
+					text-decoration $hover-text !important
+					opacity $hover-opacity !important
+		.bbcode
+			.bbParagraph
 				color $text-2 !important
-			th
-				background $background-1 !important
-				background-color $background-1 !important
-				color $text-2 !important
-			thead th
-				background $background-1 !important
-				background-color $background-1 !important
-				color $text-1 !important
-		.bbcode h3
-			color $text-1 !important
+			a
+				color $theme !important
+				&:hover
+					text-decoration $hover-text !important
+					opacity $hover-opacity !important
 		.footerPanel .bbRelatedBox
 			border none !important
 			box-shadow none !important
@@ -388,9 +394,7 @@
 		background $background-2 !important
 		background-color $background-2 !important
 		color $text-2 !important
-		box-shadow 0 0 0 1px $border !important
-		-webkit-box-shadow 0 0 0 1px $border !important
-		-moz-box-shadow 0 0 0 1px $border !important
+		box-shadow $box-shadow !important
 		.boxAction
 			.actionLabel
 				color $text-1 !important
@@ -469,10 +473,14 @@
 					opacity $hover-opacity !important
 			li
 				color $text-1 !important
+		.bbImage img
+			border-radius $border-radius !important
+			box-shadow $box-shadow !important
 		.sponsoredArticle
-			background-color $background-2 !important
-			border $border-style !important
-			color $text-1 !important
+			background-color transparent
+			color $text-1
+			font-weight 700
+			font-size 1.2em
 		h1
 			color $theme !important
 	.articleKeywords a
@@ -590,7 +598,7 @@
 			opacity $hover-opacity !important
 	.bbMark
 		background $highlight !important
-		color $color-bbMark !important
+		color $c-bbMark !important
 	.bbPodcast
 		.descr,
 		.meta
@@ -625,7 +633,7 @@
 				opacity $hover-opacity !important
 		h6
 			color $text-2 !important
-			border-bottom 1px solid $border !important
+			border-bottom $border-style !important
 			> a
 				color $theme !important
 				&:hover
@@ -669,7 +677,7 @@
 				button
 					background-color $background-1 !important
 					&:hover
-						color $color-bbSpoiler !important
+						color $c-bbSpoiler !important
 		.spoilerHeader button
 			background $background-1 !important
 			background-color $background-1 !important
@@ -707,18 +715,14 @@
 			text-decoration $hover-text !important
 			opacity $hover-opacity !important
 	.button
-		background-color $background-4 !important
+		background-color $background-3 !important
 		color $text-2
-		-moz-box-shadow 1px 1px 1px transparent !important
-		-webkit-box-shadow 1px 1px 1px transparent !important
 		box-shadow 1px 1px 1px transparent !important
 		&:focus
 			outline none !important
 		&.bg-orange
-			box-shadow inset 0 0 0 1px $border !important
-			-webkit-box-shadow inset 0 0 0 1px $border !important
-			-moz-box-shadow inset 0 0 0 1px $border !important
-			background-color $background-4 !important
+			box-shadow $box-shadow !important
+			background-color $background-3 !important
 			color $text-2
 			&:hover
 				background $highlight !important
@@ -774,10 +778,26 @@
 			border $border-style !important
 			color $text-2 !important
 	.carousel
-		.nav.left .handle
-			border-right 10px solid $theme !important
-		.nav.right .handle
-			border-left 10px solid $theme !important
+		a
+			color $text-1
+		.slide
+			&:hover h3 a
+				text-decoration $hover-text
+				opacity $hover-opacity
+			.inner
+				border-top-right-radius 0
+		.nav
+			&.left,
+			&.right
+				.handle
+					filter $theme-filter
+					&:hover
+						opacity $hover-opacity
+		.bg-orange
+			border-bottom-left-radius $border-radius
+			background-color transparentify($background-2, 0.5) !important
+			&:hover
+				background-color $highlight !important
 	.contentBox
 		background-color $background-2 !important
 		border $border-style !important
@@ -804,42 +824,44 @@
 		&:hover
 			text-decoration $hover-text !important
 			opacity $hover-opacity !important
-	.footer
-		border-top 1px solid $border !important
-		background $background-2 !important
-		.bottom
-			background-color $background-2 !important
-			.copyright
-				color $text-2 !important
-			a
-				color $text-1 !important
-				&:hover
-					text-decoration $hover-text !important
-					opacity $hover-opacity !important
-		.links .link
-			color $text-1 !important
-			background $background-1 !important
-		.top
-			background-color $background-2 !important
-			border-top 1px solid $border !important
-			a
-				color $theme !important
-				text-decoration none
-				font-weight 700
-				&:before
-					color $theme !important
-				&:hover
-					text-decoration $hover-text !important
-					opacity $hover-opacity !important
-					.label
+	.bottom
+		.footer
+			border-top $border-style
+			.top
+				border-top none
+				background-color $background-2
+				color $text-2
+				.block
+					h6
+						color $text-1
+					p
+						color $text-2
+					a
+						color $theme
+						&::before
+							filter $theme-filter
+						&:hover
+							text-decoration $hover-text
+							opacity $hover-opacity
+					.rssFeeds
+						a:hover .label
+							text-decoration $hover-text
+							opacity $hover-opacity
+					&:not(:last-child)
+						border-right $border-style
+			.bottom
+				background-color $background-2
+				color $text-2
+				a
+					color $text-1
+					&:hover
+						text-decoration $hover-text
+						opacity $hover-opacity
+				.bahnhof-logo
+					color $text-1
+					&:hover span
 						text-decoration $hover-text !important
-						opacity $hover-opacity !important
-		> .shade
-			background $background-2 !important
-		h6
-			color $text-1 !important
-		p
-			color $text-2 !important
+						opacity $hover-opacity
 	.footerBox
 		.listItem .label
 			color $text-1 !important
@@ -862,8 +884,8 @@
 					background-color $highlight !important
 					color $text-1 !important
 			&.replyToThread
-				background $background-4 !important
-				background-color $background-4 !important
+				background $background-3 !important
+				background-color $background-3 !important
 				color $text-2 !important
 				&:hover
 					background $highlight !important
@@ -880,7 +902,7 @@
 		> .head
 			background $background-1 !important
 			color $text-2 !important
-			border-bottom 1px solid $border !important
+			border-bottom $border-style !important
 		&.postEditForm .tanukiControl.tanukiCheckbox
 			color $text-2 !important
 		&.postPollListForm .button
@@ -895,17 +917,17 @@
 			.cell
 				background $background-1 !important
 				background-color $background-1 !important
-				border-top 1px solid $border !important
-				border-bottom 1px solid $border !important
+				border-top $border-style !important
+				border-bottom $border-style !important
 				a
 					color $text-1 !important
 					&:hover
 						text-decoration $hover-text !important
 						opacity $hover-opacity !important
 				&.title
-					border-left 1px solid $border !important
+					border-left $border-style !important
 				&.toggle
-					border-right 1px solid $border !important
+					border-right $border-style !important
 			.toggle .arrow
 				border-color transparent !important
 				border-bottom-color $theme !important
@@ -955,7 +977,7 @@
 				background $background-1 !important
 				color $text-2 !important
 				&.report:hover .icon
-					filter brightness(0) saturate(100%) invert(34%) sepia(43%) saturate(2820%) hue-rotate(332deg) brightness(104%) contrast(87%)
+					filter $warning-filter
 				&:hover
 					background $highlight !important
 					color $text-1 !important
@@ -969,7 +991,7 @@
 		.postHeader
 			color $text-2 !important
 			.cell
-				background-color $background-3 !important
+				background-color $background-2 !important
 		.profile
 			.meta
 				dd
@@ -998,7 +1020,7 @@
 		&.isAuthor
 			border-top 2px solid $border !important
 			.postHeader .cell
-				background-color $background-3 !important
+				background-color $background-2 !important
 				border-top 3px solid $theme !important
 				padding 4px 5px !important
 		&.isGuru .controls .button.like .score
@@ -1042,7 +1064,7 @@
 			&.report
 				display none !important
 			.postHeader .cell
-				border-top 3px solid $color-postHeader !important
+				border-top 3px solid $c-postHeader !important
 		&.isSelected .controls .button.multiquote
 			color $theme !important
 	.forumResultPost
@@ -1050,7 +1072,7 @@
 		border $border-style !important
 		color $text-2 !important
 		.controls .button
-			background-color $background-4 !important
+			background-color $background-3 !important
 			color $text-2
 			&:hover
 				background-color $highlight !important
@@ -1119,8 +1141,8 @@
 				opacity $hover-opacity !important
 				text-decoration-color $background-2 !important
 	.subForums
-		border-left 1px solid $border !important
-		border-right 1px solid $border !important
+		border-left $border-style !important
+		border-right $border-style !important
 	h2 a
 		color $text-1 !important
 		text-decoration none !important
@@ -1139,9 +1161,9 @@
 				opacity $hover-opacity !important
 	.forumThreads
 		.body.threadsBody
-			border-left 1px solid $border !important
-			border-right 1px solid $border !important
-			border-bottom 1px solid $border !important
+			border-left $border-style !important
+			border-right $border-style !important
+			border-bottom $border-style !important
 		.dateline > a
 			color $theme !important
 			text-decoration none !important
@@ -1274,46 +1296,119 @@
 				text-decoration $hover-text !important
 				opacity $hover-opacity !important
 	.header
-		background $background-1 !important
+		background-color $background-1 !important
+		color $text-2 !important
 		.logo
-			display block
-			width 472px
-			height 66px
 			background-image url('https://soitora.com/SweClockers-Dark/images/logo.svg')
-			background-repeat no-repeat
-		.profile
-			.hasUnread > a > span
-				color $theme
-			.label
-				color $text-2 !important
-				&:hover
-					text-decoration $hover-text !important
-					opacity $hover-opacity !important
-				span&:last-child:hover
-					text-decoration $hover-text !important
-			.signout button
-				color $text-2 !important
-				&:hover
-					color $warning !important
-					text-decoration $hover-text !important
-					opacity $hover-opacity !important
-		.ticker
-			.current
-				color $text-2 !important
-			.date
-				color $theme !important
-			.latest
-				color $text-2 !important
-		> .main
+		.mainMenu .menu li.menuItem.isSelected
 			background-color $background-2 !important
-			border-right 1px solid $border !important
-			.section.profile h5 a
-				color $text-2 !important
+		.subMenu .menu li.menuItem.isSelected
+			background-color $background-1 !important
+		.mainMenu,
+		.subMenu
+			.rborder
+				border-bottom $border-style !important
+			.menu li
+				border 1px solid $border-menus !important
+				&.menuItem
+					background-color $background-3 !important
+					&.isSelected
+						border-bottom 0 !important
+						a
+							color $text-1 !important
+					&:hover
+						background-color $highlight !important
+					a
+						color $text-2 !important
+						&:hover
+							color $text-1 !important
+			.better-sweclockers-icon-tab
+				background-color $background-3 !important
+				opacity 1 !important
 				&:hover
-					text-decoration $hover-text !important
-					opacity $hover-opacity !important
-			> .container
-				border-bottom none !important
+					background-color $highlight !important
+		.main
+			border-right $border-style !important
+			border-bottom $border-style !important
+			background-color $background-2 !important
+			.ninjaSearch
+				border-left $border-style !important
+				h5
+					color $text-2 !important
+				.searchField
+					.fieldWrap
+						border $border-style !important
+						border-radius 0.25rem !important
+						background-color $background-3 !important
+						input
+							color $text-2 !important
+							&:focus
+								color $text-1 !important
+					a[title*=Google]
+						background-color $background-3 !important
+						color $text-1 !important
+						border $border-style !important
+						&:hover
+							background-color $highlight !important
+			.ninjaSearchResult
+				color $text-2 !important
+				h6
+					color $text-1 !important
+				.showMore
+					color $theme !important
+					text-decoration none
+					&:hover
+						text-decoration $hover-text !important
+						opacity $hover-opacity !important
+				.resultList
+					a
+						color $text-2 !important
+						&:hover
+							text-decoration $hover-text !important
+							opacity $hover-opacity !important
+					.icon
+						filter $theme-filter !important
+					.date
+						color $text-1 !important
+				.externalSearch a
+					color $theme !important
+					&:hover
+						text-decoration $hover-text !important
+						opacity $hover-opacity !important
+			.profile
+				border-left $border-style !important
+				h5 a
+					color $text-2 !important
+					&:hover
+						text-decoration $hover-text !important
+						opacity $hover-opacity !important
+				.options
+					color $text-2
+					.icon
+						filter $grey-filter !important
+					a.label:hover
+						&::after,
+						span
+							text-decoration $hover-text !important
+							opacity $hover-opacity !important
+					.signout button:hover
+						color $warning !important
+						text-decoration $hover-text !important
+						opacity $hover-opacity !important
+					.hasUnread
+						color $theme !important
+						.icon
+							filter $theme-filter !important
+			.signin
+				border-left $border-style !important
+				h5
+					color $text-2 !important
+				.actions .button
+					border $border-style !important
+					background-color $background-3 !important
+					color $text-2 !important
+					&:hover
+						background-color $highlight !important
 	.hotGallery
 		.hot
 			color $theme !important
@@ -1370,9 +1465,7 @@
 	.inner .whiteBody .bg-grey-primary
 		color $text-2
 		background-color $background-2 !important
-		box-shadow inset 0 0 0 1px $border !important
-		-webkit-box-shadow inset 0 0 0 1px $border !important
-		-moz-box-shadow inset 0 0 0 1px $border !important
+		box-shadow $box-shadow !important
 		.bbRelatedBox
 			border none
 	.label,
@@ -1380,203 +1473,144 @@
 		&.color-orange
 			color $theme !important
 	.mainContent
-		background $background-2 !important
-		background-color $background-2 !important
-		color $text-2 !important
-		#signatureForm .signaturePreview .bbcode p
-			color $text-2 !important
-		#signinForm input
-			background-color $background-1 !important
-		.btnGroup.right > a.button
-			background-color $background-1 !important
-			color $text-2 !important
-			&:hover
-				background-color $highlight !important
-				color $text-1 !important
-		.contentHeader h2,
+		border $border-style !important
+		color $text-2
+		&.bg-grey-primary
+			background-color $background-2 !important
 		.mainContentHeader
 			color $text-1 !important
-		.pages
-			.icon
-				filter $theme-filter !important
-			a
-				color $text-2 !important
-				&.isCurrent
-					background-color $background-2 !important
-					color $theme !important
+		.newsList
+			.commentsBubble
+				background-color $background-3 !important
+				border $border-style !important
+				color $text-1 !important
+				border-right-width 0 !important
+				&:hover
+					background-color $highlight !important
+				&.isHot
+					text-shadow $text-shadow !important
+					color $white !important
+					border-color $border !important
+					background-color $theme !important
+					&:hover
+						background-color $highlight !important
+			.itemBanner
+				img
+					border-radius 6px
+			.pubItem
+				border-bottom $border-style !important
+				.itemMeta
+					.date
+						color $text-1 !important
+					a
+						color $theme !important
+						&:hover
+							text-decoration $hover-text !important
+							opacity $hover-opacity !important
+				.itemText
+					a
+						color $text-1 !important
+						&:hover
+							text-decoration $hover-text !important
+							opacity $hover-opacity !important
+						&:last-child
+							color $theme !important
+							text-decoration none !important
+							&:hover
+								color $theme !important
+								text-decoration $hover-text !important
+								opacity $hover-opacity !important
+				h2
+					a
+						color $theme !important
+						&:hover
+							text-decoration $hover-text !important
+							opacity $hover-opacity !important
+			.relatedLinks
+				border $border-style
+				background-color $background-1
+				legend
+					color $text-1
+				a
+					color $theme
+					&:hover
+						text-decoration $hover-text
+						opacity $hover-opacity
+				ul
+					color $text-2
+			.contentHeader h2
+				color $text-1 !important
+			.pages
+				.icon
+					filter $theme-filter !important
+				a
+					color $text-2 !important
+					&.isCurrent
+						background-color $background-2 !important
+						color $theme !important
+						&:hover
+							background-color $background-2 !important
+							text-decoration $hover-text !important
+							opacity 1
+					&:active
+						text-decoration $hover-text !important
+						opacity $hover-opacity !important
 					&:hover
 						background-color $background-2 !important
 						text-decoration $hover-text !important
-						opacity 1
-				&:active
-					text-decoration $hover-text !important
-					opacity $hover-opacity !important
-				&:hover
-					background-color $background-2 !important
-					text-decoration $hover-text !important
-					opacity $hover-opacity !important
-		.registerForm a
-			color $theme !important
-			&:hover
-				text-decoration $hover-text !important
-				opacity $hover-opacity !important
-		.s5fieldset a.button
-			background-color $background-1 !important
-			color $text-2 !important
-			&:hover
-				background-color $highlight !important
-				color $text-1 !important
-		.stepItem
-			color $text-1 !important
-			background-color transparent !important
-			&.isDisabled
-				color $text-2 !important
-				background-color transparent !important
-			&.isSelected
-				color $theme !important
-				background-color transparent !important
-			a:hover
-				text-decoration $hover-text !important
-				opacity $hover-opacity !important
-	.mainMenu
-		.menu li
-			background-color $background-2
-			border-top 1px solid $border !important
-			border-left 1px solid $border !important
-			border-right 1px solid $border !important
-			a
-				color $text-2 !important
-				&:hover
-					color $text-1 !important
-			&.isSelected
-				background-color $background-2
-				&:hover
-					background-color $background-2 !important
-				a
-					color $text-1 !important
-			&:hover
-				background-color $highlight !important
-				border-top 1px solid $border !important
-				border-left 1px solid $border !important
-				border-right 1px solid $border !important
-				color $text-1 !important
-		li
-			&.isSelected
-				&.optionCes:hover
-					background-color $color-optionCes !important
-				&.optionJulkalender:hover
-					background-color $color-optionJulkalender !important
-				&.optionMellandagsrea:hover
-					background-color $color-optionMellandagsrea !important
-			&.optionBack2school
-				background-image none !important
-				background-color $color-optionBack2school !important
-				border-color $color-optionBack2school !important
-				a
-					color $color-optionBack2school-text !important
-			&.optionBlackfriday
-				background-image none !important
-				background-color $color-optionBlackFriday !important
-				border-color $border !important
-				&:hover
-					background-color $color-optionBlackFriday !important
-					opacity $hover-opacity !important
-				&.isSelected
-					a
-						color $text-1 !important
-					&:hover
-						background-color $color-optionBlackFriday !important
 						opacity $hover-opacity !important
-				a
-					color $text-1 !important
-			&.optionCes
-				background-image none !important
-				border-color $color-optionCes-border !important
-				background-color $color-optionCes !important
-				border $border-style !important
-				a
-					color $color-optionCes-text !important
+			.registerForm a
+				color $theme !important
 				&:hover
-					background-color $color-optionCes !important
-					a
-						color $background-1 !important
-			&.optionComputex
-				background-image none !important
-				background-color $color-optionComputex !important
-				border-color $color-optionComputex-border !important
-				a
-					color $color-optionComputex-text !important
-			&.optionCybermonday
-				background-image none !important
-				background-color $color-optionCybermonday !important
-				border-color $color-optionCybermonday-border !important
-				a
-					color $color-optionCybermonday-text !important
-			&.optionDreamhack
-				background-image none !important
-				background-color $color-optionDreamhack !important
-				border-color $color-optionDreamhack-border !important
-				a
-					color $color-optionDreamhack-text !important
-			&.optionE3
-				background-image none !important
-				background-color $color-optionE3 !important
-				border-color $color-optionE3-border !important
-				a
-					color $color-optionE3-text !important
-			&.optionGreenfriday
-				background-image none !important
-				background-color $color-optionGreenfriday !important
-				border-color $color-optionGreenfriday-border !important
-				a
-					color $color-optionGreenfriday-text !important
-			&.optionJulkalender
-				background-image none !important
-				background-color $color-optionJulkalender !important
-				border-color $border !important
-				&:hover
-					background-color $color-optionJulkalender !important
-				a
-					color $color-optionJulkalender-text !important
-			&.optionMellandagsrea
-				background-image none !important
-				background-color $color-optionMellandagsrea !important
-				border-color $color-optionMellandagsrea-border !important
-				a
-					color $color-optionMellandagsrea-text !important
-				&:hover
-					background-color $color-optionMellandagsrea !important
-			&.optionPaskrea
-				background-image none !important
-				background-color $color-optionPaskrea !important
-				border-color $color-optionPaskrea-border !important
-				a
-					color $color-optionPaskrea-text !important
-			&.optionVr
-				background-image none !important
-				background-color $color-optionVr !important
-				border-color $color-optionVr-border !important
-				a
-					color $color-optionVr-text !important
-			&.optionBack2school,
-			&.optionBlackfriday,
-			&.optionCes,
-			&.optionComputex,
-			&.optionCybermonday,
-			&.optionDreamhack,
-			&.optionE3,
-			&.optionGreenfriday,
-			&.optionJulkalender,
-			&.optionMellandagsrea,
-			&.optionPaskrea,
-			&.optionVr
-				&:hover
+					text-decoration $hover-text !important
 					opacity $hover-opacity !important
+			.s5fieldset a.button
+				background-color $background-1 !important
+				color $text-2 !important
+				&:hover
+					background-color $highlight !important
+					color $text-1 !important
+			.stepItem
+				color $text-1 !important
+				background-color transparent !important
+				&.isDisabled
+					color $text-2 !important
+					background-color transparent !important
+				&.isSelected
+					color $theme !important
+					background-color transparent !important
+				a:hover
+					text-decoration $hover-text !important
+					opacity $hover-opacity !important
+		.profileFeed
+			.date
+				color $text-2 !important
+			.link
+				color $theme !important
+				&:hover
+					text-decoration $hover-text !important
+					opacity $hover-opacity !important
+			.user
+				color $theme !important
+			.feedSection
+				.listItem
+					.inner
+						color $text-2 !important
+						b
+							color $theme !important
+				.feedItem
+					border-top $border-style !important
+			.feedControl
+				border-top $border-style !important
+		.read-more-archive
+			color $theme
+			text-decoration none
+			&:hover
+				text-decoration $hover-text
+				opacity $hover-opacity
 	.mainRecentNews
 		background-color $background-2 !important
-		box-shadow inset 0 0 0 1px $border !important
-		-webkit-box-shadow inset 0 0 0 1px $border !important
-		-moz-box-shadow inset 0 0 0 1px $border !important
+		box-shadow $box-shadow !important
 		.mwBody h6
 			color $text-1 !important
 		.mwComments
@@ -1592,6 +1626,7 @@
 		.mwIcon
 			filter $theme-filter !important
 		.mwItem
+			border-top-color $border !important
 			color $text-2 !important
 			a:hover
 				.mwLabelDate
@@ -1608,9 +1643,7 @@
 	.mainRecentThreads
 		background-color $background-2 !important
 		color $text-2 !important
-		box-shadow inset 0 0 0 1px $border !important
-		-webkit-box-shadow inset 0 0 0 1px $border !important
-		-moz-box-shadow inset 0 0 0 1px $border !important
+		box-shadow $box-shadow !important
 		.mwBody
 			.mwItem
 				color $text-2 !important
@@ -1631,9 +1664,7 @@
 				opacity $hover-opacity !important
 	.mainWidget.forumWidget.commentsWidget
 		background-color $background-2 !important
-		box-shadow 0 0 0 1px $border !important
-		-webkit-box-shadow 0 0 0 1px $border !important
-		-moz-box-shadow 0 0 0 1px $border !important
+		box-shadow $box-shadow !important
 		.mwHead
 			> h5
 				color $theme !important
@@ -1651,8 +1682,7 @@
 		.mwLabelDate
 			color $text-1 !important
 		.mwLabelIcon
-			filter brightness(0) saturate(100%) invert(70%) sepia(63%) saturate(4179%) hue-rotate(330deg) brightness(98%) contrast(96%) !important
-			-webkit-filter brightness(0) saturate(100%) invert(70%) sepia(63%) saturate(4179%) hue-rotate(330deg) brightness(98%) contrast(96%) !important
+			filter $theme-filter !important
 		.mwLabelText
 			color $text-2 !important
 		.mwReadmore
@@ -1871,102 +1901,6 @@
 			background $background-1 !important
 			border $border-style !important
 			color $text-2 !important
-	.newsList
-		.commentsBubble
-			background-color $background-4
-			border $border-style !important
-			color $text-1 !important
-			border-right-width 0 !important
-			&:hover
-				background-color $highlight !important
-			&.isHot
-				text-shadow 1px 1px 2px $black
-				color $white !important
-				border-color $border !important
-				background-color $theme !important
-				&:hover
-					background-color $highlight !important
-		.itemBanner
-			img
-				border-radius 6px
-		.pubItem
-			.itemMeta
-				.date
-					color $text-1 !important
-				a
-					color $theme !important
-					&:hover
-						text-decoration $hover-text !important
-						opacity $hover-opacity !important
-			.itemText
-				a
-					color $text-1 !important
-					&:hover
-						text-decoration $hover-text !important
-						opacity $hover-opacity !important
-					&:last-child
-						color $theme !important
-						text-decoration none !important
-						&:hover
-							color $theme !important
-							text-decoration $hover-text !important
-							opacity $hover-opacity !important
-			h2
-				a
-					color $theme !important
-					&:hover
-						text-decoration $hover-text !important
-						opacity $hover-opacity !important
-		.relatedLinks
-			background-color $background-1
-			a
-				color $theme !important
-				&:hover
-					text-decoration $hover-text !important
-					opacity $hover-opacity !important
-	.ninjaSearch
-		.searchField
-			.fieldWrap
-				background-color $background-4 !important
-			.input
-				background-color $background-4 !important
-				color $text-2
-				&:focus
-					color $text-1 !important
-		h5
-			color $text-2 !important
-	.ninjaSearchResult
-		.externalSearch
-			a
-				color $theme !important
-				text-decoration none !important
-				&:hover
-					text-decoration $hover-text !important
-					opacity $hover-opacity !important
-		.resultList
-			.date
-				color $text-2 !important
-			.label
-				a
-					color $text-2 !important
-			.list-item
-				.list-link
-					.date
-						color $theme !important
-					.link-text
-						color $text-2 !important
-		.resultSection
-			&.isEmpty
-				.noResults
-					color $text-2 !important
-		.showMore
-			text-decoration none !important
-			color $text-2 !important
-			&:hover
-				text-decoration $hover-text !important
-				opacity $hover-opacity !important
-		h6
-			color $text-1 !important
 	.pages
 		.icon
 			filter $theme-filter !important
@@ -2033,10 +1967,10 @@
 					background $theme !important
 					border none !important
 			.pollQuestion
-				border-bottom 1px solid $border !important
+				border-bottom $border-style !important
 			.pollSums
 				.totalVotes
-					border-top 1px solid $border !important
+					border-top $border-style !important
 			& > .inner
 				background $background-1 !important
 				background-color $background-1 !important
@@ -2078,36 +2012,28 @@
 	.prisjaktPopular
 		background-color $background-2 !important
 		color $text-2 !important
-		box-shadow inset 0 0 0 1px $border !important
-		-webkit-box-shadow inset 0 0 0 1px $border !important
-		-moz-box-shadow inset 0 0 0 1px $border !important
+		box-shadow $box-shadow !important
 		.descr
 			color $text-2 !important
 		.ppPrice
 			color $text-1 !important
-		.ppProducts
-			a
-				&:hover
-					.ppTitle
-						text-decoration $hover-text !important
-						opacity $hover-opacity !important
+		.ppProduct
+			border-bottom $border-style !important
+			.ppProducts
+				a
+					&:hover
+						.ppTitle
+							text-decoration $hover-text !important
+							opacity $hover-opacity !important
 		h5
 			& > a
 				color $theme !important
 				&:hover
 					text-decoration $hover-text !important
 					opacity $hover-opacity !important
-	.profileFeed
-		.date
-			color $text-2 !important
-		.link
-			color $theme !important
-			&:hover
-				text-decoration $hover-text !important
-				opacity $hover-opacity !important
-		.user
-			color $theme !important
 	.profileHeader
+		.cell
+			background transparent !important
 		.meta
 			dd
 				color $text-2 !important
@@ -2161,11 +2087,14 @@
 				color $text-2 !important
 		.plIcon
 			filter $theme-filter !important
+		.plLabel
+			a
+				color $text-2 !important
 	.pushListInternal
 		background-color $background-2 !important
-		box-shadow inset 0 0 0 1px $border !important
-		-webkit-box-shadow inset 0 0 0 1px $border !important
-		-moz-box-shadow inset 0 0 0 1px $border !important
+		box-shadow $box-shadow !important
+		h5 a
+			color $theme !important
 		.plIcon
 			filter $theme-filter !important
 	.quickReply
@@ -2199,7 +2128,7 @@
 		color $text-1 !important
 	.selectBox-dropdown .selectBox-arrow
 		border-left none !important
-		filter brightness(0) saturate(100%) invert(92%) sepia(0) saturate(489%) hue-rotate(229deg) brightness(90%) contrast(86%) !important
+		filter $light-filter !important
 	.selectBox-options
 		background-color $background-1 !important
 		color $text-2 !important
@@ -2219,26 +2148,95 @@
 			background-color $highlight !important
 			color $text-1 !important
 	.sideBox
-		color $text-2 !important
-		.menuSection
-			a
+		&.articleByline
+			h5
+				border-bottom $border-style
+				color $text-1
+			.author a
+				color $theme
 				&:hover
-					.label
-						text-decoration $hover-text !important
-						opacity $hover-opacity !important
-		a
-			color $text-1 !important
-			&:hover
-				text-decoration $hover-text !important
-				opacity $hover-opacity !important
-		h5
-			color $text-1 !important
-		&.swec20Box
-			& > div
-				& > a
+					text-decoration $hover-text
+					opacity $hover-opacity
+			.crediter a
+				color $theme
+				&:hover
+					text-decoration $hover-text
+					opacity $hover-opacity
+		&.sideShare
+			h5
+				border-bottom $border-style
+				color $text-1
+			.menuItem a
+				color $text-2
+				&:hover,
+				&:hover .label
+					text-decoration $hover-text
+					opacity $hover-opacity
+				.icon
+					filter $theme-filter
+		&.videoPush
+			h5
+				border-bottom $border-style
+				a
+					color $text-1
 					&:hover
-						text-decoration $hover-text !important
-						opacity 1 !important
+						text-decoration $hover-text
+						opacity $hover-opacity
+			img
+				box-shadow $box-shadow
+			h3 a
+				color $text-2
+				&:hover
+					text-decoration $hover-text
+					opacity $hover-opacity
+		&.popularGalleries
+			h5
+				border-bottom $border-style
+				a
+					color $text-1
+					&:hover
+						text-decoration $hover-text
+						opacity $hover-opacity
+			.image
+				box-shadow $box-shadow
+			h3 a
+				color $theme
+				&:hover
+					text-decoration $hover-text
+					opacity $hover-opacity
+			.author,
+			.cat,
+			.rating
+				color $text-2
+				a
+					&:hover
+						text-decoration $hover-text
+						opacity $hover-opacity
+		&.sideBox
+			h5
+				border-bottom $border-style
+				color $text-1
+			form
+				label
+					color $theme
+				input,
+				select,
+				button
+					background-color $background-3
+					border $border-style
+					color $text-2
+				button:hover
+					background-color $highlight
+				.checkboxItem label
+					color $text-2
+			.menuItem a
+				color $text-2
+				&:hover,
+				&:hover .label
+					text-decoration $hover-text
+					opacity $hover-opacity
+				.icon
+					filter $theme-filter
 	.sideMenu
 		.isSelected
 			.link
@@ -2271,34 +2269,11 @@
 		.label
 			color $text-1 !important
 	.sponsoredArticle
-		background-color $background-1 !important
-		color $text-1 !important
+		background-color transparent
+		color $text-1
+		font-weight 700
 	.subForums .title h2 a
 		color $theme
-	.subMenu
-		.menu
-			li
-				background-color $background-2
-				border-top 1px solid $border !important
-				border-left 1px solid $border !important
-				border-right 1px solid $border !important
-				&:hover
-					border-top 1px solid $border !important
-					border-left 1px solid $border !important
-					border-right 1px solid $border !important
-					background-color $highlight !important
-					color $text-1 !important
-				a
-					color $text-2 !important
-					border-bottom 1px solid $border !important
-					&:hover
-						color $text-1 !important
-				&.isSelected
-					background-color $background-1
-					a
-						color $text-1 !important
-					&:hover
-						background-color $background-1 !important
 	.subforums
 		.bg-grey-secondary
 			background-color $background-3 !important
@@ -2322,7 +2297,7 @@
 			&.categoryItem
 				.cell
 					color $white
-					background-color $background-3 !important
+					background-color $pink !important
 		.cell
 			&.lastThread
 				h3
@@ -2368,7 +2343,7 @@
 			& > .row
 				& > .cell
 					color $white
-					background-color $background-4 !important
+					background-color $background-3 !important
 		& > .row
 			& > .cell
 				background-color $background-2
@@ -2381,7 +2356,7 @@
 		& > .caption
 			background-color $background-1
 	.tanukiButton
-		background-color $background-4 !important
+		background-color $background-3 !important
 		color $text-2
 		&:hover
 			background-color $highlight !important
@@ -2427,13 +2402,13 @@
 				box-shadow 0 0 0 !important
 	.tanukiTextbox
 		input
-			background-color $background-4 !important
+			background-color $background-3 !important
 			color $text-2
 			&:focus
 				color $text-1 !important
 				box-shadow 0 0 0 !important
 		select
-			background-color $background-4 !important
+			background-color $background-3 !important
 			color $text-2
 	.tbButton
 		&.iconButton
@@ -2527,14 +2502,13 @@
 		.tbButton
 			&.iconButton
 				.inner
-					background-color $background-4 !important
+					background-color $background-3 !important
 					color $text-2
 					&:hover
 						background-color $highlight !important
 				&:hover
 					.btnIcon
-						filter brightness(0) saturate(100%) invert(95%) sepia(3%) saturate(34%) hue-rotate(314deg) brightness(88%) contrast(85%) !important
-						-webkit-filter brightness(0) saturate(100%) invert(95%) sepia(3%) saturate(34%) hue-rotate(314deg) brightness(88%) contrast(85%) !important
+						filter $light-filter !important
 					.inner
 						background $highlight !important
 						background-color $highlight !important
@@ -2560,7 +2534,7 @@
 	.whiteBody
 		.forumControls
 			.button
-				background-color $background-4 !important
+				background-color $background-3 !important
 				color $text-2
 				&:hover
 					background-color $highlight !important
@@ -2608,7 +2582,7 @@
 		background-color $background-2
 		button
 			&.tanukiButton
-				background-color $background-4 !important
+				background-color $background-3 !important
 				&:hover
 					background-color $highlight !important
 	.whiteHeader
@@ -2628,7 +2602,7 @@
 		div
 			color $text-2 !important
 		h1
-			color $text-1 !important
+			color $text-1
 	.wrapinner
 		background $background-1 !important
 		#post17698683
@@ -2668,8 +2642,7 @@
 					color $text-1 !important
 		.articleStatus
 			&.icon-comment
-				filter brightness(0) saturate(100%) invert(100%) sepia(100%) saturate(0) hue-rotate(62deg) brightness(112%) contrast(101%) !important
-				-webkit-filter brightness(0) saturate(100%) invert(100%) sepia(100%) saturate(0) hue-rotate(62deg) brightness(112%) contrast(101%) !important
+				filter $light-filter !important
 		.contentBox
 			.infoText
 				h5
@@ -2709,18 +2682,11 @@
 					color $text-1
 		.details
 			color $text-2 !important
-		.feedSection
-			.listItem
-				.inner
-					color $text-2 !important
-					b
-						color $theme !important
 		.forumList
 			.cell
 				&.status
 					.forumStatus
 						filter none !important
-						-webkit-filter none !important
 			.treeNode
 				& > .nodeInner
 					border $border-style !important
@@ -2775,7 +2741,7 @@
 				span
 					color $text-2 !important
 			.headMain
-				border-bottom 1px solid $border !important
+				border-bottom $border-style !important
 				padding-bottom 0
 				background $background-2 !important
 		.itemList
@@ -2784,7 +2750,7 @@
 			.cell
 				&.status
 					& > span
-						border-top 1px solid $border !important
+						border-top $border-style !important
 						color $text-2 !important
 			.listItem
 				.cat
@@ -2793,13 +2759,10 @@
 					color $text-2 !important
 				.icon
 					span
-						filter brightness(0) saturate(100%) invert(70%) sepia(63%) saturate(4179%) hue-rotate(330deg) brightness(98%) contrast(96%) !important
-						-webkit-filter brightness(0) saturate(100%) invert(70%) sepia(63%) saturate(4179%) hue-rotate(330deg) brightness(98%) contrast(96%) !important
+						filter $theme-filter !important
 				&.isFocused
 					background $highlight !important
 					box-shadow inset 1px 1px 1px transparent !important
-					-moz-box-shadow inset 1px 1px 1px transparent !important
-					-webkit-box-shadow inset 1px 1px 1px transparent !important
 			div
 				&.preview
 					div
@@ -2818,39 +2781,6 @@
 			&.isFocused
 				.inner
 					color $text-2 !important
-		.mainMenu
-			background-color $background-1 !important
-			border-bottom 1px solid $border !important
-			.menuItem
-				&.optionIndex
-					span
-						filter brightness(0) saturate(100%) invert(60%) sepia(26%) saturate(0) hue-rotate(226deg) brightness(105%) contrast(98%) !important
-						-webkit-filter brightness(0) saturate(100%) invert(60%) sepia(26%) saturate(0) hue-rotate(226deg) brightness(105%) contrast(98%) !important
-				&.optionGallery
-					span
-						filter brightness(0) saturate(100%) invert(60%) sepia(26%) saturate(0) hue-rotate(226deg) brightness(105%) contrast(98%) !important
-						-webkit-filter brightness(0) saturate(100%) invert(60%) sepia(26%) saturate(0) hue-rotate(226deg) brightness(105%) contrast(98%) !important
-				&.optionMarket
-					span
-						filter brightness(0) saturate(100%) invert(60%) sepia(26%) saturate(0) hue-rotate(226deg) brightness(105%) contrast(98%) !important
-						-webkit-filter brightness(0) saturate(100%) invert(60%) sepia(26%) saturate(0) hue-rotate(226deg) brightness(105%) contrast(98%) !important
-				&.optionForum
-					span
-						filter brightness(0) saturate(100%) invert(60%) sepia(26%) saturate(0) hue-rotate(226deg) brightness(105%) contrast(98%) !important
-						-webkit-filter brightness(0) saturate(100%) invert(60%) sepia(26%) saturate(0) hue-rotate(226deg) brightness(105%) contrast(98%) !important
-				&.optionGuides
-					span
-						filter brightness(0) saturate(100%) invert(60%) sepia(26%) saturate(0) hue-rotate(226deg) brightness(105%) contrast(98%) !important
-						-webkit-filter brightness(0) saturate(100%) invert(60%) sepia(26%) saturate(0) hue-rotate(226deg) brightness(105%) contrast(98%) !important
-				&.optionProfile
-					span
-						filter brightness(0) saturate(100%) invert(41%) sepia(50%) saturate(563%) hue-rotate(159deg) brightness(94%) contrast(89%) !important
-						-webkit-filter brightness(0) saturate(100%) invert(41%) sepia(50%) saturate(563%) hue-rotate(159deg) brightness(94%) contrast(89%) !important
-			li
-				background $background-2 !important
-				border-top 1px solid $border !important
-				border-left 1px solid $border !important
-				border-right 1px solid $border !important
 		.marketFilterBox
 			#searchForm
 				select
@@ -2871,7 +2801,6 @@
 				background $background-1 !important
 				border $border-style !important
 				box-shadow 1px 1px 1px transparent !important
-				-webkit-box-shadow 1px 1px 1px transparent !important
 				& > span
 					&:after
 						color $theme !important
@@ -2892,14 +2821,7 @@
 		.pushList .plComments
 			color $theme !important
 			&.plIcon
-				filter brightness(0) saturate(100%) invert(70%) sepia(63%) saturate(4179%) hue-rotate(330deg) brightness(98%) contrast(96%) !important
-				-webkit-filter brightness(0) saturate(100%) invert(70%) sepia(63%) saturate(4179%) hue-rotate(330deg) brightness(98%) contrast(96%) !important
-		.subMenu li
-			background-color $background-1 !important
-			a
-				color $text-2 !important
-			&.isSelected a
-				color $text-1 !important
+				filter $theme-filter !important
 		.thread .body .bbcode
 			h1
 				color $text-1 !important
@@ -2911,8 +2833,6 @@
 		input[type='button'],
 		input[type='submit'],
 		.tanukiButton
-			-moz-box-shadow 1px 1px 1px transparent !important
-			-webkit-box-shadow 1px 1px 1px transparent !important
 			box-shadow 1px 1px 1px transparent !important
 		div
 			&.plItemRow
@@ -2951,8 +2871,6 @@
 		border-right 4px solid $background-2 !important
 	::-webkit-scrollbar-track
 		background $background-1
-	:not(.arrow):not(.handle)
-		border-color $border !important
 	a
 		&.back_to_cal
 			&:hover
@@ -2965,7 +2883,6 @@
 				box-shadow none !important
 		&:hover
 			text-decoration $hover-text !important
-			opacity $hover-opacity !important
 			& > .label
 				text-decoration $hover-text !important
 				opacity $hover-opacity !important
@@ -2985,8 +2902,7 @@
 			background $background-2 !important
 			border-bottom-left-radius 8px
 			.widget-body .list .list-item .list-link .icon
-				filter brightness(0) saturate(100%) invert(70%) sepia(63%) saturate(4179%) hue-rotate(330deg) brightness(98%) contrast(96%) !important
-				-webkit-filter brightness(0) saturate(100%) invert(70%) sepia(63%) saturate(4179%) hue-rotate(330deg) brightness(98%) contrast(96%) !important
+				filter $theme-filter !important
 			.widget-foot > a.color-white
 				color $text-1 !important
 			a
@@ -2998,13 +2914,9 @@
 				&.title
 					color $theme !important
 		&.articleContent
-			box-shadow inset 0 0 0 1px $border !important
-			-webkit-box-shadow inset 0 0 0 1px $border !important
-			-moz-box-shadow inset 0 0 0 1px $border !important
+			box-shadow $box-shadow !important
 		&.widget.bg-orange
-			box-shadow inset 0 0 0 1px $border !important
-			-webkit-box-shadow inset 0 0 0 1px $border !important
-			-moz-box-shadow inset 0 0 0 1px $border !important
+			box-shadow $box-shadow !important
 		&.bg-orange
 			&:hover
 				opacity 1 !important
@@ -3053,8 +2965,6 @@
 			background-color $background-1 !important
 			color $text-2 !important
 	img[src*='/artikel/diagram/']
-		-webkit-filter invert(85%) !important
-		-o-filter invert(85%) !important
 		filter invert(85%) !important
 	input[type='url']
 		background $background-2 !important

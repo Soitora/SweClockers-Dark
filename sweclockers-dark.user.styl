@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name			SweClockers Dark
 @namespace		https://github.com/Soitora
-@version		3.0.0-beta.8
+@version		3.0.0-beta.9
 @description	A modern dark theme for SweClockers
 @author			Soitora <simon.mattila@protonmail.com> (https://soitora.com)
 @homepageURL	https://github.com/Soitora/SweClockers-Dark
@@ -16,9 +16,10 @@
 @var	color	usercss-text-1 "Text color 1" #C8C8C8
 @var	color	usercss-text-2 "Text color 2" #AAAAAA
 @var	color	usercss-border "Border color" #08080B
+@var	color	usercss-border-light "Border color light" #3b3b3b
 @var	color	usercss-border-menus "Border menu color" #000000
 @var	color	usercss-forum-header "Forum header color" #232323
-@var	color	usercss-highlight "Highlight color" #232326
+@var	color	usercss-highlight "Highlight color" #2A2A2D
 @var	color	usercss-warning "Warning color" #EE4757
 @var	text	usercss-warning-filter "Warning filter" brightness(0) saturate(100%) invert(43%) sepia(88%) saturate(1483%) hue-rotate(326deg) brightness(89%) contrast(113%)
 @var	color	usercss-theme "Theme color" #F19A57
@@ -33,6 +34,7 @@
 	$text-1 = usercss-text-1
 	$text-2 = usercss-text-2
 	$border = usercss-border
+	$border-light = usercss-border-light
 	$border-menus = usercss-border-menus
 	$forum-header = usercss-forum-header
 	$highlight = usercss-highlight
@@ -41,9 +43,9 @@
 	$theme = usercss-theme
 	$theme-filter = usercss-theme-filter
 	/* GLOBAL VARIABLES */
-	$on-background-2 = darken($background-2, 20%)
-	$on-background-2-button = darken($background-2, 25%)
-	$border-light = darken($text-2, 65%)
+	$on-background-1 = $background-2
+	$on-background-2 = darken($background-2, 25%)
+	$on-background-2-button = lighten($background-2, 3%)
 	$border-style = 1px solid $border
 	$border-style-light = 1px solid $border-light
 	$border-radius = 0.6rem
@@ -159,10 +161,12 @@
 					.plLabelText
 						color $theme !important
 			.button
-				background-color darken($background-2, 25%) !important
+				background-color $on-background-2 !important
+				color $text-2 !important
 				border-radius $border-radius-button !important
 				&:hover
 					background-color $highlight !important
+					color $theme !important
 	#recent-classifieds,
 	#recent-reviews
 		background-color $background-2 !important
@@ -291,12 +295,34 @@
 			&:nth-child(5)
 				> h6
 					color $text-1 !important
+	#prisjakt-popular
+		background-color $background-2 !important
+		box-shadow $box-shadow !important
+		border-radius $border-radius !important
+		.widget-head
+			.title span
+				color $theme !important
+			.title-secondary a
+				color $text-2 !important
+				&:hover
+					opacity $hover-opacity !important
+		.widget-body
+			.list-link
+				.icon
+					filter $theme-filter !important
+				.list-link-text
+					.title
+						color $text-1 !important
+					.price
+						color $theme !important
+				&:hover
+					opacity $hover-opacity !important
 	/* BETTER SWECLOCKERS */
 	#better-sweclockers-dark-theme-toggle
 		background-image url('https://www.sweclockers.com/gfx/spritemap2x.png') !important
 		background-position -466px -95px
 		background-size 600px auto
-		background-color $background-2 !important
+		background-color $on-background-1 !important
 		margin-left 0
 		opacity 1
 		&:hover
@@ -304,14 +330,17 @@
 	#better-sweclockers-document
 		.better-sweclockers-editing-tools
 			.button
-				background-color $background-2 !important
+				background-color transparent !important
 				border none !important
-				box-shadow $box-shadow
 				margin-right 4px !important
 				&:hover
 					background-color $highlight !important
 			.better-sweclockers-color-palette .button
 				margin-right 4px !important
+		.better-sweclockers-textarea-size
+			.tbButton
+				.btnIcon
+					filter $grey-filter !important
 	/* REST OF CODE */
 	#articleAuthors
 		hr
@@ -380,19 +409,6 @@
 			background $highlight !important
 			background-color $highlight !important
 			color $text-1 !important
-	#threadList-1
-		> table > tbody.body.threadsBody > tr > td.cell.title.padding-small-left > div > div > a
-			color $text-1 !important
-		.table .head .cell
-			color $text-1 !important
-			border-top $border-style !important
-			border-bottom $border-style !important
-			&.select
-				border-right $border-style !important
-			&.status
-				border-left $border-style !important
-		tr.hasUnreadPosts td.status
-			box-shadow inset 5px 0 0 0 $highlight !important
 	.activePolls a
 		color $theme !important
 		&:hover
@@ -423,7 +439,7 @@
 				border-radius 50% !important
 				box-shadow $box-shadow !important
 			.reason
-				background-color darken($background-2, 20%) !important
+				background-color $on-background-2 !important
 				border-radius $border-radius !important
 				box-shadow $box-shadow !important
 		.bbBlockQuote&:after
@@ -461,19 +477,25 @@
 					color $text-2 !important
 			.pollQuestion
 				color $text-1 !important
-				border-bottom $border-style !important
+				border-bottom $border-style-light !important
 			.pollSums
 				.pollMessage
 					color $text-2 !important
+				.pollControls
+					button
+						color $text-2 !important
+						background-color $on-background-2-button !important
+						&:hover
+							color $theme !important
+							background-color $highlight !important
 				.totalVotes
 					color $text-1 !important
-					border-top $border-style !important
+					border-top $border-style-light !important
 			> .inner
-				background $background-1 !important
-				background-color $background-1 !important
+				background-color $on-background-2 !important
 				border $border-style !important
-				color $text-2 !important
 				border-radius $border-radius !important
+				color $text-2 !important
 		.bbPrisjakt a
 			&.prices
 				color $text-2 !important
@@ -491,7 +513,7 @@
 			border-radius $border-radius !important
 			box-shadow $box-shadow !important
 			border none !important
-			background-color darken($background-2, 20%) !important
+			background-color $on-background-2 !important
 			thead,
 			tbody
 				th
@@ -515,7 +537,7 @@
 				tr
 					th
 						border-right 1px solid darken($background-2, 50%) !important
-						border-bottom 1px solid darken($background-2, 20%) !important
+						border-bottom 1px solid $on-background-2 !important
 						&:first-child span
 							color $text-1 !important
 					&:last-child th
@@ -589,7 +611,7 @@
 					font-size 1.5rem
 					color $text-1 !important
 			.pageButton
-				background-color darken($background-2, 25%) !important
+				background-color $on-background-2 !important
 				border-radius $border-radius-button !important
 				box-shadow $box-shadow !important
 				color $text-2 !important
@@ -649,7 +671,7 @@
 		h1
 			color $theme !important
 	.articleKeywords a
-		background-color darken($background-2, 25%) !important
+		background-color $on-background-2 !important
 		border $border-style !important
 		color $text-2 !important
 		border-radius $border-radius-button
@@ -808,7 +830,7 @@
 					text-decoration $hover-text !important
 					opacity $hover-opacity !important
 	.bbQuote
-		background darken($background-2, 20%) !important
+		background $on-background-2 !important
 		border $border-style !important
 		color $text-2 !important
 		border-radius $border-radius !important
@@ -879,12 +901,18 @@
 			opacity $hover-opacity !important
 	.body.articleBBCode .bbRelatedBox
 		background-color $background-1 !important
-	.breadcrumbs .breadcrumb .link
-		color $theme !important
-		text-decoration none !important
-		&:hover
-			text-decoration $hover-text !important
-			opacity $hover-opacity !important
+	.breadcrumbs
+		.breadcrumb
+			.link
+				color $theme !important
+				text-decoration none !important
+				&:hover
+					text-decoration $hover-text !important
+					opacity $hover-opacity !important
+			&:after
+				content '\00bb'
+				position relative
+				top -1px
 	.button
 		background-color $background-3 !important
 		color $text-2
@@ -897,7 +925,6 @@
 			background-color $background-1 !important
 			color $text-2
 			&:hover
-				background $highlight !important
 				background-color $highlight !important
 				color $text-1 !important
 	.campaignportal
@@ -1047,7 +1074,7 @@
 			.tanukiControl
 				margin-right 20px !important
 				#__laika_cnt\.textbox\.0
-					background-color $background-2 !important
+					background-color $on-background-1 !important
 					border-radius $border-radius-button !important
 					border none !important
 					box-shadow $box-shadow !important
@@ -1059,7 +1086,7 @@
 						color $text-1 !important
 						background-color $highlight !important
 			button
-				background-color $background-2 !important
+				background-color $on-background-1 !important
 				border-radius $border-radius-button !important
 				border none !important
 				box-shadow $box-shadow !important
@@ -1070,7 +1097,7 @@
 		.button
 			&.replyToThread,
 			&.newThread
-				background-color $background-2 !important
+				background-color $on-background-1 !important
 				border-radius $border-radius-button !important
 				border none !important
 				box-shadow $box-shadow !important
@@ -1083,16 +1110,61 @@
 					background-color $highlight !important
 					color $text-1 !important
 	.forumForm
+		.head
+			background-color transparent !important
+			color $text-2 !important
+			border-bottom none !important
+		.body
+			background-color $background-2 !important
+			box-shadow $box-shadow !important
+			border-radius $border-radius !important
+			fieldset.s5fieldset
+				border none !important
+				legend
+					color $theme !important
+			.tanukiSelect
+				#__laika_cnt\.select\.0
+					background-color $on-background-2 !important
+					border-radius $border-radius-button
+					&:focus
+						background-color $highlight !important
+			.tanukiTextbox
+				#__laika_cnt\.textbox\.0
+					background-color $on-background-2 !important
+					border-radius $border-radius-button
+			.tanukiTextarea
+				#__laika_cnt\.textarea\.0
+					background-color $on-background-2 !important
+					border-radius $border-radius
+				&.hasErrors
+					#__laika_cnt\.textarea\.0
+						outline none !important
+						border 1px solid $warning !important
+			.toolbar
+				.tbButton
+					&.iconButton
+						.inner
+							background-color transparent !important
+							color $text-2
+							&:hover
+								background-color $highlight !important
+								border 1px solid $highlight !important
+								border-radius $border-radius-button !important
+						&:hover
+							.btnIcon
+								filter $light-filter !important
+							.inner
+								background-color $highlight !important
+								color $text-1 !important
+			.tanukiControl
+				&.tanukiButton
+					background-color $on-background-2 !important
+					&:hover
+						background-color $highlight !important
 		.tanukiControl.tanukiCheckbox.isRequired
 			color $text-2 !important
 		.tcLabel
 			color $text-2 !important
-		> .body
-			background $background-2 !important
-		> .head
-			background $background-1 !important
-			color $text-2 !important
-			border-bottom $border-style !important
 		&.postEditForm .tanukiControl.tanukiCheckbox
 			color $text-2 !important
 		&.postPollListForm .button
@@ -1103,24 +1175,6 @@
 				background $highlight !important
 				background-color $highlight !important
 				color $text-1 !important
-		.categoryItem
-			.cell
-				background-color $background-1 !important
-				border-top $border-style !important
-				border-bottom $border-style !important
-				a
-					color $text-1 !important
-					&:hover
-						text-decoration $hover-text !important
-						opacity $hover-opacity !important
-				&.title
-					border-left $border-style !important
-				&.toggle
-					border-right $border-style !important
-			.toggle .arrow
-				border-color transparent !important
-				border-bottom-color $theme !important
-				border-top-color $theme !important
 	.forumList
 		.lastThread .time
 			color $theme !important
@@ -1171,7 +1225,7 @@
 			.better-sweclockers-quote-signature-button .button
 				height 24px !important
 			.button
-				background-color darken($background-2, 25%) !important
+				background-color $on-background-2 !important
 				color $text-2 !important
 				padding 4px 6px 8px 8px !important
 				height 10px !important
@@ -1332,7 +1386,7 @@
 						text-decoration $hover-text !important
 						opacity $hover-opacity !important
 			.threadTitle
-				background $background-1 !important
+				background $on-background-2 !important
 				color $text-1 !important
 				a:hover
 					text-decoration $hover-text !important
@@ -1401,17 +1455,7 @@
 				text-decoration $hover-text !important
 				opacity $hover-opacity !important
 	.forumThreads
-		.body.threadsBody
-			border-left $border-style !important
-			border-right $border-style !important
-			border-bottom $border-style !important
 		.dateline > a
-			color $theme !important
-			text-decoration none !important
-			&:hover
-				text-decoration $hover-text !important
-				opacity $hover-opacity !important
-		.pageLinks > a
 			color $theme !important
 			text-decoration none !important
 			&:hover
@@ -1521,7 +1565,7 @@
 			a:hover
 				text-decoration $hover-text !important
 				opacity $hover-opacity !important
-	.header
+	.header:not(.tbButton)
 		background-color $background-1 !important
 		color $text-2 !important
 		.logo
@@ -1641,7 +1685,7 @@
 					&:hover
 						background-color $highlight !important
 				&.isSelected
-					background-color $background-2 !important
+					background-color $on-background-1 !important
 					height 25px
 					font-weight 400
 					a.link
@@ -1650,7 +1694,7 @@
 		.subMenu
 			.menu li.menuItem
 				&.isSelected
-					background-color $background-2 !important
+					background-color $on-background-1 !important
 					height 20px
 					font-weight 400
 					a.link
@@ -1665,7 +1709,7 @@
 				border-radius $border-radius-button
 				box-shadow $box-shadow !important
 				&.menuItem
-					background-color $background-2
+					background-color $on-background-1 !important
 					margin-right 5px
 					margin-bottom 2px
 					&.isSelected a
@@ -1674,6 +1718,7 @@
 					&:hover
 						background-color $highlight !important
 						box-shadow $box-shadow !important
+						color $text-1 !important
 					a
 						color $text-2 !important
 						&:hover
@@ -1681,7 +1726,7 @@
 		.main
 			border-right none !important
 			border-bottom none !important
-			background-color $background-1 !important
+			background-color transparent !important
 			.ninjaSearch
 				width 180px
 				border-left none !important
@@ -1696,7 +1741,7 @@
 							padding 0
 						input
 							color $text-2
-							background-color $background-2
+							background-color $on-background-1
 							border-radius $border-radius !important
 							box-shadow $box-shadow !important
 							padding 3px 6px
@@ -1712,7 +1757,7 @@
 							.icon
 								margin-top 3px
 					a[title*=Google]
-						background-color $background-2 !important
+						background-color $on-background-1 !important
 						color $text-1 !important
 						border $border-style !important
 						&:hover
@@ -1898,7 +1943,7 @@
 							opacity $hover-opacity !important
 			.relatedLinks
 				border $border-style
-				background-color darken($background-2, 20%)
+				background-color $on-background-2
 				border-radius $border-radius
 				legend
 					color $text-1
@@ -2187,6 +2232,10 @@
 			border $border-style !important
 			color $text-2 !important
 	.pages
+		.icon
+			filter $theme-filter !important
+			&:hover
+				opacity $hover-opacity !important
 		.only-icon
 			.icon
 				filter $theme-filter !important
@@ -2261,7 +2310,7 @@
 				&.tanukiSelect
 					width 150px !important
 					#__laika_cnt\.select\.0
-						background-color $background-2 !important
+						background-color $on-background-1 !important
 						border none !important
 						box-shadow $box-shadow !important
 						height 23px !important
@@ -2270,7 +2319,7 @@
 						&:hover
 							background-color $highlight !important
 				&.tanukiButton
-					background-color $background-2 !important
+					background-color $on-background-1 !important
 					border-radius $border-radius-button !important
 					border none !important
 					box-shadow $box-shadow !important
@@ -2328,28 +2377,6 @@
 				&.isCollapsed
 					& > .treeCommand
 						background-color $highlight !important
-	.prisjaktPopular
-		background-color $background-2 !important
-		color $text-2 !important
-		box-shadow $box-shadow !important
-		.descr
-			color $text-2 !important
-		.ppPrice
-			color $text-1 !important
-		.ppProduct
-			border-bottom $border-style !important
-			.ppProducts
-				a
-					&:hover
-						.ppTitle
-							text-decoration $hover-text !important
-							opacity $hover-opacity !important
-		h5
-			& > a
-				color $theme !important
-				&:hover
-					text-decoration $hover-text !important
-					opacity $hover-opacity !important
 	.profileHeader
 		.cell
 			background transparent !important
@@ -2384,7 +2411,7 @@
 			&:focus
 				color $text-1 !important
 		.tanukiButton
-			background $background-2 !important
+			background $on-background-1 !important
 			border $border-style !important
 			border-radius $border-radius-button !important
 	.readMoreArchive
@@ -2521,6 +2548,16 @@
 				.icon
 					filter $theme-filter
 	.sideMenu
+		#searchForm
+			#__laika_cnt\.textbox\.0,
+			#__laika_cnt\.select\.0,
+			#__laika_cnt\.select\.1
+				background-color $on-background-1 !important
+				border-radius $border-radius-button !important
+			button
+				background-color $on-background-1 !important
+				&:hover
+					background-color $highlight !important
 		.isSelected
 			.link
 				.label
@@ -2581,7 +2618,7 @@
 		.title h2 a
 			color $theme
 		.bg-grey-secondary
-			background-color darken($background-2, 25%) !important
+			background-color $on-background-2 !important
 			color $text-2
 			padding 4px 8px !important
 			font-weight 700 !important
@@ -2608,8 +2645,8 @@
 						color $text-2 !important
 						a
 							color $text-2 !important
-					&.isSticky .cell
-						background-color $background-2
+				&.isSticky .cell
+					background-color $background-2
 			.lastReply
 				.time
 					color $text-1 !important
@@ -2618,15 +2655,6 @@
 				.name
 					text-decoration none
 					color $theme !important
-			&.categoryItem
-				.cell
-					background-color $forum-header !important
-					color $text-1
-					border $border-style
-					&.title
-						border-right none !important
-					&.toggle
-						border-left none !important
 		.cell
 			&.lastThread h3
 				color $text-1
@@ -2640,9 +2668,6 @@
 			.date .time,
 			a
 				color $theme
-		.descr,
-		.pageLinks .link
-			color $text-2 !important
 	.tanukiButton
 		background-color $background-3 !important
 		color $text-2
@@ -2698,72 +2723,127 @@
 				box-shadow 0 0 0 !important
 		select
 			background-color $background-3 !important
-			color $text-2
-	.tbButton
-		&.iconButton
-			&.noselect
-				&.header
-					background $background-2 !important
-	.threadList
-		.body
-			.lastReply
-				.by
+			color $text-2 !important
+	#forumList-1
+		.table
+			.head
+				.cell
 					color $text-2 !important
-				.date
-					color $text-2 !important
-				.icon
-					filter $grey-filter !important
-				.name
-					color $theme !important
-					text-decoration none !important
-					&:hover
-						text-decoration $hover-text !important
-						opacity $hover-opacity !important
-				.time
+					border none !important
+			.body:not(.categoryItem)
+				border none !important
+				box-shadow $box-shadow !important
+				border-radius $border-radius !important
+				.row
+					&:first-child
+						.cell
+							&.status
+								border-top-left-radius $border-radius !important
+							&.numReplies
+								border-top-right-radius $border-radius !important
+					&:last-child
+						.cell
+							&.status
+								border-bottom-left-radius $border-radius !important
+							&.numReplies
+								border-bottom-right-radius $border-radius !important
+					.cell
+						&.status
+							.icon-0
+								filter $grey-filter !important
+			.categoryItem
+				.cell
+					background-color transparent !important
 					color $text-1 !important
-			.numReplies
+					border none !important
 				a
-					color $text-2 !important
-					text-decoration none !important
-					text-decoration-color transparent !important
+					color $text-1 !important
 					&:hover
 						text-decoration $hover-text !important
 						opacity $hover-opacity !important
-						text-decoration-color transparent !important
-			.numViews
-				a
-					text-decoration-color transparent !important
-					color $text-2 !important
-					text-decoration none !important
-					&:hover
-						text-decoration-color transparent !important
-						text-decoration $hover-text !important
-						opacity $hover-opacity !important
-		.hasUnreadPosts
-			.title
-				h2
-					a
-						color $text-2 !important
+				&.title
+					border-left $border-style !important
+				&.toggle
+					border-right $border-style !important
+				&.isCollapsed
+					.cell
+						border-bottom $border-style-light !important
+					.toggle .arrow
+						transform rotate(0)
+				.toggle .arrow
+					border-color transparent !important
+					border-bottom-color $theme !important
+					border-top-color $theme !important
+					transform rotate(60deg)
+	#threadList-1
+		.head
+			.cell
+				color $text-1 !important
+				border none !important
+		.body
+			border none !important
+			box-shadow $box-shadow !important
+			border-radius $border-radius !important
+			.row
+				&:first-child
+					.cell
+						&.status
+							border-top-left-radius $border-radius !important
+						&.select
+							border-top-right-radius $border-radius !important
+				&:last-child
+					.cell
+						&.status
+							border-bottom-left-radius $border-radius !important
+						&.select
+							border-bottom-right-radius $border-radius !important
+				.title
+					h2
+						a
+							color $text-2 !important
+							text-decoration none !important
+							&:hover
+								text-decoration $hover-text !important
+								opacity $hover-opacity !important
+				.pageLinks
+					.link
+						color $theme !important
 						text-decoration none !important
 						&:hover
 							text-decoration $hover-text !important
 							opacity $hover-opacity !important
-		.isSelected
-			.cell
-				background $highlight !important
-				background-color $highlight !important
-				border-bottom none !important
-		.pageLinks
-			.icon
-				filter $grey-filter !important
-		.title
-			h2
-				a
-					color $text-2 !important
-					text-decoration none !important
-					&:hover
-						text-decoration $hover-text !important
-						opacity $hover-opacity !important
+					.icon
+						filter $grey-filter !important
+				.lastReply
+					.by
+						color $text-2 !important
+					.date
+						color $text-2 !important
+					.icon
+						filter $grey-filter !important
+					.name
+						color $theme !important
+						text-decoration none !important
+						&:hover
+							text-decoration $hover-text !important
+							opacity $hover-opacity !important
+					.time
+						color $text-1 !important
+				.numReplies,
+				.numViews
+					a
+						color $text-2 !important
+						text-decoration none !important
+						text-decoration-color transparent !important
+						&:hover
+							text-decoration $hover-text !important
+							opacity $hover-opacity !important
+							text-decoration-color transparent !important
+				.isSelected
+					.cell
+						background $highlight !important
+						background-color $highlight !important
+						border-bottom none !important
 	.threadMap
 		.naviView
 			.shortcut
@@ -2787,21 +2867,6 @@
 			h2
 				a
 					color $text-1 !important
-	.toolbar
-		.tbButton
-			&.iconButton
-				.inner
-					background-color $background-3 !important
-					color $text-2
-					&:hover
-						background-color $highlight !important
-				&:hover
-					.btnIcon
-						filter $light-filter !important
-					.inner
-						background $highlight !important
-						background-color $highlight !important
-						color $text-1 !important
 	.tv-frame
 		.tvf-bottom
 			background-image url('https://i.imgur.com/gi4NvPE.png') !important
@@ -2865,6 +2930,7 @@
 		button
 			&.tanukiButton
 				background-color $background-3 !important
+				border-radius $border-radius-button !important
 				&:hover
 					background-color $highlight !important
 	.whiteHeader
@@ -2897,22 +2963,6 @@
 					background $background-1 !important
 					border $border-style !important
 					color $text-2 !important
-		#threadList-1
-			.table
-				.head
-					.cell
-						&.status
-							border none !important
-							padding-bottom 10px
-						&.title
-							border none !important
-							padding-bottom 10px
-						&.lastReply
-							border none !important
-							padding-bottom 10px
-						&.numReplies
-							border none !important
-							padding-bottom 10px
 		.articleComments
 			a
 				color $theme !important
@@ -2929,12 +2979,10 @@
 			.infoText
 				h5
 					color $text-1 !important
-			button
-				background $background-1 !important
-				border $border-style !important
-				color $text-2 !important
+			button,
 			.button
-				background $background-1 !important
+				background-color $background-1 !important
+				border-radius $border-radius-button !important
 				border $border-style !important
 				color $text-2 !important
 			h6
@@ -3091,6 +3139,7 @@
 		input[type='submit'],
 		.tanukiButton
 			box-shadow 1px 1px 1px transparent !important
+			border-radius $border-radius-button !important
 		div
 			&.plItemRow
 				& > .plLabelText
@@ -3128,6 +3177,11 @@
 		border-right 4px solid $background-2 !important
 	::-webkit-scrollbar-track
 		background $background-1
+	::-webkit-resizer
+		background-image url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAABB0lEQVQ4jcXSvytHYRQG8I9fZWNg8A8og0wMyKKMFEpZlPxYZaEsysJCFuprUSYs6ptQshlYLUa7JAsGSW+9V7fb/fK9GZzp7X3O8/Q85xx/rZrAfylNFJEJnDU8Ns0dbtcWNFCHElbQGT6KCDTiGDPYwGz4rK+S3IwTDGARWwlQjUAbztGBKRykwd8E2nGBVozgLNvwk0A3TuOcBnGT11RpiEO4wiv6M+QG7GK5ksAkynhAH+5TWIhyifnEfTbCAjZxjWE8p7CuuIkWjMb3t4NwXetxPeUYIU0ej6Kf6E3IaYE9LGEfY3hLkVdxhFv04C5viCFnuK5pfGRivWMnunrKn/m/Fb4AFQsvGVJYWLQAAAAASUVORK5CYII=') !important
+		background-repeat no-repeat !important
+		background-size 12px auto !important
+		background-position 3px 3px !important
 	:focus
 		outline none
 	a
@@ -3152,7 +3206,6 @@
 			text-decoration $hover-text !important
 			opacity $hover-opacity !important
 	body
-		background $background-1 !important
 		background-color $background-1 !important
 		pre
 			color $text-2 !important

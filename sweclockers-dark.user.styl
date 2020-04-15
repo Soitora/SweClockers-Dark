@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name			SweClockers Dark
 @namespace		https://github.com/Soitora
-@version		3.0.0-beta.11
+@version		3.0.0-beta.12
 @description	A modern dark theme for SweClockers
 @author			Soitora <simon.mattila@protonmail.com> (https://soitora.com)
 @homepageURL	https://github.com/Soitora/SweClockers-Dark
@@ -10,125 +10,119 @@
 @license		MPL-2.0
 @preprocessor	stylus
 
-@var	checkbox	usercss-ad-height-lock "Lock height of banner ads" 1
-@var	checkbox	usercss-ad-bottom-margin "Add bottom margin to banner ads" 1
-@var	select		usercss-navigation-style "Navigation style" {
+@var	checkbox	var-ad-height-lock "Lock height of banner ads" 1
+@var	checkbox	var-ad-bottom-margin "Add bottom margin to banner ads" 1
+@var	select		var-navigation-style "Navigation style" {
 	"Custom": "custom-navigation",
 	"Default": "default-navigation"
 }
-@var	select		usercss-search-style "Search style" {
+@var	select		var-search-style "Search style" {
 	"Custom": "custom-search",
 	"Default": "default-search"
 }
-@var	select		usercss-scrollbar-style "Scrollbar style" {
+@var	select		var-scrollbar-style "Scrollbar style" {
 	"Custom": "custom-scrollbar",
 	"Default": "default-scrollbar"
 }
-@var	range		usercss-image-opacity "Image opacity" [0.75, 0, 1, 0.05]
-@var	color		usercss-background-1 "Background color 1" #121212
-@var	color		usercss-background-2 "Background color 2" #1D1D1F
-@var	color		usercss-text-1 "Text color 1" #C8C8C8
-@var	color		usercss-text-2 "Text color 2" #AAAAAA
-@var	color		usercss-border "Border color" #08080B
-@var	color		usercss-border-light "Border color light" #3b3b3b
-@var	color		usercss-border-menus "Border menu color" #000000
-@var	color		usercss-forum-header "Forum header color" #232323
-@var	color		usercss-highlight "Highlight color" #2A2A2D
-@var	color		usercss-warning "Warning color" #EE4757
-@var	color		usercss-theme "Theme color" #F19A57
-@var	text		usercss-warning-filter "Warning filter" brightness(0) saturate(100%) invert(43%) sepia(88%) saturate(1483%) hue-rotate(326deg) brightness(89%) contrast(113%)
-@var	text		usercss-theme-filter "Theme filter" brightness(0) saturate(100%) invert(82%) sepia(26%) saturate(3168%) hue-rotate(320deg) brightness(99%) contrast(91%)
+@var	range		var-image-opacity "Image opacity" [0.75, 0, 1, 0.05]
+@var	color		var-background-1 "Background color 1" #121212
+@var	color		var-background-2 "Background color 2" #1D1D1F
+@var	color		var-text-1 "Text color 1" #C8C8C8
+@var	color		var-text-2 "Text color 2" #AAAAAA
+@var	color		var-border "Border color" #08080B
+@var	color		var-border-light "Border color light" #3B3B3B
+@var	color		var-border-menus "Border menu color" #000000
+@var	color		var-forum-header "Forum header color" #232323
+@var	color		var-highlight "Highlight color" #2A2A2D
+@var	color		var-warning "Warning color" #EE4757
+@var	color		var-theme "Theme color" #F19A57
+@var	text		var-warning-filter "Warning filter" brightness(0) saturate(100%) invert(43%) sepia(88%) saturate(1483%) hue-rotate(326deg) brightness(89%) contrast(113%)
+@var	text		var-theme-filter "Theme filter" brightness(0) saturate(100%) invert(82%) sepia(26%) saturate(3168%) hue-rotate(320deg) brightness(99%) contrast(91%)
 ==/UserStyle== */
 @-moz-document domain("sweclockers.com")
 	/* USERCSS VARIABLES */
-	$background-1 = usercss-background-1
-	$background-2 = usercss-background-2
-	$text-1 = usercss-text-1
-	$text-2 = usercss-text-2
-	$border = usercss-border
-	$border-light = usercss-border-light
-	$border-menus = usercss-border-menus
-	$forum-header = usercss-forum-header
-	$highlight = usercss-highlight
-	$warning = usercss-warning
-	$warning-filter = usercss-warning-filter
-	$theme = usercss-theme
-	$theme-filter = usercss-theme-filter
-	$scrollbar-style = usercss-scrollbar-style
-	$image-opacity = usercss-image-opacity
-	$navigation-style = usercss-navigation-style
-	$search-style = usercss-search-style
-	$ad-height-lock = usercss-ad-height-lock
-	$ad-bottom-margin = usercss-ad-bottom-margin
+	var-background-1 ?= #121212
+	var-background-2 ?= #1D1D1F
+	var-text-1 ?= #C8C8C8
+	var-text-2 ?= #AAAAAA
+	var-border ?= #08080B
+	var-border-light ?= #3B3B3B
+	var-border-menus ?= #000000
+	var-forum-header ?= #232323
+	var-highlight ?= #2A2A2D
+	var-warning ?= #EE4757
+	var-theme ?= #F19A57
+	var-warning-filter ?= brightness(0) saturate(100%) invert(43%) sepia(88%) saturate(1483%) hue-rotate(326deg) brightness(89%) contrast(113%)
+	var-theme-filter ?= brightness(0) saturate(100%) invert(82%) sepia(26%) saturate(3168%) hue-rotate(320deg) brightness(99%) contrast(91%)
 	/* GLOBAL VARIABLES */
-	$on-background-1 = $background-2
-	$on-background-2 = darken($background-2, 25%)
-	$on-background-2-button = lighten($background-2, 3%)
-	$border-style = 1px solid $border
-	$border-style-light = 1px solid $border-light
-	$border-radius = 0.6rem
-	$border-radius-button = 4px
-	$hover-opacity = 0.8
-	$hover-text = none
-	$box-shadow = 0 0 0 1px $border
-	$box-shadow-inset = inset 0 0 0 1px $border
-	$text-shadow = 1px 1px 2px $black
-	$grey-filter = sepia(0) saturate(0.29) brightness(67%) contrast(184%) hue-rotate(179deg) invert(8%)
-	$light-filter = brightness(0) saturate(100%) invert(92%) sepia(0) saturate(489%) hue-rotate(229deg) brightness(90%) contrast(86%)
-	$blue-filter = brightness(0) saturate(100%) invert(41%) sepia(50%) saturate(563%) hue-rotate(159deg) brightness(94%) contrast(89%)
+	var-on-background-1 = var-background-2
+	var-on-background-2 = darken(var-background-2, 25%)
+	var-on-background-2-button = lighten(var-background-2, 3%)
+	var-border-style = 1px solid var-border
+	var-border-style-light = 1px solid var-border-light
+	var-border-radius = 0.6rem
+	var-border-radius-button = 4px
+	var-hover-opacity = 0.8
+	var-hover-text = none
+	var-box-shadow = 0 0 0 1px var-border
+	var-box-shadow-inset = inset 0 0 0 1px var-border
+	var-text-shadow = 1px 1px 2px var-black
+	var-grey-filter = sepia(0) saturate(0.29) brightness(67%) contrast(184%) hue-rotate(179deg) invert(8%)
+	var-light-filter = brightness(0) saturate(100%) invert(92%) sepia(0) saturate(489%) hue-rotate(229deg) brightness(90%) contrast(86%)
+	var-blue-filter = brightness(0) saturate(100%) invert(41%) sepia(50%) saturate(563%) hue-rotate(159deg) brightness(94%) contrast(89%)
 	/* COLOR VARIABLES */
-	$black = #000000
-	$white = #ffffff
-	$beige = #9c6500
-	$blue = #305d84
-	$green = #1c5a00
-	$pink = #b34d84
+	var-black = #000000
+	var-white = #ffffff
+	var-beige = #9c6500
+	var-blue = #305d84
+	var-green = #1c5a00
+	var-pink = #b34d84
 	/* COLOR VARIABLES - EVENTS */
-	$c-optionPaskrea = #b59600
-	$c-optionCes = #00a0dc
-	$c-optionComputex = #ad0060
-	$c-optionDreamhack = #5e2f8e
-	$c-optionVr = #8111e1
-	$c-optionE3 = #ea2238
-	$c-optionBlackfriday = #000000
-	$c-optionCybermonday = #2c6f86
-	$c-optionJulkalender = #cc0000
-	$c-optionGreenfriday = #41a500
-	$c-optionMellandagsrea = #af0035
-	$c-optionBack2school = #4d9edd
+	var-optionPaskrea = #b59600
+	var-optionCes = #00a0dc
+	var-optionComputex = #ad0060
+	var-optionDreamhack = #5e2f8e
+	var-optionVr = #8111e1
+	var-optionE3 = #ea2238
+	var-optionBlackfriday = #000000
+	var-optionCybermonday = #2c6f86
+	var-optionJulkalender = #cc0000
+	var-optionGreenfriday = #41a500
+	var-optionMellandagsrea = #af0035
+	var-optionBack2school = #4d9edd
 	/* COLOR VARIABLES - MISC */
-	$c-bbMark = #8e78a2
-	$c-bbSpoiler = #3779a1
-	$c-postHeader = #3779a1
+	var-bbMark = #8e78a2
+	var-bbSpoiler = #3779a1
+	var-postHeader = #3779a1
 	/* CODE VARIABLES */
-	if ($ad-height-lock)
+	if (var-ad-height-lock)
 		#siteHeader .banner
 			height 121px !important
 			overflow hidden !important
-	if ($ad-bottom-margin)
+	if (var-ad-bottom-margin)
 		#siteHeader .banner
 			margin-bottom 10px
-	if ($navigation-style == 'custom-navigation')
+	if (var-navigation-style == 'custom-navigation')
 		.header:not(.tbButton)
 			background-color transparent !important
-			color $text-2 !important
+			color var-text-2 !important
 			.mainMenu
 				.menu li.menuItem
 					&.isSelected
-						background-color $on-background-1 !important
+						background-color var-on-background-1 !important
 						height 25px
 						font-weight 400
 						a.link
-							color $theme !important
+							color var-theme !important
 							padding-top 7px
 			.subMenu
 				.menu li.menuItem
 					&.isSelected
-						background-color $on-background-1 !important
+						background-color var-on-background-1 !important
 						height 20px
 						font-weight 400
 						a.link
-							color $theme !important
+							color var-theme !important
 							padding-top 5px
 			.mainMenu,
 			.subMenu
@@ -136,44 +130,44 @@
 					border-bottom none !important
 				.menu li
 					border none !important
-					border-radius $border-radius-button
-					box-shadow $box-shadow !important
+					border-radius var-border-radius-button
+					box-shadow var-box-shadow !important
 					&.menuItem
-						background-color $on-background-1 !important
+						background-color var-on-background-1 !important
 						margin-right 5px
 						margin-bottom 2px
 						&.isSelected a
-							color $text-1 !important
+							color var-text-1 !important
 							font-weight 400
 						&:hover
-							background-color $highlight !important
-							box-shadow $box-shadow !important
-							color $text-1 !important
+							background-color var-highlight !important
+							box-shadow var-box-shadow !important
+							color var-text-1 !important
 						a
-							color $text-2 !important
+							color var-text-2 !important
 							&:hover
-								color $text-1 !important
+								color var-text-1 !important
 			.main
 				border-right none !important
 				border-bottom none !important
-				background-color $background-1 !important
+				background-color var-background-1 !important
 		#better-sweclockers-dark-theme-toggle
 			margin-left 0 !important
-		if ($search-style == 'default-search')
+		if (var-search-style == 'default-search')
 			.ninjaSearch
-				border-color $border-light !important
+				border-color var-border-light !important
 				.searchField .fieldWrap
 					.inner,
 					input
-						background-color $on-background-1 !important
+						background-color var-on-background-1 !important
 			.header:not(.tbButton) .main .profile
-				border-color $border-light !important
-	if ($search-style == 'custom-search')
+				border-color var-border-light !important
+	if (var-search-style == 'custom-search')
 		.ninjaSearch
 			width 180px
 			border-left none !important
 			h5
-				color $text-2 !important
+				color var-text-2 !important
 			.searchField
 				.fieldWrap
 					border none !important
@@ -183,15 +177,15 @@
 						background-color transparent !important
 						padding 0
 					input
-						color $text-2
-						background-color $on-background-1 !important
-						border-radius $border-radius !important
-						box-shadow $box-shadow !important
+						color var-text-2
+						background-color var-on-background-1 !important
+						border-radius var-border-radius !important
+						box-shadow var-box-shadow !important
 						padding 3px 6px
 						&:hover,
 						&:focus
-							color $text-1 !important
-							background-color $highlight !important
+							color var-text-1 !important
+							background-color var-highlight !important
 					.fluid
 						.inner
 							padding-right 0
@@ -200,28 +194,28 @@
 						.icon
 							margin-top 3px
 				a[title*=Google]
-					background-color $on-background-1 !important
-					color $text-1 !important
-					border $border-style !important
+					background-color var-on-background-1 !important
+					color var-text-1 !important
+					border var-border-style !important
 					&:hover
-						background-color $highlight !important
+						background-color var-highlight !important
 		.header:not(.tbButton) .main .profile
 			border-left none !important
-		if ($navigation-style == 'default-navigation')
+		if (var-navigation-style == 'default-navigation')
 			.ninjaSearch .searchField .fieldWrap input
-				background-color $on-background-2 !important
-	if ($scrollbar-style == 'custom-scrollbar')
+				background-color var-on-background-2 !important
+	if (var-scrollbar-style == 'custom-scrollbar')
 		::-webkit-scrollbar
 			width 17px
 			height 12px
 		::-webkit-scrollbar-corner
-			background $background-1
+			background var-background-1
 		::-webkit-scrollbar-thumb
-			background $theme
-			border-left 4px solid $background-2 !important
-			border-right 4px solid $background-2 !important
+			background var-theme
+			border-left 4px solid var-background-2 !important
+			border-right 4px solid var-background-2 !important
 		::-webkit-scrollbar-track
-			background $background-1
+			background var-background-1
 	filter(n)
 		filter n
 		-moz-filter n
@@ -247,184 +241,184 @@
 		-o-user-select n
 		-webkit-user-select n
 	#__laika_cnt\.textarea\.0
-		background-color $background-1 !important
-		border $border-style !important
-		color $text-2 !important
+		background-color var-background-1 !important
+		border var-border-style !important
+		color var-text-2 !important
 		&:focus
 			box-shadow 0 0 0 !important
-			color $text-1 !important
+			color var-text-1 !important
 	#__laika_cnt\.select\.0,
 	#__laika_cnt\.select\.1,
 	#__laika_cnt\.select\.2,
 	#__laika_cnt\.select\.3,
 	#__laika_cnt\.select\.4
-		background-color darken($background-1, 40%) !important
-		color $text-2
-		border $border-style !important
+		background-color darken(var-background-1, 40%) !important
+		color var-text-2
+		border var-border-style !important
 	#__laika_cnt\.textbox\.0,
 	#__laika_cnt\.textbox\.1,
 	#__laika_cnt\.textbox\.2,
 	#__laika_cnt\.textbox\.3,
 	#__laika_cnt\.textbox\.4
-		background-color darken($background-1, 40%) !important
-		color $text-2
-		border $border-style !important
+		background-color darken(var-background-1, 40%) !important
+		color var-text-2
+		border var-border-style !important
 		&:focus
 			box-shadow 0 0 0 !important
-			color $text-1 !important
+			color var-text-1 !important
 	/* WIDGETS */
 	#wdgtSideRecentThreads
-		background-color $background-2 !important
-		box-shadow $box-shadow !important
-		border-radius $border-radius !important
+		background-color var-background-2 !important
+		box-shadow var-box-shadow !important
+		border-radius var-border-radius !important
 		.plHead
 			h5
-				color $theme !important
+				color var-theme !important
 				&:hover
-					text-decoration $hover-text !important
-					opacity $hover-opacity !important
+					text-decoration var-hover-text !important
+					opacity var-hover-opacity !important
 		.plBody
 			.plItem
 				.plLabel
 					.plIcon
-						filter $theme-filter !important
+						filter var-theme-filter !important
 					.plLabelText
-						color $text-2 !important
+						color var-text-2 !important
 					&:hover
 						.plLabelIcon,
 						.plLabelText
-							text-decoration $hover-text !important
-							opacity $hover-opacity !important
+							text-decoration var-hover-text !important
+							opacity var-hover-opacity !important
 				.plComments
 					.plLabelText
-						color $theme !important
+						color var-theme !important
 			.button
-				background-color $on-background-2 !important
-				color $text-2 !important
-				border-radius $border-radius-button !important
+				background-color var-on-background-2 !important
+				color var-text-2 !important
+				border-radius var-border-radius-button !important
 				&:hover
-					background-color $highlight !important
-					color $theme !important
+					background-color var-highlight !important
+					color var-theme !important
 	#recent-classifieds,
 	#recent-reviews
-		background-color $background-2 !important
-		box-shadow $box-shadow !important
-		border-radius $border-radius !important
+		background-color var-background-2 !important
+		box-shadow var-box-shadow !important
+		border-radius var-border-radius !important
 		.widget-head
 			.title
-				color $theme !important
+				color var-theme !important
 				&:hover
-					opacity $hover-opacity !important
+					opacity var-hover-opacity !important
 			.title-secondary
-				color $text-2 !important
+				color var-text-2 !important
 				a
-					color $text-1 !important
+					color var-text-1 !important
 					&:hover
-						opacity $hover-opacity !important
+						opacity var-hover-opacity !important
 		.widget-body
 			.button
 				&.bg-beige
-					background-color $beige !important
+					background-color var-beige !important
 				&.bg-blue
-					background-color $blue !important
+					background-color var-blue !important
 				&.bg-green
-					background-color $green !important
+					background-color var-green !important
 				&.bg-pink
-					background-color $pink !important
+					background-color var-pink !important
 			.list-item
 				.list-link
-					color $text-1 !important
+					color var-text-1 !important
 					&:hover
-						opacity $hover-opacity !important
+						opacity var-hover-opacity !important
 					.icon
-						filter $theme-filter !important
+						filter var-theme-filter !important
 					.button
 						border none !important
 					.text-bold.color-white
-						color $theme !important
+						color var-theme !important
 				.list-comment-bubble
 					&:hover
-						opacity $hover-opacity !important
+						opacity var-hover-opacity !important
 					&.color-orange
-						color $theme !important
+						color var-theme !important
 					.icon
-						filter $theme-filter !important
+						filter var-theme-filter !important
 	#wdgtSideExternalFeeds
 		.plHead
 			h5
-				color $theme !important
+				color var-theme !important
 			p
-				color $text-2 !important
+				color var-text-2 !important
 		.plBody
 			h6
-				color $text-1 !important
+				color var-text-1 !important
 			.plItem
 				.plLabel
 					.plIcon
-						filter $theme-filter !important
+						filter var-theme-filter !important
 					.plLabelText
-						color $text-2 !important
+						color var-text-2 !important
 					.plLabelDate
-						color $theme !important
+						color var-theme !important
 					&:hover
 						.plLabelIcon,
 						.plLabelText
-							text-decoration $hover-text !important
-							opacity $hover-opacity !important
+							text-decoration var-hover-text !important
+							opacity var-hover-opacity !important
 	#wdgtMainRecentNews
-		background-color $background-2 !important
-		box-shadow $box-shadow !important
-		border-radius $border-radius !important
+		background-color var-background-2 !important
+		box-shadow var-box-shadow !important
+		border-radius var-border-radius !important
 		.mwHead
 			h5
-				color $theme !important
+				color var-theme !important
 				&:hover
-					text-decoration $hover-text !important
-					opacity $hover-opacity !important
+					text-decoration var-hover-text !important
+					opacity var-hover-opacity !important
 		.mwBody
 			h6
-				color $text-1 !important
+				color var-text-1 !important
 			.mwItem
 				.mwLabel
 					.mwIcon
-						filter $theme-filter !important
+						filter var-theme-filter !important
 					.mwLabelDate
-						color $text-1 !important
+						color var-text-1 !important
 					.mwLabelText
-						color $text-2 !important
+						color var-text-2 !important
 					&:hover
 						.mwLabelIcon,
 						.mwLabelDate,
 						.mwLabelText
-							text-decoration $hover-text !important
-							opacity $hover-opacity !important
+							text-decoration var-hover-text !important
+							opacity var-hover-opacity !important
 				.mwComments
 					.mwLabelText
-						color $theme !important
+						color var-theme !important
 	#wdgtMainRecentThreads
-		background-color $background-2 !important
-		box-shadow $box-shadow !important
-		border-radius $border-radius !important
+		background-color var-background-2 !important
+		box-shadow var-box-shadow !important
+		border-radius var-border-radius !important
 		.mwHead
 			h5
-				color $theme !important
+				color var-theme !important
 				&:hover
-					text-decoration $hover-text !important
-					opacity $hover-opacity !important
+					text-decoration var-hover-text !important
+					opacity var-hover-opacity !important
 		.mwBody
 			h6
-				color $text-1 !important
+				color var-text-1 !important
 			.mwItem
 				.mwLabel
 					.mwIcon
-						filter $theme-filter !important
+						filter var-theme-filter !important
 					.mwLabelText
-						color $text-2 !important
+						color var-text-2 !important
 					&:hover
 						.mwLabelIcon,
 						.mwLabelText
-							text-decoration $hover-text !important
-							opacity $hover-opacity !important
+							text-decoration var-hover-text !important
+							opacity var-hover-opacity !important
 	#wdgtSideRecentClassifieds
 		& > div
 			&:nth-child(2),
@@ -432,44 +426,44 @@
 			&:nth-child(4),
 			&:nth-child(5)
 				> h6
-					color $text-1 !important
+					color var-text-1 !important
 	#prisjakt-popular
-		background-color $background-2 !important
-		box-shadow $box-shadow !important
-		border-radius $border-radius !important
+		background-color var-background-2 !important
+		box-shadow var-box-shadow !important
+		border-radius var-border-radius !important
 		.widget-head
 			.title span
-				color $theme !important
+				color var-theme !important
 			.title-secondary a
-				color $text-2 !important
+				color var-text-2 !important
 				&:hover
-					opacity $hover-opacity !important
+					opacity var-hover-opacity !important
 		.widget-body
 			.list-link
 				.icon
-					filter $theme-filter !important
+					filter var-theme-filter !important
 				.list-link-text
 					.title
-						color $text-1 !important
+						color var-text-1 !important
 					.price
-						color $theme !important
+						color var-theme !important
 				.thumb
-					background-color $background-2 !important
+					background-color var-background-2 !important
 					img
-						opacity $image-opacity !important
+						opacity var-image-opacity !important
 				&:hover
-					opacity $hover-opacity !important
+					opacity var-hover-opacity !important
 	/* BETTER SWECLOCKERS */
 	#better-sweclockers
 		font-family Arial, Helvetica, Meiryo, sans-serif
 		font-size 14px
 		label
-			color $text-1
+			color var-text-1
 		.s5fieldset
-			border-radius $border-radius
-			border $border-style !important
+			border-radius var-border-radius
+			border var-border-style !important
 			legend
-				color $theme !important
+				color var-theme !important
 		textarea#better-sweclockers-preference-quote_signature_message,
 		textarea#better-sweclockers-preference-custom_css_code,
 		input#better-sweclockers-preference-textarea_size_small,
@@ -477,27 +471,27 @@
 		input#better-sweclockers-preference-dark_theme_time_on,
 		input#better-sweclockers-preference-dark_theme_time_off,
 		input#better-sweclockers-preference-dark_theme_interval
-			background-color $on-background-2 !important
-			border $border-style
-			border-radius $border-radius-button
+			background-color var-on-background-2 !important
+			border var-border-style
+			border-radius var-border-radius-button
 		::-webkit-calendar-picker-indicator
-			filter $light-filter !important
+			filter var-light-filter !important
 		textarea#better-sweclockers-preference-quote_signature_message,
 		textarea#better-sweclockers-preference-custom_css_code
 			margin-top 8px
 		.better-sweclockers-code-input::after
-			color $warning !important
+			color var-warning !important
 			font-weight 500 !important
 	#better-sweclockers-dark-theme-toggle
 		background-image url('https://www.sweclockers.com/gfx/spritemap2x.png') !important
 		background-position -466px -95px
 		background-size 600px auto
-		background-color $on-background-1 !important
+		background-color var-on-background-1 !important
 		opacity 1
 		&.better-sweclockers-dark-theme-active
 			background-color #696969 !important
 		&:hover
-			background-color $highlight !important
+			background-color var-highlight !important
 	#better-sweclockers-document
 		.better-sweclockers-editing-tools
 			.button
@@ -505,297 +499,297 @@
 				border none !important
 				margin-right 4px !important
 				&:hover
-					background-color $highlight !important
+					background-color var-highlight !important
 			.better-sweclockers-color-palette .button
 				margin-right 4px !important
 		.better-sweclockers-textarea-size
 			.tbButton
 				.btnIcon
-					filter $grey-filter !important
+					filter var-grey-filter !important
 	/* REST OF CODE */
 	#articleAuthors
 		hr
-			color $border-light
+			color var-border-light
 	#contactForm
 		button
-			background $background-1 !important
-			background-color $background-1 !important
-			color $text-2 !important
+			background var-background-1 !important
+			background-color var-background-1 !important
+			color var-text-2 !important
 			&:hover
-				background $highlight !important
-				background-color $highlight !important
-				color $text-1 !important
+				background var-highlight !important
+				background-color var-highlight !important
+				color var-text-1 !important
 		label
-			color $text-2 !important
+			color var-text-2 !important
 	#content-header
 		padding-top 20px
 		h1
-			color $text-1
+			color var-text-1
 		p
-			color $text-2
+			color var-text-2
 	#form_inputs
 		.policy_container .checkboxspan
-			color $text-2 !important
+			color var-text-2 !important
 			a
-				color $theme !important
+				color var-theme !important
 		a.selectBox
 			text-shadow none !important
-			color $text-1 !important
+			color var-text-1 !important
 		div.checkbox
 			filter contrast(0.89) hue-rotate(-63deg) invert(1)
 		label
-			color $text-1 !important
+			color var-text-1 !important
 		textarea,
 		input
-			background-color $background-1 !important
-			color $text-2 !important
+			background-color var-background-1 !important
+			color var-text-2 !important
 	#revolut-ad
-		background-color $background-2 !important
+		background-color var-background-2 !important
 		.button
-			background $background-1 !important
-			border $border-style !important
-			color $text-2 !important
+			background var-background-1 !important
+			border var-border-style !important
+			color var-text-2 !important
 			&:hover
-				background-color $highlight !important
+				background-color var-highlight !important
 		.text
-			color $text-2 !important
+			color var-text-2 !important
 			> a
-				color $theme !important
+				color var-theme !important
 		.title > a
-			color $text-1 !important
+			color var-text-1 !important
 		> .shadow
-			background -moz-linear-gradient(top, transparent 0, transparent 10%, $background-1 100%) !important
-			background -webkit-gradient(linear, left top, left bottom, color-stop(0, transparent), color-stop(45%, transparent), color-stop(100%, $background-1)) !important
-			background -webkit-linear-gradient(top, transparent 0, transparent 10%, $background-1 100%) !important
-			background -o-linear-gradient(top, transparent 0, transparent 10%, $background-1 100%) !important
-			background -ms-linear-gradient(top, transparent 0, transparent 10%, $background-1 100%) !important
-			background linear-gradient(to bottom, transparent 0, transparent 10%, $background-1 100%) !important
+			background -moz-linear-gradient(top, transparent 0, transparent 10%, var-background-1 100%) !important
+			background -webkit-gradient(linear, left top, left bottom, color-stop(0, transparent), color-stop(45%, transparent), color-stop(100%, var-background-1)) !important
+			background -webkit-linear-gradient(top, transparent 0, transparent 10%, var-background-1 100%) !important
+			background -o-linear-gradient(top, transparent 0, transparent 10%, var-background-1 100%) !important
+			background -ms-linear-gradient(top, transparent 0, transparent 10%, var-background-1 100%) !important
+			background linear-gradient(to bottom, transparent 0, transparent 10%, var-background-1 100%) !important
 	#single.content_holder
-		background-color $background-2 !important
+		background-color var-background-2 !important
 	#subscribeForm > fieldset > button
-		background $background-1 !important
-		background-color $background-1 !important
-		color $text-2 !important
+		background var-background-1 !important
+		background-color var-background-1 !important
+		color var-text-2 !important
 		&:hover
-			background $highlight !important
-			background-color $highlight !important
-			color $text-1 !important
+			background var-highlight !important
+			background-color var-highlight !important
+			color var-text-1 !important
 	.activePolls a
-		color $theme !important
+		color var-theme !important
 		&:hover
-			text-decoration $hover-text !important
-			opacity $hover-opacity !important
+			text-decoration var-hover-text !important
+			opacity var-hover-opacity !important
 	.ad
-		opacity $image-opacity !important
+		opacity var-image-opacity !important
 		&.adPanorama,
 		&.adModule,
 		&.adInsider,
 		&.adOutsider
 			iframe
-				border-radius $border-radius
-				background-color darken($background-1, 40%)
-				box-shadow $box-shadow
+				border-radius var-border-radius
+				background-color darken(var-background-1, 40%)
+				box-shadow var-box-shadow
 		&.adModule
 			border-bottom none !important
 		.adFullHeaderChild
-			background-color $background-1 !important
+			background-color var-background-1 !important
 	.articleActions .action.proofArticle
 		.actionIcon
-			filter $theme-filter !important
+			filter var-theme-filter !important
 		.actionLabel
-			color $theme !important
+			color var-theme !important
 			&:hover
-				text-decoration $hover-text !important
+				text-decoration var-hover-text !important
 	.articleBBCode
 		.bbAward
 			.badge
 				border-radius 50% !important
-				box-shadow $box-shadow !important
+				box-shadow var-box-shadow !important
 			.reason
-				background-color $on-background-2 !important
-				border-radius $border-radius !important
-				box-shadow $box-shadow !important
+				background-color var-on-background-2 !important
+				border-radius var-border-radius !important
+				box-shadow var-box-shadow !important
 		.bbBlockQuote&:after
-			color $theme
+			color var-theme
 		.bbExpander
 			.expanderFooter
-				color $text-2 !important
+				color var-text-2 !important
 				&:hover
-					text-decoration $hover-text !important
-					opacity $hover-opacity !important
+					text-decoration var-hover-text !important
+					opacity var-hover-opacity !important
 			.expanderHeader
-				color $theme !important
-				border-bottom $border-style-light !important
+				color var-theme !important
+				border-bottom var-border-style-light !important
 				&:hover
-					text-decoration $hover-text !important
-					opacity $hover-opacity !important
+					text-decoration var-hover-text !important
+					opacity var-hover-opacity !important
 			> .expanderFrame > .expanderFade
-				background -moz-linear-gradient(top, transparent 0, transparent 10%, $background-1 100%) !important
-				background -webkit-gradient(linear, left top, left bottom, color-stop(0, transparent), color-stop(45%, transparent), color-stop(100%, $background-1)) !important
-				background -webkit-linear-gradient(top, transparent 0, transparent 10%, $background-1 100%) !important
-				background -o-linear-gradient(top, transparent 0, transparent 10%, $background-1 100%) !important
-				background -ms-linear-gradient(top, transparent 0, transparent 10%, $background-1 100%) !important
-				background linear-gradient(to bottom, transparent 0, transparent 10%, $background-1 100%) !important
+				background -moz-linear-gradient(top, transparent 0, transparent 10%, var-background-1 100%) !important
+				background -webkit-gradient(linear, left top, left bottom, color-stop(0, transparent), color-stop(45%, transparent), color-stop(100%, var-background-1)) !important
+				background -webkit-linear-gradient(top, transparent 0, transparent 10%, var-background-1 100%) !important
+				background -o-linear-gradient(top, transparent 0, transparent 10%, var-background-1 100%) !important
+				background -ms-linear-gradient(top, transparent 0, transparent 10%, var-background-1 100%) !important
+				background linear-gradient(to bottom, transparent 0, transparent 10%, var-background-1 100%) !important
 		.bbImage
 			img
-				opacity $image-opacity !important
-				border-radius $border-radius !important
-				box-shadow $box-shadow !important
+				opacity var-image-opacity !important
+				border-radius var-border-radius !important
+				box-shadow var-box-shadow !important
 		.bbVideo
 			iframe
-				opacity $image-opacity !important
-				border-radius $border-radius !important
-				box-shadow $box-shadow !important
+				opacity var-image-opacity !important
+				border-radius var-border-radius !important
+				box-shadow var-box-shadow !important
 		.bbPoll
 			.optionBar > div
-				background $theme !important
+				background var-theme !important
 				border none !important
 			.pollOptions
 				.votesAbs
-					color $text-2 !important
+					color var-text-2 !important
 				.votesRel
-					color $text-2 !important
+					color var-text-2 !important
 			.pollQuestion
-				color $text-1 !important
-				border-bottom $border-style-light !important
+				color var-text-1 !important
+				border-bottom var-border-style-light !important
 			.pollSums
 				.pollMessage
-					color $text-2 !important
+					color var-text-2 !important
 				.pollControls
 					button
-						color $text-2 !important
-						background-color $on-background-2-button !important
+						color var-text-2 !important
+						background-color var-on-background-2-button !important
 						&:hover
-							color $theme !important
-							background-color $highlight !important
+							color var-theme !important
+							background-color var-highlight !important
 				.totalVotes
-					color $text-1 !important
-					border-top $border-style-light !important
+					color var-text-1 !important
+					border-top var-border-style-light !important
 			> .inner
-				background-color $on-background-2 !important
-				border $border-style !important
-				border-radius $border-radius !important
-				color $text-2 !important
+				background-color var-on-background-2 !important
+				border var-border-style !important
+				border-radius var-border-radius !important
+				color var-text-2 !important
 		.bbPrisjakt a
 			&.prices
-				color $text-2 !important
+				color var-text-2 !important
 			&:hover.prices
-				text-decoration $hover-text !important
-				opacity $hover-opacity !important
+				text-decoration var-hover-text !important
+				opacity var-hover-opacity !important
 		.bbRelatedBox
-			background-color $on-background-2 !important
+			background-color var-on-background-2 !important
 			border none !important
-			box-shadow $box-shadow !important
+			box-shadow var-box-shadow !important
 			padding-bottom 1px
-			border-radius $border-radius !important
+			border-radius var-border-radius !important
 		.bbSlideshow .slideFooter
-			color $text-2 !important
+			color var-text-2 !important
 		.bbTable
-			border-radius $border-radius !important
-			box-shadow $box-shadow !important
+			border-radius var-border-radius !important
+			box-shadow var-box-shadow !important
 			border none !important
-			background-color $on-background-2 !important
+			background-color var-on-background-2 !important
 			thead,
 			tbody
 				th
-					background-color darken($background-2, 40%) !important
-					color $theme !important
+					background-color darken(var-background-2, 40%) !important
+					color var-theme !important
 			thead
 				tr
 					span
-						color $text-1 !important
+						color var-text-1 !important
 					&:first-child th
-						border-right 1px solid darken($background-2, 80%) !important
-						border-bottom 1px solid darken($background-2, 80%) !important
+						border-right 1px solid darken(var-background-2, 80%) !important
+						border-bottom 1px solid darken(var-background-2, 80%) !important
 						&:first-child
-							border-right 1px solid darken($background-2, 80%) !important
-							border-bottom 1px solid darken($background-2, 80%) !important
+							border-right 1px solid darken(var-background-2, 80%) !important
+							border-bottom 1px solid darken(var-background-2, 80%) !important
 						&:last-child
 							border-right none !important
 				th
-					background-color darken($background-2, 60%) !important
+					background-color darken(var-background-2, 60%) !important
 			tbody
 				tr
 					th
-						border-right 1px solid darken($background-2, 50%) !important
-						border-bottom 1px solid $on-background-2 !important
+						border-right 1px solid darken(var-background-2, 50%) !important
+						border-bottom 1px solid var-on-background-2 !important
 						&:first-child span
-							color $text-1 !important
+							color var-text-1 !important
 					&:last-child th
 						border-bottom none !important
 					td
 						border-right none !important
-						border-bottom 1px solid darken($background-2, 50%) !important
+						border-bottom 1px solid darken(var-background-2, 50%) !important
 					&:last-child td
 						border-bottom none !important
 			a
-				color $theme !important
+				color var-theme !important
 				&:hover
-					text-decoration $hover-text !important
-					opacity $hover-opacity !important
+					text-decoration var-hover-text !important
+					opacity var-hover-opacity !important
 		.bbcode
 			.bbParagraph
-				color $text-2 !important
+				color var-text-2 !important
 			a
-				color $theme !important
+				color var-theme !important
 				&:hover
-					text-decoration $hover-text !important
-					opacity $hover-opacity !important
+					text-decoration var-hover-text !important
+					opacity var-hover-opacity !important
 		.footerPanel .bbRelatedBox
 			border none !important
 			box-shadow none !important
 	.articleByline .author span
-		color $text-2 !important
+		color var-text-2 !important
 	.articleCommentsWidget
-		background $background-2 !important
-		background-color $background-2 !important
-		color $text-2 !important
-		box-shadow $box-shadow !important
+		background var-background-2 !important
+		background-color var-background-2 !important
+		color var-text-2 !important
+		box-shadow var-box-shadow !important
 		.boxAction
 			.actionLabel
-				color $text-1 !important
+				color var-text-1 !important
 			a:hover
 				.actionIcon,
 				.actionLabel
-					text-decoration $hover-text !important
-					opacity $hover-opacity !important
+					text-decoration var-hover-text !important
+					opacity var-hover-opacity !important
 		.mwHead p
-			color $text-2 !important
+			color var-text-2 !important
 		.mwItem
 			.mwLabelIcon
-				filter $theme-filter !important
+				filter var-theme-filter !important
 			a:hover
 				.mwIcon,
 				.mwLabelDate,
 				.mwLabelText
-					text-decoration $hover-text !important
-					opacity $hover-opacity !important
+					text-decoration var-hover-text !important
+					opacity var-hover-opacity !important
 		.mwLabel
 			> .mwLabelDate
-				color $text-1 !important
+				color var-text-1 !important
 			> .mwLabelText
-				color $text-2 !important
+				color var-text-2 !important
 		h5 > a
-			color $theme !important
+			color var-theme !important
 			text-decoration none !important
 			&:hover
-				text-decoration $hover-text !important
-				opacity $hover-opacity !important
+				text-decoration var-hover-text !important
+				opacity var-hover-opacity !important
 	.articleContent
 		.articleNavi
 			.head
-				border-top $border-style-light !important
+				border-top var-border-style-light !important
 				border-bottom none !important
 				padding-top 2rem !important
 				padding-bottom 0 !important
 				h5
 					font-size 1.5rem
-					color $text-1 !important
+					color var-text-1 !important
 			.pageButton
-				background-color $on-background-2 !important
-				border-radius $border-radius-button !important
-				box-shadow $box-shadow !important
-				color $text-2 !important
+				background-color var-on-background-2 !important
+				border-radius var-border-radius-button !important
+				box-shadow var-box-shadow !important
+				color var-text-2 !important
 				margin 1px 1px 0 !important
 				padding 6px 10px !important
 				height 13px !important
@@ -803,324 +797,324 @@
 				&.next
 					margin-left 6px !important
 				&:hover
-					text-decoration $hover-text !important
-					background $highlight !important
+					text-decoration var-hover-text !important
+					background var-highlight !important
 			.pageItem
 				&::before
-					color $text-2 !important
+					color var-text-2 !important
 				&.isCurrent a
-					color $text-2 !important
+					color var-text-2 !important
 					&:hover
-						text-decoration $hover-text !important
+						text-decoration var-hover-text !important
 						opacity 1
 				a
-					color $theme !important
+					color var-theme !important
 					text-decoration none !important
 					&:hover
-						text-decoration $hover-text !important
-						opacity $hover-opacity !important
+						text-decoration var-hover-text !important
+						opacity var-hover-opacity !important
 		.bbRelatedBox
 			.bbLink
-				color $theme !important
+				color var-theme !important
 				&:hover
-					text-decoration $hover-text !important
-					opacity $hover-opacity !important
+					text-decoration var-hover-text !important
+					opacity var-hover-opacity !important
 			h3
-				color $text-1 !important
+				color var-text-1 !important
 			p
-				color $text-2 !important
+				color var-text-2 !important
 		&.bg-grey-primary
-			color $text-2 !important
-			background-color $background-2 !important
+			color var-text-2 !important
+			background-color var-background-2 !important
 	.articleHeader
 		.articleBBCode .bbImage a
 			&:hover
 				opacity 1 !important
 		.meta
 			a
-				color $theme !important
+				color var-theme !important
 				&:hover
-					text-decoration $hover-text !important
-					opacity $hover-opacity !important
+					text-decoration var-hover-text !important
+					opacity var-hover-opacity !important
 			li
-				color $text-1 !important
+				color var-text-1 !important
 		.sponsoredArticle
 			background-color transparent
-			color $text-1
+			color var-text-1
 			font-weight 700
 			font-size 1.2em
 		h1
-			color $theme !important
+			color var-theme !important
 	.articleKeywords a
-		background-color $on-background-2 !important
-		border $border-style !important
-		color $text-2 !important
-		border-radius $border-radius-button
+		background-color var-on-background-2 !important
+		border var-border-style !important
+		color var-text-2 !important
+		border-radius var-border-radius-button
 		&:hover
-			background $highlight !important
-			color $theme !important
-			text-decoration $hover-text !important
+			background var-highlight !important
+			color var-theme !important
+			text-decoration var-hover-text !important
 	.articleList
 		.authors-byline a
-			color $text-1 !important
+			color var-text-1 !important
 		.category
-			color $text-2 !important
+			color var-text-2 !important
 			&:hover
-				text-decoration $hover-text !important
-				opacity $hover-opacity !important
+				text-decoration var-hover-text !important
+				opacity var-hover-opacity !important
 		.comments
-			color $theme !important
+			color var-theme !important
 			.icon
-				filter $theme-filter !important
+				filter var-theme-filter !important
 		.listItem a:hover .n
-			text-decoration $hover-text !important
-			opacity $hover-opacity !important
+			text-decoration var-hover-text !important
+			opacity var-hover-opacity !important
 		.timestamp
-			color $text-1 !important
+			color var-text-1 !important
 		.title
-			color $text-1 !important
+			color var-text-1 !important
 			text-decoration none !important
 		> a:hover
-			text-decoration $hover-text !important
-			opacity $hover-opacity !important
+			text-decoration var-hover-text !important
+			opacity var-hover-opacity !important
 		h3.title a
-			color $theme
+			color var-theme
 			&:hover
-				text-decoration $hover-text !important
-				opacity $hover-opacity !important
+				text-decoration var-hover-text !important
+				opacity var-hover-opacity !important
 		&.bg-grey-primary
-			background $background-2 !important
-			color $text-2 !important
+			background var-background-2 !important
+			color var-text-2 !important
 			h3.title > a
-				color $theme !important
+				color var-theme !important
 	.articlePage h2.pageTitle
-		color $text-1 !important
+		color var-text-1 !important
 	.articlesMostRead
 		.icon
-			filter $theme-filter !important
+			filter var-theme-filter !important
 		.n
-			color $theme !important
+			color var-theme !important
 		.title
-			color $text-2 !important
+			color var-text-2 !important
 			text-decoration none !important
 			&:hover
-				text-decoration $hover-text !important
-				opacity $hover-opacity !important
+				text-decoration var-hover-text !important
+				opacity var-hover-opacity !important
 		h2 > a
-			color $theme !important
+			color var-theme !important
 			&:hover
-				text-decoration $hover-text !important
-				opacity $hover-opacity !important
+				text-decoration var-hover-text !important
+				opacity var-hover-opacity !important
 	.articlesMostTagged
 		.articleListCompact a:hover .n
-			text-decoration $hover-text !important
-			opacity $hover-opacity !important
+			text-decoration var-hover-text !important
+			opacity var-hover-opacity !important
 		.icon
-			filter $theme-filter !important
+			filter var-theme-filter !important
 		.n
-			color $theme !important
+			color var-theme !important
 		.showMore
-			color $theme !important
+			color var-theme !important
 			text-decoration none !important
 			&:hover
-				text-decoration $hover-text !important
-				opacity $hover-opacity !important
+				text-decoration var-hover-text !important
+				opacity var-hover-opacity !important
 		.tagSummary a
-			background $background-1 !important
-			border $border-style !important
-			color $text-2 !important
+			background var-background-1 !important
+			border var-border-style !important
+			color var-text-2 !important
 			&:hover
-				background $highlight !important
+				background var-highlight !important
 		.title
-			color $text-2 !important
+			color var-text-2 !important
 			text-decoration none !important
 			&:hover
-				opacity $hover-opacity !important
-				text-decoration $hover-text !important
+				opacity var-hover-opacity !important
+				text-decoration var-hover-text !important
 		h2 > a
-			color $theme !important
+			color var-theme !important
 			&:hover
-				opacity $hover-opacity !important
-				text-decoration $hover-text !important
+				opacity var-hover-opacity !important
+				text-decoration var-hover-text !important
 	.back_to_cal
-		color $theme !important
+		color var-theme !important
 		i
-			background-color $theme !important
-			color $black !important
+			background-color var-theme !important
+			color var-black !important
 			margin 12px 7px 0 0
 	.bbExpander
 		.expanderHeader
-			color $text-1 !important
-			border-bottom $border-style-light !important
+			color var-text-1 !important
+			border-bottom var-border-style-light !important
 			&:hover
-				text-decoration $hover-text !important
-				opacity $hover-opacity !important
+				text-decoration var-hover-text !important
+				opacity var-hover-opacity !important
 		.expanderFooter
-			color $text-2
-			border-top $border-style-light !important
+			color var-text-2
+			border-top var-border-style-light !important
 			margin-top 0 !important
 		> .expanderFrame > .expanderFade
-			background -moz-linear-gradient(top, transparent 0, transparent 10%, $background-1 100%) !important
-			background -webkit-gradient(linear, left top, left bottom, color-stop(0, transparent), color-stop(45%, transparent), color-stop(100%, $background-1)) !important
-			background -webkit-linear-gradient(top, transparent 0, transparent 10%, $background-1 100%) !important
-			background -o-linear-gradient(top, transparent 0, transparent 10%, $background-1 100%) !important
-			background -ms-linear-gradient(top, transparent 0, transparent 10%, $background-1 100%) !important
-			background linear-gradient(to bottom, transparent 0, transparent 10%, $background-1 100%) !important
+			background -moz-linear-gradient(top, transparent 0, transparent 10%, var-background-1 100%) !important
+			background -webkit-gradient(linear, left top, left bottom, color-stop(0, transparent), color-stop(45%, transparent), color-stop(100%, var-background-1)) !important
+			background -webkit-linear-gradient(top, transparent 0, transparent 10%, var-background-1 100%) !important
+			background -o-linear-gradient(top, transparent 0, transparent 10%, var-background-1 100%) !important
+			background -ms-linear-gradient(top, transparent 0, transparent 10%, var-background-1 100%) !important
+			background linear-gradient(to bottom, transparent 0, transparent 10%, var-background-1 100%) !important
 	.bbKeyword
-		color $theme !important
+		color var-theme !important
 		text-decoration none !important
 		&:hover
-			text-decoration $hover-text !important
-			opacity $hover-opacity !important
+			text-decoration var-hover-text !important
+			opacity var-hover-opacity !important
 	.bbMark
-		background $highlight !important
-		color $c-bbMark !important
+		background var-highlight !important
+		color var-bbMark !important
 	.bbPodcast
 		.descr,
 		.meta
-			color $text-2 !important
+			color var-text-2 !important
 		.title span
-			color $text-1 !important
+			color var-text-1 !important
 		a
-			color $theme !important
+			color var-theme !important
 		&:hover
-			text-decoration $hover-text !important
-			opacity $hover-opacity !important
+			text-decoration var-hover-text !important
+			opacity var-hover-opacity !important
 	.bbPre.showFrame
-		background $background-1 !important
-		border $border-style !important
-		color $text-2 !important
+		background var-background-1 !important
+		border var-border-style !important
+		color var-text-2 !important
 	.bbPrisjaktFull
 		.pjFooter
 			.seeMore
-				color $theme !important
+				color var-theme !important
 				text-decoration none !important
 				&:hover
-					text-decoration $hover-text !important
-					opacity $hover-opacity !important
+					text-decoration var-hover-text !important
+					opacity var-hover-opacity !important
 			.withPrisjakt
-				color $text-2 !important
+				color var-text-2 !important
 		.pjVendors .name a
-			color $text-2 !important
+			color var-text-2 !important
 		.price > a
-			color $theme !important
+			color var-theme !important
 			&:hover
-				text-decoration $hover-text !important
-				opacity $hover-opacity !important
+				text-decoration var-hover-text !important
+				opacity var-hover-opacity !important
 		h6
-			color $text-2 !important
-			border-bottom $border-style !important
+			color var-text-2 !important
+			border-bottom var-border-style !important
 			> a
-				color $theme !important
+				color var-theme !important
 				&:hover
-					text-decoration $hover-text !important
-					opacity $hover-opacity !important
+					text-decoration var-hover-text !important
+					opacity var-hover-opacity !important
 	.bbQuote
-		background $on-background-2 !important
-		border $border-style !important
-		color $text-2 !important
-		border-radius $border-radius !important
+		background var-on-background-2 !important
+		border var-border-style !important
+		color var-text-2 !important
+		border-radius var-border-radius !important
 		.quoteContent
-			border-top $border-style-light !important
+			border-top var-border-style-light !important
 		.quoteHead
-			color $text-1 !important
+			color var-text-1 !important
 		.quoteLink > a
-			color $theme !important
+			color var-theme !important
 			&:hover
-				text-decoration $hover-text !important
-				opacity $hover-opacity !important
+				text-decoration var-hover-text !important
+				opacity var-hover-opacity !important
 		&.isExpandable > .quoteFrame > .quoteFade
-			background -moz-linear-gradient(top, transparent 0, transparent 10%, $background-1 100%) !important
-			background -webkit-gradient(linear, left top, left bottom, color-stop(0, transparent), color-stop(45%, transparent), color-stop(100%, $background-1)) !important
-			background -webkit-linear-gradient(top, transparent 0, transparent 10%, $background-1 100%) !important
-			background -o-linear-gradient(top, transparent 0, transparent 10%, $background-1 100%) !important
-			background -ms-linear-gradient(top, transparent 0, transparent 10%, $background-1 100%) !important
-			background linear-gradient(to bottom, transparent 0, transparent 10%, $background-1 100%) !important
+			background -moz-linear-gradient(top, transparent 0, transparent 10%, var-background-1 100%) !important
+			background -webkit-gradient(linear, left top, left bottom, color-stop(0, transparent), color-stop(45%, transparent), color-stop(100%, var-background-1)) !important
+			background -webkit-linear-gradient(top, transparent 0, transparent 10%, var-background-1 100%) !important
+			background -o-linear-gradient(top, transparent 0, transparent 10%, var-background-1 100%) !important
+			background -ms-linear-gradient(top, transparent 0, transparent 10%, var-background-1 100%) !important
+			background linear-gradient(to bottom, transparent 0, transparent 10%, var-background-1 100%) !important
 	.bbRelatedBox
-		background $background-1 !important
+		background var-background-1 !important
 	.bbReply
-		color $theme !important
+		color var-theme !important
 		text-decoration none !important
 		&:hover
-			text-decoration $hover-text !important
-			opacity $hover-opacity !important
+			text-decoration var-hover-text !important
+			opacity var-hover-opacity !important
 	.bbSpoiler
 		.spoilerFrame
-			background $background-1 !important
-			border $border-style !important
-			color $text-2 !important
+			background var-background-1 !important
+			border var-border-style !important
+			color var-text-2 !important
 			.bbPoll > .inner
-				background $background-2 !important
-				background-color $background-2 !important
-				border $border-style !important
+				background var-background-2 !important
+				background-color var-background-2 !important
+				border var-border-style !important
 				button
-					background-color $background-1 !important
+					background-color var-background-1 !important
 					&:hover
-						color $c-bbSpoiler !important
+						color var-bbSpoiler !important
 		.spoilerHeader button
-			background $background-1 !important
-			background-color $background-1 !important
-			color $text-2 !important
+			background var-background-1 !important
+			background-color var-background-1 !important
+			color var-text-2 !important
 			&:focus
 				outline-color transparent !important
 			&:hover
-				background $highlight !important
-				background-color $highlight !important
-				color $text-1 !important
+				background var-highlight !important
+				background-color var-highlight !important
+				color var-text-1 !important
 	.bbcode .bbLink
-		color $theme !important
+		color var-theme !important
 		text-decoration none !important
 		&:hover
-			text-decoration $hover-text !important
-			opacity $hover-opacity !important
+			text-decoration var-hover-text !important
+			opacity var-hover-opacity !important
 	.bg-grey-primary
 		.crediters a
-			color $theme
+			color var-theme
 		a.read-more-archive
-			color $text-1 !important
+			color var-text-1 !important
 			text-decoration none !important
 	.bg-orange
-		background $theme !important
+		background var-theme !important
 		border-bottom-left-radius 8px
 		&:hover
-			background $theme !important
-			opacity $hover-opacity !important
+			background var-theme !important
+			opacity var-hover-opacity !important
 	.body.articleBBCode .bbRelatedBox
-		background-color $background-1 !important
+		background-color var-background-1 !important
 	.breadcrumbs
 		.breadcrumb
 			.link
-				color $theme !important
+				color var-theme !important
 				text-decoration none !important
 				&:hover
-					text-decoration $hover-text !important
-					opacity $hover-opacity !important
+					text-decoration var-hover-text !important
+					opacity var-hover-opacity !important
 			&:after
 				content '\00bb'
 				position relative
 				top -1px
 	.button
-		background-color darken($background-1, 40%) !important
-		color $text-2
-		border $border-style !important
+		background-color darken(var-background-1, 40%) !important
+		color var-text-2
+		border var-border-style !important
 		&:focus
 			outline none !important
 		&.bg-orange
-			box-shadow $box-shadow !important
+			box-shadow var-box-shadow !important
 			border none !important
-			background-color $background-1 !important
-			color $text-2
+			background-color var-background-1 !important
+			color var-text-2
 			&:hover
-				background-color $highlight !important
-				color $text-1 !important
+				background-color var-highlight !important
+				color var-text-1 !important
 	.campaignportal
 		#guide-wrapper
-			background-color $background-2 !important
-			border solid 1px $border !important
+			background-color var-background-2 !important
+			border solid 1px var-border !important
 		.tips
 			.tips-data
 				.col-score .label
-					background $theme !important
+					background var-theme !important
 				.tips-row
 					&:hover
 						.col-product,
@@ -1129,263 +1123,263 @@
 						.col-price,
 						.pj-cell,
 						.user-cell
-							background $highlight !important
+							background var-highlight !important
 					&:nth-child(odd),
 					&:nth-child(even)
-						background $background-2 !important
-						border $border-style !important
-						color $text-2 !important
+						background var-background-2 !important
+						border var-border-style !important
+						color var-text-2 !important
 					.col-category,
 					.col-vendor
-						color $text-2 !important
+						color var-text-2 !important
 					.col-price
-						color $text-1 !important
+						color var-text-1 !important
 					.col-product,
 					.col-user
-						color $theme !important
+						color var-theme !important
 				&:hover
 					.col-product,
 					.col-user
-						text-decoration $hover-text !important
+						text-decoration var-hover-text !important
 			.tips-meta
-				border $border-style !important
+				border var-border-style !important
 			.tips-title
-				color $text-1 !important
+				color var-text-1 !important
 		.vendor-guides
 			.guide-block span
-				color $text-2 !important
+				color var-text-2 !important
 			h2
-				color $text-1 !important
+				color var-text-1 !important
 			p
-				color $text-2 !important
+				color var-text-2 !important
 		select
-			background $background-2 !important
-			border $border-style !important
-			color $text-2 !important
+			background var-background-2 !important
+			border var-border-style !important
+			color var-text-2 !important
 	.carousel
 		.slide
 			.bg img
-				opacity $image-opacity !important
+				opacity var-image-opacity !important
 			&:hover
-				opacity $hover-opacity !important
+				opacity var-hover-opacity !important
 				.front a
-					text-decoration $hover-text !important
+					text-decoration var-hover-text !important
 	.comments-bubble
 		.cb-top
-			color $white !important
-			text-shadow $text-shadow !important
-			background-color $theme !important
+			color var-white !important
+			text-shadow var-text-shadow !important
+			background-color var-theme !important
 		.cb-bottom
-			border-color transparent $theme transparent transparent !important
+			border-color transparent var-theme transparent transparent !important
 		&:hover
 			.cb-top
-				background-color darken($theme, 10%) !important
+				background-color darken(var-theme, 10%) !important
 			.cb-bottom
-				border-color transparent darken($theme, 10%) transparent transparent !important
+				border-color transparent darken(var-theme, 10%) transparent transparent !important
 	.contentBox
-		background-color $background-2 !important
-		border $border-style !important
-		color $text-2 !important
+		background-color var-background-2 !important
+		border var-border-style !important
+		color var-text-2 !important
 		a
-			color $text-1 !important
+			color var-text-1 !important
 			&:hover
-				text-decoration $hover-text !important
-				opacity $hover-opacity !important
+				text-decoration var-hover-text !important
+				opacity var-hover-opacity !important
 		h1
-			color $text-1 !important
+			color var-text-1 !important
 		h2
-			color $theme !important
+			color var-theme !important
 	.content_holder,
 	#container.on_fb
-		background-color $background-2
+		background-color var-background-2
 	.errorBox
-		border $border-style !important
-		color $white !important
-		background-color $warning !important
+		border var-border-style !important
+		color var-white !important
+		background-color var-warning !important
 	.feedMore
-		color $theme !important
+		color var-theme !important
 		text-decoration none !important
 		&:hover
-			text-decoration $hover-text !important
-			opacity $hover-opacity !important
+			text-decoration var-hover-text !important
+			opacity var-hover-opacity !important
 	.bottom
 		.footer
-			border-top $border-style
+			border-top var-border-style
 			.top
 				border-top none
-				background-color $background-2
-				color $text-2
+				background-color var-background-2
+				color var-text-2
 				.block
 					h6
-						color $text-1
+						color var-text-1
 					p
-						color $text-2
+						color var-text-2
 					a
-						color $theme
+						color var-theme
 						&::before
-							filter $theme-filter
+							filter var-theme-filter
 						&:hover
-							text-decoration $hover-text
-							opacity $hover-opacity
+							text-decoration var-hover-text
+							opacity var-hover-opacity
 					.rssFeeds
 						a:hover .label
-							text-decoration $hover-text
-							opacity $hover-opacity
+							text-decoration var-hover-text
+							opacity var-hover-opacity
 					&:not(:last-child)
 						border-right none
 			.bottom
-				background-color $background-2
-				color $text-2
+				background-color var-background-2
+				color var-text-2
 				a
-					color $text-1
+					color var-text-1
 					&:hover
-						text-decoration $hover-text
-						opacity $hover-opacity
+						text-decoration var-hover-text
+						opacity var-hover-opacity
 				.bahnhof-logo
-					color $text-1
+					color var-text-1
 					&:hover span
-						text-decoration $hover-text !important
-						opacity $hover-opacity
+						text-decoration var-hover-text !important
+						opacity var-hover-opacity
 	.footerBox
 		.listItem .label
-			color $text-1 !important
+			color var-text-1 !important
 		h6
-			color $theme !important
+			color var-theme !important
 		ul
-			background $background-1 !important
+			background var-background-1 !important
 	.form_options a.btn_back
-		background-color $background-1 !important
-		color $text-1 !important
-		border $border-style !important
+		background-color var-background-1 !important
+		color var-text-1 !important
+		border var-border-style !important
 	.forumControls
 		.forumSearch
 			.tanukiControl
 				margin-right 20px !important
 				#__laika_cnt\.textbox\.0
-					background-color $on-background-1 !important
-					border-radius $border-radius-button !important
+					background-color var-on-background-1 !important
+					border-radius var-border-radius-button !important
 					border none !important
-					box-shadow $box-shadow !important
-					color $text-2 !important
+					box-shadow var-box-shadow !important
+					color var-text-2 !important
 					margin-top 2px
 					padding 5px 12px !important
 					&:hover,
 					&:focus
-						color $text-1 !important
-						background-color $highlight !important
+						color var-text-1 !important
+						background-color var-highlight !important
 			button
-				background-color $on-background-1 !important
-				border-radius $border-radius-button !important
+				background-color var-on-background-1 !important
+				border-radius var-border-radius-button !important
 				border none !important
-				box-shadow $box-shadow !important
-				color $text-2 !important
+				box-shadow var-box-shadow !important
+				color var-text-2 !important
 				margin-top 1px
 				margin-right 1px !important
 				padding 6px 12px
 		.button
 			&.replyToThread,
 			&.newThread
-				background-color $on-background-1 !important
-				border-radius $border-radius-button !important
+				background-color var-on-background-1 !important
+				border-radius var-border-radius-button !important
 				border none !important
-				box-shadow $box-shadow !important
-				color $text-2 !important
+				box-shadow var-box-shadow !important
+				color var-text-2 !important
 				padding 6px 12px
 				margin-top 1px
 				margin-right 1px !important
 				&:hover
-					background $highlight !important
-					background-color $highlight !important
-					color $text-1 !important
+					background var-highlight !important
+					background-color var-highlight !important
+					color var-text-1 !important
 	.forumForm
 		.head
 			background-color transparent !important
-			color $text-2 !important
+			color var-text-2 !important
 			border-bottom none !important
 		.body
-			background-color $background-2 !important
-			box-shadow $box-shadow !important
-			border-radius $border-radius !important
+			background-color var-background-2 !important
+			box-shadow var-box-shadow !important
+			border-radius var-border-radius !important
 			fieldset.s5fieldset
 				border none !important
 				legend
-					color $theme !important
+					color var-theme !important
 			.tanukiSelect
 				#__laika_cnt\.select\.0
-					background-color $on-background-2 !important
-					border-radius $border-radius-button
+					background-color var-on-background-2 !important
+					border-radius var-border-radius-button
 					&:focus
-						background-color $highlight !important
+						background-color var-highlight !important
 			.tanukiTextbox
 				#__laika_cnt\.textbox\.0
-					background-color $on-background-2 !important
-					border-radius $border-radius-button
+					background-color var-on-background-2 !important
+					border-radius var-border-radius-button
 			.tanukiTextarea
 				#__laika_cnt\.textarea\.0
-					background-color $on-background-2 !important
-					border-radius $border-radius
+					background-color var-on-background-2 !important
+					border-radius var-border-radius
 				&.hasErrors
 					#__laika_cnt\.textarea\.0
 						outline none !important
-						border 1px solid $warning !important
+						border 1px solid var-warning !important
 			.toolbar
 				.tbButton
 					&.iconButton
 						.inner
 							background-color transparent !important
-							color $text-2
+							color var-text-2
 							&:hover
-								background-color $highlight !important
-								border 1px solid $highlight !important
-								border-radius $border-radius-button !important
+								background-color var-highlight !important
+								border 1px solid var-highlight !important
+								border-radius var-border-radius-button !important
 						&:hover
 							.btnIcon
-								filter $light-filter !important
+								filter var-light-filter !important
 							.inner
-								background-color $highlight !important
-								color $text-1 !important
+								background-color var-highlight !important
+								color var-text-1 !important
 			.tanukiControl
 				&.tanukiButton
-					background-color $on-background-2 !important
+					background-color var-on-background-2 !important
 					&:hover
-						background-color $highlight !important
+						background-color var-highlight !important
 		.tanukiControl.tanukiCheckbox.isRequired
-			color $text-2 !important
+			color var-text-2 !important
 		.tcLabel
-			color $text-2 !important
+			color var-text-2 !important
 		&.postEditForm .tanukiControl.tanukiCheckbox
-			color $text-2 !important
+			color var-text-2 !important
 		&.postPollListForm .button
-			background $background-1 !important
-			background-color $background-1 !important
-			color $text-2 !important
+			background var-background-1 !important
+			background-color var-background-1 !important
+			color var-text-2 !important
 			&:hover
-				background $highlight !important
-				background-color $highlight !important
-				color $text-1 !important
+				background var-highlight !important
+				background-color var-highlight !important
+				color var-text-1 !important
 	.forumList
 		.lastThread .time
-			color $theme !important
+			color var-theme !important
 		.numReplies
-			color $text-1 !important
+			color var-text-1 !important
 		.numThreads
-			color $text-1 !important
+			color var-text-1 !important
 		.subforums .link
-			background $background-1 !important
-			color $text-1 !important
+			background var-background-1 !important
+			color var-text-1 !important
 			&:hover
-				background $highlight !important
-				color $theme !important
-				text-decoration $hover-text !important
+				background var-highlight !important
+				color var-theme !important
+				text-decoration var-hover-text !important
 	.forumPost
-		background $background-2 !important
-		box-shadow $box-shadow !important
-		border-radius $border-radius !important
+		background var-background-2 !important
+		box-shadow var-box-shadow !important
+		border-radius var-border-radius !important
 		.bbcode
 			p
-				color $text-2 !important
+				color var-text-2 !important
 		.body
-			border $border-style !important
+			border var-border-style !important
 			background-color red !important
 		.cell
 			&.alt2
@@ -1395,29 +1389,29 @@
 				background-color none !important
 			&.main
 				background none !important
-				color $text-2 !important
+				color var-text-2 !important
 				.bbStrong
-					color $text-1 !important
+					color var-text-1 !important
 				a
-					color $theme !important
+					color var-theme !important
 					text-decoration none !important
 					&.clickArea:hover
 						opacity 1 !important
 					&:hover
-						color $theme !important
-						text-decoration $hover-text !important
-						opacity $hover-opacity !important
+						color var-theme !important
+						text-decoration var-hover-text !important
+						opacity var-hover-opacity !important
 						&.clickArea
 							opacity 1
 		.controls
 			.better-sweclockers-quote-signature-button .button
 				height 24px !important
 			.button
-				background-color $on-background-2 !important
-				color $text-2 !important
+				background-color var-on-background-2 !important
+				color var-text-2 !important
 				padding 4px 6px 8px 8px !important
 				height 10px !important
-				border-radius $border-radius-button
+				border-radius var-border-radius-button
 				margin-left 4px !important
 				.label
 					display contents
@@ -1431,7 +1425,7 @@
 						background-repeat no-repeat !important
 						background-size 600px auto !important
 					&:hover .icon
-						filter $theme-filter
+						filter var-theme-filter
 				&.edit
 					.icon
 						width 16px !important
@@ -1442,110 +1436,110 @@
 						background-repeat no-repeat !important
 						background-size 600px auto !important
 					&:hover .icon
-						filter $theme-filter
+						filter var-theme-filter
 				&.report
 					.icon
 						background-position -150px -100.5px !important
 					&:hover .icon
-						filter $warning-filter
+						filter var-warning-filter
 				&:hover
-					background $highlight !important
-					color $text-1 !important
+					background var-highlight !important
+					color var-text-1 !important
 					opacity 1
 			.btnGroup
 				margin-left 0 !important
 				.multiquote
 					margin-left 12px !important
 		.dateline .meta
-			background $background-2 !important
-			color $text-2 !important
-			border $border-style !important
+			background var-background-2 !important
+			color var-text-2 !important
+			border var-border-style !important
 		.details .activity.online
-			color $theme !important
+			color var-theme !important
 		.guruFlag
-			color $theme !important
+			color var-theme !important
 		.message > .title
-			color $text-1 !important
+			color var-text-1 !important
 		.postHeader
-			color $text-2 !important
+			color var-text-2 !important
 			.cell
 				background none !important
 		.profile
 			.avatar
 				img
-					border-radius $border-radius !important
-					opacity $image-opacity !important
+					border-radius var-border-radius !important
+					opacity var-image-opacity !important
 			.meta
 				dd,
 				dt
-					color $text-2 !important
+					color var-text-2 !important
 			.name > a
-				color $theme !important
+				color var-theme !important
 				text-decoration none !important
 				&:hover
-					color $theme !important
-					text-decoration $hover-text !important
-					opacity $hover-opacity !important
+					color var-theme !important
+					text-decoration var-hover-text !important
+					opacity var-hover-opacity !important
 			.title > *
-				color $text-2 !important
+				color var-text-2 !important
 		.signature
 			.bbParagraph a
-				color $theme !important
+				color var-theme !important
 				text-decoration none !important
 				&:hover
-					color $theme !important
-					text-decoration $hover-text !important
-					opacity $hover-opacity !important
+					color var-theme !important
+					text-decoration var-hover-text !important
+					opacity var-hover-opacity !important
 		.supporterFlag
-			color $theme !important
+			color var-theme !important
 		.score
-			color $theme !important
+			color var-theme !important
 		&.isGuru
 			.controls .button.like .score
-				color $theme !important
+				color var-theme !important
 		&.isLiked
 			.controls .button.like .score
-				color $theme !important
+				color var-theme !important
 			.dateline .meta .score
-				color $theme !important
+				color var-theme !important
 			&.isReader
 				.button.like.isDisabled:hover
-					background-color $background-1 !important
-					color $text-2 !important
+					background-color var-background-1 !important
+					color var-text-2 !important
 					cursor not-allowed !important
 		&.isLinked
-			border-color $border !important
-			box-shadow 0 0 0 4px $border !important
+			border-color var-border !important
+			box-shadow 0 0 0 4px var-border !important
 			.postHeader
 				.cell
 					background none !important
 				.postNum
-					color $text-1 !important
+					color var-text-1 !important
 					text-decoration none !important
 			a.postNum:hover
 				text-decoration underline !important
 			&.isAuthor
-				border-color $border !important
-				box-shadow 0 0 0 4px $border !important
+				border-color var-border !important
+				box-shadow 0 0 0 4px var-border !important
 				.postHeader .cell
-					background $border !important
+					background var-border !important
 		&.isAuthor:not(.isReader)
 			border-top none !important
-			border-left 3px solid $theme !important
+			border-left 3px solid var-theme !important
 			border-image none !important
 			margin-left 0 !important
 			.postHeader .cell
 				background none !important
 		&.isReader:not(.isAuthor)
 			border-top none !important
-			border-left 3px solid $blue !important
+			border-left 3px solid var-blue !important
 			border-image none !important
 			margin-left 0 !important
 			.postHeader .cell
 				background none !important
 		&.isReader.isAuthor
 			border-top none !important
-			border-left 3px solid $theme !important
+			border-left 3px solid var-theme !important
 			border-image none !important
 			margin-left 0 !important
 			.postHeader .cell
@@ -1554,830 +1548,830 @@
 			&.better-sweclockers-icon-button.better-sweclockers-pm-button
 				display none !important
 			&.edit
-				border $border-style !important
+				border var-border-style !important
 			&.like
 				&.isDisabled
 					.score
-						color $theme !important
+						color var-theme !important
 					&:hover
-						background-color $highlight !important
-						color $text-2 !important
+						background-color var-highlight !important
+						color var-text-2 !important
 						cursor not-allowed !important
 			.postHeader .cell
-				border-top 3px solid $c-postHeader !important
+				border-top 3px solid var-postHeader !important
 		&.isSelected .controls .button.multiquote
-			color $theme !important
+			color var-theme !important
 	.forumResultPost
-		background $background-2 !important
-		border $border-style !important
-		color $text-2 !important
+		background var-background-2 !important
+		border var-border-style !important
+		color var-text-2 !important
 		.controls .button
-			background-color darken($background-1, 40%) !important
-			color $text-2
+			background-color darken(var-background-1, 40%) !important
+			color var-text-2
 			&:hover
-				background-color $highlight !important
+				background-color var-highlight !important
 				opacity 1 !important
 				> .label
 					opacity 1 !important
 		.message > .title
-			color $text-1 !important
+			color var-text-1 !important
 		.postHeader
 			.dateline
-				background $background-2 !important
-				color $text-1 !important
+				background var-background-2 !important
+				color var-text-1 !important
 				a
-					color $theme !important
+					color var-theme !important
 					text-decoration none !important
 					&:hover
-						text-decoration $hover-text !important
-						opacity $hover-opacity !important
+						text-decoration var-hover-text !important
+						opacity var-hover-opacity !important
 			.threadTitle
-				background $on-background-2 !important
-				color $text-1 !important
+				background var-on-background-2 !important
+				color var-text-1 !important
 				a:hover
-					text-decoration $hover-text !important
-					opacity $hover-opacity !important
+					text-decoration var-hover-text !important
+					opacity var-hover-opacity !important
 	.forumSearch
 		#__laika_cnt\.textbox\.0:focus
-			color $text-1 !important
+			color var-text-1 !important
 		input
 			&::-webkit-input-placeholder
-				color $text-2 !important
+				color var-text-2 !important
 			&:focus::-webkit-input-placeholder
-				color $text-1 !important
+				color var-text-1 !important
 		.tanukiControl
 			margin-bottom 1px
 	.forumTable
 		border none !important
 	.caption
-		background $background-1 !important
-		color $text-1 !important
+		background var-background-1 !important
+		color var-text-1 !important
 	.cell
 		border-bottom none !important
 		&.alt1
 			border-bottom none !important
-			background $background-2 !important
+			background var-background-2 !important
 		&.date.alt2
-			color $text-1 !important
+			color var-text-1 !important
 		&.price.alt2
-			color $text-2 !important
+			color var-text-2 !important
 	.head .cell
-		background $background-1 !important
-		color $white !important
+		background var-background-1 !important
+		color var-white !important
 		border none !important
 	.lastThread
 		> div
-			color $text-2 !important
+			color var-text-2 !important
 			> a
-				color $theme !important
+				color var-theme !important
 				&:hover
-					text-decoration $hover-text !important
-					opacity $hover-opacity !important
+					text-decoration var-hover-text !important
+					opacity var-hover-opacity !important
 		h3 > a
-			color $text-2 !important
+			color var-text-2 !important
 			text-decoration none !important
-			text-decoration-color $background-2 !important
+			text-decoration-color var-background-2 !important
 			&:hover
-				text-decoration $hover-text !important
-				opacity $hover-opacity !important
-				text-decoration-color $background-2 !important
+				text-decoration var-hover-text !important
+				opacity var-hover-opacity !important
+				text-decoration-color var-background-2 !important
 	.subForums
-		border-left $border-style !important
-		border-right $border-style !important
+		border-left var-border-style !important
+		border-right var-border-style !important
 	h2 a
-		color $text-1 !important
+		color var-text-1 !important
 		text-decoration none !important
 		&:hover
-			text-decoration $hover-text !important
-			opacity $hover-opacity !important
+			text-decoration var-hover-text !important
+			opacity var-hover-opacity !important
 	&.forumList
 		.descr
-			color $text-2 !important
+			color var-text-2 !important
 			text-decoration none !important
 		.title h2 > a
-			color $theme !important
+			color var-theme !important
 			text-decoration none !important
 			&:hover
-				text-decoration $hover-text !important
-				opacity $hover-opacity !important
+				text-decoration var-hover-text !important
+				opacity var-hover-opacity !important
 	.forumThreads
 		.dateline > a
-			color $theme !important
+			color var-theme !important
 			text-decoration none !important
 			&:hover
-				text-decoration $hover-text !important
-				opacity $hover-opacity !important
+				text-decoration var-hover-text !important
+				opacity var-hover-opacity !important
 	.galleryBody .button
-		background-color $background-1 !important
-		color $text-2 !important
+		background-color var-background-1 !important
+		color var-text-2 !important
 		&:hover
-			background-color $highlight !important
-			color $text-1 !important
+			background-color var-highlight !important
+			color var-text-1 !important
 	.galleryFileEditor
 		.orderHint
-			color $text-2 !important
+			color var-text-2 !important
 		.selectedPanel .s5fieldset .curFile a
-			color $theme !important
+			color var-theme !important
 			&:hover
-				text-decoration $hover-text !important
-				opacity $hover-opacity !important
+				text-decoration var-hover-text !important
+				opacity var-hover-opacity !important
 		.uploadEntry
 			.entryError > .errorAlert
-				color $theme !important
+				color var-theme !important
 			.entryName
-				color $text-2 !important
+				color var-text-2 !important
 			.entryState > .progressLabel
-				background-color $background-1 !important
-				color $text-1 !important
+				background-color var-background-1 !important
+				color var-text-1 !important
 	.galleryHeader
 		.galleryRating
 			.num
-				color $text-2 !important
+				color var-text-2 !important
 			.score
-				color $theme !important
+				color var-theme !important
 		dd
-			color $text-2 !important
+			color var-text-2 !important
 		dt
-			color $text-1 !important
+			color var-text-1 !important
 	.galleryImage
 		.bbcode .bbParagraph
-			color $text-2 !important
+			color var-text-2 !important
 		.author a
-			color $text-1 !important
+			color var-text-1 !important
 		.cat a
-			color $text-2 !important
+			color var-text-2 !important
 		.rating
-			color $theme !important
+			color var-theme !important
 	.galleryList
 		.author > a:hover
-			text-decoration $hover-text !important
-			opacity $hover-opacity !important
+			text-decoration var-hover-text !important
+			opacity var-hover-opacity !important
 		.cat > a:hover
-			text-decoration $hover-text !important
-			opacity $hover-opacity !important
+			text-decoration var-hover-text !important
+			opacity var-hover-opacity !important
 		.galleryItem h3
-			color $text-1 !important
+			color var-text-1 !important
 			> a:hover
-				text-decoration $hover-text !important
-				opacity $hover-opacity !important
+				text-decoration var-hover-text !important
+				opacity var-hover-opacity !important
 	.galleryNavi
 		.next .arrow
-			border-left 10px solid $theme !important
+			border-left 10px solid var-theme !important
 		.prev .arrow
-			border-right 10px solid $theme !important
+			border-right 10px solid var-theme !important
 	.galleryPortal
 		.galleryItem h3
-			color $text-1 !important
+			color var-text-1 !important
 		.head
 			.descr
-				color $text-2 !important
+				color var-text-2 !important
 			.more
-				color $theme !important
+				color var-theme !important
 				text-decoration none !important
 				&:hover
-					text-decoration $hover-text !important
-					opacity $hover-opacity !important
+					text-decoration var-hover-text !important
+					opacity var-hover-opacity !important
 			.title
-				color $text-1 !important
+				color var-text-1 !important
 	.gp-subject-group
-		background $background-2 !important
-		border $border-style !important
-		color $text-2 !important
+		background var-background-2 !important
+		border var-border-style !important
+		color var-text-2 !important
 		.gphi-descr
-			background $background-1 !important
-			background-color $background-1 !important
+			background var-background-1 !important
+			background-color var-background-1 !important
 			h3
-				color $text-1 !important
+				color var-text-1 !important
 				a:hover
-					text-decoration $hover-text !important
-					opacity $hover-opacity !important
+					text-decoration var-hover-text !important
+					opacity var-hover-opacity !important
 			p
-				color $text-2 !important
+				color var-text-2 !important
 		.gpsg-header
-			border-bottom $border-style-light
+			border-bottom var-border-style-light
 			h2
-				color $text-1 !important
+				color var-text-1 !important
 		.gpsg-body
 			.gp-item
-				border-bottom $border-style-light
+				border-bottom var-border-style-light
 		.gpsg-more a
-			background $background-1 !important
-			border $border-style !important
-			color $text-1 !important
+			background var-background-1 !important
+			border var-border-style !important
+			color var-text-1 !important
 			&:hover
-				background $highlight !important
+				background var-highlight !important
 		h4
-			color $theme !important
+			color var-theme !important
 			a:hover
-				text-decoration $hover-text !important
-				opacity $hover-opacity !important
+				text-decoration var-hover-text !important
+				opacity var-hover-opacity !important
 	.header:not(.tbButton)
 		background-color transparent
-		color $text-2 !important
+		color var-text-2 !important
 		.logo
 			background-image url('https://soitora.com/SweClockers-Dark/images/logo.svg')
 		.mainMenu
 			.menu li.menuItem
-				background-color $background-2
+				background-color var-background-2
 				&.optionPaskrea,
 				&.optionPaskrea.isSelected
-					background-color $c-optionPaskrea !important
+					background-color var-optionPaskrea !important
 					a span
-						color lighten($c-optionPaskrea, 80%) !important
-						text-shadow $text-shadow
+						color lighten(var-optionPaskrea, 80%) !important
+						text-shadow var-text-shadow
 						font-weight 700
 					&:hover
-						background-color $c-optionPaskrea !important
+						background-color var-optionPaskrea !important
 				&.optionCes,
 				&.optionCes.isSelected
-					background-color $c-optionCes !important
+					background-color var-optionCes !important
 					a span
-						color lighten($c-optionCes, 80%) !important
-						text-shadow $text-shadow
+						color lighten(var-optionCes, 80%) !important
+						text-shadow var-text-shadow
 						font-weight 700
 					&:hover
-						background-color $c-optionCes !important
+						background-color var-optionCes !important
 				&.optionComputex,
 				&.optionComputex.isSelected
-					background-color $c-optionComputex !important
+					background-color var-optionComputex !important
 					a span
-						color lighten($c-optionComputex, 80%) !important
-						text-shadow $text-shadow
+						color lighten(var-optionComputex, 80%) !important
+						text-shadow var-text-shadow
 						font-weight 700
 					&:hover
-						background-color $c-optionComputex !important
+						background-color var-optionComputex !important
 				&.optionDreamhack,
 				&.optionDreamhack.isSelected
-					background-color $c-optionDreamhack !important
+					background-color var-optionDreamhack !important
 					a span
-						color lighten($c-optionDreamhack, 80%) !important
-						text-shadow $text-shadow
+						color lighten(var-optionDreamhack, 80%) !important
+						text-shadow var-text-shadow
 						font-weight 700
 					&:hover
-						background-color $c-optionDreamhack !important
+						background-color var-optionDreamhack !important
 				&.optionVr,
 				&.optionVr.isSelected
-					background-color $c-optionVr !important
+					background-color var-optionVr !important
 					a span
-						color lighten($c-optionVr, 80%) !important
-						text-shadow $text-shadow
+						color lighten(var-optionVr, 80%) !important
+						text-shadow var-text-shadow
 						font-weight 700
 					&:hover
-						background-color $c-optionVr !important
+						background-color var-optionVr !important
 				&.optionE3,
 				&.optionE3.isSelected
-					background-color $c-optionE3 !important
+					background-color var-optionE3 !important
 					a span
-						color lighten($c-optionE3, 80%) !important
-						text-shadow $text-shadow
+						color lighten(var-optionE3, 80%) !important
+						text-shadow var-text-shadow
 						font-weight 700
 					&:hover
-						background-color $c-optionE3 !important
+						background-color var-optionE3 !important
 				&.optionBlackfriday,
 				&.optionBlackfriday.isSelected
-					background-color $c-optionBlackfriday !important
+					background-color var-optionBlackfriday !important
 					a span
-						color lighten($c-optionBlackfriday, 80%) !important
-						text-shadow $text-shadow
+						color lighten(var-optionBlackfriday, 80%) !important
+						text-shadow var-text-shadow
 						font-weight 700
 					&:hover
-						background-color $c-optionBlackfriday !important
+						background-color var-optionBlackfriday !important
 				&.optionCybermonday,
 				&.optionCybermonday.isSelected
-					background-color $c-optionCybermonday !important
+					background-color var-optionCybermonday !important
 					a span
-						color lighten($c-optionCybermonday, 80%) !important
-						text-shadow $text-shadow
+						color lighten(var-optionCybermonday, 80%) !important
+						text-shadow var-text-shadow
 						font-weight 700
 					&:hover
-						background-color $c-optionCybermonday !important
+						background-color var-optionCybermonday !important
 				&.optionJulkalender,
 				&.optionJulkalender.isSelected
-					background-color $c-optionJulkalender !important
+					background-color var-optionJulkalender !important
 					a span
-						color lighten($c-optionJulkalender, 80%) !important
-						text-shadow $text-shadow
+						color lighten(var-optionJulkalender, 80%) !important
+						text-shadow var-text-shadow
 						font-weight 700
 					&:hover
-						background-color $c-optionJulkalender !important
+						background-color var-optionJulkalender !important
 				&.optionGreenfriday,
 				&.optionGreenfriday.isSelected
-					background-color $c-optionGreenfriday !important
+					background-color var-optionGreenfriday !important
 					a span
-						color lighten($c-optionGreenfriday, 80%) !important
-						text-shadow $text-shadow
+						color lighten(var-optionGreenfriday, 80%) !important
+						text-shadow var-text-shadow
 						font-weight 700
 					&:hover
-						background-color $c-optionGreenfriday !important
+						background-color var-optionGreenfriday !important
 				&.optionMellandagsrea,
 				&.optionMellandagsrea.isSelected
-					background-color $c-optionMellandagsrea !important
+					background-color var-optionMellandagsrea !important
 					a span
-						color lighten($c-optionMellandagsrea, 80%) !important
-						text-shadow $text-shadow
+						color lighten(var-optionMellandagsrea, 80%) !important
+						text-shadow var-text-shadow
 						font-weight 700
 					&:hover
-						background-color $c-optionMellandagsrea !important
+						background-color var-optionMellandagsrea !important
 				&.optionBack2school,
 				&.optionBack2school.isSelected
-					background-color $c-optionBack2school !important
+					background-color var-optionBack2school !important
 					a span
-						color lighten($c-optionBack2school, 80%) !important
-						text-shadow $text-shadow
+						color lighten(var-optionBack2school, 80%) !important
+						text-shadow var-text-shadow
 						font-weight 700
 					&:hover
-						background-color $c-optionBack2school !important
+						background-color var-optionBack2school !important
 				&.better-sweclockers-icon-tab
 					opacity 1 !important
 					&:hover
-						background-color $highlight !important
+						background-color var-highlight !important
 				&.isSelected
-					background-color $background-2 !important
-					border-bottom 1px solid $background-2
+					background-color var-background-2 !important
+					border-bottom 1px solid var-background-2
 					a.link
-						color $theme !important
+						color var-theme !important
 						padding-top 7px
 		.subMenu
 			.menu li.menuItem
-				background-color $background-1
+				background-color var-background-1
 				&.isSelected
-					background-color $background-1
-					border-bottom 1px solid $background-1
+					background-color var-background-1
+					border-bottom 1px solid var-background-1
 					a.link
-						color $theme !important
+						color var-theme !important
 						padding-top 5px
 		.mainMenu,
 		.subMenu
 			.rborder
-				border-bottom $border-style
+				border-bottom var-border-style
 			.menu li
-				border $border-style
+				border var-border-style
 				&.menuItem
-					border-bottom $border-style
+					border-bottom var-border-style
 					&.isSelected a
-						color $text-1 !important
+						color var-text-1 !important
 					&:hover
-						background-color $highlight !important
-						color $text-1 !important
+						background-color var-highlight !important
+						color var-text-1 !important
 					a
-						color $text-2 !important
+						color var-text-2 !important
 						&:hover
-							color $text-1 !important
+							color var-text-1 !important
 		.main
-			border-right $border-style
-			border-bottom $border-style
-			background-color $background-2
+			border-right var-border-style
+			border-bottom var-border-style
+			background-color var-background-2
 			.ninjaSearch
-				border-color $border
+				border-color var-border
 				h5
-					color $text-2 !important
+					color var-text-2 !important
 				.searchField
 					.fieldWrap
-						border $border-style
+						border var-border-style
 						.inner
-							background-color $on-background-2
+							background-color var-on-background-2
 							.input
-								background-color $on-background-2
-								color $text-2
+								background-color var-on-background-2
+								color var-text-2
 								&:focus
-									color $text-1
+									color var-text-1
 					a[title*=Google]
-						background-color $on-background-1 !important
-						color $text-1 !important
-						border $border-style !important
+						background-color var-on-background-1 !important
+						color var-text-1 !important
+						border var-border-style !important
 						&:hover
-							background-color $highlight !important
+							background-color var-highlight !important
 			.ninjaSearchResult
-				color $text-2 !important
+				color var-text-2 !important
 				h6
-					color $text-1 !important
+					color var-text-1 !important
 				.showMore
-					color $theme !important
+					color var-theme !important
 					text-decoration none
 					&:hover
-						text-decoration $hover-text !important
-						opacity $hover-opacity !important
+						text-decoration var-hover-text !important
+						opacity var-hover-opacity !important
 				.resultList
 					a
-						color $text-2 !important
+						color var-text-2 !important
 						&:hover
-							text-decoration $hover-text !important
-							opacity $hover-opacity !important
+							text-decoration var-hover-text !important
+							opacity var-hover-opacity !important
 					.icon
-						filter $theme-filter !important
+						filter var-theme-filter !important
 					.date
-						color $text-1 !important
+						color var-text-1 !important
 				.externalSearch a
-					color $theme !important
+					color var-theme !important
 					&:hover
-						text-decoration $hover-text !important
-						opacity $hover-opacity !important
+						text-decoration var-hover-text !important
+						opacity var-hover-opacity !important
 			.profile
-				border-color $border
+				border-color var-border
 				h5 a
-					color $text-2 !important
+					color var-text-2 !important
 					&:hover
-						text-decoration $hover-text !important
-						opacity $hover-opacity !important
+						text-decoration var-hover-text !important
+						opacity var-hover-opacity !important
 				.options
-					color $text-2
+					color var-text-2
 					.icon
-						filter $grey-filter !important
+						filter var-grey-filter !important
 					a.label:hover
 						&::after,
 						span
-							text-decoration $hover-text !important
-							opacity $hover-opacity !important
+							text-decoration var-hover-text !important
+							opacity var-hover-opacity !important
 					.signout button:hover
-						color $warning !important
-						text-decoration $hover-text !important
-						opacity $hover-opacity !important
+						color var-warning !important
+						text-decoration var-hover-text !important
+						opacity var-hover-opacity !important
 						.icon
-							filter $warning-filter !important
+							filter var-warning-filter !important
 					.hasUnread
-						color $theme !important
+						color var-theme !important
 						.icon
-							filter $theme-filter !important
+							filter var-theme-filter !important
 			.signin
-				border-left $border-style !important
+				border-left var-border-style !important
 				h5
-					color $text-2 !important
+					color var-text-2 !important
 				.actions .button
-					border $border-style !important
-					background-color darken($background-1, 40%) !important
-					color $text-2 !important
+					border var-border-style !important
+					background-color darken(var-background-1, 40%) !important
+					color var-text-2 !important
 					&:hover
-						background-color $highlight !important
+						background-color var-highlight !important
 	.hotGallery
 		.hot
-			color $theme !important
+			color var-theme !important
 		.rating
-			color $theme !important
+			color var-theme !important
 		.title
 			.author
-				color $text-1 !important
+				color var-text-1 !important
 			.cat
-				color $text-2 !important
+				color var-text-2 !important
 			a:hover
-				text-decoration $hover-text !important
-				opacity $hover-opacity !important
+				text-decoration var-hover-text !important
+				opacity var-hover-opacity !important
 		h3
-			color $text-1 !important
+			color var-text-1 !important
 			a:hover
-				text-decoration $hover-text !important
-				opacity $hover-opacity !important
+				text-decoration var-hover-text !important
+				opacity var-hover-opacity !important
 	.infoBox
-		background $background-1 !important
-		color $text-2 !important
+		background var-background-1 !important
+		color var-text-2 !important
 		a
-			color $warning !important
+			color var-warning !important
 			text-decoration none !important
 			&:hover
-				text-decoration $hover-text !important
-				opacity $hover-opacity !important
+				text-decoration var-hover-text !important
+				opacity var-hover-opacity !important
 		.contactInfo
 			a
-				color $theme !important
+				color var-theme !important
 				&:hover
-					text-decoration $hover-text !important
-					opacity $hover-opacity !important
+					text-decoration var-hover-text !important
+					opacity var-hover-opacity !important
 				&.button
-					background-color $background-2 !important
-					color $text-2 !important
+					background-color var-background-2 !important
+					color var-text-2 !important
 					&:hover
-						background-color $highlight !important
-						color $text-1 !important
+						background-color var-highlight !important
+						color var-text-1 !important
 			h1
-				color $theme !important
+				color var-theme !important
 			h4
-				color $text-1 !important
+				color var-text-1 !important
 		h1,
 		h2
-			color $text-1 !important
+			color var-text-1 !important
 		p,
 		ul
-			color $text-2 !important
+			color var-text-2 !important
 	.infoTextWindow
-		background $background-1 !important
-		border $border-style !important
-		color $text-1 !important
+		background var-background-1 !important
+		border var-border-style !important
+		color var-text-1 !important
 	.inner .whiteBody .bg-grey-primary
-		color $text-2
-		background-color $background-2 !important
-		box-shadow $box-shadow !important
+		color var-text-2
+		background-color var-background-2 !important
+		box-shadow var-box-shadow !important
 		.bbRelatedBox
 			border none
 	.label,
 	.price
 		&.color-orange
-			color $theme !important
+			color var-theme !important
 	.mainContent
 		border none !important
-		color $text-2
-		box-shadow $box-shadow !important
-		background-color $background-2 !important
+		color var-text-2
+		box-shadow var-box-shadow !important
+		background-color var-background-2 !important
 		&.bg-grey-primary
-			background-color $background-2 !important
+			background-color var-background-2 !important
 		.mainContentHeader
-			color $text-1 !important
+			color var-text-1 !important
 		.articleList
 			.listItem
 				border-bottom none
-				background-color $background-2
-				border-radius $border-radius
+				background-color var-background-2
+				border-radius var-border-radius
 				.bbVideo,
 				.image
 					img,
 					iframe
-						border-radius $border-radius
-						box-shadow $box-shadow !important
+						border-radius var-border-radius
+						box-shadow var-box-shadow !important
 		.newsList
 			.itemBanner
 				img
-					border-radius $border-radius
-					box-shadow $box-shadow !important
-					opacity $image-opacity !important
+					border-radius var-border-radius
+					box-shadow var-box-shadow !important
+					opacity var-image-opacity !important
 			.pubItem
-				border-bottom $border-style-light !important
+				border-bottom var-border-style-light !important
 				.itemMeta
 					.date
-						color $text-1 !important
+						color var-text-1 !important
 					a
-						color $theme !important
+						color var-theme !important
 						&:hover
-							text-decoration $hover-text !important
-							opacity $hover-opacity !important
+							text-decoration var-hover-text !important
+							opacity var-hover-opacity !important
 				.itemText
 					a
-						color $text-1 !important
+						color var-text-1 !important
 						&:hover
-							text-decoration $hover-text !important
-							opacity $hover-opacity !important
+							text-decoration var-hover-text !important
+							opacity var-hover-opacity !important
 						&:last-child
-							color $theme !important
+							color var-theme !important
 							text-decoration none !important
 							&:hover
-								color $theme !important
-								text-decoration $hover-text !important
-								opacity $hover-opacity !important
+								color var-theme !important
+								text-decoration var-hover-text !important
+								opacity var-hover-opacity !important
 				h2
 					a
-						color $theme !important
+						color var-theme !important
 						&:hover
-							text-decoration $hover-text !important
-							opacity $hover-opacity !important
+							text-decoration var-hover-text !important
+							opacity var-hover-opacity !important
 			.relatedLinks
-				border $border-style
-				background-color $on-background-2
-				border-radius $border-radius
+				border var-border-style
+				background-color var-on-background-2
+				border-radius var-border-radius
 				legend
-					color $text-1
+					color var-text-1
 				a
-					color $theme
+					color var-theme
 					&:hover
-						text-decoration $hover-text
-						opacity $hover-opacity
+						text-decoration var-hover-text
+						opacity var-hover-opacity
 				ul
-					color $text-2
+					color var-text-2
 			.contentHeader h2
-				color $text-1 !important
+				color var-text-1 !important
 			.pages
 				.icon
-					filter $theme-filter !important
+					filter var-theme-filter !important
 				a
-					color $text-2 !important
+					color var-text-2 !important
 					&.isCurrent
-						background-color $background-2 !important
-						color $theme !important
+						background-color var-background-2 !important
+						color var-theme !important
 						&:hover
-							background-color $background-2 !important
-							text-decoration $hover-text !important
+							background-color var-background-2 !important
+							text-decoration var-hover-text !important
 							opacity 1
 					&:active
-						text-decoration $hover-text !important
-						opacity $hover-opacity !important
+						text-decoration var-hover-text !important
+						opacity var-hover-opacity !important
 					&:hover
-						background-color $background-2 !important
-						text-decoration $hover-text !important
-						opacity $hover-opacity !important
+						background-color var-background-2 !important
+						text-decoration var-hover-text !important
+						opacity var-hover-opacity !important
 			.registerForm a
-				color $theme !important
+				color var-theme !important
 				&:hover
-					text-decoration $hover-text !important
-					opacity $hover-opacity !important
+					text-decoration var-hover-text !important
+					opacity var-hover-opacity !important
 			.s5fieldset a.button
-				background-color $background-1 !important
-				color $text-2 !important
+				background-color var-background-1 !important
+				color var-text-2 !important
 				&:hover
-					background-color $highlight !important
-					color $text-1 !important
+					background-color var-highlight !important
+					color var-text-1 !important
 			.stepItem
-				color $text-1 !important
+				color var-text-1 !important
 				background-color transparent !important
 				&.isDisabled
-					color $text-2 !important
+					color var-text-2 !important
 					background-color transparent !important
 				&.isSelected
-					color $theme !important
+					color var-theme !important
 					background-color transparent !important
 				a:hover
-					text-decoration $hover-text !important
-					opacity $hover-opacity !important
+					text-decoration var-hover-text !important
+					opacity var-hover-opacity !important
 		.profileFeed
 			.date
-				color $text-2 !important
+				color var-text-2 !important
 			.link
-				color $theme !important
+				color var-theme !important
 				&:hover
-					text-decoration $hover-text !important
-					opacity $hover-opacity !important
+					text-decoration var-hover-text !important
+					opacity var-hover-opacity !important
 			.user
-				color $theme !important
+				color var-theme !important
 			.feedSection
 				.listItem
 					.inner
-						color $text-2 !important
+						color var-text-2 !important
 						b
-							color $theme !important
+							color var-theme !important
 				.feedItem
-					border-top $border-style !important
+					border-top var-border-style !important
 			.feedControl
-				border-top $border-style !important
+				border-top var-border-style !important
 		.read-more-archive
-			color $theme
+			color var-theme
 			text-decoration none
 			&:hover
-				text-decoration $hover-text
-				opacity $hover-opacity
+				text-decoration var-hover-text
+				opacity var-hover-opacity
 	.marketFilterBox
 		.checkboxList
 			.checkboxItem
-				color $text-2 !important
+				color var-text-2 !important
 		.galleryCategory
 			.tcLabel
-				color $text-2 !important
+				color var-text-2 !important
 		.gallerySearchQuery
 			.tcLabel
-				color $text-2 !important
+				color var-text-2 !important
 		.tanukiControl
 			.tcHint
-				color $text-2 !important
+				color var-text-2 !important
 		.tcLabel
-			color $text-2 !important
+			color var-text-2 !important
 		legend
-			color $text-1 !important
+			color var-text-1 !important
 	.marketForm
 		.s5fieldset
 			h6
-				color $text-1 !important
+				color var-text-1 !important
 			p
-				color $text-2 !important
+				color var-text-2 !important
 	.marketHeader
 		.marketMeta
 			.meta-wrapper
-				background-color $background-2 !important
+				background-color var-background-2 !important
 			dd
-				color $text-2 !important
+				color var-text-2 !important
 				a
-					color $text-2 !important
+					color var-text-2 !important
 					&:hover
-						text-decoration $hover-text !important
-						opacity $hover-opacity !important
+						text-decoration var-hover-text !important
+						opacity var-hover-opacity !important
 				&.strongLabel
-					color $theme !important
+					color var-theme !important
 					a
-						color $theme !important
+						color var-theme !important
 						&:hover
-							text-decoration $hover-text !important
-							opacity $hover-opacity !important
+							text-decoration var-hover-text !important
+							opacity var-hover-opacity !important
 			dt
-				color $text-1 !important
+				color var-text-1 !important
 	.marketList
 		.category
-			color $text-2 !important
+			color var-text-2 !important
 			&:hover
-				text-decoration $hover-text !important
-				opacity $hover-opacity !important
+				text-decoration var-hover-text !important
+				opacity var-hover-opacity !important
 		.color-black
-			color $text-2 !important
+			color var-text-2 !important
 			&.user
-				color $text-1 !important
+				color var-text-1 !important
 		.comments
-			color $theme !important
+			color var-theme !important
 			.icon
-				filter $theme-filter !important
+				filter var-theme-filter !important
 		.date
 			.time
-				color $text-2 !important
+				color var-text-2 !important
 		.meta
 			a
 				&:hover
 					.icon
-						text-decoration $hover-text !important
-						opacity $hover-opacity !important
+						text-decoration var-hover-text !important
+						opacity var-hover-opacity !important
 					.label
-						text-decoration $hover-text !important
-						opacity $hover-opacity !important
+						text-decoration var-hover-text !important
+						opacity var-hover-opacity !important
 		.type
-			color $text-1 !important
+			color var-text-1 !important
 			&:hover
-				text-decoration $hover-text !important
-				opacity $hover-opacity !important
+				text-decoration var-hover-text !important
+				opacity var-hover-opacity !important
 	.memberTable
 		.title
-			color $text-2 !important
+			color var-text-2 !important
 		.username
 			a
-				color $theme !important
+				color var-theme !important
 				text-decoration none !important
 				&:hover
-					text-decoration $hover-text !important
-					opacity $hover-opacity !important
+					text-decoration var-hover-text !important
+					opacity var-hover-opacity !important
 	.menuItems
 		.icon
-			filter $theme-filter !important
+			filter var-theme-filter !important
 		.link
-			color $theme !important
+			color var-theme !important
 		a
 			&:hover
 				opacity 1
 	.mellandagsrea
 		#guideWrapper
-			background-color $background-2 !important
-			color $text-2 !important
-			border solid 1px $border !important
+			background-color var-background-2 !important
+			color var-text-2 !important
+			border solid 1px var-border !important
 		.mellandagsreaHeader
 			.aboutFynd
 				a
-					color $theme !important
+					color var-theme !important
 			h1
-				color $theme !important
+				color var-theme !important
 			p
-				color $text-1 !important
+				color var-text-1 !important
 		.productFooter
-			background $background-2 !important
-			background-color $background-2 !important
+			background var-background-2 !important
+			background-color var-background-2 !important
 			a
-				color $theme !important
+				color var-theme !important
 			p
-				color $text-2 !important
+				color var-text-2 !important
 		.productHeader
-			background darken($background-1, 40%) !important
-			background-color darken($background-1, 40%) !important
+			background darken(var-background-1, 40%) !important
+			background-color darken(var-background-1, 40%) !important
 			&:hover
-				background $highlight !important
-				background-color $highlight !important
+				background var-highlight !important
+				background-color var-highlight !important
 				opacity 1 !important
 		.productPriceOffer
-			color $text-1 !important
+			color var-text-1 !important
 		.productPriceRegular
-			color $text-2 !important
+			color var-text-2 !important
 		.productPriceSavings
-			color $white !important
-			background-color $theme !important
+			color var-white !important
+			background-color var-theme !important
 		.tips
 			.numComments
 				a
-					color $text-1 !important
+					color var-text-1 !important
 			.tipsTitle
-				color $text-1 !important
+				color var-text-1 !important
 				a
-					color $text-1 !important
+					color var-text-1 !important
 			.tipsData
 				.colScore
 					.label
-						color $white !important
-						background $theme !important
+						color var-white !important
+						background var-theme !important
 						&:hover
-							opacity $hover-opacity !important
+							opacity var-hover-opacity !important
 				.tipsRow
-					background-color $background-2 !important
+					background-color var-background-2 !important
 			.tipsMeta
 				.productCell
-					background-color $background-2 !important
-					border-left solid 1px $border !important
-					border-right solid 1px $border !important
+					background-color var-background-2 !important
+					border-left solid 1px var-border !important
+					border-right solid 1px var-border !important
 					span
 						&.label
-							color $text-1 !important
+							color var-text-1 !important
 			.tipsRow
 				&:hover
 					.productCell
-						background $highlight !important
+						background var-highlight !important
 					.pjCell
-						background $highlight !important
+						background var-highlight !important
 					.userCell
-						background $highlight !important
+						background var-highlight !important
 			a
 				&.productCell
 					.colProduct
 						&:hover
-							text-decoration $hover-text !important
-							opacity $hover-opacity !important
+							text-decoration var-hover-text !important
+							opacity var-hover-opacity !important
 					.colPrice
 						&:hover
-							text-decoration $hover-text !important
-							opacity $hover-opacity !important
+							text-decoration var-hover-text !important
+							opacity var-hover-opacity !important
 					&:hover
 						.colProduct
 							text-decoration none !important
@@ -2386,665 +2380,665 @@
 				&.userCell
 					&:hover
 						.colUser
-							text-decoration $hover-text !important
-							opacity $hover-opacity !important
+							text-decoration var-hover-text !important
+							opacity var-hover-opacity !important
 		.userCell
-			color $text-1 !important
+			color var-text-1 !important
 		.vendorCampaignLink
 			& > a
-				color $text-1 !important
+				color var-text-1 !important
 		.vendorGuides
 			.guideBlock
 				span
-					color $text-1 !important
+					color var-text-1 !important
 				&:hover
-					opacity $hover-opacity !important
+					opacity var-hover-opacity !important
 			h2
-				color $text-1 !important
+				color var-text-1 !important
 		.vendorName
-			color $text-1 !important
+			color var-text-1 !important
 		div
 			&.colCategory
-				color $text-2 !important
+				color var-text-2 !important
 			&.colVendor
-				color $text-2 !important
+				color var-text-2 !important
 			&.colProduct
-				color $theme !important
+				color var-theme !important
 			&.colPrice
-				color $theme !important
+				color var-theme !important
 		select
-			background $background-1 !important
-			border $border-style !important
-			color $text-2 !important
+			background var-background-1 !important
+			border var-border-style !important
+			color var-text-2 !important
 	.pages
 		.icon
-			filter $theme-filter !important
+			filter var-theme-filter !important
 			&:hover
-				opacity $hover-opacity !important
+				opacity var-hover-opacity !important
 		.only-icon
 			.icon
-				filter $theme-filter !important
+				filter var-theme-filter !important
 			&:hover
-				opacity $hover-opacity !important
+				opacity var-hover-opacity !important
 		a
-			color $text-2 !important
+			color var-text-2 !important
 			&.isCurrent
 				background-color transparent !important
-				color $theme !important
+				color var-theme !important
 				&:hover
-					background-color $background-1 !important
-					text-decoration $hover-text !important
+					background-color var-background-1 !important
+					text-decoration var-hover-text !important
 					opacity 1
 			&:active
-				text-decoration $hover-text !important
-				opacity $hover-opacity !important
+				text-decoration var-hover-text !important
+				opacity var-hover-opacity !important
 			&:hover
-				background-color $background-1 !important
+				background-color var-background-1 !important
 	.pmNewThreadForm
 		.tcbEditField
-			background-color $background-1 !important
-			color $text-2 !important
+			background-color var-background-1 !important
+			color var-text-2 !important
 			&:focus
-				color $text-1 !important
+				color var-text-1 !important
 		.tcbInput
-			background-color $background-1 !important
-			color $text-2 !important
+			background-color var-background-1 !important
+			color var-text-2 !important
 		.tcbSelectedItem
-			background-color $background-2 !important
-			color $text-2 !important
+			background-color var-background-2 !important
+			color var-text-2 !important
 			&:hover
-				background-color $highlight !important
-				color $text-1 !important
+				background-color var-highlight !important
+				color var-text-1 !important
 				.tbcsiClose
-					filter $theme-filter !important
+					filter var-theme-filter !important
 	.popularGalleries
 		.author
 			& > a
-				color $text-2 !important
+				color var-text-2 !important
 		.cat
 			& > a
-				color $text-2 !important
+				color var-text-2 !important
 		.rating
-			color $text-1 !important
+			color var-text-1 !important
 	.post
 		h2
-			color $text-1 !important
+			color var-text-1 !important
 		p
-			color $text-2 !important
+			color var-text-2 !important
 			a
-				color $theme !important
+				color var-theme !important
 				text-decoration none
 		li
 			a
-				color $theme !important
+				color var-theme !important
 				text-decoration none
 		ul
-			color $text-1 !important
+			color var-text-1 !important
 	.postActions
 		.listBulkActions
 			.better-sweclockers-link-to-top
-				color $theme !important
+				color var-theme !important
 				&::before
 					content '↑'
 					margin-right 4px
 					top -2px
 					position relative
 				&:hover
-					opacity $hover-opacity !important
+					opacity var-hover-opacity !important
 			.tanukiControl
 				&.tanukiSelect
 					width 150px !important
 					#__laika_cnt\.select\.0
-						background-color $on-background-1 !important
+						background-color var-on-background-1 !important
 						border none !important
-						box-shadow $box-shadow !important
+						box-shadow var-box-shadow !important
 						height 23px !important
-						border-radius $border-radius-button !important
+						border-radius var-border-radius-button !important
 						&:focus,
 						&:hover
-							background-color $highlight !important
+							background-color var-highlight !important
 				&.tanukiButton
-					background-color $on-background-1 !important
-					border-radius $border-radius-button !important
+					background-color var-on-background-1 !important
+					border-radius var-border-radius-button !important
 					border none !important
-					box-shadow $box-shadow !important
+					box-shadow var-box-shadow !important
 					height 23px !important
 					margin-right 1px !important
 					margin-bottom 1px !important
 					&:hover
-						background-color $highlight !important
+						background-color var-highlight !important
 	.postBody
 		.bbcode
 			.bbImage
 				img
-					opacity $image-opacity !important
-					border-radius $border-radius !important
+					opacity var-image-opacity !important
+					border-radius var-border-radius !important
 		.bbPoll
 			.optionBar
 				& > div
-					background $theme !important
+					background var-theme !important
 					border none !important
 			.pollQuestion
-				border-bottom $border-style !important
+				border-bottom var-border-style !important
 			.pollSums
 				.totalVotes
-					border-top $border-style !important
+					border-top var-border-style !important
 			& > .inner
-				background $background-1 !important
-				background-color $background-1 !important
-				border $border-style !important
+				background var-background-1 !important
+				background-color var-background-1 !important
+				border var-border-style !important
 	.postBox
-		background $background-2 !important
-		border $border-style !important
+		background var-background-2 !important
+		border var-border-style !important
 		.head
-			background $background-1 !important
+			background var-background-1 !important
 			.title
-				color $text-1 !important
+				color var-text-1 !important
 		.postElement
-			background $background-1 !important
-			border $border-style !important
+			background var-background-1 !important
+			border var-border-style !important
 			.karma
-				color $text-1 !important
+				color var-text-1 !important
 				border none !important
 			.select
 				border none !important
 			.summary
-				color $text-2 !important
+				color var-text-2 !important
 				border none !important
 			.username
-				color $theme !important
+				color var-theme !important
 				border none !important
 		.siblingCommand
 			.label
-				color $theme !important
+				color var-theme !important
 				&:hover
-					text-decoration $hover-text !important
-					opacity $hover-opacity !important
+					text-decoration var-hover-text !important
+					opacity var-hover-opacity !important
 		.treeNode
 			.treeLine
-				filter $theme-filter !important
+				filter var-theme-filter !important
 			&.hasChildren
 				&.isCollapsed
 					& > .treeCommand
-						background-color $highlight !important
+						background-color var-highlight !important
 	.profileHeader
 		.cell
 			background transparent !important
 		.meta
 			dd
-				color $text-2 !important
+				color var-text-2 !important
 			dt
-				color $text-2 !important
+				color var-text-2 !important
 		.statistics
 			.label
-				color $text-2 !important
+				color var-text-2 !important
 			a
-				color $theme !important
+				color var-theme !important
 				text-decoration none !important
 				&:hover
-					text-decoration $hover-text !important
-					opacity $hover-opacity !important
+					text-decoration var-hover-text !important
+					opacity var-hover-opacity !important
 		.title
-			color $text-2 !important
+			color var-text-2 !important
 		h1
-			color $text-1 !important
+			color var-text-1 !important
 	.quickReply
 		label
-			color $text-2 !important
+			color var-text-2 !important
 		h4
-			color $theme !important
+			color var-theme !important
 		#__laika_cnt\.textarea\.0
-			background $background-2 !important
-			border $border-style !important
-			border-radius $border-radius !important
-			color $text-2 !important
+			background var-background-2 !important
+			border var-border-style !important
+			border-radius var-border-radius !important
+			color var-text-2 !important
 			&:focus
-				color $text-1 !important
+				color var-text-1 !important
 		.tanukiButton
-			background $on-background-1 !important
-			border $border-style !important
-			border-radius $border-radius-button !important
+			background var-on-background-1 !important
+			border var-border-style !important
+			border-radius var-border-radius-button !important
 	.readMoreArchive
-		color $theme !important
+		color var-theme !important
 		text-decoration none !important
 		&:hover
-			text-decoration $hover-text !important
-			opacity $hover-opacity !important
+			text-decoration var-hover-text !important
+			opacity var-hover-opacity !important
 	.rulesList
 		a
-			color $warning !important
+			color var-warning !important
 			text-decoration none !important
 			&:hover
-				text-decoration $hover-text !important
-				opacity $hover-opacity !important
+				text-decoration var-hover-text !important
+				opacity var-hover-opacity !important
 		h4
-			color $text-1 !important
+			color var-text-1 !important
 		li
 			&:before
-				color $warning !important
+				color var-warning !important
 	.s5fieldset
-		border $border-style
+		border var-border-style
 		legend
-			color $text-1 !important
+			color var-text-1 !important
 	.selectBox-dropdown .selectBox-arrow
 		border-left none !important
-		filter $light-filter !important
+		filter var-light-filter !important
 	.selectBox-options
-		background-color $background-1 !important
-		color $text-2 !important
+		background-color var-background-1 !important
+		color var-text-2 !important
 		li
-			background-color $background-1 !important
-			color $text-2 !important
+			background-color var-background-1 !important
+			color var-text-2 !important
 			a
-				background-color $background-1 !important
-				color $text-2 !important
+				background-color var-background-1 !important
+				color var-text-2 !important
 				&:hover
-					background-color $highlight !important
-					color $text-1 !important
+					background-color var-highlight !important
+					color var-text-1 !important
 			&:hover
-				background-color $highlight !important
-				color $text-1 !important
+				background-color var-highlight !important
+				color var-text-1 !important
 		&:hover
-			background-color $highlight !important
-			color $text-1 !important
+			background-color var-highlight !important
+			color var-text-1 !important
 	.sideBox
 		&.articleByline
 			h5
 				border-bottom none
-				color $text-1
+				color var-text-1
 			.author a
-				color $theme
+				color var-theme
 				&:hover
-					text-decoration $hover-text
-					opacity $hover-opacity
+					text-decoration var-hover-text
+					opacity var-hover-opacity
 			.crediter a
-				color $theme
+				color var-theme
 				&:hover
-					text-decoration $hover-text
-					opacity $hover-opacity
+					text-decoration var-hover-text
+					opacity var-hover-opacity
 		&.sideShare
 			h5
-				border-bottom $border-style
-				color $text-1
+				border-bottom var-border-style
+				color var-text-1
 			.menuItem a
-				color $text-2
+				color var-text-2
 				&:hover,
 				&:hover .label
-					text-decoration $hover-text
-					opacity $hover-opacity
+					text-decoration var-hover-text
+					opacity var-hover-opacity
 				.icon
-					filter $theme-filter
+					filter var-theme-filter
 		&.videoPush
 			h5
-				border-bottom $border-style
+				border-bottom var-border-style
 				a
-					color $text-1
+					color var-text-1
 					&:hover
-						text-decoration $hover-text
-						opacity $hover-opacity
+						text-decoration var-hover-text
+						opacity var-hover-opacity
 			img
-				box-shadow $box-shadow
+				box-shadow var-box-shadow
 			h3 a
-				color $text-2
+				color var-text-2
 				&:hover
-					text-decoration $hover-text
-					opacity $hover-opacity
+					text-decoration var-hover-text
+					opacity var-hover-opacity
 		&.popularGalleries
 			h5
-				border-bottom $border-style
+				border-bottom var-border-style
 				a
-					color $text-1
+					color var-text-1
 					&:hover
-						text-decoration $hover-text
-						opacity $hover-opacity
+						text-decoration var-hover-text
+						opacity var-hover-opacity
 			.image
-				box-shadow $box-shadow
+				box-shadow var-box-shadow
 			h3 a
-				color $theme
+				color var-theme
 				&:hover
-					text-decoration $hover-text
-					opacity $hover-opacity
+					text-decoration var-hover-text
+					opacity var-hover-opacity
 			.author,
 			.cat,
 			.rating
-				color $text-2
+				color var-text-2
 				a
 					&:hover
-						text-decoration $hover-text
-						opacity $hover-opacity
+						text-decoration var-hover-text
+						opacity var-hover-opacity
 		&.sideBox
 			h5
 				border-bottom none
-				color $text-1
+				color var-text-1
 			form
 				label
-					color $theme
+					color var-theme
 				input,
 				select,
 				button
-					background-color darken($background-1, 40%)
-					border $border-style
-					color $text-2
+					background-color darken(var-background-1, 40%)
+					border var-border-style
+					color var-text-2
 				button:hover
-					background-color $highlight
+					background-color var-highlight
 				.checkboxItem label
-					color $text-2
+					color var-text-2
 			.menuItem a
-				color $text-2
+				color var-text-2
 				&:hover,
 				&:hover .label
-					text-decoration $hover-text
-					opacity $hover-opacity
+					text-decoration var-hover-text
+					opacity var-hover-opacity
 				.icon
-					filter $theme-filter
+					filter var-theme-filter
 	.sideMenu
 		#searchForm
 			#__laika_cnt\.textbox\.0,
 			#__laika_cnt\.select\.0,
 			#__laika_cnt\.select\.1
-				background-color $on-background-1 !important
-				border-radius $border-radius-button !important
+				background-color var-on-background-1 !important
+				border-radius var-border-radius-button !important
 			button
-				background-color $on-background-1 !important
+				background-color var-on-background-1 !important
 				&:hover
-					background-color $highlight !important
+					background-color var-highlight !important
 		.isSelected
 			.link
 				.label
-					text-decoration $hover-text !important
-					opacity $hover-opacity !important
+					text-decoration var-hover-text !important
+					opacity var-hover-opacity !important
 		.link
 			.label
-				color $text-1 !important
+				color var-text-1 !important
 		h5
-			color $text-1 !important
+			color var-text-1 !important
 	.sideShare
 		&.sideBox
 			.icon
-				filter $theme-filter !important
+				filter var-theme-filter !important
 			.link
-				color $text-2 !important
+				color var-text-2 !important
 			.menuItem
 				a
 					&:hover
 						.label
-							text-decoration $hover-text !important
-							opacity $hover-opacity !important
+							text-decoration var-hover-text !important
+							opacity var-hover-opacity !important
 	.staff-list
 		.sl-profile
-			border-bottom-color $border-light
+			border-bottom-color var-border-light
 			.slp-image
 				img
-					opacity $image-opacity !important
-					border-radius $border-radius !important
-					box-shadow $box-shadow !important
+					opacity var-image-opacity !important
+					border-radius var-border-radius !important
+					box-shadow var-box-shadow !important
 				&:hover
-					opacity $hover-opacity !important
+					opacity var-hover-opacity !important
 			.slp-meta
 				.slpm-item
-					color $text-2 !important
+					color var-text-2 !important
 					&.slpmi-name a
-						color $theme !important
+						color var-theme !important
 					a
-						color $text-1 !important
+						color var-text-1 !important
 						&:hover
-							opacity $hover-opacity !important
+							opacity var-hover-opacity !important
 		p a
-			color $theme
+			color var-theme
 			&:hover
-				opacity $hover-opacity !important
+				opacity var-hover-opacity !important
 	.sorter
 		.isCurrent
-			color $theme !important
+			color var-theme !important
 		a
 			.label
-				color $text-1 !important
+				color var-text-1 !important
 		.label
-			color $text-1 !important
+			color var-text-1 !important
 	.sponsoredArticle
 		background-color transparent
-		color $text-1
+		color var-text-1
 		font-weight 700
 	.subforums
 		.title h2 a
-			color $theme
+			color var-theme
 		.bg-grey-secondary
-			background-color $on-background-2 !important
-			color $text-2
+			background-color var-on-background-2 !important
+			color var-text-2
 			padding 4px 8px !important
 			font-weight 700 !important
 			font-family Arial !important
-			border-radius $border-radius-button
+			border-radius var-border-radius-button
 			&:hover
-				color $theme
-				background-color $highlight !important
+				color var-theme
+				background-color var-highlight !important
 	.table
 		.head .row .cell
-			color $white
+			color var-white
 			background none !important
 		.body
 			.row
 				.cell
-					background-color $background-2
-					color $text-1
+					background-color var-background-2
+					color var-text-1
 					&.numReplies a
-						color $text-1 !important
+						color var-text-1 !important
 						text-decoration none
 					&.alt2
-						background-color $background-2 !important
+						background-color var-background-2 !important
 					&.isGreyscale .cell.alt2
-						color $text-2 !important
+						color var-text-2 !important
 						a
-							color $text-2 !important
+							color var-text-2 !important
 				&.isSticky .cell
-					background-color $background-2
+					background-color var-background-2
 			.lastReply
 				.time
-					color $text-1 !important
+					color var-text-1 !important
 				.date
-					color $text-2 !important
+					color var-text-2 !important
 				.name
 					text-decoration none
-					color $theme !important
+					color var-theme !important
 		.cell
 			&.lastThread h3
-				color $text-1
+				color var-text-1
 				text-decoration none
 			&.title h2 a
-				color $theme !important
+				color var-theme !important
 		.title h2 a
-			color $theme !important
+			color var-theme !important
 		.dateline
-			color $text-2
+			color var-text-2
 			.date .time,
 			a
-				color $theme
+				color var-theme
 	.tanukiButton
-		background-color darken($background-1, 40%) !important
-		color $text-2
-		border $border-style !important
+		background-color darken(var-background-1, 40%) !important
+		color var-text-2
+		border var-border-style !important
 		&:hover
-			background-color $highlight !important
+			background-color var-highlight !important
 		&:focus
 			outline none !important
 	.tanukiCombobox
 		.tcbPanelItem
-			background $background-1 !important
-			color $text-2 !important
+			background var-background-1 !important
+			color var-text-2 !important
 			&.isSelected
-				background $highlight !important
-				color $text-1 !important
+				background var-highlight !important
+				color var-text-1 !important
 		.tcbPanelTrigger
-			background $background-1 !important
-			color $text-2 !important
+			background var-background-1 !important
+			color var-text-2 !important
 		.tcbpLoadIcon
-			filter $theme-filter !important
+			filter var-theme-filter !important
 		.tcbpLoading
-			background $background-1 !important
-			color $text-2 !important
+			background var-background-1 !important
+			color var-text-2 !important
 	.tanukiControl
 		.tcHint
-			color $text-2 !important
+			color var-text-2 !important
 			a
-				color $theme !important
+				color var-theme !important
 				text-decoration none !important
 				&:hover
-					text-decoration $hover-text !important
-					opacity $hover-opacity !important
+					text-decoration var-hover-text !important
+					opacity var-hover-opacity !important
 		&.isRequired
 			.tcLabel
 				&:after
-					color $warning !important
+					color var-warning !important
 	.tanukiError
 		.error
-			border $border-style !important
-			color $white !important
-			background-color $warning !important
+			border var-border-style !important
+			color var-white !important
+			background-color var-warning !important
 	.tanukiSelect
 		select
-			background $background-2 !important
+			background var-background-2 !important
 			&:focus
 				box-shadow 0 0 0 !important
 	.tanukiTextbox
 		input
-			background-color darken($background-1, 40%) !important
-			color $text-2
+			background-color darken(var-background-1, 40%) !important
+			color var-text-2
 			&:focus
-				color $text-1 !important
+				color var-text-1 !important
 				box-shadow 0 0 0 !important
 		select
-			background-color darken($background-1, 40%) !important
-			color $text-2 !important
+			background-color darken(var-background-1, 40%) !important
+			color var-text-2 !important
 	#forumList-1
 		.table
 			.head
 				.cell
-					color $text-2 !important
+					color var-text-2 !important
 					border none !important
 			.body:not(.categoryItem)
 				border none !important
-				box-shadow $box-shadow !important
-				border-radius $border-radius !important
+				box-shadow var-box-shadow !important
+				border-radius var-border-radius !important
 				.row
 					&:first-child
 						.cell
 							&.status
-								border-top-left-radius $border-radius !important
+								border-top-left-radius var-border-radius !important
 							&.numReplies
-								border-top-right-radius $border-radius !important
+								border-top-right-radius var-border-radius !important
 					&:last-child
 						.cell
 							&.status
-								border-bottom-left-radius $border-radius !important
+								border-bottom-left-radius var-border-radius !important
 							&.numReplies
-								border-bottom-right-radius $border-radius !important
+								border-bottom-right-radius var-border-radius !important
 					.cell
 						&.status
 							.icon-0
-								filter $grey-filter !important
+								filter var-grey-filter !important
 			.categoryItem
 				.cell
 					background-color transparent !important
-					color $text-1 !important
+					color var-text-1 !important
 					border none !important
 				a
-					color $text-1 !important
+					color var-text-1 !important
 					&:hover
-						text-decoration $hover-text !important
-						opacity $hover-opacity !important
+						text-decoration var-hover-text !important
+						opacity var-hover-opacity !important
 				&.title
-					border-left $border-style !important
+					border-left var-border-style !important
 				&.toggle
-					border-right $border-style !important
+					border-right var-border-style !important
 				&.isCollapsed
 					.cell
-						border-bottom $border-style-light !important
+						border-bottom var-border-style-light !important
 					.toggle .arrow
 						transform rotate(0)
 				.toggle .arrow
 					border-color transparent !important
-					border-bottom-color $theme !important
-					border-top-color $theme !important
+					border-bottom-color var-theme !important
+					border-top-color var-theme !important
 					transform rotate(60deg)
 	#threadList-1
 		.head
 			.cell
-				color $text-1 !important
+				color var-text-1 !important
 				border none !important
 		.body
 			border none !important
-			box-shadow $box-shadow !important
-			border-radius $border-radius !important
+			box-shadow var-box-shadow !important
+			border-radius var-border-radius !important
 			.row
 				&:first-child
 					.cell
 						&.status
-							border-top-left-radius $border-radius !important
+							border-top-left-radius var-border-radius !important
 						&.select
-							border-top-right-radius $border-radius !important
+							border-top-right-radius var-border-radius !important
 				&:last-child
 					.cell
 						&.status
-							border-bottom-left-radius $border-radius !important
+							border-bottom-left-radius var-border-radius !important
 						&.select
-							border-bottom-right-radius $border-radius !important
+							border-bottom-right-radius var-border-radius !important
 				.title
 					h2
 						a
-							color $text-2 !important
+							color var-text-2 !important
 							text-decoration none !important
 							&:hover
-								text-decoration $hover-text !important
-								opacity $hover-opacity !important
+								text-decoration var-hover-text !important
+								opacity var-hover-opacity !important
 				.pageLinks
 					.link
-						color $theme !important
+						color var-theme !important
 						text-decoration none !important
 						&:hover
-							text-decoration $hover-text !important
-							opacity $hover-opacity !important
+							text-decoration var-hover-text !important
+							opacity var-hover-opacity !important
 					.icon
-						filter $grey-filter !important
+						filter var-grey-filter !important
 				.lastReply
 					.by
-						color $text-2 !important
+						color var-text-2 !important
 					.date
-						color $text-2 !important
+						color var-text-2 !important
 					.icon
-						filter $grey-filter !important
+						filter var-grey-filter !important
 					.name
-						color $theme !important
+						color var-theme !important
 						text-decoration none !important
 						&:hover
-							text-decoration $hover-text !important
-							opacity $hover-opacity !important
+							text-decoration var-hover-text !important
+							opacity var-hover-opacity !important
 					.time
-						color $text-1 !important
+						color var-text-1 !important
 				.numReplies,
 				.numViews
 					a
-						color $text-2 !important
+						color var-text-2 !important
 						text-decoration none !important
 						text-decoration-color transparent !important
 						&:hover
-							text-decoration $hover-text !important
-							opacity $hover-opacity !important
+							text-decoration var-hover-text !important
+							opacity var-hover-opacity !important
 							text-decoration-color transparent !important
 				.isSelected
 					.cell
-						background $highlight !important
-						background-color $highlight !important
+						background var-highlight !important
+						background-color var-highlight !important
 						border-bottom none !important
 	.threadMap
 		.naviView
 			.shortcut
-				background-color $background-1 !important
-				border $border-style !important
-				color $text-1 !important
+				background-color var-background-1 !important
+				border var-border-style !important
+				color var-text-1 !important
 				a
 					&:hover
-						text-decoration $hover-text !important
-						opacity $hover-opacity !important
+						text-decoration var-hover-text !important
+						opacity var-hover-opacity !important
 	.threadStatus
 		&.icon-0,
 		&.icon-2,
@@ -3052,12 +3046,12 @@
 		&.icon-16,
 		&.icon-17,
 		&.icon-32
-			filter $grey-filter !important
+			filter var-grey-filter !important
 	.threadsBody
 		.title
 			h2
 				a
-					color $text-1 !important
+					color var-text-1 !important
 	.tv-frame
 		.tvf-bottom
 			background-image url('https://i.imgur.com/gi4NvPE.png') !important
@@ -3071,138 +3065,138 @@
 	.uploadPanel
 		.s5fieldset
 			p
-				color $text-2 !important
+				color var-text-2 !important
 	.videoPush
 		h3
 			& > a
-				color $text-2 !important
+				color var-text-2 !important
 	.whiteBody
 		.forumWidget
-			background-color $background-2 !important
+			background-color var-background-2 !important
 			.mwHead
 				h5
-					color $theme !important
+					color var-theme !important
 					& > a
 						&:hover
-							text-decoration $hover-text !important
-							opacity $hover-opacity !important
+							text-decoration var-hover-text !important
+							opacity var-hover-opacity !important
 				p
-					color $text-2 !important
+					color var-text-2 !important
 			.mwItem
 				a
 					&:hover
 						.mwLabelDate
-							text-decoration $hover-text !important
-							opacity $hover-opacity !important
+							text-decoration var-hover-text !important
+							opacity var-hover-opacity !important
 						.mwLabelText
-							text-decoration $hover-text !important
-							opacity $hover-opacity !important
+							text-decoration var-hover-text !important
+							opacity var-hover-opacity !important
 			.mwLabel
 				& > .mwLabelDate
-					color $text-1 !important
+					color var-text-1 !important
 				& > .mwLabelText
-					color $text-2 !important
+					color var-text-2 !important
 		.sorter
 			.column
 				&.isDesc
-					color $text-1 !important
+					color var-text-1 !important
 					&.isCurrent
-						color $theme !important
+						color var-theme !important
 						&:hover
-							background-color $background-1 !important
-							text-decoration $hover-text !important
-							opacity $hover-opacity !important
+							background-color var-background-1 !important
+							text-decoration var-hover-text !important
+							opacity var-hover-opacity !important
 					&:hover
-						background-color $background-1 !important
-						text-decoration $hover-text !important
-						opacity $hover-opacity !important
+						background-color var-background-1 !important
+						text-decoration var-hover-text !important
+						opacity var-hover-opacity !important
 	.whiteFilterBox
-		background-color $background-2
+		background-color var-background-2
 		button
 			&.tanukiButton
-				background-color darken($background-1, 40%) !important
-				border-radius $border-radius-button !important
+				background-color darken(var-background-1, 40%) !important
+				border-radius var-border-radius-button !important
 				&:hover
-					background-color $highlight !important
+					background-color var-highlight !important
 	.whiteHeader
 		.meta
 			.metaItem
 				a
-					color $text-1 !important
+					color var-text-1 !important
 					&:hover
-						text-decoration $hover-text !important
-						opacity $hover-opacity !important
+						text-decoration var-hover-text !important
+						opacity var-hover-opacity !important
 		.pmThreadPtcps
 			a
-				color $theme !important
+				color var-theme !important
 				&:hover
-					text-decoration $hover-text !important
-					opacity $hover-opacity !important
+					text-decoration var-hover-text !important
+					opacity var-hover-opacity !important
 		div
-			color $text-2 !important
+			color var-text-2 !important
 		h1
-			color $text-1
+			color var-text-1
 	.wrapinner
-		background $background-1 !important
+		background var-background-1 !important
 		#post17698683
 			h2
 				.bbColor
-					color $theme !important
+					color var-theme !important
 		#searchForm
 			.contentBox
 				select
-					background $background-1 !important
-					border $border-style !important
-					color $text-2 !important
+					background var-background-1 !important
+					border var-border-style !important
+					color var-text-2 !important
 		.articleComments
 			a
-				color $theme !important
+				color var-theme !important
 		.articleList
 			.metadata
 				.cat
-					color $theme !important
+					color var-theme !important
 				.time
-					color $text-1 !important
+					color var-text-1 !important
 		.articleStatus
 			&.icon-comment
-				filter $light-filter !important
+				filter var-light-filter !important
 		.contentBox
 			.infoText
 				h5
-					color $text-1 !important
+					color var-text-1 !important
 			button,
 			.button
-				background-color $background-1 !important
-				border-radius $border-radius-button !important
-				border $border-style !important
-				color $text-2 !important
+				background-color var-background-1 !important
+				border-radius var-border-radius-button !important
+				border var-border-style !important
+				color var-text-2 !important
 			h6
-				color $text-1 !important
+				color var-text-1 !important
 			input[type='text']
-				background $background-1 !important
-				border $border-style !important
-				color $text-2 !important
+				background var-background-1 !important
+				border var-border-style !important
+				color var-text-2 !important
 			input[type='password']
-				background $background-1 !important
-				border $border-style !important
-				color $text-2 !important
+				background var-background-1 !important
+				border var-border-style !important
+				color var-text-2 !important
 		.contentHeader
 			.descr
-				color $text-2 !important
+				color var-text-2 !important
 			.description
 				p
-					color $text-2 !important
+					color var-text-2 !important
 			.preamble
 				.bbParagraph
-					color $text-2 !important
+					color var-text-2 !important
 			.title
 				h1
-					color $text-1 !important
+					color var-text-1 !important
 			h1
 				&.title
-					color $text-1
+					color var-text-1
 		.details
-			color $text-2 !important
+			color var-text-2 !important
 		.forumList
 			.cell
 				&.status
@@ -3210,139 +3204,139 @@
 						filter none !important
 			.treeNode
 				& > .nodeInner
-					border $border-style !important
-					background $background-2 !important
-					background-color $background-2 !important
+					border var-border-style !important
+					background var-background-2 !important
+					background-color var-background-2 !important
 					.descr
-						color $text-2 !important
+						color var-text-2 !important
 					h2
-						color $theme !important
+						color var-theme !important
 		.galleryComments
 			a
-				color $theme !important
+				color var-theme !important
 		.galleryImage
-			background $background-2 !important
-			border $border-style !important
+			background var-background-2 !important
+			border var-border-style !important
 		.galleryList
 			.descr
-				color $text-2 !important
+				color var-text-2 !important
 			ul
 				.meta
 					.author
-						color $text-1 !important
+						color var-text-1 !important
 					.cat
-						color $text-2 !important
+						color var-text-2 !important
 				h2
-					color $text-1 !important
+					color var-text-1 !important
 		.header
 			.dateline
 				.mobil
-					color $theme !important
+					color var-theme !important
 				span
-					color $text-2 !important
+					color var-text-2 !important
 			.headMain
-				border-bottom $border-style !important
+				border-bottom var-border-style !important
 				padding-bottom 0
-				background $background-2 !important
+				background var-background-2 !important
 		.itemList
-			background $background-2 !important
-			border $border-style !important
+			background var-background-2 !important
+			border var-border-style !important
 			.cell
 				&.status
 					& > span
-						border-top $border-style !important
-						color $text-2 !important
+						border-top var-border-style !important
+						color var-text-2 !important
 			.listItem
 				.cat
-					color $text-1 !important
+					color var-text-1 !important
 				.dateline
-					color $text-2 !important
+					color var-text-2 !important
 				.icon
 					span
-						filter $theme-filter !important
+						filter var-theme-filter !important
 				&.isFocused
-					background $highlight !important
+					background var-highlight !important
 					box-shadow inset 1px 1px 1px transparent !important
 			div
 				&.preview
 					div
 						&.bbcode
-							color $text-2 !important
+							color var-text-2 !important
 			h2
-				color $theme !important
+				color var-theme !important
 		.listItem
 			.inner
-				color $text-2 !important
+				color var-text-2 !important
 				.dateline
 					b
-						color $text-1 !important
+						color var-text-1 !important
 				b
-					color $theme !important
+					color var-theme !important
 			&.isFocused
 				.inner
-					color $text-2 !important
+					color var-text-2 !important
 		.marketFilterBox
 			#searchForm
 				select
-					background $background-1 !important
-					border $border-style !important
-					color $text-2 !important
+					background var-background-1 !important
+					border var-border-style !important
+					color var-text-2 !important
 				input
-					background $background-1 !important
-					border $border-style !important
-					color $text-2 !important
+					background var-background-1 !important
+					border var-border-style !important
+					color var-text-2 !important
 		.marketList
 			.price
-				color $text-1 !important
+				color var-text-1 !important
 		.navi
-			background $background-2 !important
-			border $border-style !important
+			background var-background-2 !important
+			border var-border-style !important
 			.button
-				background $background-1 !important
-				border $border-style !important
+				background var-background-1 !important
+				border var-border-style !important
 				box-shadow 1px 1px 1px transparent !important
 				& > span
 					&:after
-						color $theme !important
+						color var-theme !important
 				span
-					color $text-2 !important
+					color var-text-2 !important
 			.curPage
 				select
-					background $background-1 !important
-					border $border-style !important
-					color $text-2 !important
+					background var-background-1 !important
+					border var-border-style !important
+					color var-text-2 !important
 		.profileDetail
 			dt
-				color $text-2 !important
+				color var-text-2 !important
 			dd
-				color $text-2 !important
+				color var-text-2 !important
 			h2
-				color $text-1 !important
+				color var-text-1 !important
 		.thread .body .bbcode
 			h1
-				color $text-1 !important
+				color var-text-1 !important
 			h3
-				color $theme !important
+				color var-theme !important
 		a.author
-			color $theme !important
+			color var-theme !important
 		button,
 		input[type='button'],
 		input[type='submit'],
 		.tanukiButton
 			box-shadow 1px 1px 1px transparent !important
-			border-radius $border-radius-button !important
+			border-radius var-border-radius-button !important
 		div
 			&.plItemRow
 				& > .plLabelText
-					color $text-2 !important
+					color var-text-2 !important
 				&.plItemSubRow
 					& > .plLabelText
-						color $theme !important
+						color var-theme !important
 			&.plItemSubRow
 				& > .plLabelComponent
-					color $text-1 !important
+					color var-text-1 !important
 			&.title
-				color $text-2 !important
+				color var-text-2 !important
 		input[type='text'],
 		input[type='email'],
 		input[type='search'],
@@ -3350,13 +3344,13 @@
 		input[type='password'],
 		select,
 		textarea
-			background $background-2 !important
-			border $border-style !important
-			color $text-2 !important
+			background var-background-2 !important
+			border var-border-style !important
+			color var-text-2 !important
 		&.contentHeader > .title .statusIcon + h1
-			color $text-1 !important
+			color var-text-1 !important
 		&.navi .button > span:before
-			color $theme !important
+			color var-theme !important
 	::-webkit-resizer
 		background-image url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAABB0lEQVQ4jcXSvytHYRQG8I9fZWNg8A8og0wMyKKMFEpZlPxYZaEsysJCFuprUSYs6ptQshlYLUa7JAsGSW+9V7fb/fK9GZzp7X3O8/Q85xx/rZrAfylNFJEJnDU8Ns0dbtcWNFCHElbQGT6KCDTiGDPYwGz4rK+S3IwTDGARWwlQjUAbztGBKRykwd8E2nGBVozgLNvwk0A3TuOcBnGT11RpiEO4wiv6M+QG7GK5ksAkynhAH+5TWIhyifnEfTbCAjZxjWE8p7CuuIkWjMb3t4NwXetxPeUYIU0ej6Kf6E3IaYE9LGEfY3hLkVdxhFv04C5viCFnuK5pfGRivWMnunrKn/m/Fb4AFQsvGVJYWLQAAAAASUVORK5CYII=') !important
 		background-repeat no-repeat !important
@@ -3367,98 +3361,98 @@
 	a
 		&.back_to_cal
 			&:hover
-				color $warning !important
+				color var-warning !important
 				& > i
-					background-color $warning !important
+					background-color var-warning !important
 		&.selectBox
 			&.selectBox-dropdown
-				background $background-1 !important
+				background var-background-1 !important
 				box-shadow none !important
 		&:hover
-			text-decoration $hover-text !important
+			text-decoration var-hover-text !important
 			& > .label
-				text-decoration $hover-text !important
-				opacity $hover-opacity !important
+				text-decoration var-hover-text !important
+				opacity var-hover-opacity !important
 	.link:hover
-		text-decoration $hover-text !important
-		opacity $hover-opacity !important
+		text-decoration var-hover-text !important
+		opacity var-hover-opacity !important
 		& > .label
-			text-decoration $hover-text !important
-			opacity $hover-opacity !important
+			text-decoration var-hover-text !important
+			opacity var-hover-opacity !important
 	body
-		background-color $background-1 !important
+		background-color var-background-1 !important
 		pre
-			color $text-2 !important
+			color var-text-2 !important
 	div > .widget
 		&.bg-orange
-			background $background-2 !important
+			background var-background-2 !important
 			border-bottom-left-radius 8px
 			.widget-body .list .list-item .list-link .icon
-				filter $theme-filter !important
+				filter var-theme-filter !important
 			.widget-foot > a.color-white
-				color $text-1 !important
+				color var-text-1 !important
 			a
 				& > span
 					&.list-link-text
-						color $text-2 !important
+						color var-text-2 !important
 					&.text-bold
-						color $text-1 !important
+						color var-text-1 !important
 				&.title
-					color $theme !important
+					color var-theme !important
 		&.articleContent
-			box-shadow $box-shadow !important
+			box-shadow var-box-shadow !important
 		&.widget.bg-orange
-			box-shadow $box-shadow !important
+			box-shadow var-box-shadow !important
 		&.bg-orange
 			&:hover
 				opacity 1 !important
 		&.content_holder > div > div > strong
-			color $text-2 !important
+			color var-text-2 !important
 			& > a
-				color $theme !important
+				color var-theme !important
 				text-decoration none
 		&.marketHeader > div.marketMeta.margin-large-bottom > div.left.margin-large-left > a
-			background-color $background-2
-			color $text-1 !important
+			background-color var-background-2
+			color var-text-1 !important
 		&.plBody
-			color $text-2 !important
+			color var-text-2 !important
 		&.plHead h5
-			color $theme !important
+			color var-theme !important
 		&.whiteHeader.margin-large-bottom > div
 			& > div > a
-				color $theme !important
+				color var-theme !important
 			& > h2 > span.color-orange > span
-				color $theme !important
+				color var-theme !important
 	form#better-sweclockers
 		.better-sweclockers-inlinePreference
 			input[type='text'],
 			input[type='number'],
 			input[type='time']
-				background-color $background-1 !important
-				color $text-2 !important
-				border $border-style !important
+				background-color var-background-1 !important
+				color var-text-2 !important
+				border var-border-style !important
 		.s5fieldset
-			background-color $background-2 !important
+			background-color var-background-2 !important
 		footer
-			color $text-2 !important
+			color var-text-2 !important
 			a
-				color $theme !important
+				color var-theme !important
 				&:hover
-					text-decoration $hover-text !important
-					opacity $hover-opacity !important
+					text-decoration var-hover-text !important
+					opacity var-hover-opacity !important
 		input[type='checkbox'],
 		input[type='radio']
 			& + label
-				color $text-2 !important
+				color var-text-2 !important
 		textarea,
 		input[type='text'],
 		input[type='number'],
 		input[type='time']
-			background-color $background-1 !important
-			color $text-2 !important
+			background-color var-background-1 !important
+			color var-text-2 !important
 	img[src*='/artikel/diagram/']
 		filter invert(85%) !important
 	input[type='url']
-		background $background-2 !important
-		border $border-style !important
-		color $text-2 !important
+		background var-background-2 !important
+		border var-border-style !important
+		color var-text-2 !important

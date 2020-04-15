@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name			SweClockers Dark
 @namespace		https://github.com/Soitora
-@version		3.0.0-beta.12
+@version		3.0.0-beta.13
 @description	A modern dark theme for SweClockers
 @author			Soitora <simon.mattila@protonmail.com> (https://soitora.com)
 @homepageURL	https://github.com/Soitora/SweClockers-Dark
@@ -10,8 +10,14 @@
 @license		MPL-2.0
 @preprocessor	stylus
 
-@var	checkbox	var-ad-height-lock "Lock height of banner ads" 1
-@var	checkbox	var-ad-bottom-margin "Add bottom margin to banner ads" 1
+@var	select		var-ad-height "Banner ad height" {
+	"Locked": "locked-banner-ad-height",
+	"Default": "default-banner-ad-height"
+}
+@var	select		var-ad-banner-spacer "Banner ad spacer" {
+	"10px": "locked-ad-banner-spacer",
+	"Default": "default-ad-banner-spacer"
+}
 @var	select		var-navigation-style "Navigation style" {
 	"Custom": "custom-navigation",
 	"Default": "default-navigation"
@@ -24,7 +30,7 @@
 	"Custom": "custom-scrollbar",
 	"Default": "default-scrollbar"
 }
-@var	range		var-image-opacity "Image opacity" [0.75, 0, 1, 0.05]
+@var	number		var-image-opacity "Image opacity" [0.75, 0, 1, 0.05]
 @var	color		var-background-1 "Background color 1" #121212
 @var	color		var-background-2 "Background color 2" #1D1D1F
 @var	color		var-text-1 "Text color 1" #C8C8C8
@@ -95,11 +101,11 @@
 	var-bbSpoiler = #3779a1
 	var-postHeader = #3779a1
 	/* CODE VARIABLES */
-	if (var-ad-height-lock)
+	if (var-ad-height == 'locked-banner-ad-height')
 		#siteHeader .banner
 			height 121px !important
 			overflow hidden !important
-	if (var-ad-bottom-margin)
+	if (var-ad-banner-spacer == 'locked-ad-banner-spacer')
 		#siteHeader .banner
 			margin-bottom 10px
 	if (var-navigation-style == 'custom-navigation')

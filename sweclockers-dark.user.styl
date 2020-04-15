@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name			SweClockers Dark
 @namespace		https://github.com/Soitora
-@version		3.0.0-beta.9
+@version		3.0.0-beta.10
 @description	A modern dark theme for SweClockers
 @author			Soitora <simon.mattila@protonmail.com> (https://soitora.com)
 @homepageURL	https://github.com/Soitora/SweClockers-Dark
@@ -10,21 +10,25 @@
 @license		MPL-2.0
 @preprocessor	stylus
 
-@var	color	usercss-background-1 "Background color 1" #121212
-@var	color	usercss-background-2 "Background color 2" #1D1D1F
-@var	color	usercss-background-3 "Background color 3" #0B0B0D
-@var	color	usercss-text-1 "Text color 1" #C8C8C8
-@var	color	usercss-text-2 "Text color 2" #AAAAAA
-@var	color	usercss-border "Border color" #08080B
-@var	color	usercss-border-light "Border color light" #3b3b3b
-@var	color	usercss-border-menus "Border menu color" #000000
-@var	color	usercss-forum-header "Forum header color" #232323
-@var	color	usercss-highlight "Highlight color" #2A2A2D
-@var	color	usercss-warning "Warning color" #EE4757
-@var	text	usercss-warning-filter "Warning filter" brightness(0) saturate(100%) invert(43%) sepia(88%) saturate(1483%) hue-rotate(326deg) brightness(89%) contrast(113%)
-@var	color	usercss-theme "Theme color" #F19A57
-@var	text	usercss-theme-filter "Theme filter" brightness(0) saturate(100%) invert(82%) sepia(26%) saturate(3168%) hue-rotate(320deg) brightness(99%) contrast(91%)
-
+@var	select		usercss-scrollbar-type "Scrollbar type" {
+	"Custom": "custom",
+	"Browser default": "default"
+}
+@var	number		usercss-image-opacity "Image opacity" [0.75, 0, 1, 0.05]
+@var	color		usercss-background-1 "Background color 1" #121212
+@var	color		usercss-background-2 "Background color 2" #1D1D1F
+@var	color		usercss-background-3 "Background color 3" #0B0B0D
+@var	color		usercss-text-1 "Text color 1" #C8C8C8
+@var	color		usercss-text-2 "Text color 2" #AAAAAA
+@var	color		usercss-border "Border color" #08080B
+@var	color		usercss-border-light "Border color light" #3b3b3b
+@var	color		usercss-border-menus "Border menu color" #000000
+@var	color		usercss-forum-header "Forum header color" #232323
+@var	color		usercss-highlight "Highlight color" #2A2A2D
+@var	color		usercss-warning "Warning color" #EE4757
+@var	color		usercss-theme "Theme color" #F19A57
+@var	text		usercss-warning-filter "Warning filter" brightness(0) saturate(100%) invert(43%) sepia(88%) saturate(1483%) hue-rotate(326deg) brightness(89%) contrast(113%)
+@var	text		usercss-theme-filter "Theme filter" brightness(0) saturate(100%) invert(82%) sepia(26%) saturate(3168%) hue-rotate(320deg) brightness(99%) contrast(91%)
 ==/UserStyle== */
 @-moz-document domain("sweclockers.com")
 	/* USER VARIABLES */
@@ -42,6 +46,8 @@
 	$warning-filter = usercss-warning-filter
 	$theme = usercss-theme
 	$theme-filter = usercss-theme-filter
+	$scrollbar-type = usercss-scrollbar-type
+	$image-opacity = usercss-image-opacity
 	/* GLOBAL VARIABLES */
 	$on-background-1 = $background-2
 	$on-background-2 = darken($background-2, 25%)
@@ -82,7 +88,19 @@
 	$c-bbMark = #8e78a2
 	$c-bbSpoiler = #3779a1
 	$c-postHeader = #3779a1
-	/* MIXINS */
+	/* CODE VARIABLES */
+	if ($scrollbar-type == 'custom')
+		::-webkit-scrollbar
+			width 17px
+			height 12px
+		::-webkit-scrollbar-corner
+			background $background-1
+		::-webkit-scrollbar-thumb
+			background $theme
+			border-left 4px solid $background-2 !important
+			border-right 4px solid $background-2 !important
+		::-webkit-scrollbar-track
+			background $background-1
 	filter(n)
 		filter n
 		-moz-filter n
@@ -107,7 +125,6 @@
 		-ms-user-select n
 		-o-user-select n
 		-webkit-user-select n
-	/* LAIKA SELECTORS */
 	#__laika_cnt\.textarea\.0
 		background-color $background-1 !important
 		border $border-style !important
@@ -315,6 +332,10 @@
 						color $text-1 !important
 					.price
 						color $theme !important
+				.thumb
+					background-color $background-2 !important
+					img
+						opacity $image-opacity !important
 				&:hover
 					opacity $hover-opacity !important
 	/* BETTER SWECLOCKERS */
@@ -415,6 +436,7 @@
 			text-decoration $hover-text !important
 			opacity $hover-opacity !important
 	.ad
+		opacity $image-opacity !important
 		&.adPanorama,
 		&.adModule,
 		&.adInsider,
@@ -425,7 +447,8 @@
 				box-shadow $box-shadow
 		&.adModule
 			border-bottom none !important
-		opacity 0.65
+		.adFullHeaderChild
+			background-color $background-1 !important
 	.articleActions .action.proofArticle
 		.actionIcon
 			filter $theme-filter !important
@@ -452,6 +475,7 @@
 					opacity $hover-opacity !important
 			.expanderHeader
 				color $theme !important
+				border-bottom $border-style-light !important
 				&:hover
 					text-decoration $hover-text !important
 					opacity $hover-opacity !important
@@ -464,6 +488,12 @@
 				background linear-gradient(to bottom, transparent 0, transparent 10%, $background-1 100%) !important
 		.bbImage
 			img
+				opacity $image-opacity !important
+				border-radius $border-radius !important
+				box-shadow $box-shadow !important
+		.bbVideo
+			iframe
+				opacity $image-opacity !important
 				border-radius $border-radius !important
 				box-shadow $box-shadow !important
 		.bbPoll
@@ -503,10 +533,11 @@
 				text-decoration $hover-text !important
 				opacity $hover-opacity !important
 		.bbRelatedBox
-			background-color $background-2 !important
+			background-color $on-background-2 !important
 			border none !important
 			box-shadow $box-shadow !important
 			padding-bottom 1px
+			border-radius $border-radius !important
 		.bbSlideshow .slideFooter
 			color $text-2 !important
 		.bbTable
@@ -770,9 +801,14 @@
 	.bbExpander
 		.expanderHeader
 			color $text-1 !important
+			border-bottom $border-style-light !important
 			&:hover
 				text-decoration $hover-text !important
 				opacity $hover-opacity !important
+		.expanderFooter
+			color $text-2
+			border-top $border-style-light !important
+			margin-top 0 !important
 		> .expanderFrame > .expanderFade
 			background -moz-linear-gradient(top, transparent 0, transparent 10%, $background-1 100%) !important
 			background -webkit-gradient(linear, left top, left bottom, color-stop(0, transparent), color-stop(45%, transparent), color-stop(100%, $background-1)) !important
@@ -978,6 +1014,8 @@
 			color $text-2 !important
 	.carousel
 		.slide
+			.bg img
+				opacity $image-opacity !important
 			&:hover
 				opacity $hover-opacity !important
 				.front a
@@ -1244,6 +1282,17 @@
 						background-size 600px auto !important
 					&:hover .icon
 						filter $theme-filter
+				&.edit
+					.icon
+						width 16px !important
+						height 16px !important
+						margin-right 4px !important
+						background-position -175px -100.5px !important
+						background-image url('/gfx/spritemap.png') !important
+						background-repeat no-repeat !important
+						background-size 600px auto !important
+					&:hover .icon
+						filter $theme-filter
 				&.report
 					.icon
 						background-position -150px -100.5px !important
@@ -1272,6 +1321,10 @@
 			.cell
 				background none !important
 		.profile
+			.avatar
+				img
+					border-radius $border-radius !important
+					opacity $image-opacity !important
 			.meta
 				dd,
 				dt
@@ -1330,18 +1383,21 @@
 			border-top none !important
 			border-left 3px solid $theme !important
 			border-image none !important
+			margin-left 0 !important
 			.postHeader .cell
 				background none !important
 		&.isReader:not(.isAuthor)
 			border-top none !important
 			border-left 3px solid $blue !important
 			border-image none !important
+			margin-left 0 !important
 			.postHeader .cell
 				background none !important
 		&.isReader.isAuthor
 			border-top none !important
 			border-left 3px solid $theme !important
 			border-image none !important
+			margin-left 0 !important
 			.postHeader .cell
 				background none !important
 		.button
@@ -1546,7 +1602,7 @@
 					text-decoration $hover-text !important
 					opacity $hover-opacity !important
 			p
-			color $text-2 !important
+				color $text-2 !important
 		.gpsg-header
 			border-bottom $border-style-light
 			h2
@@ -1570,6 +1626,10 @@
 		color $text-2 !important
 		.logo
 			background-image url('https://soitora.com/SweClockers-Dark/images/logo.svg')
+		.banner
+			height 121px !important
+			overflow hidden !important
+			margin-bottom 10px
 		.mainMenu
 			.menu li.menuItem
 				&.optionPaskrea,
@@ -1911,7 +1971,7 @@
 				img
 					border-radius $border-radius
 					box-shadow $box-shadow !important
-					opacity 0.65
+					opacity $image-opacity !important
 			.pubItem
 				border-bottom $border-style-light !important
 				.itemMeta
@@ -2329,6 +2389,11 @@
 					&:hover
 						background-color $highlight !important
 	.postBody
+		.bbcode
+			.bbImage
+				img
+					opacity $image-opacity !important
+					border-radius $border-radius !important
 		.bbPoll
 			.optionBar
 				& > div
@@ -2585,6 +2650,7 @@
 			border-bottom-color $border-light
 			.slp-image
 				img
+					opacity $image-opacity !important
 					border-radius $border-radius !important
 					box-shadow $box-shadow !important
 				&:hover
@@ -3166,17 +3232,6 @@
 			color $text-1 !important
 		&.navi .button > span:before
 			color $theme !important
-	::-webkit-scrollbar
-		width 17px
-		height 12px
-	::-webkit-scrollbar-corner
-		background $background-1
-	::-webkit-scrollbar-thumb
-		background $theme
-		border-left 4px solid $background-2 !important
-		border-right 4px solid $background-2 !important
-	::-webkit-scrollbar-track
-		background $background-1
 	::-webkit-resizer
 		background-image url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAABB0lEQVQ4jcXSvytHYRQG8I9fZWNg8A8og0wMyKKMFEpZlPxYZaEsysJCFuprUSYs6ptQshlYLUa7JAsGSW+9V7fb/fK9GZzp7X3O8/Q85xx/rZrAfylNFJEJnDU8Ns0dbtcWNFCHElbQGT6KCDTiGDPYwGz4rK+S3IwTDGARWwlQjUAbztGBKRykwd8E2nGBVozgLNvwk0A3TuOcBnGT11RpiEO4wiv6M+QG7GK5ksAkynhAH+5TWIhyifnEfTbCAjZxjWE8p7CuuIkWjMb3t4NwXetxPeUYIU0ej6Kf6E3IaYE9LGEfY3hLkVdxhFv04C5viCFnuK5pfGRivWMnunrKn/m/Fb4AFQsvGVJYWLQAAAAASUVORK5CYII=') !important
 		background-repeat no-repeat !important

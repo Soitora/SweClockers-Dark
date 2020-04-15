@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name			SweClockers Dark
 @namespace		https://github.com/Soitora
-@version		3.0.0-beta.10
+@version		3.0.0-beta.11
 @description	A modern dark theme for SweClockers
 @author			Soitora <simon.mattila@protonmail.com> (https://soitora.com)
 @homepageURL	https://github.com/Soitora/SweClockers-Dark
@@ -10,14 +10,23 @@
 @license		MPL-2.0
 @preprocessor	stylus
 
-@var	select		usercss-scrollbar-type "Scrollbar type" {
-	"Custom": "custom",
-	"Browser default": "default"
+@var	checkbox	usercss-ad-height-lock "Lock height of banner ads" 1
+@var	checkbox	usercss-ad-bottom-margin "Add bottom margin to banner ads" 1
+@var	select		usercss-navigation-style "Navigation style" {
+	"Custom": "custom-navigation",
+	"Default": "default-navigation"
 }
-@var	number		usercss-image-opacity "Image opacity" [0.75, 0, 1, 0.05]
+@var	select		usercss-search-style "Search style" {
+	"Custom": "custom-search",
+	"Default": "default-search"
+}
+@var	select		usercss-scrollbar-style "Scrollbar style" {
+	"Custom": "custom-scrollbar",
+	"Default": "default-scrollbar"
+}
+@var	range		usercss-image-opacity "Image opacity" [0.75, 0, 1, 0.05]
 @var	color		usercss-background-1 "Background color 1" #121212
 @var	color		usercss-background-2 "Background color 2" #1D1D1F
-@var	color		usercss-background-3 "Background color 3" #0B0B0D
 @var	color		usercss-text-1 "Text color 1" #C8C8C8
 @var	color		usercss-text-2 "Text color 2" #AAAAAA
 @var	color		usercss-border "Border color" #08080B
@@ -31,10 +40,9 @@
 @var	text		usercss-theme-filter "Theme filter" brightness(0) saturate(100%) invert(82%) sepia(26%) saturate(3168%) hue-rotate(320deg) brightness(99%) contrast(91%)
 ==/UserStyle== */
 @-moz-document domain("sweclockers.com")
-	/* USER VARIABLES */
+	/* USERCSS VARIABLES */
 	$background-1 = usercss-background-1
 	$background-2 = usercss-background-2
-	$background-3 = usercss-background-3
 	$text-1 = usercss-text-1
 	$text-2 = usercss-text-2
 	$border = usercss-border
@@ -46,8 +54,12 @@
 	$warning-filter = usercss-warning-filter
 	$theme = usercss-theme
 	$theme-filter = usercss-theme-filter
-	$scrollbar-type = usercss-scrollbar-type
+	$scrollbar-style = usercss-scrollbar-style
 	$image-opacity = usercss-image-opacity
+	$navigation-style = usercss-navigation-style
+	$search-style = usercss-search-style
+	$ad-height-lock = usercss-ad-height-lock
+	$ad-bottom-margin = usercss-ad-bottom-margin
 	/* GLOBAL VARIABLES */
 	$on-background-1 = $background-2
 	$on-background-2 = darken($background-2, 25%)
@@ -89,7 +101,116 @@
 	$c-bbSpoiler = #3779a1
 	$c-postHeader = #3779a1
 	/* CODE VARIABLES */
-	if ($scrollbar-type == 'custom')
+	if ($ad-height-lock)
+		#siteHeader .banner
+			height 121px !important
+			overflow hidden !important
+	if ($ad-bottom-margin)
+		#siteHeader .banner
+			margin-bottom 10px
+	if ($navigation-style == 'custom-navigation')
+		.header:not(.tbButton)
+			background-color transparent !important
+			color $text-2 !important
+			.mainMenu
+				.menu li.menuItem
+					&.isSelected
+						background-color $on-background-1 !important
+						height 25px
+						font-weight 400
+						a.link
+							color $theme !important
+							padding-top 7px
+			.subMenu
+				.menu li.menuItem
+					&.isSelected
+						background-color $on-background-1 !important
+						height 20px
+						font-weight 400
+						a.link
+							color $theme !important
+							padding-top 5px
+			.mainMenu,
+			.subMenu
+				.rborder
+					border-bottom none !important
+				.menu li
+					border none !important
+					border-radius $border-radius-button
+					box-shadow $box-shadow !important
+					&.menuItem
+						background-color $on-background-1 !important
+						margin-right 5px
+						margin-bottom 2px
+						&.isSelected a
+							color $text-1 !important
+							font-weight 400
+						&:hover
+							background-color $highlight !important
+							box-shadow $box-shadow !important
+							color $text-1 !important
+						a
+							color $text-2 !important
+							&:hover
+								color $text-1 !important
+			.main
+				border-right none !important
+				border-bottom none !important
+				background-color $background-1 !important
+		#better-sweclockers-dark-theme-toggle
+			margin-left 0 !important
+		if ($search-style == 'default-search')
+			.ninjaSearch
+				border-color $border-light !important
+				.searchField .fieldWrap
+					.inner,
+					input
+						background-color $on-background-1 !important
+			.header:not(.tbButton) .main .profile
+				border-color $border-light !important
+	if ($search-style == 'custom-search')
+		.ninjaSearch
+			width 180px
+			border-left none !important
+			h5
+				color $text-2 !important
+			.searchField
+				.fieldWrap
+					border none !important
+					background none !important
+					height 24px !important
+					.inner
+						background-color transparent !important
+						padding 0
+					input
+						color $text-2
+						background-color $on-background-1 !important
+						border-radius $border-radius !important
+						box-shadow $box-shadow !important
+						padding 3px 6px
+						&:hover,
+						&:focus
+							color $text-1 !important
+							background-color $highlight !important
+					.fluid
+						.inner
+							padding-right 0
+					.fixed
+						display none
+						.icon
+							margin-top 3px
+				a[title*=Google]
+					background-color $on-background-1 !important
+					color $text-1 !important
+					border $border-style !important
+					&:hover
+						background-color $highlight !important
+		.header:not(.tbButton) .main .profile
+			border-left none !important
+		if ($navigation-style == 'default-navigation')
+			.ninjaSearch .searchField .fieldWrap input
+				background-color $on-background-2 !important
+	if ($scrollbar-style == 'custom-scrollbar')
 		::-webkit-scrollbar
 			width 17px
 			height 12px
@@ -137,7 +258,7 @@
 	#__laika_cnt\.select\.2,
 	#__laika_cnt\.select\.3,
 	#__laika_cnt\.select\.4
-		background-color $background-3 !important
+		background-color darken($background-1, 40%) !important
 		color $text-2
 		border $border-style !important
 	#__laika_cnt\.textbox\.0,
@@ -145,7 +266,7 @@
 	#__laika_cnt\.textbox\.2,
 	#__laika_cnt\.textbox\.3,
 	#__laika_cnt\.textbox\.4
-		background-color $background-3 !important
+		background-color darken($background-1, 40%) !important
 		color $text-2
 		border $border-style !important
 		&:focus
@@ -339,13 +460,42 @@
 				&:hover
 					opacity $hover-opacity !important
 	/* BETTER SWECLOCKERS */
+	#better-sweclockers
+		font-family Arial, Helvetica, Meiryo, sans-serif
+		font-size 14px
+		label
+			color $text-1
+		.s5fieldset
+			border-radius $border-radius
+			border $border-style !important
+			legend
+				color $theme !important
+		textarea#better-sweclockers-preference-quote_signature_message,
+		textarea#better-sweclockers-preference-custom_css_code,
+		input#better-sweclockers-preference-textarea_size_small,
+		input#better-sweclockers-preference-textarea_size_large,
+		input#better-sweclockers-preference-dark_theme_time_on,
+		input#better-sweclockers-preference-dark_theme_time_off,
+		input#better-sweclockers-preference-dark_theme_interval
+			background-color $on-background-2 !important
+			border $border-style
+			border-radius $border-radius-button
+		::-webkit-calendar-picker-indicator
+			filter $light-filter !important
+		textarea#better-sweclockers-preference-quote_signature_message,
+		textarea#better-sweclockers-preference-custom_css_code
+			margin-top 8px
+		.better-sweclockers-code-input::after
+			color $warning !important
+			font-weight 500 !important
 	#better-sweclockers-dark-theme-toggle
 		background-image url('https://www.sweclockers.com/gfx/spritemap2x.png') !important
 		background-position -466px -95px
 		background-size 600px auto
 		background-color $on-background-1 !important
-		margin-left 0
 		opacity 1
+		&.better-sweclockers-dark-theme-active
+			background-color #696969 !important
 		&:hover
 			background-color $highlight !important
 	#better-sweclockers-document
@@ -443,7 +593,7 @@
 		&.adOutsider
 			iframe
 				border-radius $border-radius
-				background-color $background-3
+				background-color darken($background-1, 40%)
 				box-shadow $box-shadow
 		&.adModule
 			border-bottom none !important
@@ -950,7 +1100,7 @@
 				position relative
 				top -1px
 	.button
-		background-color $background-3 !important
+		background-color darken($background-1, 40%) !important
 		color $text-2
 		border $border-style !important
 		&:focus
@@ -1422,7 +1572,7 @@
 		border $border-style !important
 		color $text-2 !important
 		.controls .button
-			background-color $background-3 !important
+			background-color darken($background-1, 40%) !important
 			color $text-2
 			&:hover
 				background-color $highlight !important
@@ -1622,16 +1772,13 @@
 				text-decoration $hover-text !important
 				opacity $hover-opacity !important
 	.header:not(.tbButton)
-		background-color $background-1 !important
+		background-color transparent
 		color $text-2 !important
 		.logo
 			background-image url('https://soitora.com/SweClockers-Dark/images/logo.svg')
-		.banner
-			height 121px !important
-			overflow hidden !important
-			margin-bottom 10px
 		.mainMenu
 			.menu li.menuItem
+				background-color $background-2
 				&.optionPaskrea,
 				&.optionPaskrea.isSelected
 					background-color $c-optionPaskrea !important
@@ -1745,77 +1892,55 @@
 					&:hover
 						background-color $highlight !important
 				&.isSelected
-					background-color $on-background-1 !important
-					height 25px
-					font-weight 400
+					background-color $background-2 !important
+					border-bottom 1px solid $background-2
 					a.link
 						color $theme !important
 						padding-top 7px
 		.subMenu
 			.menu li.menuItem
+				background-color $background-1
 				&.isSelected
-					background-color $on-background-1 !important
-					height 20px
-					font-weight 400
+					background-color $background-1
+					border-bottom 1px solid $background-1
 					a.link
 						color $theme !important
 						padding-top 5px
 		.mainMenu,
 		.subMenu
 			.rborder
-				border-bottom none !important
+				border-bottom $border-style
 			.menu li
-				border none !important
-				border-radius $border-radius-button
-				box-shadow $box-shadow !important
+				border $border-style
 				&.menuItem
-					background-color $on-background-1 !important
-					margin-right 5px
-					margin-bottom 2px
+					border-bottom $border-style
 					&.isSelected a
 						color $text-1 !important
-						font-weight 400
 					&:hover
 						background-color $highlight !important
-						box-shadow $box-shadow !important
 						color $text-1 !important
 					a
 						color $text-2 !important
 						&:hover
 							color $text-1 !important
 		.main
-			border-right none !important
-			border-bottom none !important
-			background-color transparent !important
+			border-right $border-style
+			border-bottom $border-style
+			background-color $background-2
 			.ninjaSearch
-				width 180px
-				border-left none !important
+				border-color $border
 				h5
 					color $text-2 !important
 				.searchField
 					.fieldWrap
-						border none !important
-						background none !important
-						height 24px !important
-						> .inner
-							padding 0
-						input
-							color $text-2
-							background-color $on-background-1
-							border-radius $border-radius !important
-							box-shadow $box-shadow !important
-							padding 3px 6px
-							&:hover,
-							&:focus
-								color $text-1 !important
-								background-color $highlight
-						.fluid
-							.inner
-								padding-right 0
-						.fixed
-							display none
-							.icon
-								margin-top 3px
+						border $border-style
+						.inner
+							background-color $on-background-2
+							.input
+								background-color $on-background-2
+								color $text-2
+								&:focus
+									color $text-1
 					a[title*=Google]
 						background-color $on-background-1 !important
 						color $text-1 !important
@@ -1848,7 +1973,7 @@
 						text-decoration $hover-text !important
 						opacity $hover-opacity !important
 			.profile
-				border-left none !important
+				border-color $border
 				h5 a
 					color $text-2 !important
 					&:hover
@@ -1879,7 +2004,7 @@
 					color $text-2 !important
 				.actions .button
 					border $border-style !important
-					background-color $background-3 !important
+					background-color darken($background-1, 40%) !important
 					color $text-2 !important
 					&:hover
 						background-color $highlight !important
@@ -2197,8 +2322,8 @@
 			p
 				color $text-2 !important
 		.productHeader
-			background $background-3 !important
-			background-color $background-3 !important
+			background darken($background-1, 40%) !important
+			background-color darken($background-1, 40%) !important
 			&:hover
 				background $highlight !important
 				background-color $highlight !important
@@ -2597,7 +2722,7 @@
 				input,
 				select,
 				button
-					background-color $background-3
+					background-color darken($background-1, 40%)
 					border $border-style
 					color $text-2
 				button:hover
@@ -2735,7 +2860,7 @@
 			a
 				color $theme
 	.tanukiButton
-		background-color $background-3 !important
+		background-color darken($background-1, 40%) !important
 		color $text-2
 		border $border-style !important
 		&:hover
@@ -2782,13 +2907,13 @@
 				box-shadow 0 0 0 !important
 	.tanukiTextbox
 		input
-			background-color $background-3 !important
+			background-color darken($background-1, 40%) !important
 			color $text-2
 			&:focus
 				color $text-1 !important
 				box-shadow 0 0 0 !important
 		select
-			background-color $background-3 !important
+			background-color darken($background-1, 40%) !important
 			color $text-2 !important
 	#forumList-1
 		.table
@@ -2995,7 +3120,7 @@
 		background-color $background-2
 		button
 			&.tanukiButton
-				background-color $background-3 !important
+				background-color darken($background-1, 40%) !important
 				border-radius $border-radius-button !important
 				&:hover
 					background-color $highlight !important

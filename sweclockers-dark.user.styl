@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name			SweClockers Dark
 @namespace		https://github.com/Soitora
-@version		3.0.0-beta.13
+@version		3.0.0-beta.14
 @description	A modern dark theme for SweClockers
 @author			Soitora <simon.mattila@protonmail.com> (https://soitora.com)
 @homepageURL	https://github.com/Soitora/SweClockers-Dark
@@ -10,14 +10,6 @@
 @license		MPL-2.0
 @preprocessor	stylus
 
-@var	select		var-ad-height "Banner ad height" {
-	"Locked": "locked-banner-ad-height",
-	"Default": "default-banner-ad-height"
-}
-@var	select		var-ad-banner-spacer "Banner ad spacer" {
-	"10px": "locked-ad-banner-spacer",
-	"Default": "default-ad-banner-spacer"
-}
 @var	select		var-navigation-style "Navigation style" {
 	"Custom": "custom-navigation",
 	"Default": "default-navigation"
@@ -29,6 +21,18 @@
 @var	select		var-scrollbar-style "Scrollbar style" {
 	"Custom": "custom-scrollbar",
 	"Default": "default-scrollbar"
+}
+@var	select		var-postbutton-style "Post button style" {
+	"Custom": "custom-postbutton",
+	"Default": "default-postbutton"
+}
+@var	select		var-ad-height "Banner ad height" {
+	"Locked": "locked-banner-ad-height",
+	"Default": "default-banner-ad-height"
+}
+@var	select		var-ad-banner-spacer "Banner ad spacer" {
+	"10px": "locked-ad-banner-spacer",
+	"Default": "default-ad-banner-spacer"
 }
 @var	number		var-image-opacity "Image opacity" [0.75, 0, 1, 0.05]
 @var	color		var-background-1 "Background color 1" #121212
@@ -101,13 +105,6 @@
 	var-bbSpoiler = #3779a1
 	var-postHeader = #3779a1
 	/* CODE VARIABLES */
-	if (var-ad-height == 'locked-banner-ad-height')
-		#siteHeader .banner
-			height 121px !important
-			overflow hidden !important
-	if (var-ad-banner-spacer == 'locked-ad-banner-spacer')
-		#siteHeader .banner
-			margin-bottom 10px
 	if (var-navigation-style == 'custom-navigation')
 		.header:not(.tbButton)
 			background-color transparent !important
@@ -210,6 +207,110 @@
 		if (var-navigation-style == 'default-navigation')
 			.ninjaSearch .searchField .fieldWrap input
 				background-color var-on-background-2 !important
+	if (var-postbutton-style == 'custom-postbutton')
+		.forumPost
+			.controls
+				.better-sweclockers-quote-signature-button .button
+					height 24px !important
+				.button
+					background-color var-on-background-2 !important
+					border var-border-style
+					color var-text-2 !important
+					padding 4px 6px 8px 8px !important
+					height 10px !important
+					border-radius var-border-radius-button
+					margin-left 4px !important
+					.label
+						display contents
+					&.like
+						.icon
+							width 16px !important
+							height 16px !important
+							margin-right 4px !important
+							background-position 0 -201.5px !important
+							background-image url('/gfx/spritemap.png') !important
+							background-repeat no-repeat !important
+							background-size 600px auto !important
+						&:hover .icon
+							filter var-theme-filter
+					&.edit
+						.icon
+							width 16px !important
+							height 16px !important
+							margin-right 4px !important
+							background-position -175px -100.5px !important
+							background-image url('/gfx/spritemap.png') !important
+							background-repeat no-repeat !important
+							background-size 600px auto !important
+						&:hover .icon
+							filter var-theme-filter
+				.btnGroup
+					margin-left 0 !important
+					.multiquote
+						margin-left 12px !important
+		.forumControls
+			.forumSearch
+				.tanukiControl
+					margin-right 20px !important
+					*[id^='__laika_cnt.textbox.']
+						background-color var-on-background-1 !important
+						border-radius var-border-radius-button !important
+						border none !important
+						box-shadow var-box-shadow !important
+						color var-text-2 !important
+						margin-top 2px
+						padding 5px 12px !important
+						&:hover,
+						&:focus
+							color var-text-1 !important
+							background-color var-highlight !important
+				button
+					background-color var-on-background-1 !important
+					border-radius var-border-radius-button !important
+					border none !important
+					box-shadow var-box-shadow !important
+					color var-text-2 !important
+					margin-top 1px
+					margin-right 1px !important
+					padding 6px 12px
+			.button
+				&.replyToThread,
+				&.newThread
+					background-color var-on-background-1 !important
+					border-radius var-border-radius-button !important
+					border none !important
+					box-shadow var-box-shadow !important
+					color var-text-2 !important
+					padding 6px 12px
+					margin-top 1px
+					margin-right 1px !important
+					&:hover
+						background-color var-highlight !important
+						color var-text-1 !important
+		.postActions
+			.listBulkActions
+				.tanukiControl
+					&.tanukiSelect
+						width 150px !important
+						*[id^='__laika_cnt.select.']
+							background-color var-on-background-1 !important
+							border none !important
+							box-shadow var-box-shadow !important
+							height 23px !important
+							border-radius var-border-radius-button !important
+							&:focus,
+							&:hover
+								background-color var-highlight !important
+					&.tanukiButton
+						background-color var-on-background-1 !important
+						border-radius var-border-radius-button !important
+						border none !important
+						box-shadow var-box-shadow !important
+						height 23px !important
+						margin-right 1px !important
+						margin-bottom 1px !important
+						&:hover
+							background-color var-highlight !important
 	if (var-scrollbar-style == 'custom-scrollbar')
 		::-webkit-scrollbar
 			width 17px
@@ -222,6 +323,13 @@
 			border-right 4px solid var-background-2 !important
 		::-webkit-scrollbar-track
 			background var-background-1
+	if (var-ad-height == 'locked-banner-ad-height')
+		#siteHeader .banner
+			height 121px !important
+			overflow hidden !important
+	if (var-ad-banner-spacer == 'locked-ad-banner-spacer')
+		#siteHeader .banner
+			margin-bottom 10px
 	filter(n)
 		filter n
 		-moz-filter n
@@ -246,26 +354,18 @@
 		-ms-user-select n
 		-o-user-select n
 		-webkit-user-select n
-	#__laika_cnt\.textarea\.0
+	*[id^='__laika_cnt.textarea.']
 		background-color var-background-1 !important
 		border var-border-style !important
 		color var-text-2 !important
 		&:focus
 			box-shadow 0 0 0 !important
 			color var-text-1 !important
-	#__laika_cnt\.select\.0,
-	#__laika_cnt\.select\.1,
-	#__laika_cnt\.select\.2,
-	#__laika_cnt\.select\.3,
-	#__laika_cnt\.select\.4
+	*[id^='__laika_cnt.select.']
 		background-color darken(var-background-1, 40%) !important
 		color var-text-2
 		border var-border-style !important
-	#__laika_cnt\.textbox\.0,
-	#__laika_cnt\.textbox\.1,
-	#__laika_cnt\.textbox\.2,
-	#__laika_cnt\.textbox\.3,
-	#__laika_cnt\.textbox\.4
+	*[id^='__laika_cnt.textbox.']
 		background-color darken(var-background-1, 40%) !important
 		color var-text-2
 		border var-border-style !important
@@ -1100,9 +1200,9 @@
 				position relative
 				top -1px
 	.button
-		background-color darken(var-background-1, 40%) !important
+		background-color darken(var-background-1, 40%)
 		color var-text-2
-		border var-border-style !important
+		border var-border-style
 		&:focus
 			outline none !important
 		&.bg-orange
@@ -1260,15 +1360,10 @@
 	.forumControls
 		.forumSearch
 			.tanukiControl
-				margin-right 20px !important
-				#__laika_cnt\.textbox\.0
+				*[id^='__laika_cnt.textbox.']
 					background-color var-on-background-1 !important
 					border-radius var-border-radius-button !important
-					border none !important
-					box-shadow var-box-shadow !important
 					color var-text-2 !important
-					margin-top 2px
-					padding 5px 12px !important
 					&:hover,
 					&:focus
 						color var-text-1 !important
@@ -1276,25 +1371,14 @@
 			button
 				background-color var-on-background-1 !important
 				border-radius var-border-radius-button !important
-				border none !important
-				box-shadow var-box-shadow !important
 				color var-text-2 !important
-				margin-top 1px
-				margin-right 1px !important
-				padding 6px 12px
 		.button
 			&.replyToThread,
 			&.newThread
 				background-color var-on-background-1 !important
 				border-radius var-border-radius-button !important
-				border none !important
-				box-shadow var-box-shadow !important
 				color var-text-2 !important
-				padding 6px 12px
-				margin-top 1px
-				margin-right 1px !important
 				&:hover
-					background var-highlight !important
 					background-color var-highlight !important
 					color var-text-1 !important
 	.forumForm
@@ -1311,21 +1395,21 @@
 				legend
 					color var-theme !important
 			.tanukiSelect
-				#__laika_cnt\.select\.0
+				*[id^='__laika_cnt.select.']
 					background-color var-on-background-2 !important
 					border-radius var-border-radius-button
 					&:focus
 						background-color var-highlight !important
 			.tanukiTextbox
-				#__laika_cnt\.textbox\.0
+				*[id^='__laika_cnt.textbox.']
 					background-color var-on-background-2 !important
 					border-radius var-border-radius-button
 			.tanukiTextarea
-				#__laika_cnt\.textarea\.0
+				*[id^='__laika_cnt.textarea.']
 					background-color var-on-background-2 !important
 					border-radius var-border-radius
 				&.hasErrors
-					#__laika_cnt\.textarea\.0
+					*[id^='__laika_cnt.textarea.']
 						outline none !important
 						border 1px solid var-warning !important
 			.toolbar
@@ -1349,20 +1433,45 @@
 					background-color var-on-background-2 !important
 					&:hover
 						background-color var-highlight !important
-		.tanukiControl.tanukiCheckbox.isRequired
-			color var-text-2 !important
+				&.tanukiCheckbox
+					&.isRequired
+						color var-text-2 !important
+					&.hasErrors
+						.checkboxList
+							border none !important
+							border-left 2px solid var-warning !important
+							.checkboxItem
+								margin-left 5px
 		.tcLabel
 			color var-text-2 !important
 		&.postEditForm .tanukiControl.tanukiCheckbox
 			color var-text-2 !important
-		&.postPollListForm .button
-			background var-background-1 !important
-			background-color var-background-1 !important
-			color var-text-2 !important
-			&:hover
-				background var-highlight !important
-				background-color var-highlight !important
-				color var-text-1 !important
+		&.postPollListForm
+			.s5fieldset
+				.activePolls
+					color var-text-1 !important
+					li a
+						color var-text-2 !important
+			.button
+				background-color var-on-background-2 !important
+				color var-text-2 !important
+				&:hover
+					background-color var-highlight !important
+					color var-text-1 !important
+		&.postPollForm
+			.table
+				.head
+					.cell
+						background-color transparent !important
+				.body
+					box-shadow none !important
+					.row
+						.cell
+							background-color transparent !important
+							*[id^='__laika_cnt.textbox.']
+								background-color var-on-background-2 !important
+								&[readonly]
+									cursor not-allowed !important
 	.forumList
 		.lastThread .time
 			color var-theme !important
@@ -1410,39 +1519,17 @@
 						&.clickArea
 							opacity 1
 		.controls
-			.better-sweclockers-quote-signature-button .button
-				height 24px !important
 			.button
 				background-color var-on-background-2 !important
 				color var-text-2 !important
-				padding 4px 6px 8px 8px !important
-				height 10px !important
+				border var-border-style
 				border-radius var-border-radius-button
-				margin-left 4px !important
-				.label
-					display contents
-				&.like
-					.icon
-						width 16px !important
-						height 16px !important
-						margin-right 4px !important
-						background-position 0 -201.5px !important
-						background-image url('/gfx/spritemap.png') !important
-						background-repeat no-repeat !important
-						background-size 600px auto !important
-					&:hover .icon
-						filter var-theme-filter
-				&.edit
-					.icon
-						width 16px !important
-						height 16px !important
-						margin-right 4px !important
-						background-position -175px -100.5px !important
-						background-image url('/gfx/spritemap.png') !important
-						background-repeat no-repeat !important
-						background-size 600px auto !important
-					&:hover .icon
-						filter var-theme-filter
+				&:disabled
+					opacity 0.6 !important
+					&:hover
+						color var-text-2 !important
+						background-color var-on-background-2 !important
+						cursor not-allowed !important
 				&.report
 					.icon
 						background-position -150px -100.5px !important
@@ -1452,10 +1539,6 @@
 					background var-highlight !important
 					color var-text-1 !important
 					opacity 1
-			.btnGroup
-				margin-left 0 !important
-				.multiquote
-					margin-left 12px !important
 		.dateline .meta
 			background var-background-2 !important
 			color var-text-2 !important
@@ -1508,11 +1591,6 @@
 				color var-theme !important
 			.dateline .meta .score
 				color var-theme !important
-			&.isReader
-				.button.like.isDisabled:hover
-					background-color var-background-1 !important
-					color var-text-2 !important
-					cursor not-allowed !important
 		&.isLinked
 			border-color var-border !important
 			box-shadow 0 0 0 4px var-border !important
@@ -1552,17 +1630,26 @@
 				background none !important
 		.button
 			&.better-sweclockers-icon-button.better-sweclockers-pm-button
-				display none !important
+				background-color transparent !important
+				border none !important
+				border-radius var-border-radius-button !important
+				svg
+					filter var-grey-filter !important
+				&:hover
+					background-color var-highlight !important
 			&.edit
 				border var-border-style !important
 			&.like
 				&.isDisabled
+					opacity 0.6 !important
 					.score
 						color var-theme !important
 					&:hover
-						background-color var-highlight !important
 						color var-text-2 !important
+						background-color var-on-background-2 !important
 						cursor not-allowed !important
+						.icon
+							filter none !important
 			.postHeader .cell
 				border-top 3px solid var-postHeader !important
 		&.isSelected .controls .button.multiquote
@@ -1598,7 +1685,7 @@
 					text-decoration var-hover-text !important
 					opacity var-hover-opacity !important
 	.forumSearch
-		#__laika_cnt\.textbox\.0:focus
+		*[id^='__laika_cnt.textbox.']:focus
 			color var-text-1 !important
 		input
 			&::-webkit-input-placeholder
@@ -2493,12 +2580,8 @@
 					opacity var-hover-opacity !important
 			.tanukiControl
 				&.tanukiSelect
-					width 150px !important
-					#__laika_cnt\.select\.0
+					*[id^='__laika_cnt.select.']
 						background-color var-on-background-1 !important
-						border none !important
-						box-shadow var-box-shadow !important
-						height 23px !important
 						border-radius var-border-radius-button !important
 						&:focus,
 						&:hover
@@ -2506,11 +2589,6 @@
 				&.tanukiButton
 					background-color var-on-background-1 !important
 					border-radius var-border-radius-button !important
-					border none !important
-					box-shadow var-box-shadow !important
-					height 23px !important
-					margin-right 1px !important
-					margin-bottom 1px !important
 					&:hover
 						background-color var-highlight !important
 	.postBody
@@ -2593,7 +2671,7 @@
 			color var-text-2 !important
 		h4
 			color var-theme !important
-		#__laika_cnt\.textarea\.0
+		*[id^='__laika_cnt.textarea.']
 			background var-background-2 !important
 			border var-border-style !important
 			border-radius var-border-radius !important
@@ -2739,9 +2817,8 @@
 					filter var-theme-filter
 	.sideMenu
 		#searchForm
-			#__laika_cnt\.textbox\.0,
-			#__laika_cnt\.select\.0,
-			#__laika_cnt\.select\.1
+			*[id^='__laika_cnt.textbox.'],
+			*[id^='__laika_cnt.select.']
 				background-color var-on-background-1 !important
 				border-radius var-border-radius-button !important
 			button

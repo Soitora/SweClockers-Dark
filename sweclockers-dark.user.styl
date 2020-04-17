@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name			SweClockers Dark
 @namespace		https://github.com/Soitora
-@version		3.0.0-beta.14
+@version		3.0.0-beta.15
 @description	A modern dark theme for SweClockers
 @author			Soitora <simon.mattila@protonmail.com> (https://soitora.com)
 @homepageURL	https://github.com/Soitora/SweClockers-Dark
@@ -2529,13 +2529,16 @@
 				background-color var-background-1 !important
 	.pmNewThreadForm
 		.tcbEditField
-			background-color var-background-1 !important
+			background-color var-on-background-2 !important
 			color var-text-2 !important
+			border var-border-style !important
 			&:focus
 				color var-text-1 !important
 		.tcbInput
-			background-color var-background-1 !important
+			background-color var-background-2 !important
 			color var-text-2 !important
+			input
+				border-radius var-border-radius-button !important
 		.tcbSelectedItem
 			background-color var-background-2 !important
 			color var-text-2 !important
@@ -2992,6 +2995,8 @@
 		select
 			background-color darken(var-background-1, 40%) !important
 			color var-text-2 !important
+	.tcbTriggerFrame
+		border none !important
 	#forumList-1
 		.table
 			.head

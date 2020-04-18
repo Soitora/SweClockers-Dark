@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name			SweClockers Dark
 @namespace		https://github.com/Soitora
-@version		3.0.0-beta.15
+@version		3.0.0-beta.16
 @description	A modern dark theme for SweClockers
 @author			Soitora <simon.mattila@protonmail.com> (https://soitora.com)
 @homepageURL	https://github.com/Soitora/SweClockers-Dark
@@ -64,6 +64,12 @@
 	var-theme ?= #F19A57
 	var-warning-filter ?= brightness(0) saturate(100%) invert(43%) sepia(88%) saturate(1483%) hue-rotate(326deg) brightness(89%) contrast(113%)
 	var-theme-filter ?= brightness(0) saturate(100%) invert(82%) sepia(26%) saturate(3168%) hue-rotate(320deg) brightness(99%) contrast(91%)
+	var-navigation-style ?= default-navigation
+	var-search-style ?= default-search
+	var-scrollbar-style ?= custom-scrollbar
+	var-postbutton-style ?= default-postbutton
+	var-ad-height ?= default-banner-ad-height
+	var-ad-banner-spacer ?= default-ad-banner-spacer
 	/* GLOBAL VARIABLES */
 	var-on-background-1 = var-background-2
 	var-on-background-2 = darken(var-background-2, 25%)
@@ -76,6 +82,7 @@
 	var-hover-text = none
 	var-box-shadow = 0 0 0 1px var-border
 	var-box-shadow-inset = inset 0 0 0 1px var-border
+	var-box-shadow-warning = 0 0 0 1px var-warning
 	var-text-shadow = 1px 1px 2px var-black
 	var-grey-filter = sepia(0) saturate(0.29) brightness(67%) contrast(184%) hue-rotate(179deg) invert(8%)
 	var-light-filter = brightness(0) saturate(100%) invert(92%) sepia(0) saturate(489%) hue-rotate(229deg) brightness(90%) contrast(86%)
@@ -227,7 +234,7 @@
 							width 16px !important
 							height 16px !important
 							margin-right 4px !important
-							background-position 0 -201.5px !important
+							background-position 0 -201px !important
 							background-image url('/gfx/spritemap.png') !important
 							background-repeat no-repeat !important
 							background-size 600px auto !important
@@ -238,7 +245,7 @@
 							width 16px !important
 							height 16px !important
 							margin-right 4px !important
-							background-position -175px -100.5px !important
+							background-position -175px -100px !important
 							background-image url('/gfx/spritemap.png') !important
 							background-repeat no-repeat !important
 							background-size 600px auto !important
@@ -311,6 +318,26 @@
 						margin-bottom 1px !important
 						&:hover
 							background-color var-highlight !important
+		.bbSpoiler .spoilerHeader button,
+		.sideBox.sideBox form button,
+		#contactForm button
+			background-color var-on-background-2 !important
+			border-radius var-border-radius-button !important
+			border none !important
+			box-shadow var-box-shadow !important
+			height 23px !important
+			margin-right 1px !important
+			margin-bottom 1px !important
+		#replies .forumResultPost .controls .button
+			background-color var-on-background-2 !important
+			border var-border-style
+			color var-text-2 !important
+			padding 4px 8px 8px 6px !important
+			height 10px !important
+			border-radius var-border-radius-button
+			margin-left 4px !important
+			&:hover
+				background-color var-highlight !important
 	if (var-scrollbar-style == 'custom-scrollbar')
 		::-webkit-scrollbar
 			width 17px
@@ -319,8 +346,8 @@
 			background var-background-1
 		::-webkit-scrollbar-thumb
 			background var-theme
-			border-left 4px solid var-background-2 !important
-			border-right 4px solid var-background-2 !important
+			border-left 4px solid var-background-1 !important
+			border-right 4px solid var-background-1 !important
 		::-webkit-scrollbar-track
 			background var-background-1
 	if (var-ad-height == 'locked-banner-ad-height')
@@ -617,9 +644,34 @@
 		hr
 			color var-border-light
 	#contactForm
+		fieldset.s5fieldset
+			border none !important
+			legend
+				color var-theme !important
+		.tanukiSelect
+			*[id^='__laika_cnt.select.']
+				background-color var-on-background-2 !important
+				border-radius var-border-radius-button
+				&:focus
+					background-color var-highlight !important
+		.tanukiTextbox
+			*[id^='__laika_cnt.textbox.']
+				background-color var-on-background-2 !important
+				border-radius var-border-radius-button
+			&.hasErrors
+				input
+					outline none !important
+					box-shadow var-box-shadow-warning !important
+		.tanukiTextarea
+			*[id^='__laika_cnt.textarea.']
+				background-color var-on-background-2 !important
+				border-radius var-border-radius
+			&.hasErrors
+				textarea
+					outline none !important
+					box-shadow var-box-shadow-warning !important
 		button
-			background var-background-1 !important
-			background-color var-background-1 !important
+			background-color var-on-background-2 !important
 			color var-text-2 !important
 			&:hover
 				background var-highlight !important
@@ -627,6 +679,61 @@
 				color var-text-1 !important
 		label
 			color var-text-2 !important
+		.toolbar .tbButton.iconButton .inner:hover
+			background-color var-highlight !important
+			border 1px solid var-highlight !important
+			border-radius var-border-radius-button !important
+	#createForm
+		.tanukiCombobox
+			.tcbTriggerFrame
+				box-shadow var-box-shadow !important
+				border-radius var-border-radius-button !important
+				background-color var-on-background-2 !important
+				.tcbInput
+					background-color transparent !important
+					input
+						background-color transparent !important
+						border none !important
+					.tcbSelectedItem
+						background-color var-on-background-2-button !important
+						border none !important
+						border-radius var-border-radius-button !important
+						box-shadow var-box-shadow !important
+						&:nth-last-child(2)
+							margin-right 4px !important
+						&:hover
+							background-color var-highlight !important
+						.tbcsiClose
+							filter var-theme-filter !important
+				.tcbPanelTrigger
+					border-top-right-radius var-border-radius-button !important
+					border-bottom-right-radius var-border-radius-button !important
+					&:hover
+						background-color var-highlight !important
+			.tcbPanel
+				background-color transparent !important
+				border none !important
+				.tcbpOptions
+					margin-top 4px
+					background-color var-on-background-2 !important
+					box-shadow var-box-shadow !important
+					border none !important
+					.tcbPanelItem
+						background-color transparent !important
+						&.isSelected
+							background-color var-highlight !important
+				.tcbpLoading
+					margin-top 4px
+					background-color var-on-background-2 !important
+					border-radius var-border-radius-button !important
+					box-shadow var-box-shadow !important
+					color var-text-1 !important
+					.tcbpLoadIcon
+						filter var-theme-filter !important
+			&.hasErrors
+				.tcbTriggerFrame
+					outline none !important
+					box-shadow var-box-shadow-warning !important
 	#content-header
 		padding-top 20px
 		h1
@@ -649,6 +756,15 @@
 		input
 			background-color var-background-1 !important
 			color var-text-2 !important
+	#replies
+		.forumResultPost
+			border-radius var-border-radius !important
+			.postHeader
+				.threadTitle
+					background-color transparent !important
+			.controls
+				.button
+					background-color var-on-background-2
 	#revolut-ad
 		background-color var-background-2 !important
 		.button
@@ -677,9 +793,20 @@
 		background-color var-background-1 !important
 		color var-text-2 !important
 		&:hover
-			background var-highlight !important
 			background-color var-highlight !important
 			color var-text-1 !important
+	#threadActions
+		.tanukiControl
+			&.tanukiSelect
+				*[id^='__laika_cnt.select.']
+					background-color var-on-background-1 !important
+					border-radius var-border-radius-button !important
+					color var-text-2 !important
+			&.tanukiButton
+				background-color var-on-background-1 !important
+				&:hover
+					background-color var-highlight !important
+					color var-text-1 !important
 	.activePolls a
 		color var-theme !important
 		&:hover
@@ -1055,6 +1182,14 @@
 			&:hover
 				text-decoration var-hover-text !important
 				opacity var-hover-opacity !important
+			.expanderToggle:before
+				content '⯈' !important
+		&.isExpanded
+			.expanderHeader
+				.expanderToggle:before
+					content '▼' !important
+			.expanderFooter
+				border-top none !important
 		.expanderFooter
 			color var-text-2
 			border-top var-border-style-light !important
@@ -1087,8 +1222,9 @@
 			text-decoration var-hover-text !important
 			opacity var-hover-opacity !important
 	.bbPre.showFrame
-		background var-background-1 !important
+		background-color var-on-background-2 !important
 		border var-border-style !important
+		border-radius var-border-radius !important
 		color var-text-2 !important
 	.bbPrisjaktFull
 		.pjFooter
@@ -1116,7 +1252,7 @@
 					text-decoration var-hover-text !important
 					opacity var-hover-opacity !important
 	.bbQuote
-		background var-on-background-2 !important
+		background-color var-on-background-2 !important
 		border var-border-style !important
 		color var-text-2 !important
 		border-radius var-border-radius !important
@@ -1146,8 +1282,9 @@
 			opacity var-hover-opacity !important
 	.bbSpoiler
 		.spoilerFrame
-			background var-background-1 !important
+			background-color var-on-background-2 !important
 			border var-border-style !important
+			border-radius var-border-radius !important
 			color var-text-2 !important
 			.bbPoll > .inner
 				background var-background-2 !important
@@ -1158,8 +1295,8 @@
 					&:hover
 						color var-bbSpoiler !important
 		.spoilerHeader button
-			background var-background-1 !important
-			background-color var-background-1 !important
+			background-color var-on-background-2
+			border-radius var-border-radius-button !important
 			color var-text-2 !important
 			&:focus
 				outline-color transparent !important
@@ -1400,18 +1537,26 @@
 					border-radius var-border-radius-button
 					&:focus
 						background-color var-highlight !important
+				&.hasErrors
+					select
+						outline none !important
+						box-shadow var-box-shadow-warning !important
 			.tanukiTextbox
 				*[id^='__laika_cnt.textbox.']
 					background-color var-on-background-2 !important
 					border-radius var-border-radius-button
+				&.hasErrors
+					input
+						outline none !important
+						box-shadow var-box-shadow-warning !important
 			.tanukiTextarea
 				*[id^='__laika_cnt.textarea.']
 					background-color var-on-background-2 !important
 					border-radius var-border-radius
 				&.hasErrors
-					*[id^='__laika_cnt.textarea.']
+					textarea
 						outline none !important
-						border 1px solid var-warning !important
+						box-shadow var-box-shadow-warning !important
 			.toolbar
 				.tbButton
 					&.iconButton
@@ -1532,7 +1677,7 @@
 						cursor not-allowed !important
 				&.report
 					.icon
-						background-position -150px -100.5px !important
+						background-position -150px -100px !important
 					&:hover .icon
 						filter var-warning-filter
 				&:hover
@@ -1659,7 +1804,7 @@
 		border var-border-style !important
 		color var-text-2 !important
 		.controls .button
-			background-color darken(var-background-1, 40%) !important
+			background-color var-on-background-2
 			color var-text-2
 			&:hover
 				background-color var-highlight !important
@@ -2144,6 +2289,17 @@
 		p,
 		ul
 			color var-text-2 !important
+	.infoText
+		h1
+			color var-theme
+		h2
+			color var-text-1
+		p
+			color var-text-2
+		a
+			color var-theme
+			&:hover
+				opacity var-hover-opacity
 	.infoTextWindow
 		background var-background-1 !important
 		border var-border-style !important
@@ -2796,20 +2952,23 @@
 		&.sideBox
 			h5
 				border-bottom none
-				color var-text-1
+				color var-theme !important
 			form
 				label
-					color var-theme
+					color var-text-1
 				input,
 				select,
 				button
-					background-color darken(var-background-1, 40%)
+					background-color var-on-background-1 !important
 					border var-border-style
 					color var-text-2
 				button:hover
-					background-color var-highlight
+					background-color var-highlight !important
 				.checkboxItem label
 					color var-text-2
+				*[id^='__laika_cnt.textbox.']
+					background-color var-on-background-1 !important
+					border-radius var-border-radius-button !important
 			.menuItem a
 				color var-text-2
 				&:hover,
@@ -2881,6 +3040,13 @@
 				color var-text-1 !important
 		.label
 			color var-text-1 !important
+		.column
+			color var-text-2 !important
+			border-radius var-border-radius-button
+			&.is-current
+				color var-theme !important
+			&:hover
+				background-color var-highlight !important
 	.sponsoredArticle
 		background-color transparent
 		color var-text-1
@@ -2907,6 +3073,7 @@
 				.cell
 					background-color var-background-2
 					color var-text-1
+					border-bottom 2px solid var-background-2 !important
 					&.numReplies a
 						color var-text-1 !important
 						text-decoration none
@@ -2916,8 +3083,25 @@
 						color var-text-2 !important
 						a
 							color var-text-2 !important
-				&.isSticky .cell
-					background-color var-background-2
+				&.isSticky
+					.cell
+						background-color lighten(var-background-2, 2%) !important
+					&.allPostsRead
+						.cell.title h2 a
+							color var-text-1 !important
+							opacity 1 !important
+				&.hasUnreadPosts
+					.cell.title h2 a
+						color var-text-1 !important
+						opacity 1 !important
+				&.allPostsRead
+					.cell.title h2 a
+						color var-text-2 !important
+						opacity 0.8 !important
+				&.isSelected .cell
+					background-color var-highlight !important
+				&:last-child .cell
+					border-bottom 0 !important
 			.lastReply
 				.time
 					color var-text-1 !important
@@ -2955,11 +3139,6 @@
 				background var-highlight !important
 				color var-text-1 !important
 		.tcbPanelTrigger
-			background var-background-1 !important
-			color var-text-2 !important
-		.tcbpLoadIcon
-			filter var-theme-filter !important
-		.tcbpLoading
 			background var-background-1 !important
 			color var-text-2 !important
 	.tanukiControl
@@ -3070,6 +3249,21 @@
 							border-bottom-left-radius var-border-radius !important
 						&.select
 							border-bottom-right-radius var-border-radius !important
+				&.isSticky
+					.cell
+						background-color lighten(var-background-2, 2%) !important
+					&.allPostsRead
+						.cell.title h2 a
+							color var-text-1 !important
+							opacity 1 !important
+				&.hasUnreadPosts
+					.cell.title h2 a
+						color var-text-1 !important
+						opacity 1 !important
+				&.allPostsRead
+					.cell.title h2 a
+						color var-text-2 !important
+						opacity 0.8 !important
 				.title
 					h2
 						a

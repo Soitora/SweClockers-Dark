@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name			SweClockers Dark
 @namespace		https://github.com/Soitora
-@version		3.0.0-beta.16
+@version		3.0.0-beta.17
 @description	A modern dark theme for SweClockers
 @author			Soitora <simon.mattila@protonmail.com> (https://soitora.com)
 @homepageURL	https://github.com/Soitora/SweClockers-Dark
@@ -1759,6 +1759,7 @@
 			margin-left 0 !important
 			.postHeader .cell
 				background none !important
+				border-top none !important
 		&.isReader:not(.isAuthor)
 			border-top none !important
 			border-left 3px solid var-blue !important
@@ -1766,6 +1767,7 @@
 			margin-left 0 !important
 			.postHeader .cell
 				background none !important
+				border-top none !important
 		&.isReader.isAuthor
 			border-top none !important
 			border-left 3px solid var-theme !important
@@ -1773,6 +1775,7 @@
 			margin-left 0 !important
 			.postHeader .cell
 				background none !important
+				border-top none !important
 		.button
 			&.better-sweclockers-icon-button.better-sweclockers-pm-button
 				background-color transparent !important
@@ -3176,6 +3179,128 @@
 			color var-text-2 !important
 	.tcbTriggerFrame
 		border none !important
+	.tipsportal
+		.vendor-products
+			background-color var-background-2
+			border-top var-border-style
+			border-left var-border-style
+			.product
+				border-bottom var-border-style
+				border-right var-border-style
+			.product-footer
+				background-color var-background-2
+			.product-name
+				color var-theme
+				&:hover
+					opacity var-hover-opacity !important
+			.product-descr
+				color var-text-2
+			.product-price-offer
+				color var-text-1
+			.product-price-regular
+				color var-text-2
+			.product-price-savings
+				background-color var-theme
+				text-shadow var-text-shadow
+		.vendor-campaign-link
+			a
+				color var-text-1
+		.vendor-name
+			a
+				color var-text-1
+		.tips-title
+			color var-text-1
+			a
+				color var-theme
+		.tips
+			.num-comments
+				a
+					color var-theme
+			.col-product-inner-wrapper
+				color var-theme
+			.col-category
+				color var-text-1
+			.col-user
+				color var-text-1
+			a
+				&.cell-product
+					&:hover
+						.col-product,
+						.col-user
+							text-decoration none !important
+				&.cell-user
+					&:hover
+						.col-product,
+						.col-user
+							text-decoration none !important
+		.tips-row
+			background-color var-background-2
+			border var-border-style
+			border-top none
+			&:first-child
+				border-top-left-radius var-border-radius !important
+				border-top-right-radius var-border-radius !important
+				border-top var-border-style
+				&:hover
+					.col-wrapper
+						&.cell-product
+							border-top-left-radius var-border-radius !important
+						&.cell-user
+							border-top-right-radius var-border-radius !important
+			&:last-child
+				border-bottom-left-radius var-border-radius !important
+				border-bottom-right-radius var-border-radius !important
+				&:hover
+					.col-wrapper
+						&.cell-product
+							border-bottom-left-radius var-border-radius !important
+						&.cell-user
+							border-bottom-right-radius var-border-radius !important
+			&:nth-child(odd)
+				background-color var-background-2
+			&:hover
+				.col-wrapper
+					background-color var-highlight
+		.tips-header
+			border-bottom none
+		.tips-meta
+			select
+				background-color var-on-background-1
+				color var-text-1
+				border var-border-style
+				border-radius var-border-radius-button
+				&:focus
+					background-color var-highlight !important
+		.tips-data
+			border-radius var-border-radius !important
+			.col-vendor
+				color var-text-1
+			.col-price
+				color var-theme
+			.col-score
+				.label
+					background-color var-theme
+					text-shadow var-text-shadow
+		a
+			&:hover
+				text-decoration none !important
+				opacity 1 !important
+		#guide-wrapper
+			background-color var-background-2
+			color var-text-2
+			border var-border-style
+			border-radius var-border-radius
+		.vendor-guides
+			h2
+				color var-theme
+			.guide
+				span
+					color var-text-1
+				.icon
+					img
+						filter var-grey-filter !important
+						&:hover
+							opacity 0.8
 	#forumList-1
 		.table
 			.head

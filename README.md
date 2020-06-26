@@ -7,12 +7,6 @@
 	<a href="https://github.com/Soitora/SweClockers-Dark/tags">
 		<img src="https://img.shields.io/github/tag/Soitora/SweClockers-Dark.svg?label=tag" alt="Tag">
 	</a>
-	<a href="https://github.com/Soitora/SweClockers-Dark/stargazers">
-		<img src="http://github-svg-buttons.herokuapp.com/star.svg?user=Soitora&repo=SweClockers-Dark&style=flat&background=007ec6" alt="Star">
-	</a>
-	<a href="http://github.com/Soitora/SweClockers-Dark/fork">
-		<img src="http://github-svg-buttons.herokuapp.com/fork.svg?user=Soitora&repo=SweClockers-Dark&style=flat&background=007ec6" alt="Fork">
-	</a>
 </p>
 
 ## Preview

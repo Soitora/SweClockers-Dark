@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name			SweClockers Dark
 @namespace		https://github.com/Soitora
-@version		3.0.0-beta.20
+@version		3.0.0-beta.21
 @description	A modern dark theme for SweClockers
 @author			Soitora <simon.mattila@protonmail.com> (https://soitora.com)
 @homepageURL	https://github.com/Soitora/SweClockers-Dark
@@ -677,6 +677,8 @@
 					background-color var-highlight !important
 			.better-sweclockers-color-palette .button
 				margin-right 4px !important
+		.better-sweclockers-checkbox
+			color var-theme !important
 		.better-sweclockers-textarea-size
 			.tbButton
 				.btnIcon
@@ -1760,6 +1762,11 @@
 					background-color var-on-background-2 !important
 					&:hover
 						background-color var-highlight !important
+					&[disabled]
+						opacity 0.6 !important
+						&:hover
+							background-color var-on-background-2 !important
+							cursor not-allowed
 				&.tanukiCheckbox
 					&.isRequired
 						color var-text-2 !important
@@ -1931,7 +1938,7 @@
 					color var-text-1 !important
 					text-decoration none !important
 			.postBody
-				box-shadow 0 0 0 4px var-border !important
+				box-shadow 0 0 0 2px var-border-light !important
 			a.postNum:hover
 				text-decoration underline !important
 			&.isAuthor
@@ -1940,7 +1947,7 @@
 				.postHeader .cell
 					background var-border !important
 				.postBody.table
-					box-shadow var-box-shadow, 0 0 5px 2px var-theme !important
+					box-shadow 0 0 0 2px var-theme !important
 		&.isAuthor:not(.isReader)
 			border-top none !important
 			border-left none !important
@@ -1951,6 +1958,9 @@
 				border-top none !important
 			.postBody.table
 				box-shadow var-box-shadow, -4px 0 0 0 var-theme !important
+			&.isLinked
+				.postBody.table
+					box-shadow 0 0 0 2px var-theme !important
 		&.isReader:not(.isAuthor)
 			border-top none !important
 			border-left none !important
@@ -1961,6 +1971,9 @@
 				border-top none !important
 			.postBody.table
 				box-shadow var-box-shadow, -4px 0 0 0 var-blue !important
+			&.isLinked
+				.postBody.table
+					box-shadow 0 0 0 2px var-blue !important
 		&.isReader.isAuthor
 			border-top none !important
 			border-left 0 !important
@@ -2134,8 +2147,11 @@
 			color var-text-1 !important
 	.galleryImage
 		border-bottom var-border-style-light
-		.bbcode .bbParagraph
-			color var-text-2 !important
+		.bbcode
+			h3
+				color var-text-1 !important
+			.bbParagraph
+				color var-text-2 !important
 		.author a
 			color var-text-1 !important
 		.cat a

@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name			SweClockers Dark
 @namespace		https://github.com/Soitora
-@version		3.0.0
+@version		3.0.1
 @description	A modern dark theme for SweClockers
 @author			Soitora <simon.mattila@protonmail.com> (https://soitora.com)
 @homepageURL	https://github.com/Soitora/SweClockers-Dark
@@ -667,6 +667,11 @@
 			background-color #696969 !important
 		&:hover
 			background-color var-highlight !important
+	.better-sweclockers-radioButtonPreference
+		label a
+			color var-theme !important
+			&:hover
+				opacity var-hover-opacity !important
 	#better-sweclockers-document
 		.better-sweclockers-editing-tools
 			.button
@@ -1827,6 +1832,12 @@
 			background var-background-2 !important
 			box-shadow var-box-shadow !important
 			border-radius var-border-radius !important
+			.profile
+				.meta
+					dt
+						color var-text-1 !important
+					dd
+						color var-text-2 !important
 		.bbcode
 			p
 				color var-text-2 !important

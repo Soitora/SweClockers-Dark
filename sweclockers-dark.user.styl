@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name			SweClockers Dark
 @namespace		https://github.com/Soitora
-@version		3.1.0
+@version		3.1.1
 @description	A modern dark theme for SweClockers
 @author			Soitora <simon.mattila@protonmail.com> (https://soitora.com)
 @homepageURL	https://github.com/Soitora/SweClockers-Dark
@@ -2799,6 +2799,12 @@
 					color var-text-2
 	.market-content
 		border-bottom var-border-style-light !important
+		.marketText
+			p
+				color var-text-2 !important
+			li
+				&::marker
+					color var-theme !important
 		.marketImages
 			img
 				opacity var-image-opacity
@@ -2815,6 +2821,11 @@
 					&:hover .icon
 						filter var-warning-filter
 	.marketList
+		.marketThumb
+			img
+				border-radius var-border-radius !important
+				&:hover
+					opacity var-hover-opacity !important
 		.category
 			color var-text-2 !important
 			&:hover

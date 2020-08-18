@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name			SweClockers Dark
 @namespace		https://github.com/Soitora
-@version		3.1.1
+@version		3.1.2
 @description	A modern dark theme for SweClockers
 @author			Soitora <simon.mattila@protonmail.com> (https://soitora.com)
 @homepageURL	https://github.com/Soitora/SweClockers-Dark
@@ -236,7 +236,7 @@
 					color var-text-2 !important
 					padding 4px 6px 8px 8px !important
 					height 10px !important
-					border-radius var-border-radius-button
+					border-radius var-border-radius-button !important
 					margin-left 4px !important
 					.label
 						display contents
@@ -757,6 +757,9 @@
 			background-color var-on-background-2 !important
 			&:hover
 				background var-highlight !important
+		.tcLabel,
+		.checkboxItem
+			color var-text-2
 	#contactForm
 		fieldset.s5fieldset
 			border 1px solid transparent !important
@@ -886,6 +889,10 @@
 			background-color var-on-background-2 !important
 			&:hover
 				background var-highlight !important
+		.tanukiControl
+			.tcLabel,
+			.checkboxItem
+				color var-text-2
 	#form_inputs
 		.policy_container .checkboxspan
 			color var-text-2 !important
@@ -1492,12 +1499,16 @@
 				background var-highlight !important
 				background-color var-highlight !important
 				color var-text-1 !important
-	.bbcode .bbLink
-		color var-theme !important
-		text-decoration none !important
-		&:hover
-			text-decoration var-hover-text !important
-			opacity var-hover-opacity !important
+	.bbcode
+		color var-text-2
+		.bbStrong
+			color var-text-1
+		.bbLink
+			color var-theme !important
+			text-decoration none !important
+			&:hover
+				text-decoration var-hover-text !important
+				opacity var-hover-opacity !important
 	.bg-grey-primary
 		.crediters a
 			color var-theme
@@ -2526,9 +2537,12 @@
 	.infoText
 		h1
 			color var-theme !important
-		h2
+		h2,
+		h3,
+		h4
 			color var-text-1 !important
-		p
+		p,
+		li
 			color var-text-2 !important
 		a
 			color var-theme !important
@@ -2560,9 +2574,27 @@
 		background-color var-background-2 !important
 		&.bg-grey-primary
 			background-color var-background-2 !important
+			.pages a
+				background-color transparent !important
+				border none !important
+				&:hover
+					background-color var-highlight !important
+				&.isCurrent
+					background-color var-on-background-2 !important
+					&:hover
+						background-color var-highlight !important
+		#idkollen-form
+			color var-text-1
+			.tanukiButton
+				background-color var-on-background-2 !important
+				color var-text-2 !important
+				&:hover
+					background-color var-highlight !important
 		.mainContentHeader
 			color var-text-1 !important
 		.articleList
+			.preamble
+				color var-text-2 !important
 			.listItem
 				border-bottom none
 				background-color var-background-2
@@ -2682,6 +2714,7 @@
 						b
 							color var-theme !important
 				.feedItem
+					color var-text-2
 					border-top var-border-style-light !important
 					&:first-child
 						border-top 0 !important
@@ -2728,6 +2761,17 @@
 		legend
 			color var-theme !important
 	.marketForm
+		.galleryFileEditor
+			color var-text-2 !important
+			input,
+			.curFile a
+				color var-theme !important
+		.gridPanel
+			a.button
+				background-color var-on-background-2 !important
+				color var-text-2 !important
+				&:hover
+					background-color var-highlight !important
 		*[id^='__laika_cnt.select.']
 			background-color var-on-background-2 !important
 			color var-text-2
@@ -2756,6 +2800,9 @@
 				color var-text-1 !important
 			p
 				color var-text-2 !important
+		.tcLabel,
+		.checkboxItem
+			color var-text-2 !important
 	.marketHeader
 		.marketMeta
 			.meta-wrapper
@@ -3178,6 +3225,7 @@
 			text-decoration var-hover-text !important
 			opacity var-hover-opacity !important
 	.rulesList
+		color var-text-2
 		a
 			color var-warning !important
 			text-decoration none !important

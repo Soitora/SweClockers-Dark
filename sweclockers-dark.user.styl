@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name			SweClockers Dark
 @namespace		https://github.com/Soitora
-@version		3.1.2
+@version		4.0.0-alpha.1
 @description	A modern dark theme for SweClockers
 @author			Soitora <simon.mattila@protonmail.com> (https://soitora.com)
 @homepageURL	https://github.com/Soitora/SweClockers-Dark
@@ -10,4270 +10,497 @@
 @license		MPL-2.0
 @preprocessor	stylus
 
-@var	select		var-navigation-style "Navigation style" {
-	"Custom": "custom-navigation",
-	"Default*": "default-navigation"
-}
-@var	select		var-search-style "Search style" {
-	"Custom": "custom-search",
-	"Default*": "default-search"
-}
-@var	select		var-scrollbar-style "Scrollbar style" {
-	"Custom*": "custom-scrollbar",
-	"Default": "default-scrollbar"
-}
-@var	select		var-postbutton-style "Post button style" {
-	"Custom*": "custom-postbutton",
-	"Default": "default-postbutton"
-}
-@var	select		var-ad-height "Banner ad height" {
-	"Locked*": "locked-banner-ad-height",
-	"Default": "default-banner-ad-height"
-}
-@var	select		var-ad-banner-spacer "Banner ad spacer" {
-	"10px*": "locked-ad-banner-spacer",
-	"Default": "default-ad-banner-spacer"
-}
-@var	number		var-image-opacity "Image opacity" [0.75, 0, 1, 0.05]
 @var	color		var-background-1 "Background color 1" #121212
 @var	color		var-background-2 "Background color 2" #1D1D1F
 @var	color		var-text-1 "Text color 1" #C8C8C8
 @var	color		var-text-2 "Text color 2" #AAAAAA
-@var	color		var-border "Border color" #08080B
-@var	color		var-border-light "Border color light" #3B3B3B
-@var	color		var-border-menus "Border menu color" #000000
-@var	color		var-forum-header "Forum header color" #232323
+@var	color		var-border-color "Border color" #08080B
+@var	color		var-border-color-light "Border color light" #3B3B3B
 @var	color		var-highlight "Highlight color" #2A2A2D
 @var	color		var-warning "Warning color" #EE4757
 @var	color		var-theme "Theme color" #F19A57
-@var	text		var-warning-filter "Warning filter" brightness(0) saturate(100%) invert(43%) sepia(88%) saturate(1483%) hue-rotate(326deg) brightness(89%) contrast(113%)
-@var	text		var-theme-filter "Theme filter" brightness(0) saturate(100%) invert(82%) sepia(26%) saturate(3168%) hue-rotate(320deg) brightness(99%) contrast(91%)
+@var	color		var-theme-text "Theme color text" #FFFFFF
+@var	number		var-image-opacity "Image opacity" [0.75, 0, 1, 0.05]
 ==/UserStyle== */
 @-moz-document domain("www.sweclockers.com")
-	/* USERCSS VARIABLES */
+	/* UserCSS */
 	var-background-1 ?= #121212
 	var-background-2 ?= #1D1D1F
 	var-text-1 ?= #C8C8C8
 	var-text-2 ?= #AAAAAA
-	var-border ?= #08080B
-	var-border-light ?= #3B3B3B
-	var-border-menus ?= #000000
-	var-forum-header ?= #232323
+	var-border-color ?= #08080B
+	var-border-color-light ?= #3B3B3B
 	var-highlight ?= #2A2A2D
 	var-warning ?= #EE4757
 	var-theme ?= #F19A57
-	var-warning-filter ?= brightness(0) saturate(100%) invert(43%) sepia(88%) saturate(1483%) hue-rotate(326deg) brightness(89%) contrast(113%)
-	var-theme-filter ?= brightness(0) saturate(100%) invert(82%) sepia(26%) saturate(3168%) hue-rotate(320deg) brightness(99%) contrast(91%)
-	var-navigation-style ?= default-navigation
-	var-search-style ?= default-search
-	var-scrollbar-style ?= custom-scrollbar
-	var-postbutton-style ?= default-postbutton
-	var-ad-height ?= default-banner-ad-height
-	var-ad-banner-spacer ?= default-ad-banner-spacer
-	/* GLOBAL VARIABLES */
+	var-theme-text ?= #FFFFFF
+	var-image-opacity ?= 0.75
+	/* End UserCSS */
+	/* Variables */
 	var-on-background-1 = var-background-2
 	var-on-background-2 = darken(var-background-2, 25%)
 	var-on-background-2-button = lighten(var-background-2, 3%)
-	var-border-style = 1px solid var-border
-	var-border-style-light = 1px solid var-border-light
+	var-border = 1px solid var-border-color
+	var-border-light = 1px solid var-border-color-light
 	var-border-radius = 0.6rem
-	var-border-radius-button = 4px
 	var-hover-opacity = 0.8
 	var-hover-text = none
-	var-box-shadow = 0 0 0 1px var-border
-	var-box-shadow-inset = inset 0 0 0 1px var-border
+	var-box-shadow = 0 0 0 1px var-border-color
+	var-box-shadow-inset = inset 0 0 0 1px var-border-color
 	var-box-shadow-warning = 0 0 0 1px var-warning
 	var-text-shadow = 1px 1px 2px var-black
-	var-grey-filter = sepia(0) saturate(0.29) brightness(67%) contrast(184%) hue-rotate(179deg) invert(8%)
-	var-light-filter = brightness(0) saturate(100%) invert(92%) sepia(0) saturate(489%) hue-rotate(229deg) brightness(90%) contrast(86%)
-	var-blue-filter = brightness(0) saturate(100%) invert(41%) sepia(50%) saturate(563%) hue-rotate(159deg) brightness(94%) contrast(89%)
-	/* COLOR VARIABLES */
+	var-filter-light = brightness(0) saturate(100%) invert(92%) sepia(0) saturate(489%) hue-rotate(229deg) brightness(90%) contrast(86%)
 	var-black = #000000
 	var-white = #ffffff
 	var-beige = #9c6500
 	var-blue = #305d84
 	var-green = #1c5a00
 	var-pink = #b34d84
-	/* COLOR VARIABLES - EVENTS */
-	var-optionPaskrea = #b59600
-	var-optionCes = #00a0dc
-	var-optionComputex = #ad0060
-	var-optionDreamhack = #5e2f8e
-	var-optionVr = #8111e1
-	var-optionE3 = #ea2238
-	var-optionBlackfriday = #000000
-	var-optionCybermonday = #2c6f86
-	var-optionJulkalender = #cc0000
-	var-optionGreenfriday = #41a500
-	var-optionMellandagsrea = #af0035
-	var-optionBack2school = #4d9edd
-	/* COLOR VARIABLES - MISC */
-	var-bbMark = #8e78a2
-	var-bbSpoiler = #3779a1
-	var-postHeader = #3779a1
-	/* CODE VARIABLES */
-	if (var-navigation-style == 'custom-navigation')
-		.header:not(.tbButton)
-			background-color transparent !important
-			color var-text-2 !important
-			.mainMenu
-				.menu li.menuItem
-					&.isSelected
-						background-color var-on-background-1 !important
-						height 25px
-						font-weight 400
-						a.link
-							color var-theme !important
-							padding-top 7px
-			.subMenu
-				.menu li.menuItem
-					&.isSelected
-						background-color var-on-background-1 !important
-						height 20px
-						font-weight 400
-						a.link
-							color var-theme !important
-							padding-top 5px
-			.mainMenu,
-			.subMenu
-				.rborder
-					border-bottom none !important
-				.menu li
-					border none !important
-					border-radius var-border-radius-button
-					box-shadow var-box-shadow !important
-					&.menuItem
-						background-color var-on-background-1 !important
-						margin-right 5px
-						margin-bottom 2px
-						&.isSelected a
-							color var-text-1 !important
-							font-weight 400
-						&:hover
-							background-color var-highlight !important
-							box-shadow var-box-shadow !important
-							color var-text-1 !important
-						a
-							color var-text-2 !important
-							&:hover
-								color var-text-1 !important
-			.main
-				border-right none !important
-				border-bottom none !important
-				background-color var-background-1 !important
-		#better-sweclockers-dark-theme-toggle
-			margin-left 0 !important
-		if (var-search-style == 'default-search')
-			.ninjaSearch
-				border-color var-border-light !important
-				.searchField .fieldWrap
-					.inner,
-					input
-						background-color var-on-background-1 !important
-			.header:not(.tbButton) .main
-				.profile,
-				.signin
-					border-color var-border-light !important
-				.signin
-					.actions .button
-						border var-border-style !important
-						background-color var-on-background-1 !important
-						color var-text-2 !important
-						&:hover
-							background-color var-highlight !important
-	if (var-search-style == 'custom-search')
-		.ninjaSearch
-			width 180px
-			border-left none !important
-			h5
-				color var-text-2 !important
-			.searchField
-				.fieldWrap
-					border none !important
-					background none !important
-					height 24px !important
-					.inner
-						background-color transparent !important
-						padding 0
-					input
-						color var-text-2
-						background-color var-on-background-1 !important
-						border-radius var-border-radius !important
-						box-shadow var-box-shadow !important
-						padding 3px 6px
-						&:hover,
-						&:focus
-							color var-text-1 !important
-							background-color var-highlight !important
-					.fluid
-						.inner
-							padding-right 0
-					.fixed
-						display none
-						.icon
-							margin-top 3px
-				a[title*=Google]
-					background-color var-on-background-1 !important
-					color var-text-1 !important
-					border var-border-style !important
-					&:hover
-						background-color var-highlight !important
-		.header:not(.tbButton) .main
-			.profile,
-			.signin
-				border-left none !important
-		if (var-navigation-style == 'default-navigation')
-			.ninjaSearch .searchField .fieldWrap input
-				background-color var-on-background-2 !important
-	if (var-postbutton-style == 'custom-postbutton')
-		.forumPost
-			.controls
-				.better-sweclockers-quote-signature-button .button
-					height 24px !important
-				.button
-					background-color var-on-background-2 !important
-					border var-border-style
-					color var-text-2 !important
-					padding 4px 6px 8px 8px !important
-					height 10px !important
-					border-radius var-border-radius-button !important
-					margin-left 4px !important
-					.label
-						display contents
-					&.like
-						.icon
-							width 16px !important
-							height 16px !important
-							margin-right 4px !important
-							background-position 0 -201px !important
-							background-image url('/gfx/spritemap.png') !important
-							background-repeat no-repeat !important
-							background-size 600px auto !important
-						&:hover .icon
-							filter var-theme-filter
-					&.edit
-						.icon
-							width 16px !important
-							height 16px !important
-							margin-right 4px !important
-							background-position -175px -100px !important
-							background-image url('/gfx/spritemap.png') !important
-							background-repeat no-repeat !important
-							background-size 600px auto !important
-						&:hover .icon
-							filter var-theme-filter
-				.btnGroup
-					margin-left 0 !important
-					.multiquote
-						margin-left 12px !important
-		.forumControls
-			.forumSearch
-				.tanukiControl
-					margin-right 20px !important
-					*[id^='__laika_cnt.textbox.']
-						background-color var-on-background-1 !important
-						border-radius var-border-radius-button !important
-						border none !important
-						box-shadow var-box-shadow !important
-						color var-text-2 !important
-						margin-top 2px
-						padding 5px 12px !important
-						&:hover,
-						&:focus
-							color var-text-1 !important
-							background-color var-highlight !important
-				button
-					background-color var-on-background-1 !important
-					border-radius var-border-radius-button !important
-					border none !important
-					box-shadow var-box-shadow !important
-					color var-text-2 !important
-					margin-top 1px
-					margin-right 1px !important
-					padding 6px 12px
-			.button
-				&.replyToThread,
-				&.newThread
-					background-color var-on-background-1 !important
-					border-radius var-border-radius-button !important
-					border none !important
-					box-shadow var-box-shadow !important
-					color var-text-2 !important
-					padding 6px 12px
-					margin-top 1px
-					margin-right 1px !important
-					&:hover
-						background-color var-highlight !important
-						color var-text-1 !important
-		.postActions
-			.listBulkActions
-				.tanukiControl
-					&.tanukiSelect
-						width 150px !important
-						*[id^='__laika_cnt.select.']
-							background-color var-on-background-1 !important
-							border none !important
-							box-shadow var-box-shadow !important
-							height 23px !important
-							border-radius var-border-radius-button !important
-							&:hover
-								background-color var-highlight !important
-					&.tanukiButton
-						background-color var-on-background-1 !important
-						border-radius var-border-radius-button !important
-						border none !important
-						box-shadow var-box-shadow !important
-						height 23px !important
-						margin-right 1px !important
-						margin-bottom 1px !important
-						&:hover
-							background-color var-highlight !important
-		.galleryBody
-			.btnGroup
-				margin-left 0 !important
-				.button
-					padding 4px 6px 10px 8px !important
-					height 10px !important
-					border-radius var-border-radius-button
-					margin-left 4px !important
-					&+.button
-						border-left var-border-style
-		.bbSpoiler .spoilerHeader button,
-		.sideBox.sideBox form button,
-		#contactForm button
-			background-color var-on-background-2 !important
-			border-radius var-border-radius-button !important
-			border none !important
-			box-shadow var-box-shadow !important
-			height 23px !important
-			margin-right 1px !important
-			margin-bottom 1px !important
-		#replies .forumResultPost .controls .button
-			background-color var-on-background-2 !important
-			border var-border-style
-			color var-text-2 !important
-			padding 4px 8px 8px 6px !important
-			height 10px !important
-			border-radius var-border-radius-button
-			margin-left 4px !important
-			&:hover
-				background-color var-highlight !important
-	if (var-scrollbar-style == 'custom-scrollbar')
-		::-webkit-scrollbar
-			width 17px
-			height 12px
-		::-webkit-scrollbar-corner
-			background var-background-1
-		::-webkit-scrollbar-thumb
-			background var-theme
-			border-left 4px solid var-background-1 !important
-			border-right 4px solid var-background-1 !important
-		::-webkit-scrollbar-track
-			background var-background-1
-	if (var-ad-height == 'locked-banner-ad-height')
-		#siteHeader .banner
-			height 121px !important
-			overflow hidden !important
-	if (var-ad-banner-spacer == 'locked-ad-banner-spacer')
-		#siteHeader .banner
-			margin-bottom 10px
-	filter()
-		filter arguments
-		-moz-filter arguments
-		-ms-filter arguments
-		-o-filter arguments
-		-webkit-filter arguments
-	border-radius()
-		border-radius arguments
-		-moz-border-radius arguments
-		-ms-border-radius arguments
-		-o-border-radius arguments
-		-webkit-border-radius arguments
-	box-shadow()
-		box-shadow arguments
-		-moz-box-shadow arguments
-		-ms-box-shadow arguments
-		-o-box-shadow arguments
-		-webkit-box-shadow arguments
-	user-select(n)
-		user-select n
-		-moz-user-select n
-		-ms-user-select n
-		-o-user-select n
-		-webkit-user-select n
-	*[id^='__laika_cnt.textarea.']
-		background-color var-background-1 !important
-		border var-border-style !important
-		color var-text-2 !important
-		&:focus
-			box-shadow 0 0 0 !important
-			color var-text-1 !important
-	*[id^='__laika_cnt.select.']
-		background-color darken(var-background-1, 40%) !important
+	/* End Variables */
+	/* Global */
+	body
+		background-color var-background-1
 		color var-text-2
-		border var-border-style !important
-	*[id^='__laika_cnt.textbox.']
-		background-color darken(var-background-1, 40%) !important
-		color var-text-2
-		border var-border-style !important
-		&:focus
-			box-shadow 0 0 0 !important
-			color var-text-1 !important
-	/* WIDGETS */
-	#wdgtSideRecentThreads
-		background-color var-background-2 !important
-		box-shadow var-box-shadow !important
-		border-radius var-border-radius !important
-		.plHead
-			h5
-				color var-theme !important
-				&:hover
-					text-decoration var-hover-text !important
-					opacity var-hover-opacity !important
-		.plBody
-			.plItem
-				.plLabel
-					.plIcon
-						filter var-theme-filter !important
-					.plLabelText
-						color var-text-2 !important
-					&:hover
-						.plLabelIcon,
-						.plLabelText
-							text-decoration var-hover-text !important
-							opacity var-hover-opacity !important
-				.plComments
-					.plLabelText
-						color var-theme !important
-			.button
-				background-color var-on-background-2 !important
-				color var-text-2 !important
-				border-radius var-border-radius-button !important
-				&:hover
-					background-color var-highlight !important
-					color var-theme !important
-	#recent-classifieds,
-	#recent-reviews
-		background-color var-background-2 !important
-		box-shadow var-box-shadow !important
-		border-radius var-border-radius !important
-		.widget-head
-			.title
-				color var-theme !important
-				&:hover
-					opacity var-hover-opacity !important
-			.title-secondary
-				color var-text-2 !important
-				a
-					color var-text-1 !important
-					&:hover
-						opacity var-hover-opacity !important
-		.widget-body
-			.button
-				&.bg-beige
-					background-color var-beige !important
-				&.bg-blue
-					background-color var-blue !important
-				&.bg-green
-					background-color var-green !important
-				&.bg-pink
-					background-color var-pink !important
-			.list-item
-				.list-link
-					color var-text-1 !important
-					&:hover
-						opacity var-hover-opacity !important
-					.icon
-						filter var-theme-filter !important
-					.button
-						border none !important
-					.text-bold.color-white
-						color var-theme !important
-				.list-comment-bubble
-					&:hover
-						opacity var-hover-opacity !important
-					&.color-orange
-						color var-theme !important
-					.icon
-						filter var-theme-filter !important
-	#wdgtSideExternalFeeds
-		.plHead
-			h5
-				color var-theme !important
-			p
-				color var-text-2 !important
-		.plBody
-			h6
-				color var-text-1 !important
-			.plItem
-				.plLabel
-					.plIcon
-						filter var-theme-filter !important
-					.plLabelText
-						color var-text-2 !important
-					.plLabelDate
-						color var-theme !important
-					&:hover
-						.plLabelIcon,
-						.plLabelText
-							text-decoration var-hover-text !important
-							opacity var-hover-opacity !important
-	#wdgtMainRecentNews
-		background-color var-background-2 !important
-		box-shadow var-box-shadow !important
-		border-radius var-border-radius !important
-		.mwHead
-			h5
-				color var-theme !important
-				&:hover
-					text-decoration var-hover-text !important
-					opacity var-hover-opacity !important
-		.mwBody
-			h6
-				color var-text-1 !important
-			.mwItem
-				.mwLabel
-					.mwIcon
-						filter var-theme-filter !important
-					.mwLabelDate
-						color var-text-1 !important
-					.mwLabelText
-						color var-text-2 !important
-					&:hover
-						.mwLabelIcon,
-						.mwLabelDate,
-						.mwLabelText
-							text-decoration var-hover-text !important
-							opacity var-hover-opacity !important
-				.mwComments
-					.mwLabelText
-						color var-theme !important
-	#wdgtMainRecentThreads
-		background-color var-background-2 !important
-		box-shadow var-box-shadow !important
-		border-radius var-border-radius !important
-		.mwHead
-			h5
-				color var-theme !important
-				&:hover
-					text-decoration var-hover-text !important
-					opacity var-hover-opacity !important
-		.mwBody
-			h6
-				color var-text-1 !important
-			.mwItem
-				.mwLabel
-					.mwIcon
-						filter var-theme-filter !important
-					.mwLabelText
-						color var-text-2 !important
-					&:hover
-						.mwLabelIcon,
-						.mwLabelText
-							text-decoration var-hover-text !important
-							opacity var-hover-opacity !important
-	#wdgtSideRecentClassifieds
-		& > div
-			&:nth-child(2),
-			&:nth-child(3),
-			&:nth-child(4),
-			&:nth-child(5)
-				> h6
-					color var-text-1 !important
-	#widget-recent-threads-buildlog
-		background-color var-background-2 !important
-		box-shadow var-box-shadow !important
-		.widget-head
-			color var-theme
-		.widget-body
-			.list-item
-				.list-link
-					color var-text-1 !important
-					&:hover
-						opacity var-hover-opacity !important
-					.icon
-						filter var-theme-filter !important
-					.text-bold.color-white
-						color var-theme !important
-				.list-comment-bubble
-					&:hover
-						opacity var-hover-opacity !important
-					.color-orange
-						color var-theme !important
-					.icon
-						filter var-theme-filter !important
-	#prisjakt-popular
-		background-color var-background-2 !important
-		box-shadow var-box-shadow !important
-		border-radius var-border-radius !important
-		.widget-head
-			.title span
-				color var-theme !important
-			.title-secondary a
-				color var-text-2 !important
-				&:hover
-					opacity var-hover-opacity !important
-		.widget-body
-			.list-link
-				.icon
-					filter var-theme-filter !important
-				.list-link-text
-					.title
-						color var-text-1 !important
-					.price
-						color var-theme !important
-				.thumb
-					background-color var-background-2 !important
-					img
-						opacity var-image-opacity !important
-				&:hover
-					opacity var-hover-opacity !important
-	/* BETTER SWECLOCKERS */
-	#better-sweclockers
-		font-family Arial, Helvetica, Meiryo, sans-serif
-		font-size 14px
-		label
-			color var-text-1
-		.s5fieldset
-			border-radius var-border-radius
-			border var-border-style !important
-			legend
-				color var-theme !important
-		textarea#better-sweclockers-preference-quote_signature_message,
-		textarea#better-sweclockers-preference-custom_css_code,
-		input#better-sweclockers-preference-textarea_size_small,
-		input#better-sweclockers-preference-textarea_size_large,
-		input#better-sweclockers-preference-dark_theme_time_on,
-		input#better-sweclockers-preference-dark_theme_time_off,
-		input#better-sweclockers-preference-dark_theme_interval
-			background-color var-on-background-2 !important
-			border var-border-style
-			border-radius var-border-radius-button
-		::-webkit-calendar-picker-indicator
-			filter var-light-filter !important
-		textarea#better-sweclockers-preference-quote_signature_message,
-		textarea#better-sweclockers-preference-custom_css_code
-			margin-top 8px
-		.better-sweclockers-code-input::after
-			color var-warning !important
-			font-weight 500 !important
-	#better-sweclockers-dark-theme-toggle
-		background-image url('https://www.sweclockers.com/gfx/spritemap2x.png') !important
-		background-position -466px -95px
-		background-size 600px auto
-		background-color var-on-background-1 !important
-		opacity 1
-		&.better-sweclockers-dark-theme-active
-			background-color #696969 !important
-		&:hover
-			background-color var-highlight !important
-	.better-sweclockers-radioButtonPreference
-		label a
-			color var-theme !important
-			&:hover
-				opacity var-hover-opacity !important
-	#better-sweclockers-document
-		.better-sweclockers-editing-tools
-			.button
-				background-color transparent !important
-				border none !important
-				margin-right 4px !important
-				&:hover
-					background-color var-highlight !important
-			a
-				color var-text-2 !important
-			.better-sweclockers-color-palette .button
-				margin-right 4px !important
-		.better-sweclockers-checkbox
-			color var-theme !important
-		.better-sweclockers-textarea-size
-			.tbButton
-				.btnIcon
-					filter var-grey-filter !important
-		.proofDialog
-			.wndWindowArea
-				.cell
-					background-color var-background-2 !important
-			.wndToolbarDecorator
-				.wndToolbarMenu
-					.wndToolbarInner
-						border-bottom var-border-style-light
-					.wndToolbarControl
-						filter var-light-filter
-					h4
-						color var-theme !important
-			.wndToolbarContents
-				color var-text-2
-				label
-					color var-text-1
-				textarea
-					background-color var-on-background-2 !important
-					border-radius var-border-radius !important
-				.tanukiSelect
-					*[id^='__laika_cnt.select.']
-						background-color var-on-background-2 !important
-						border-radius var-border-radius-button
-				.tanukiButton
-					background-color var-on-background-2 !important
-					&:hover
-						background var-highlight !important
-			.wndFrameDecorator
-				background-color var-background-2 !important
-				.wndStatusbarDecorator
-					.wndStatusbarMenu
-						& > .inner
-							border-top var-border-style-light
-		.articleActions .action.proofArticle
-			.actionLink
-				background-color var-background-2 !important
-				opacity 0.8 !important
-				&:hover
-					opacity 1 !important
-			.actionIcon
-				filter var-theme-filter !important
-			.actionLabel
-				color var-theme !important
-				&:hover
-					text-decoration var-hover-text !important
-	/* REST OF CODE */
-	#articleAuthors
-		hr
-			color var-border-light
-	#signinForm
-		.s5fieldset
-			border 1px solid transparent
-			legend
-				color var-theme !important
-		.tanukiTextbox
-			*[id^='__tanuki_cnt_']
-				background-color var-on-background-2 !important
-				border-radius var-border-radius-button
-				border var-border-style
-			&.hasErrors
-				input
-					outline none !important
-					box-shadow var-box-shadow-warning !important
-		.tanukiButton
-			background-color var-on-background-2 !important
-			&:hover
-				background var-highlight !important
-		.tcLabel,
-		.checkboxItem
-			color var-text-2
-	#contactForm
-		fieldset.s5fieldset
-			border 1px solid transparent !important
-			legend
-				color var-theme !important
-		.tanukiSelect
-			*[id^='__laika_cnt.select.']
-				background-color var-on-background-2 !important
-				border-radius var-border-radius-button
-		.tanukiTextbox
-			*[id^='__laika_cnt.textbox.']
-				background-color var-on-background-2 !important
-				border-radius var-border-radius-button
-			&.hasErrors
-				input
-					outline none !important
-					box-shadow var-box-shadow-warning !important
-		.tanukiTextarea
-			*[id^='__laika_cnt.textarea.']
-				background-color var-on-background-2 !important
-				border-radius var-border-radius
-			&.hasErrors
-				textarea
-					outline none !important
-					box-shadow var-box-shadow-warning !important
-		button
-			background-color var-on-background-2 !important
-			color var-text-2 !important
-			&:hover
-				background var-highlight !important
-				background-color var-highlight !important
-				color var-text-1 !important
-		label
-			color var-text-2 !important
-		.toolbar .tbButton.iconButton .inner:hover
-			background-color var-highlight !important
-			border 1px solid var-highlight !important
-			border-radius var-border-radius-button !important
-	#createForm
-		.tanukiCombobox
-			.tcbTriggerFrame
-				box-shadow var-box-shadow !important
-				border-radius var-border-radius-button !important
-				background-color var-on-background-2 !important
-				.tcbInput
-					background-color transparent !important
-					input
-						background-color transparent !important
-						border none !important
-					.tcbSelectedItem
-						background-color var-on-background-2-button !important
-						border none !important
-						border-radius var-border-radius-button !important
-						box-shadow var-box-shadow !important
-						&:nth-last-child(2)
-							margin-right 4px !important
-						&:hover
-							background-color var-highlight !important
-						.tbcsiClose
-							filter var-theme-filter !important
-				.tcbPanelTrigger
-					border-top-right-radius var-border-radius-button !important
-					border-bottom-right-radius var-border-radius-button !important
-					&:hover
-						background-color var-highlight !important
-			.tcbPanel
-				background-color transparent !important
-				border none !important
-				.tcbpOptions
-					margin-top 4px
-					background-color var-on-background-2 !important
-					box-shadow var-box-shadow !important
-					border none !important
-					.tcbPanelItem
-						background-color transparent !important
-						&.isSelected
-							background-color var-highlight !important
-				.tcbpLoading
-					margin-top 4px
-					background-color var-on-background-2 !important
-					border-radius var-border-radius-button !important
-					box-shadow var-box-shadow !important
-					color var-text-1 !important
-					.tcbpLoadIcon
-						filter var-theme-filter !important
-			&.hasErrors
-				.tcbTriggerFrame
-					outline none !important
-					box-shadow var-box-shadow-warning !important
-	#content-header
-		padding-top 20px
-		h1
-			color var-text-1
-		p
-			color var-text-2
-	#detailsForm,
-	#notificationForm,
-	#optionsForm,
-	#passwordForm,
-	#signatureForm,
-	#relationForm,
-	#newsletter-form
-		.s5fieldset
-			border 1px solid transparent !important
-			legend
-				color var-theme !important
-		.tanukiTextbox
-			*[id^='__laika_cnt.']
-				background-color var-on-background-2 !important
-				border-radius var-border-radius-button
-				border var-border-style
-				&:disabled:hover
-					cursor not-allowed
-			&.hasErrors
-				input
-					outline none !important
-					box-shadow var-box-shadow-warning !important
-		.tanukiTextarea
-			*[id^='__laika_cnt.textarea.']
-				background-color var-on-background-2 !important
-				border-radius var-border-radius
-			&.hasErrors
-				textarea
-					outline none !important
-					box-shadow var-box-shadow-warning !important
-		.tanukiButton
-			background-color var-on-background-2 !important
-			&:hover
-				background var-highlight !important
-		.tanukiControl
-			.tcLabel,
-			.checkboxItem
-				color var-text-2
-	#form_inputs
-		.policy_container .checkboxspan
-			color var-text-2 !important
-			a
-				color var-theme !important
-		a.selectBox
-			text-shadow none !important
-			color var-text-1 !important
-		div.checkbox
-			filter contrast(0.89) hue-rotate(-63deg) invert(1)
-		label
-			color var-text-1 !important
-		textarea,
-		input
-			background-color var-background-1 !important
-			color var-text-2 !important
-	#forumRegisterCall
-		&.bg-grey-primary
-			background-color var-background-2 !important
-			box-shadow var-box-shadow !important
-			color var-text-1 !important
-			a
-				color var-theme !important
-				&:hover
-					opacity var-hover-opacity !important
-	#registerForm
-		.tanukiTextbox
-			*[id^='__laika_cnt.']
-				background-color var-on-background-2 !important
-				border-radius var-border-radius-button
-				border var-border-style
-			&.hasErrors
-				input
-					outline none !important
-					box-shadow var-box-shadow-warning !important
-		.tanukiButton
-			background-color var-on-background-2 !important
-			&:hover
-				background var-highlight !important
-		hr
-			border-color var-border-light
-			border-style solid
-			border-top-width 1px
-			border-bottom-width 0
-		.infoTextWindow
-			background var-on-background-2 !important
-			border-radius var-border-radius !important
-			h2
-				color var-theme !important
-			h4
-				color var-text-1 !important
-			p
-				color var-text-2 !important
-		p a
-			color var-theme !important
-			&:hover
-				opacity var-hover-opacity !important
-	#replies
-		.forumResultPost
-			border-radius var-border-radius !important
-			.postHeader
-				.threadTitle
-					background-color transparent !important
-			.controls
-				.button
-					background-color var-on-background-2
-	#revolut-ad
-		background-color var-background-2 !important
-		.button
-			background var-background-1 !important
-			border var-border-style !important
-			color var-text-2 !important
-			&:hover
-				background-color var-highlight !important
-		.text
-			color var-text-2 !important
-			> a
-				color var-theme !important
-		.title > a
-			color var-text-1 !important
-		> .shadow
-			background -moz-linear-gradient(top, transparent 0, transparent 10%, var-background-1 100%) !important
-			background -webkit-gradient(linear, left top, left bottom, color-stop(0, transparent), color-stop(45%, transparent), color-stop(100%, var-background-1)) !important
-			background -webkit-linear-gradient(top, transparent 0, transparent 10%, var-background-1 100%) !important
-			background -o-linear-gradient(top, transparent 0, transparent 10%, var-background-1 100%) !important
-			background -ms-linear-gradient(top, transparent 0, transparent 10%, var-background-1 100%) !important
-			background linear-gradient(to bottom, transparent 0, transparent 10%, var-background-1 100%) !important
-	#single.content_holder
-		background-color var-background-2 !important
-	#subscribeForm > fieldset > button
-		background var-background-1 !important
-		background-color var-background-1 !important
-		color var-text-2 !important
-		&:hover
-			background-color var-highlight !important
-			color var-text-1 !important
-	#threadActions
-		.tanukiControl
-			&.tanukiSelect
-				*[id^='__laika_cnt.select.']
-					background-color var-on-background-1 !important
-					border-radius var-border-radius-button !important
-					color var-text-2 !important
-			&.tanukiButton
-				background-color var-on-background-1 !important
-				&:hover
-					background-color var-highlight !important
-					color var-text-1 !important
-	.activePolls a
-		color var-theme !important
-		&:hover
-			text-decoration var-hover-text !important
-			opacity var-hover-opacity !important
+	a,
+	.link
+		color var-theme
+	a:hover,
+	a:hover>.label,
+	.link:hover,
+	.link:hover>.label
+		text-decoration var-hover-text
+		opacity var-hover-opacity
+	img,
 	.ad
-		opacity var-image-opacity !important
-		&.adPanorama,
-		&.adModule,
-		&.adInsider,
-		&.adOutsider
-			iframe
-				border-radius var-border-radius
-				background-color darken(var-background-1, 40%)
-				box-shadow var-box-shadow
-		&.adModule
-			border-bottom none !important
-		.adFullHeaderChild
-			background-color var-background-1 !important
-	.articleBBCode
-		.bbAward
-			.badge
-				border-radius 50% !important
-				box-shadow var-box-shadow !important
-			.reason
-				background-color var-on-background-2 !important
-				border-radius var-border-radius !important
-				box-shadow var-box-shadow !important
-		.bbBlockQuote&:after
-			color var-theme
-		.bbExpander
-			.expanderFooter
-				color var-text-2 !important
-				&:hover
-					text-decoration var-hover-text !important
-					opacity var-hover-opacity !important
-			.expanderHeader
-				color var-theme !important
-				border-bottom-color var-border-light !important
-				&:hover
-					text-decoration var-hover-text !important
-					opacity var-hover-opacity !important
-			> .expanderFrame > .expanderFade
-				background -moz-linear-gradient(top, transparent 0, transparent 10%, var-background-1 100%) !important
-				background -webkit-gradient(linear, left top, left bottom, color-stop(0, transparent), color-stop(45%, transparent), color-stop(100%, var-background-1)) !important
-				background -webkit-linear-gradient(top, transparent 0, transparent 10%, var-background-1 100%) !important
-				background -o-linear-gradient(top, transparent 0, transparent 10%, var-background-1 100%) !important
-				background -ms-linear-gradient(top, transparent 0, transparent 10%, var-background-1 100%) !important
-				background linear-gradient(to bottom, transparent 0, transparent 10%, var-background-1 100%) !important
-		.bbImage
-			img
-				opacity var-image-opacity !important
-				border-radius var-border-radius !important
-				box-shadow var-box-shadow !important
-		.bbVideo
-			iframe
-				opacity var-image-opacity !important
-				border-radius var-border-radius !important
-				box-shadow var-box-shadow !important
-		.bbPoll
-			.optionBar > div
-				background var-theme !important
-				border none !important
-			.pollOptions
-				.votesAbs
-					color var-text-2 !important
-				.votesRel
-					color var-text-2 !important
-			.pollQuestion
-				color var-text-1 !important
-				border-bottom var-border-style-light !important
-			.pollSums
-				.pollMessage
-					color var-text-2 !important
-				.pollControls
-					button
-						color var-text-2 !important
-						background-color var-on-background-2-button !important
-						&:hover
-							color var-theme !important
-							background-color var-highlight !important
-				.totalVotes
-					color var-text-1 !important
-					border-top var-border-style-light !important
-			> .inner
-				background-color var-on-background-2 !important
-				border var-border-style !important
-				border-radius var-border-radius !important
-				color var-text-2 !important
-		.bbPrisjakt a
-			&.prices
-				color var-text-2 !important
-			&:hover.prices
-				text-decoration var-hover-text !important
-				opacity var-hover-opacity !important
-		.bbRelatedBox
-			background-color var-on-background-2 !important
-			border none !important
-			box-shadow var-box-shadow !important
-			padding-bottom 1px
-			border-radius var-border-radius !important
-		.bbSlideshow .slideFooter
-			color var-text-2 !important
-		.bbTable
-			border-radius var-border-radius !important
-			box-shadow var-box-shadow !important
-			border none !important
-			background-color var-on-background-2 !important
-			thead,
-			tbody
-				th
-					background-color darken(var-background-2, 40%) !important
-					color var-theme !important
-			thead
-				tr
-					span
-						color var-text-1 !important
-					&:first-child th
-						border-right 1px solid darken(var-background-2, 80%) !important
-						border-bottom 1px solid darken(var-background-2, 80%) !important
-						&:first-child
-							border-right 1px solid darken(var-background-2, 80%) !important
-							border-bottom 1px solid darken(var-background-2, 80%) !important
-						&:last-child
-							border-right none !important
-				th
-					background-color darken(var-background-2, 60%) !important
-			tbody
-				tr
-					th
-						border-right 1px solid darken(var-background-2, 50%) !important
-						border-bottom 1px solid var-on-background-2 !important
-						&:first-child span
-							color var-text-1 !important
-					&:last-child th
-						border-bottom none !important
-					td
-						border-right none !important
-						border-bottom 1px solid darken(var-background-2, 50%) !important
-					&:last-child td
-						border-bottom none !important
-			a
-				color var-theme !important
-				&:hover
-					text-decoration var-hover-text !important
-					opacity var-hover-opacity !important
-		.bbcode
-			.bbParagraph
-				color var-text-2 !important
-			a
-				color var-theme !important
-				&:hover
-					text-decoration var-hover-text !important
-					opacity var-hover-opacity !important
-		.footerPanel .bbRelatedBox
-			border none !important
-			box-shadow none !important
-	.articleByline .author span
-		color var-text-2 !important
-	.articleCommentsWidget
-		background var-background-2 !important
-		background-color var-background-2 !important
-		color var-text-2 !important
-		box-shadow var-box-shadow !important
-		.boxAction
-			.actionLabel
-				color var-text-1 !important
-			a:hover
-				.actionIcon,
-				.actionLabel
-					text-decoration var-hover-text !important
-					opacity var-hover-opacity !important
-		.mwHead p
-			color var-text-2 !important
-		.mwItem
-			.mwLabelIcon
-				filter var-theme-filter !important
-			a:hover
-				.mwIcon,
-				.mwLabelDate,
-				.mwLabelText
-					text-decoration var-hover-text !important
-					opacity var-hover-opacity !important
-		.mwLabel
-			> .mwLabelDate
-				color var-text-1 !important
-			> .mwLabelText
-				color var-text-2 !important
-		h5 > a
-			color var-theme !important
-			text-decoration none !important
-			&:hover
-				text-decoration var-hover-text !important
-				opacity var-hover-opacity !important
-	.articleContent
-		.articleNavi
-			.head
-				border-top var-border-style-light !important
-				border-bottom none !important
-				padding-top 2rem !important
-				padding-bottom 0 !important
-				h5
-					font-size 1.5rem
-					color var-text-1 !important
-			.pageButton
-				background-color var-on-background-2 !important
-				border-radius var-border-radius-button !important
-				box-shadow var-box-shadow !important
-				color var-text-2 !important
-				margin 1px 1px 0 !important
-				padding 6px 10px !important
-				height 13px !important
-				line-height 1 !important
-				&.next
-					margin-left 6px !important
-				&:hover
-					text-decoration var-hover-text !important
-					background var-highlight !important
-			.pageItem
-				&::before
-					color var-text-2 !important
-				&.isCurrent a
-					color var-text-2 !important
-					&:hover
-						text-decoration var-hover-text !important
-						opacity 1
-				a
-					color var-theme !important
-					text-decoration none !important
-					&:hover
-						text-decoration var-hover-text !important
-						opacity var-hover-opacity !important
-		.bbRelatedBox
-			.bbLink
-				color var-theme !important
-				&:hover
-					text-decoration var-hover-text !important
-					opacity var-hover-opacity !important
-			h3
-				color var-text-1 !important
-			p
-				color var-text-2 !important
-		&.bg-grey-primary
-			color var-text-2 !important
+		opacity var-image-opacity
+	.button,
+	.tanukiButton
+		background-color var-on-background-1
+		border var-border
+		color var-text-1
+		&:hover
+			background-color var-highlight
+	.widget
+		&.content-secondary,
+		&.content-orange,
+		&.bg-dark-grey-primary
 			background-color var-background-2 !important
-	.articleHeader
-		.articleBBCode .bbImage a
-			&:hover
-				opacity 1 !important
-		.meta
-			a
-				color var-theme !important
-				&:hover
-					text-decoration var-hover-text !important
-					opacity var-hover-opacity !important
-			li
-				color var-text-1 !important
-		.sponsoredArticle
-			background-color transparent
-			color var-text-1
-			font-weight 700
-			font-size 1.2em
-		h1
-			color var-theme !important
-	.articleKeywords a
-		background-color var-on-background-2 !important
-		border var-border-style !important
-		color var-text-2 !important
-		border-radius var-border-radius-button
-		&:hover
-			background var-highlight !important
-			color var-theme !important
-			text-decoration var-hover-text !important
-	.articleList
-		.authors-byline a
-			color var-text-1 !important
-		.category
-			color var-text-2 !important
-			&:hover
-				text-decoration var-hover-text !important
-				opacity var-hover-opacity !important
-		.comments
-			color var-theme !important
-			.icon
-				filter var-theme-filter !important
-		.listItem a:hover .n
-			text-decoration var-hover-text !important
-			opacity var-hover-opacity !important
-		.timestamp
-			color var-text-1 !important
-		.title
-			color var-text-1 !important
-			text-decoration none !important
-		> a:hover
-			text-decoration var-hover-text !important
-			opacity var-hover-opacity !important
-		h3.title a
-			color var-theme
-			&:hover
-				text-decoration var-hover-text !important
-				opacity var-hover-opacity !important
-		&.bg-grey-primary
-			background var-background-2 !important
-			color var-text-2 !important
-			h3.title > a
-				color var-theme !important
-	.articlePage h2.pageTitle
-		color var-text-1 !important
-	.articlesMostRead
-		.icon
-			filter var-theme-filter !important
-		.n
-			color var-theme !important
-		.title
-			color var-text-2 !important
-			text-decoration none !important
-			&:hover
-				text-decoration var-hover-text !important
-				opacity var-hover-opacity !important
-		h2 > a
-			color var-theme !important
-			&:hover
-				text-decoration var-hover-text !important
-				opacity var-hover-opacity !important
-	.articlesMostTagged
-		.articleListCompact a:hover .n
-			text-decoration var-hover-text !important
-			opacity var-hover-opacity !important
-		.icon
-			filter var-theme-filter !important
-		.n
-			color var-theme !important
-		.showMore
-			color var-theme !important
-			text-decoration none !important
-			&:hover
-				text-decoration var-hover-text !important
-				opacity var-hover-opacity !important
-		.tagSummary a
-			background var-background-1 !important
-			border var-border-style !important
-			color var-text-2 !important
-			&:hover
-				background var-highlight !important
-		.title
-			color var-text-2 !important
-			text-decoration none !important
-			&:hover
-				opacity var-hover-opacity !important
-				text-decoration var-hover-text !important
-		h2 > a
-			color var-theme !important
-			&:hover
-				opacity var-hover-opacity !important
-				text-decoration var-hover-text !important
-	.avatarEditor
-		.tanukiFile
-			color var-theme
-			input[type='file']
-				color var-text-1 !important
-		.tanukiButton
-			background-color var-on-background-2 !important
-			&:hover
-				background-color var-highlight !important
-		.leftSide img
-			border-radius var-border-radius !important
-	.back_to_cal
-		color var-theme !important
-		i
-			background-color var-theme !important
-			color var-black !important
-			margin 12px 7px 0 0
-	.bbExpander
-		.expanderHeader
-			color var-text-1 !important
-			border-bottom-color var-border-light !important
-			&:hover
-				text-decoration var-hover-text !important
-				opacity var-hover-opacity !important
-			.expanderToggle:before
-				content '⯈' !important
-		&.isExpanded
-			.expanderHeader
-				.expanderToggle:before
-					content '▼' !important
-		.expanderFooter
-			color var-text-2
-			border-top var-border-style-light !important
-		> .expanderFrame > .expanderFade
-			background -moz-linear-gradient(top, transparent 0, transparent 10%, var-background-1 100%) !important
-			background -webkit-gradient(linear, left top, left bottom, color-stop(0, transparent), color-stop(45%, transparent), color-stop(100%, var-background-1)) !important
-			background -webkit-linear-gradient(top, transparent 0, transparent 10%, var-background-1 100%) !important
-			background -o-linear-gradient(top, transparent 0, transparent 10%, var-background-1 100%) !important
-			background -ms-linear-gradient(top, transparent 0, transparent 10%, var-background-1 100%) !important
-			background linear-gradient(to bottom, transparent 0, transparent 10%, var-background-1 100%) !important
-	.bbKeyword
-		color var-theme !important
-		text-decoration none !important
-		&:hover
-			text-decoration var-hover-text !important
-			opacity var-hover-opacity !important
-	.bbMark
-		background var-highlight !important
-		color var-bbMark !important
-	.bbPodcast
-		.descr,
-		.meta
-			color var-text-2 !important
-		.title span
-			color var-text-1 !important
-		a
-			color var-theme !important
-		&:hover
-			text-decoration var-hover-text !important
-			opacity var-hover-opacity !important
-	.bbPre.showFrame
-		background-color var-on-background-2 !important
-		border var-border-style !important
-		border-radius var-border-radius !important
-		color var-text-2 !important
-	.bbPrisjaktFull
-		.pjFooter
-			.seeMore
-				color var-theme !important
-				text-decoration none !important
-				&:hover
-					text-decoration var-hover-text !important
-					opacity var-hover-opacity !important
-			.withPrisjakt
-				color var-text-2 !important
-		.pjVendors .name a
-			color var-text-2 !important
-		.price > a
-			color var-theme !important
-			&:hover
-				text-decoration var-hover-text !important
-				opacity var-hover-opacity !important
-		h6
-			color var-text-2 !important
-			border-bottom var-border-style !important
-			> a
-				color var-theme !important
-				&:hover
-					text-decoration var-hover-text !important
-					opacity var-hover-opacity !important
-	.bbQuote
-		background-color var-on-background-2 !important
-		border var-border-style !important
-		color var-text-2 !important
-		border-radius var-border-radius !important
-		.quoteContent
-			border-top var-border-style-light !important
-		.quoteHead
-			color var-text-1 !important
-		.quoteLink > a
-			color var-theme !important
-			&:hover
-				text-decoration var-hover-text !important
-				opacity var-hover-opacity !important
-		&.isExpandable > .quoteFrame > .quoteFade
-			background -moz-linear-gradient(top, transparent 0, transparent 10%, var-background-1 100%) !important
-			background -webkit-gradient(linear, left top, left bottom, color-stop(0, transparent), color-stop(45%, transparent), color-stop(100%, var-background-1)) !important
-			background -webkit-linear-gradient(top, transparent 0, transparent 10%, var-background-1 100%) !important
-			background -o-linear-gradient(top, transparent 0, transparent 10%, var-background-1 100%) !important
-			background -ms-linear-gradient(top, transparent 0, transparent 10%, var-background-1 100%) !important
-			background linear-gradient(to bottom, transparent 0, transparent 10%, var-background-1 100%) !important
-	.bbRelatedBox
-		background var-background-1 !important
-	.bbReply
-		color var-theme !important
-		text-decoration none !important
-		&:hover
-			text-decoration var-hover-text !important
-			opacity var-hover-opacity !important
-	.bbSpoiler
-		.spoilerFrame
-			background-color var-on-background-2 !important
-			border var-border-style !important
-			border-radius var-border-radius !important
-			color var-text-2 !important
-			.bbPoll > .inner
-				background var-background-2 !important
-				background-color var-background-2 !important
-				border var-border-style !important
-				button
-					background-color var-background-1 !important
-					&:hover
-						color var-bbSpoiler !important
-		.spoilerHeader button
-			background-color var-on-background-2
-			border-radius var-border-radius-button !important
-			color var-text-2 !important
-			&:focus
-				outline-color transparent !important
-			&:hover
-				background var-highlight !important
-				background-color var-highlight !important
-				color var-text-1 !important
-	.bbcode
-		color var-text-2
-		.bbStrong
-			color var-text-1
-		.bbLink
-			color var-theme !important
-			text-decoration none !important
-			&:hover
-				text-decoration var-hover-text !important
-				opacity var-hover-opacity !important
-	.bg-grey-primary
-		.crediters a
-			color var-theme
-		a.read-more-archive
-			color var-text-1 !important
-			text-decoration none !important
-	.bg-orange
-		background var-theme !important
-		border-bottom-left-radius 8px
-		&:hover
-			background var-theme !important
-			opacity var-hover-opacity !important
-	.body.articleBBCode .bbRelatedBox
-		background-color var-background-1 !important
-	.breadcrumbs
-		.breadcrumb
-			.link
-				color var-theme !important
-				text-decoration none !important
-				&:hover
-					text-decoration var-hover-text !important
-					opacity var-hover-opacity !important
-			&:after
-				content '\00bb'
-				position relative
-				top -1px
-	.button
-		background-color darken(var-background-1, 40%)
-		color var-text-2
-		border var-border-style
-		&:focus
-			outline none !important
-		&.bg-orange
-			box-shadow var-box-shadow !important
-			border none !important
-			background-color var-background-1 !important
-			color var-text-2
-			&:hover
-				background-color var-highlight !important
-				color var-text-1 !important
-	.campaignportal
-		#guide-wrapper
-			background-color var-background-2 !important
-			border solid 1px var-border !important
-		.tips
-			.tips-data
-				.col-score .label
-					background var-theme !important
-				.tips-row
-					&:hover
-						.col-product,
-						.col-category,
-						.col-vendor,
-						.col-price,
-						.pj-cell,
-						.user-cell
-							background var-highlight !important
-					&:nth-child(odd),
-					&:nth-child(even)
-						background var-background-2 !important
-						border var-border-style !important
-						color var-text-2 !important
-					.col-category,
-					.col-vendor
-						color var-text-2 !important
-					.col-price
-						color var-text-1 !important
-					.col-product,
-					.col-user
-						color var-theme !important
-				&:hover
-					.col-product,
-					.col-user
-						text-decoration var-hover-text !important
-			.tips-meta
-				border var-border-style !important
-			.tips-title
-				color var-text-1 !important
-		.vendor-guides
-			.guide-block span
-				color var-text-2 !important
-			h2
-				color var-text-1 !important
-			p
-				color var-text-2 !important
-		select
-			background var-background-2 !important
-			border var-border-style !important
-			color var-text-2 !important
-	.carousel
-		.slide
-			.bg img
-				opacity var-image-opacity !important
-			&:hover
-				opacity var-hover-opacity !important
-				.front a
-					text-decoration var-hover-text !important
-	.comments-bubble
-		.cb-top
-			color var-white !important
-			text-shadow var-text-shadow !important
-			background-color var-theme !important
-		.cb-bottom
-			border-color transparent var-theme transparent transparent !important
-		&:hover
-			.cb-top
-				background-color darken(var-theme, 10%) !important
-			.cb-bottom
-				border-color transparent darken(var-theme, 10%) transparent transparent !important
-	.contentBox
-		background-color var-background-2 !important
-		border var-border-style !important
-		color var-text-2 !important
-		a
-			color var-text-1 !important
-			&:hover
-				text-decoration var-hover-text !important
-				opacity var-hover-opacity !important
-		h1
-			color var-text-1 !important
-		h2
-			color var-theme !important
-	.content_holder,
-	#container.on_fb
-		background-color var-background-2
-	.errorBox
-		border var-border-style !important
-		color var-white !important
-		background-color var-warning !important
-	.feedMore
-		color var-theme !important
-		text-decoration none !important
-		&:hover
-			text-decoration var-hover-text !important
-			opacity var-hover-opacity !important
-	.bottom
-		.footer
-			border-top var-border-style
-			.top
-				border-top none
-				background-color var-background-2
-				color var-text-2
-				.block
-					h6
-						color var-text-1
-					p
-						color var-text-2
+			box-shadow var-box-shadow-inset
+			.widget-head
+				.title
+					color var-theme !important
+				.title-secondary
+					color var-text-1
 					a
-						color var-theme
-						&::before
-							filter var-theme-filter
-						&:hover
-							text-decoration var-hover-text
-							opacity var-hover-opacity
-					.rssFeeds
-						a:hover .label
-							text-decoration var-hover-text
-							opacity var-hover-opacity
-					&:not(:last-child)
-						border-right none
-			.bottom
-				background-color var-background-2
-				color var-text-2
-				a
+						color var-text-2
+			.widget-body
+				.title
 					color var-text-1
-					&:hover
-						text-decoration var-hover-text
-						opacity var-hover-opacity
-				.bahnhof-logo
-					color var-text-1
-					&:hover span
-						text-decoration var-hover-text !important
-						opacity var-hover-opacity
-	.footerBox
-		.listItem .label
+				.list
+					.list-meta
+						&.list-bubble
+							&.date
+								background-color var-blue !important
+								color var-white !important
+								text-shadow var-text-shadow !important
+					.list-link
+						color var-text-2
+	.bg
+		&-orange
+			color var-theme-text !important
+			background-color var-theme !important
+			text-shadow var-text-shadow !important
+			&:not(.no-hover):hover
+				background-color darken(var-theme, 10%) !important
+			&.color-white
+				color var-theme-text !important
+			a
+				color red
+		&-grey-primary
+			color #282828 !important
+			background-color purple !important
+			&:not(.no-hover):hover
+				background-color #fff !important
+			a
+				color #1f5994
+		&-grey-secondary
+			color #6a6a6a !important
+			background gold !important
+			&:not(.no-hover):hover
+				background-color #efeeec !important
+			a
+				color #1f5994
+		&-dark-grey-primary
+			color #fff !important
+			background-color red !important
+			&:not(.no-hover):hover
+				background-color #424242 !important
+			a
+				color #ccc
+		&-blue
+			background-color var-blue !important
+
+		&-blue-secondary
+			background-color darken(var-blue, 20%) !important
+
+		&-green
+			background-color var-green !important
+
+		&-pink
+			background-color var-pink !important
+
+		&-beige
+			background-color var-beige !important
+
+		&-white
+			background-color var-white !important
+	.color
+		&-white
 			color var-text-1 !important
-		h6
+			fill var-text-1 !important
+			svg
+				fill var-text-1 !important
+		&-black
+			color var-black !important
+			fill var-black !important
+			svg
+				fill var-black !important
+		&-orange
 			color var-theme !important
-		ul
-			background var-background-1 !important
-	.form_options a.btn_back
-		background-color var-background-1 !important
-		color var-text-1 !important
-		border var-border-style !important
-	.forumControls
-		.forumSearch
-			.tanukiControl
-				*[id^='__laika_cnt.textbox.']
-					background-color var-on-background-1 !important
-					border-radius var-border-radius-button !important
-					color var-text-2 !important
-					&:hover,
-					&:focus
-						color var-text-1 !important
-						background-color var-highlight !important
-			button
-				background-color var-on-background-1 !important
-				border-radius var-border-radius-button !important
-				color var-text-2 !important
-		.button
-			background-color var-on-background-1 !important
-			border-radius var-border-radius-button !important
-			color var-text-2 !important
-			&:hover
-				background-color var-highlight !important
-			&.replyToThread,
-			&.newThread
-				background-color var-on-background-1 !important
-				border-radius var-border-radius-button !important
-				color var-text-2 !important
-				&:hover
-					background-color var-highlight !important
-					color var-text-1 !important
-	.forumForm
-		.head
-			background-color transparent !important
-			color var-text-2 !important
-			border-bottom none !important
-		.body
-			background-color var-background-2 !important
-			box-shadow var-box-shadow !important
-			border-radius var-border-radius !important
-			fieldset.s5fieldset
-				border 1px solid transparent
-				legend
-					color var-theme !important
-			.tanukiSelect
-				*[id^='__laika_cnt.select.']
-					background-color var-on-background-2 !important
-					border-radius var-border-radius-button
-				&.hasErrors
-					select
-						outline none !important
-						box-shadow var-box-shadow-warning !important
-			.tanukiTextbox
-				*[id^='__laika_cnt.textbox.']
-					background-color var-on-background-2 !important
-					border-radius var-border-radius-button
-				&.hasErrors
-					input
-						outline none !important
-						box-shadow var-box-shadow-warning !important
-			.tanukiTextarea
-				*[id^='__laika_cnt.textarea.']
-					background-color var-on-background-2 !important
-					border-radius var-border-radius
-				&.hasErrors
-					textarea
-						outline none !important
-						box-shadow var-box-shadow-warning !important
-			.toolbar
-				.tbButton
-					&.iconButton
-						.inner
-							background-color transparent !important
+			fill var-theme !important
+			svg
+				fill var-theme !important
+		&-grey-primary
+			color #f1efec !important
+			fill #f1efec !important
+			svg
+				fill #f1efec !important
+		&-dark-grey-primary
+			color #282828 !important
+			fill #282828 !important
+			svg
+				fill #282828 !important
+		&-yellow
+			color #fafad9 !important
+			fill #fafad9 !important
+			svg
+				fill #fafad9 !important
+	/* End Global */
+	/* Header */
+	#header
+		.nav-container
+			.nav-top
+				background-color var-background-1
+				.container
+					.logo
+						a:hover img
+							opacity unset
+					.profile-wrapper
+						.pw-notifications
+							a
+								&.color-orange
+									span
+										color var-theme
+								&.m-m-r:hover
+									span
+										color var-warning
+									svg
+										fill var-warning
+								svg
+									fill var-text-2
+								span
+									color var-text-2
+						.pw-link
+							color var-text-1
+			.nav-main
+				background-color var-background-2
+				border-top var-border
+				border-bottom var-border
+				ul
+					li
+						@media (min-width 769px)
+							&:hover:not(.is-selected)>ul
+								background-color var-background-2
+						a
 							color var-text-2
 							&:hover
-								background-color var-highlight !important
-								border 1px solid var-highlight !important
-								border-radius var-border-radius-button !important
-						&:hover
-							.btnIcon
-								filter var-light-filter !important
-							.inner
-								background-color var-highlight !important
-								color var-text-1 !important
-			.tanukiControl
-				&.tanukiButton
-					background-color var-on-background-2 !important
-					&:hover
-						background-color var-highlight !important
-					&[disabled]
-						opacity 0.6 !important
-						&:hover
-							background-color var-on-background-2 !important
-							cursor not-allowed
-				&.tanukiCheckbox
-					&.isRequired
-						color var-text-2 !important
-					&.hasErrors
-						.checkboxList
-							border none !important
-							border-left 2px solid var-warning !important
-							.checkboxItem
-								margin-left 5px
-		.tcLabel
-			color var-text-2 !important
-		&.postEditForm .tanukiControl.tanukiCheckbox
-			color var-text-2 !important
-		&.postPollListForm
-			.s5fieldset
-				.activePolls
-					color var-text-1 !important
-					li a
-						color var-text-2 !important
-			.button
-				background-color var-on-background-2 !important
-				color var-text-2 !important
-				&:hover
-					background-color var-highlight !important
-					color var-text-1 !important
-		&.postPollForm
-			.table
-				.head
-					.cell
-						background-color transparent !important
-				.body
-					box-shadow none !important
-					.row
-						.cell
-							background-color transparent !important
-							*[id^='__laika_cnt.textbox.']
-								background-color var-on-background-2 !important
-								&[readonly]
-									cursor not-allowed !important
-	.forumList
-		.lastThread .time
-			color var-theme !important
-		.numReplies
-			color var-text-1 !important
-		.numThreads
-			color var-text-1 !important
-		.subforums .link
-			background var-background-1 !important
-			color var-text-1 !important
-			&:hover
-				background var-highlight !important
-				color var-theme !important
-				text-decoration var-hover-text !important
-	.forumPost
-		background transparent !important
-		border-radius var-border-radius !important
-		.postBody
-			background var-background-2 !important
-			box-shadow var-box-shadow !important
-			border-radius var-border-radius !important
-			.profile
-				.meta
-					dt
-						color var-text-1 !important
-					dd
-						color var-text-2 !important
-		.bbcode
-			p
-				color var-text-2 !important
-		.body
-			border var-border-style !important
-			background-color red !important
-		.cell
-			&.alt2
-				background none !important
-				border-right none !important
-			&.controls
-				background-color none !important
-			&.main
-				background none !important
-				color var-text-2 !important
-				.bbStrong
-					color var-text-1 !important
-				a
-					color var-theme !important
-					text-decoration none !important
-					&.clickArea:hover
-						opacity 1 !important
-					&:hover
-						color var-theme !important
-						text-decoration var-hover-text !important
-						opacity var-hover-opacity !important
-						&.clickArea
-							opacity 1
-		.controls
-			.button
-				background-color var-on-background-2 !important
-				color var-text-2 !important
-				border var-border-style
-				border-radius var-border-radius-button
-				&:disabled
-					opacity 0.6 !important
-					&:hover
-						color var-text-2 !important
-						background-color var-on-background-2 !important
-						cursor not-allowed !important
-				&.report
-					.icon
-						background-position -150px -100px !important
-					&:hover .icon
-						filter var-warning-filter
-				&:hover
-					background var-highlight !important
-					color var-text-1 !important
-					opacity 1
-		.dateline .meta
-			background var-background-2 !important
-			color var-text-2 !important
-			border var-border-style !important
-		.details .activity.online
-			color var-theme !important
-		.guruFlag
-			color var-theme !important
-		.message > .title
-			color var-text-1 !important
-		.postHeader
-			color var-text-2 !important
-			.cell
-				background none !important
-		.profile
-			.avatar
-				img
-					border-radius var-border-radius !important
-					opacity var-image-opacity !important
-			.meta
-				dd,
-				dt
-					color var-text-2 !important
-			.name > a
-				color var-theme !important
-				text-decoration none !important
-				&:hover
-					color var-theme !important
-					text-decoration var-hover-text !important
-					opacity var-hover-opacity !important
-			.title > *
-				color var-text-2 !important
-		.signature
-			.bbParagraph a
-				color var-theme !important
-				text-decoration none !important
-				&:hover
-					color var-theme !important
-					text-decoration var-hover-text !important
-					opacity var-hover-opacity !important
-		.supporterFlag
-			color var-theme !important
-		.score
-			color var-theme !important
-		&.isGuru
-			.controls .button.like .score
-				color var-theme !important
-		&.isLiked
-			.controls .button.like .score
-				color var-theme !important
-			.dateline .meta .score
-				color var-theme !important
-		&.isLinked
-			border-color var-border !important
-			box-shadow none !important
-			.postHeader
-				.cell
-					background none !important
-				.postNum
-					color var-text-1 !important
-					text-decoration none !important
-			.postBody
-				box-shadow 0 0 0 2px var-border-light !important
-			a.postNum:hover
-				text-decoration underline !important
-			&.isAuthor
-				border-color var-border !important
-				box-shadow none !important
-				.postHeader .cell
-					background var-border !important
-				.postBody.table
-					box-shadow 0 0 0 2px var-theme !important
-		&.isAuthor:not(.isReader)
-			border-top none !important
-			border-left none !important
-			border-image none !important
-			margin-left 0 !important
-			.postHeader .cell
-				background none !important
-				border-top none !important
-			.postBody.table
-				box-shadow var-box-shadow, -4px 0 0 0 var-theme !important
-			&.isLinked
-				.postBody.table
-					box-shadow 0 0 0 2px var-theme !important
-		&.isReader:not(.isAuthor)
-			border-top none !important
-			border-left none !important
-			border-image none !important
-			margin-left 0 !important
-			.postHeader .cell
-				background none !important
-				border-top none !important
-			.postBody.table
-				box-shadow var-box-shadow, -4px 0 0 0 var-blue !important
-			&.isLinked
-				.postBody.table
-					box-shadow 0 0 0 2px var-blue !important
-		&.isReader.isAuthor
-			border-top none !important
-			border-left 0 !important
-			border-image none !important
-			margin-left 0 !important
-			&.isLinked
-				border-left 0 !important
-			.postHeader .cell
-				background none !important
-				border-top none !important
-			.postBody
-				box-shadow var-box-shadow, -4px 0 0 0 var-theme !important
-		.button
-			&.better-sweclockers-icon-button.better-sweclockers-pm-button
-				background-color transparent !important
-				border none !important
-				border-radius var-border-radius-button !important
-				svg
-					filter var-grey-filter !important
-				&:hover
-					background-color var-highlight !important
-			&.edit
-				border var-border-style !important
-			&.like
-				&.isDisabled
-					opacity 0.6 !important
-					.score
-						color var-theme !important
-					&:hover
-						color var-text-2 !important
-						background-color var-on-background-2 !important
-						cursor not-allowed !important
-						.icon
-							filter none !important
-			.postHeader .cell
-				border-top 3px solid var-postHeader !important
-		&.isSelected .controls .button.multiquote
-			color var-theme !important
-	.forumResultPost
-		background var-background-2 !important
-		border var-border-style !important
-		color var-text-2 !important
-		.controls .button
-			background-color var-on-background-2
-			color var-text-2
-			&:hover
-				background-color var-highlight !important
-				opacity 1 !important
-				> .label
-					opacity 1 !important
-		.message > .title
-			color var-text-1 !important
-		.postHeader
-			.dateline
-				background var-background-2 !important
-				color var-text-1 !important
-				a
-					color var-theme !important
-					text-decoration none !important
-					&:hover
-						text-decoration var-hover-text !important
-						opacity var-hover-opacity !important
-			.threadTitle
-				background var-on-background-2 !important
-				color var-text-1 !important
-				a:hover
-					text-decoration var-hover-text !important
-					opacity var-hover-opacity !important
-	.forumSearch
-		*[id^='__laika_cnt.textbox.']:focus
-			color var-text-1 !important
-		input
-			&::-webkit-input-placeholder
-				color var-text-2 !important
-			&:focus::-webkit-input-placeholder
-				color var-text-1 !important
-		.tanukiControl
-			margin-bottom 1px
-	.forumTable
-		border none !important
-	.caption
-		background var-background-1 !important
-		color var-text-1 !important
-	.cell
-		border-bottom none !important
-		&.alt1
-			border-bottom none !important
-			background var-background-2 !important
-		&.date.alt2
-			color var-text-1 !important
-		&.price.alt2
-			color var-text-2 !important
-	.head .cell
-		background var-background-1 !important
-		color var-white !important
-		border none !important
-	.lastThread
-		> div
-			color var-text-2 !important
-			> a
-				color var-theme !important
-				&:hover
-					text-decoration var-hover-text !important
-					opacity var-hover-opacity !important
-		h3 > a
-			color var-text-2 !important
-			text-decoration none !important
-			text-decoration-color var-background-2 !important
-			&:hover
-				text-decoration var-hover-text !important
-				opacity var-hover-opacity !important
-				text-decoration-color var-background-2 !important
-	.subForums
-		border-left var-border-style !important
-		border-right var-border-style !important
-	h2 a
-		color var-text-1 !important
-		text-decoration none !important
-		&:hover
-			text-decoration var-hover-text !important
-			opacity var-hover-opacity !important
-	&.forumList
-		.descr
-			color var-text-2 !important
-			text-decoration none !important
-		.title h2 > a
-			color var-theme !important
-			text-decoration none !important
-			&:hover
-				text-decoration var-hover-text !important
-				opacity var-hover-opacity !important
-	.forumThreads
-		.dateline > a
-			color var-theme !important
-			text-decoration none !important
-			&:hover
-				text-decoration var-hover-text !important
-				opacity var-hover-opacity !important
-	.galleryBody
-		.button
-			background-color var-on-background-2 !important
-			color var-text-2 !important
-			&:hover
-				background-color var-highlight !important
-				color var-text-1 !important
-	.galleryFileEditor
-		.orderHint
-			color var-text-2 !important
-		.selectedPanel .s5fieldset .curFile a
-			color var-theme !important
-			&:hover
-				text-decoration var-hover-text !important
-				opacity var-hover-opacity !important
-		.uploadEntry
-			.entryError > .errorAlert
-				color var-theme !important
-			.entryName
-				color var-text-2 !important
-			.entryState > .progressLabel
-				background-color var-background-1 !important
-				color var-text-1 !important
-	.galleryHeader
-		.galleryRating
-			.num
-				color var-text-2 !important
-			.score
-				color var-theme !important
-		dd
-			color var-text-2 !important
-		dt
-			color var-text-1 !important
-	.galleryImage
-		border-bottom var-border-style-light
-		.bbcode
-			h3
-				color var-text-1 !important
-			.bbParagraph
-				color var-text-2 !important
-		.author a
-			color var-text-1 !important
-		.cat a
-			color var-text-2 !important
-		.rating
-			color var-theme !important
-		img
-			border-color transparent
-			border-radius var-border-radius !important
-	.galleryList
-		.author > a:hover
-			text-decoration var-hover-text !important
-			opacity var-hover-opacity !important
-		.cat > a:hover
-			text-decoration var-hover-text !important
-			opacity var-hover-opacity !important
-		.galleryItem h3
-			color var-text-1 !important
-			> a:hover
-				text-decoration var-hover-text !important
-				opacity var-hover-opacity !important
-	.galleryNavi
-		.next .arrow
-			border-left 10px solid var-theme !important
-		.prev .arrow
-			border-right 10px solid var-theme !important
-	.galleryPortal
-		.galleryItem h3
-			color var-text-1 !important
-		.head
-			.descr
-				color var-text-2 !important
-			.more
-				color var-theme !important
-				text-decoration none !important
-				&:hover
-					text-decoration var-hover-text !important
-					opacity var-hover-opacity !important
-			.title
-				color var-text-1 !important
-	.gp-subject-group
-		background var-background-2 !important
-		border var-border-style !important
-		color var-text-2 !important
-		.gphi-descr
-			background var-background-1 !important
-			background-color var-background-1 !important
-			h3
-				color var-text-1 !important
-				a:hover
-					text-decoration var-hover-text !important
-					opacity var-hover-opacity !important
-			p
-				color var-text-2 !important
-		.gpsg-header
-			border-bottom var-border-style-light
-			h2
-				color var-text-1 !important
-		.gpsg-body
-			.gp-item
-				border-bottom var-border-style-light
-		.gpsg-more a
-			background var-background-1 !important
-			border var-border-style !important
-			color var-text-1 !important
-			&:hover
-				background var-highlight !important
-		h4
-			color var-theme !important
-			a:hover
-				text-decoration var-hover-text !important
-				opacity var-hover-opacity !important
-	.header:not(.tbButton)
-		background-color transparent
-		color var-text-2 !important
-		.logo
-			background-image url('https://soitora.com/SweClockers-Dark/images/logo.svg')
-		.mainMenu
-			.menu li.menuItem
-				background-color var-background-2
-				&.optionPaskrea,
-				&.optionPaskrea.isSelected
-					background-color var-optionPaskrea !important
-					a span
-						color lighten(var-optionPaskrea, 80%) !important
-						text-shadow var-text-shadow
-						font-weight 700
-					&:hover
-						background-color var-optionPaskrea !important
-				&.optionCes,
-				&.optionCes.isSelected
-					background-color var-optionCes !important
-					a span
-						color lighten(var-optionCes, 80%) !important
-						text-shadow var-text-shadow
-						font-weight 700
-					&:hover
-						background-color var-optionCes !important
-				&.optionComputex,
-				&.optionComputex.isSelected
-					background-color var-optionComputex !important
-					a span
-						color lighten(var-optionComputex, 80%) !important
-						text-shadow var-text-shadow
-						font-weight 700
-					&:hover
-						background-color var-optionComputex !important
-				&.optionDreamhack,
-				&.optionDreamhack.isSelected
-					background-color var-optionDreamhack !important
-					a span
-						color lighten(var-optionDreamhack, 80%) !important
-						text-shadow var-text-shadow
-						font-weight 700
-					&:hover
-						background-color var-optionDreamhack !important
-				&.optionVr,
-				&.optionVr.isSelected
-					background-color var-optionVr !important
-					a span
-						color lighten(var-optionVr, 80%) !important
-						text-shadow var-text-shadow
-						font-weight 700
-					&:hover
-						background-color var-optionVr !important
-				&.optionE3,
-				&.optionE3.isSelected
-					background-color var-optionE3 !important
-					a span
-						color lighten(var-optionE3, 80%) !important
-						text-shadow var-text-shadow
-						font-weight 700
-					&:hover
-						background-color var-optionE3 !important
-				&.optionBlackfriday,
-				&.optionBlackfriday.isSelected
-					background-color var-optionBlackfriday !important
-					a span
-						color lighten(var-optionBlackfriday, 80%) !important
-						text-shadow var-text-shadow
-						font-weight 700
-					&:hover
-						background-color var-optionBlackfriday !important
-				&.optionCybermonday,
-				&.optionCybermonday.isSelected
-					background-color var-optionCybermonday !important
-					a span
-						color lighten(var-optionCybermonday, 80%) !important
-						text-shadow var-text-shadow
-						font-weight 700
-					&:hover
-						background-color var-optionCybermonday !important
-				&.optionJulkalender,
-				&.optionJulkalender.isSelected
-					background-color var-optionJulkalender !important
-					a span
-						color lighten(var-optionJulkalender, 80%) !important
-						text-shadow var-text-shadow
-						font-weight 700
-					&:hover
-						background-color var-optionJulkalender !important
-				&.optionGreenfriday,
-				&.optionGreenfriday.isSelected
-					background-color var-optionGreenfriday !important
-					a span
-						color lighten(var-optionGreenfriday, 80%) !important
-						text-shadow var-text-shadow
-						font-weight 700
-					&:hover
-						background-color var-optionGreenfriday !important
-				&.optionMellandagsrea,
-				&.optionMellandagsrea.isSelected
-					background-color var-optionMellandagsrea !important
-					a span
-						color lighten(var-optionMellandagsrea, 80%) !important
-						text-shadow var-text-shadow
-						font-weight 700
-					&:hover
-						background-color var-optionMellandagsrea !important
-				&.optionBack2school,
-				&.optionBack2school.isSelected
-					background-color var-optionBack2school !important
-					a span
-						color lighten(var-optionBack2school, 80%) !important
-						text-shadow var-text-shadow
-						font-weight 700
-					&:hover
-						background-color var-optionBack2school !important
-				&.better-sweclockers-icon-tab
-					opacity 1 !important
-					&:hover
-						background-color var-highlight !important
-				&.isSelected
-					background-color var-background-2 !important
-					border-bottom 1px solid var-background-2
-					a.link
-						color var-theme !important
-						padding-top 7px
-		.subMenu
-			.menu li.menuItem
-				background-color var-background-1
-				&.isSelected
-					background-color var-background-1
-					border-bottom 1px solid var-background-1
-					a.link
-						color var-theme !important
-						padding-top 5px
-		.mainMenu,
-		.subMenu
-			.rborder
-				border-bottom var-border-style
-			.menu li
-				border var-border-style
-				&.menuItem
-					border-bottom var-border-style
-					&.isSelected a
-						color var-text-1 !important
-					&:hover
-						background-color var-highlight !important
-						color var-text-1 !important
-					a
-						color var-text-2 !important
-						&:hover
-							color var-text-1 !important
-		.main
-			border-right var-border-style
-			border-bottom var-border-style
-			background-color var-background-2
-			.ninjaSearch
-				border-color var-border
-				h5
-					color var-text-2 !important
-				.searchField
-					.fieldWrap
-						border var-border-style
-						.inner
+								background-color var-highlight
+							span
+								color var-text-2
+							svg
+								fill var-text-2
+						input
 							background-color var-on-background-2
-							.input
+							border var-border-light
+							color var-text-2
+							&:focus
+								color var-text-1
+								&::placeholder
+									color darken(var-text-2, 50%)
+							&::placeholder
+								color var-text-2
+					ul
+						border var-border
+	/* End Header */
+	/* Content */
+	#content
+		.container
+			.columns
+				background-color transparent
+				.content-head
+					h1
+						color var-text-1
+				.content-body
+					background-color var-on-background-1
+					.article-body
+						.article-bbcode
+							.bbcode
+								.bbExpander
+									.expanderHeader
+										border-color var-border-color-light
+										color var-text-1
+									.expanderFrame
+										.expanderFade
+											background -moz-linear-gradient(top, transparent 0, transparent 10%, var-background-1 100%) !important
+											background -webkit-gradient(linear, left top, left bottom, color-stop(0, transparent), color-stop(45%, transparent), color-stop(100%, var-background-1)) !important
+											background -webkit-linear-gradient(top, transparent 0, transparent 10%, var-background-1 100%) !important
+											background -o-linear-gradient(top, transparent 0, transparent 10%, var-background-1 100%) !important
+											background -ms-linear-gradient(top, transparent 0, transparent 10%, var-background-1 100%) !important
+											background linear-gradient(to bottom, transparent 0, transparent 10%, var-background-1 100%) !important
+									.expanderFooter
+										border-color var-border-color-light
+				.carousel
+					.section
+						.slide
+							&:hover
+								.front a
+									text-decoration var-hover-text
+							.inner
+								&:hover img
+									opacity 0.65
+								.click:hover
+									opacity 1
+								.comments-bubble
+									.cb-top
+										background-color var-theme !important
+										color var-theme-text !important
+										text-shadow var-text-shadow !important
+
+									.cb-bottom
+										border-color transparent var-theme transparent transparent
+								.front
+									pointer-events none
+									a
+										opacity 1
+				.cards
+					background-color var-background-2
+					box-shadow var-box-shadow-inset
+					.card
+						border-top 1px solid var-border-color
+						&:first-child
+							border-top none
+						.card-banner
+							img
+								border-radius var-border-radius
+						.card-body
+							.comments-bubble
+								.cb-top
+									background-color var-theme !important
+									color var-theme-text !important
+									text-shadow var-text-shadow !important
+
+								.cb-bottom
+									border-color transparent var-theme transparent transparent
+							.title a
+								color var-text-2
+							.article-meta
+								.category
+									color var-theme
+								.date
+									color var-text-1
+						.cards-related
+							legend
+								color var-text-1
+							li
+								border-top var-border-light
+						.article-sponsored
+							background-color transparent
+							&::before
+								color var-theme
+								content "\2605 "
+								position absolute
+								width 0
+								left 10px
+								margin-top -2px
+					.ad
+						border-top var-border-light
+						iframe
+							border-radius var-border-radius
+				.forumPosts
+					.forum-post
+						.forum-post-header
+							color inherit !important
+						.forum-post-body
+							background-color var-on-background-1
+							border-radius var-border-radius
+							.col
+								&.side
+									background-color darken(var-on-background-1, 10%)
+									&.profile
+										.avatar
+											border-radius var-border-radius !important
+						.message
+							.bbcode
+								.bbQuote
+									background-color var-on-background-2
+									border-color var-border-color
+									.quoteContent
+										border-top-color var-border-color-light
+						.button
+							background-color var-on-background-2
+							color var-text-1
+							&:hover
+								background-color var-highlight
+							&.like
+								&.is-liked
+									.score
+										color var-text-2
+									.icon
+										fill var-theme
+								&:not(.is-liked)
+									.score
+										color var-text-2
+									.icon
+										fill var-text-2
+				.forumForm
+					background-color var-on-background-1
+					.body
+						input,
+						textarea
+							background-color var-on-background-2
+							border-color var-border-color
+							border-radius var-border-radius
+							color var-text-2
+							&:focus
+								color var-text-1
+						fieldset
+							.button,
+							.tanukiButton
 								background-color var-on-background-2
+								&:hover
+									background-color var-highlight
+				#forumList-1
+					table
+						background-color transparent
+						caption
+							background-color transparent
+						.head
+							.cell
+								background-color var-on-background-2
+								&:first-child
+									border-top-left-radius var-border-radius
+								&:last-child
+									border-top-right-radius var-border-radius
+						.body
+							.cell
+								background-color var-on-background-1
+								&.title
+									h2 a
+										color var-theme
+									.descr
+										color var-text-2
+								&.lastThread
+									h3
+										color var-text-1
+									.by,
+									.date
+										color var-text-2
+										.time
+											color var-text-1
+				.forumThreads
+					table
+						caption
+							background-color transparent
+						.head
+							.cell
+								background-color var-on-background-2
+								&:first-child
+									border-top-left-radius var-border-radius
+								&:last-child
+									border-top-right-radius var-border-radius
+						.body
+							.cell
+								background-color var-on-background-1
+								border-bottom var-border
+								&.title
+									h2 a
+										color var-text-1
+									.pageLinks
+										.link.last
+											text-decoration none
+									.descr
+										color var-text-2
+								&.status
+									.thread-status
+										.icon
+											fill var-theme
+											&.thread
+												&_locked,
+												&_pinned
+													fill var-text-2
+									.posts
+										color var-text-2
+								&.lastReply
+									.date
+										color var-text-2
+										time .time
+											color var-text-1
+						.allPostsRead
+							.cell
+								&.title
+									h2 a
+										color darken(var-text-1, 40%)
+									.descr
+										color darken(var-text-2, 40%)
+								&.status
+									.thread-status
+										.icon
+											fill darken(var-text-2, 40%)
+											&.thread
+												&_locked,
+												&_pinned
+													fill darken(var-text-2, 40%)
+									.posts
+										color darken(var-text-2, 40%)
+				.thread-footer
+					.quickReply
+						background-color var-on-background-1
+						.body
+							textarea
+								background-color var-on-background-2
+								border-color var-border-color
+								border-radius var-border-radius
 								color var-text-2
 								&:focus
 									color var-text-1
-					a[title*=Google]
-						background-color var-on-background-1 !important
-						color var-text-1 !important
-						border var-border-style !important
-						&:hover
-							background-color var-highlight !important
-			.ninjaSearchResult
-				color var-text-2 !important
-				h6
-					color var-text-1 !important
-				.showMore
-					color var-theme !important
-					text-decoration none
-					&:hover
-						text-decoration var-hover-text !important
-						opacity var-hover-opacity !important
-				.resultList
-					a
-						color var-text-2 !important
-						&:hover
-							text-decoration var-hover-text !important
-							opacity var-hover-opacity !important
-					.icon
-						filter var-theme-filter !important
-					.date
-						color var-text-1 !important
-				.externalSearch a
-					color var-theme !important
-					&:hover
-						text-decoration var-hover-text !important
-						opacity var-hover-opacity !important
-			.profile
-				border-color var-border
-				h5 a
-					color var-text-2 !important
-					&:hover
-						text-decoration var-hover-text !important
-						opacity var-hover-opacity !important
-				.options
-					color var-text-2
-					.icon
-						filter var-grey-filter !important
-					a.label:hover
-						&::after,
-						span
-							text-decoration var-hover-text !important
-							opacity var-hover-opacity !important
-					.signout button:hover
-						color var-warning !important
-						text-decoration var-hover-text !important
-						opacity var-hover-opacity !important
-						.icon
-							filter var-warning-filter !important
-					.hasUnread
-						color var-theme !important
-						.icon
-							filter var-theme-filter !important
-			.signin
-				border-color var-border
-				h5
-					color var-text-2 !important
-				.actions .button
-					border var-border-style !important
-					background-color var-on-background-2
-					color var-text-2 !important
-					&:hover
-						background-color var-highlight !important
-	.hotGallery
-		.hot
-			color var-theme !important
-		.rating
-			color var-theme !important
-		.title
-			.author
-				color var-text-1 !important
-			.cat
-				color var-text-2 !important
-			a:hover
-				text-decoration var-hover-text !important
-				opacity var-hover-opacity !important
-		h3
-			color var-text-1 !important
-			a:hover
-				text-decoration var-hover-text !important
-				opacity var-hover-opacity !important
-	.infoBox
-		background var-background-1 !important
-		color var-text-2 !important
-		a
-			color var-warning !important
-			text-decoration none !important
-			&:hover
-				text-decoration var-hover-text !important
-				opacity var-hover-opacity !important
-		.contactInfo
-			a
-				color var-theme !important
-				&:hover
-					text-decoration var-hover-text !important
-					opacity var-hover-opacity !important
-				&.button
-					background-color var-background-2 !important
-					color var-text-2 !important
-					&:hover
-						background-color var-highlight !important
-						color var-text-1 !important
-			h1
-				color var-theme !important
-			h4
-				color var-text-1 !important
-		h1,
-		h2
-			color var-text-1 !important
-		p,
-		ul
-			color var-text-2 !important
-	.infoText
-		h1
-			color var-theme !important
-		h2,
-		h3,
-		h4
-			color var-text-1 !important
-		p,
-		li
-			color var-text-2 !important
-		a
-			color var-theme !important
-			&:hover
-				opacity var-hover-opacity !important
-	.infoTextWindow
-		background var-background-1 !important
-		border var-border-style !important
-		color var-text-1 !important
-	.inner .whiteBody .bg-grey-primary
-		color var-text-2
-		background-color var-background-2 !important
-		box-shadow var-box-shadow !important
-		.bbRelatedBox
-			border none
-	.label,
-	.price
-		&.color-orange
-			color var-theme !important
-	.lightbox
-		.lbFrame
-			border-radius var-border-radius
-			.lbSlideContents
-				background-color black
-	.mainContent
-		border none !important
-		color var-text-2
-		box-shadow var-box-shadow !important
-		background-color var-background-2 !important
-		&.bg-grey-primary
-			background-color var-background-2 !important
-			.pages a
-				background-color transparent !important
-				border none !important
-				&:hover
-					background-color var-highlight !important
-				&.isCurrent
-					background-color var-on-background-2 !important
-					&:hover
-						background-color var-highlight !important
-		#idkollen-form
-			color var-text-1
-			.tanukiButton
-				background-color var-on-background-2 !important
-				color var-text-2 !important
-				&:hover
-					background-color var-highlight !important
-		.mainContentHeader
-			color var-text-1 !important
-		.articleList
-			.preamble
-				color var-text-2 !important
-			.listItem
-				border-bottom none
-				background-color var-background-2
-				border-radius var-border-radius
-				.bbVideo,
-				.image
-					img,
-					iframe
-						border-radius var-border-radius
-						box-shadow var-box-shadow !important
-		.newsList
-			.itemBanner
-				img
-					border-radius var-border-radius
-					box-shadow var-box-shadow !important
-					opacity var-image-opacity !important
-			.pubItem
-				border-bottom var-border-style-light !important
-				.itemMeta
-					.date
-						color var-text-1 !important
-					a
-						color var-theme !important
-						&:hover
-							text-decoration var-hover-text !important
-							opacity var-hover-opacity !important
-				.itemText
-					.bbParagraph
-						color var-text-2 !important
-					a
-						color var-text-1 !important
-						&:hover
-							text-decoration var-hover-text !important
-							opacity var-hover-opacity !important
-						&:last-child
-							color var-theme !important
-							text-decoration none !important
-							&:hover
-								color var-theme !important
-								text-decoration var-hover-text !important
-								opacity var-hover-opacity !important
-				h2
-					a
-						color var-theme !important
-						&:hover
-							text-decoration var-hover-text !important
-							opacity var-hover-opacity !important
-			.relatedLinks
-				border var-border-style
-				background-color var-on-background-2
-				border-radius var-border-radius
-				legend
-					color var-text-1
-				a
-					color var-theme
-					&:hover
-						text-decoration var-hover-text
-						opacity var-hover-opacity
-				ul
-					color var-text-2
-			.contentHeader h2
-				color var-text-1 !important
-			.pages
-				.icon
-					filter var-theme-filter !important
-				a
-					color var-text-2 !important
-					&.isCurrent
-						background-color var-background-2 !important
-						color var-theme !important
-						&:hover
-							background-color var-background-2 !important
-							text-decoration var-hover-text !important
-							opacity 1
-					&:active
-						text-decoration var-hover-text !important
-					&:hover
-						background-color var-background-2 !important
-						text-decoration var-hover-text !important
-			.registerForm a
-				color var-theme !important
-				&:hover
-					text-decoration var-hover-text !important
-					opacity var-hover-opacity !important
-			.s5fieldset a.button
-				background-color var-background-1 !important
-				color var-text-2 !important
-				&:hover
-					background-color var-highlight !important
-					color var-text-1 !important
-			.stepItem
-				color var-text-1 !important
-				background-color transparent !important
-				&.isDisabled
-					color var-text-2 !important
-					background-color transparent !important
-				&.isSelected
-					color var-theme !important
-					background-color transparent !important
-				a:hover
-					text-decoration var-hover-text !important
-					opacity var-hover-opacity !important
-		.profileFeed
-			.date
-				color var-text-2 !important
-			.link
-				color var-theme !important
-				&:hover
-					text-decoration var-hover-text !important
-					opacity var-hover-opacity !important
-			.user
-				color var-theme !important
-			.feedSection
-				.listItem
-					.inner
-						color var-text-2 !important
-						b
-							color var-theme !important
-				.feedItem
-					color var-text-2
-					border-top var-border-style-light !important
-					&:first-child
-						border-top 0 !important
-			.feedControl
-				border-top var-border-style-light !important
-		.read-more-archive
-			color var-theme
-			text-decoration none
-			&:hover
-				text-decoration var-hover-text
-				opacity var-hover-opacity
-	.marketFilterBox
-		border var-border-style
-		*[id^='__laika_cnt.select.']
-			background-color var-on-background-2 !important
-			color var-text-2
-			border var-border-style !important
-		*[id^='__laika_cnt.textbox.']
-			background-color var-on-background-2 !important
-			color var-text-2
-			border var-border-style !important
-			&:focus
-				box-shadow 0 0 0 !important
-				color var-text-1 !important
-		.checkboxList
-			.checkboxItem
-				color var-text-2 !important
-		.galleryCategory
-			.tcLabel
-				color var-text-2 !important
-		.gallerySearchQuery
-			.tcLabel
-				color var-text-2 !important
-		.tanukiControl
-			.tcHint
-				color var-text-2 !important
-			&.tanukiButton
-				background-color var-on-background-2 !important
-				border-radius var-border-radius-button !important
-				&:hover
-					background-color var-highlight !important
-		.tcLabel
-			color var-text-2 !important
-		legend
-			color var-theme !important
-	.marketForm
-		.galleryFileEditor
-			color var-text-2 !important
-			input,
-			.curFile a
-				color var-theme !important
-		.gridPanel
-			a.button
-				background-color var-on-background-2 !important
-				color var-text-2 !important
-				&:hover
-					background-color var-highlight !important
-		*[id^='__laika_cnt.select.']
-			background-color var-on-background-2 !important
-			color var-text-2
-			border var-border-style !important
-		*[id^='__laika_cnt.textbox.']
-			background-color var-on-background-2 !important
-			color var-text-2
-			border var-border-style !important
-			&:focus
-				box-shadow 0 0 0 !important
-				color var-text-1 !important
-		*[id^='__laika_cnt.textarea.']
-			background var-on-background-2 !important
-			border var-border-style !important
-			border-radius var-border-radius !important
-			color var-text-2 !important
-			&:focus
-				color var-text-1 !important
-		.tanukiButton
-			background-color var-on-background-2 !important
-			border-radius var-border-radius-button !important
-			&:hover
-				background-color var-highlight !important
-		.s5fieldset
-			h6
-				color var-text-1 !important
-			p
-				color var-text-2 !important
-		.tcLabel,
-		.checkboxItem
-			color var-text-2 !important
-	.marketHeader
-		.marketMeta
-			.meta-wrapper
-				background-color var-background-2 !important
-				border var-border-style
-			dd
-				color var-text-2 !important
-				a
-					color var-text-2 !important
-					&:hover
-						text-decoration var-hover-text !important
-						opacity var-hover-opacity !important
-				&.strongLabel
-					color var-theme !important
-					a
-						color var-theme !important
-						&:hover
-							text-decoration var-hover-text !important
-							opacity var-hover-opacity !important
-			dt
-				color var-text-1 !important
-			.avatar
-				border-radius var-border-radius !important
-			.button
-				background-color var-on-background-1 !important
-				&:hover
-					background-color var-highlight !important
-		.inner
-			h1 span
-				color var-text-1
-			div a
-				color var-theme !important
-				&:hover
-					opacity var-hover-opacity !important
-			h2
-				.color-orange
-					color var-theme !important
-			span
-				color var-text-1
-				&.text-normal
-					color var-text-2
-	.market-content
-		border-bottom var-border-style-light !important
-		.marketText
-			p
-				color var-text-2 !important
-			li
-				&::marker
-					color var-theme !important
-		.marketImages
-			img
-				opacity var-image-opacity
-				border-radius var-border-radius
-		.btnGroup
-			.button
-				background-color var-on-background-2 !important
-				color var-text-1 !important
-				&:hover
-					background-color var-highlight !important
-				&.report
-					.icon
-						background-position -150px -100px !important
-					&:hover .icon
-						filter var-warning-filter
-	.marketList
-		.marketThumb
-			img
-				border-radius var-border-radius !important
-				&:hover
-					opacity var-hover-opacity !important
-		.category
-			color var-text-2 !important
-			&:hover
-				text-decoration var-hover-text !important
-				opacity var-hover-opacity !important
-		.color-black
-			color var-text-2 !important
-			&.user
-				color var-text-1 !important
-		.comments
-			color var-theme !important
-			.icon
-				filter var-theme-filter !important
-		.date
-			.time
-				color var-text-2 !important
-		.meta
-			a
-				&:hover
-					.icon
-						text-decoration var-hover-text !important
-						opacity var-hover-opacity !important
-					.label
-						text-decoration var-hover-text !important
-						opacity var-hover-opacity !important
-		.type
-			color var-text-1 !important
-			&:hover
-				text-decoration var-hover-text !important
-				opacity var-hover-opacity !important
-	.memberTable
-		.title
-			color var-text-2 !important
-		.username
-			a
-				color var-theme !important
-				text-decoration none !important
-				&:hover
-					text-decoration var-hover-text !important
-					opacity var-hover-opacity !important
-	.menuItems
-		.icon
-			filter var-theme-filter !important
-		.link
-			color var-theme !important
-		a
-			&:hover
-				opacity 1
-	.mellandagsrea
-		#guideWrapper
-			background-color var-background-2 !important
-			color var-text-2 !important
-			border solid 1px var-border !important
-		.mellandagsreaHeader
-			.aboutFynd
-				a
-					color var-theme !important
-			h1
-				color var-theme !important
-			p
-				color var-text-1 !important
-		.productFooter
-			background var-background-2 !important
-			background-color var-background-2 !important
-			a
-				color var-theme !important
-			p
-				color var-text-2 !important
-		.productHeader
-			background darken(var-background-1, 40%) !important
-			background-color darken(var-background-1, 40%) !important
-			&:hover
-				background var-highlight !important
-				background-color var-highlight !important
-				opacity 1 !important
-		.productPriceOffer
-			color var-text-1 !important
-		.productPriceRegular
-			color var-text-2 !important
-		.productPriceSavings
-			color var-white !important
-			background-color var-theme !important
-		.tips
-			.numComments
-				a
-					color var-text-1 !important
-			.tipsTitle
-				color var-text-1 !important
-				a
-					color var-text-1 !important
-			.tipsData
-				.colScore
-					.label
-						color var-white !important
-						background var-theme !important
-						&:hover
-							opacity var-hover-opacity !important
-				.tipsRow
-					background-color var-background-2 !important
-			.tipsMeta
-				.productCell
-					background-color var-background-2 !important
-					border-left solid 1px var-border !important
-					border-right solid 1px var-border !important
-					span
-						&.label
-							color var-text-1 !important
-			.tipsRow
-				&:hover
-					.productCell
-						background var-highlight !important
-					.pjCell
-						background var-highlight !important
-					.userCell
-						background var-highlight !important
-			a
-				&.productCell
-					.colProduct
-						&:hover
-							text-decoration var-hover-text !important
-							opacity var-hover-opacity !important
-					.colPrice
-						&:hover
-							text-decoration var-hover-text !important
-							opacity var-hover-opacity !important
-					&:hover
-						.colProduct
-							text-decoration none !important
-						.colPrice
-							text-decoration none !important
-				&.userCell
-					&:hover
-						.colUser
-							text-decoration var-hover-text !important
-							opacity var-hover-opacity !important
-		.userCell
-			color var-text-1 !important
-		.vendorCampaignLink
-			& > a
-				color var-text-1 !important
-		.vendorGuides
-			.guideBlock
-				span
-					color var-text-1 !important
-				&:hover
-					opacity var-hover-opacity !important
-			h2
-				color var-text-1 !important
-		.vendorName
-			color var-text-1 !important
-		div
-			&.colCategory
-				color var-text-2 !important
-			&.colVendor
-				color var-text-2 !important
-			&.colProduct
-				color var-theme !important
-			&.colPrice
-				color var-theme !important
-		select
-			background var-background-1 !important
-			border var-border-style !important
-			color var-text-2 !important
-	.pages
-		.icon
-			filter var-theme-filter !important
-		.only-icon
-			.icon
-				filter var-theme-filter !important
-		a
-			border-radius var-border-radius
-			color var-text-2 !important
-			padding 1px 2px !important
-			border 1px solid var-background-1
-			&.isCurrent
-				background-color var-on-background-1 !important
-				color var-theme !important
-				&:hover
-					background-color var-highlight !important
-					text-decoration var-hover-text !important
-					opacity 1
-			&:active
-				text-decoration var-hover-text !important
-			&:hover
-				background-color var-highlight !important
-				.label
-					opacity 1 !important
-	.pmNewThreadForm
-		.tcbEditField
-			background-color var-on-background-2 !important
-			color var-text-2 !important
-			border var-border-style !important
-			&:focus
-				color var-text-1 !important
-		.tcbInput
-			background-color var-background-2 !important
-			color var-text-2 !important
-			input
-				border-radius var-border-radius-button !important
-		.tcbSelectedItem
-			background-color var-background-2 !important
-			color var-text-2 !important
-			&:hover
-				background-color var-highlight !important
-				color var-text-1 !important
-				.tbcsiClose
-					filter var-theme-filter !important
-	.popularGalleries
-		.author
-			& > a
-				color var-text-2 !important
-		.cat
-			& > a
-				color var-text-2 !important
-		.rating
-			color var-text-1 !important
-	.post
-		h2
-			color var-text-1 !important
-		p
-			color var-text-2 !important
-			a
-				color var-theme !important
-				text-decoration none
-		li
-			a
-				color var-theme !important
-				text-decoration none
-		ul
-			color var-text-1 !important
-	.postActions
-		.listBulkActions
-			.better-sweclockers-link-to-top
-				color var-theme !important
-				&::before
-					content '↑'
-					margin-right 4px
-					top -2px
-					position relative
-				&:hover
-					opacity var-hover-opacity !important
-			.tanukiControl
-				&.tanukiSelect
-					*[id^='__laika_cnt.select.']
-						background-color var-on-background-1 !important
-						border-radius var-border-radius-button !important
-						&:focus,
-						&:hover
-							background-color var-highlight !important
-				&.tanukiButton
-					background-color var-on-background-1 !important
-					border-radius var-border-radius-button !important
-					&:hover
-						background-color var-highlight !important
-	.postBody
-		.bbcode
-			.bbImage
-				img
-					opacity var-image-opacity !important
-					border-radius var-border-radius !important
-		.bbPoll
-			.optionBar
-				& > div
-					background var-theme !important
-					border none !important
-			.pollQuestion
-				border-bottom var-border-style !important
-			.pollSums
-				.totalVotes
-					border-top var-border-style !important
-			& > .inner
-				background var-background-1 !important
-				background-color var-background-1 !important
-				border var-border-style !important
-	.postBox
-		background var-background-2 !important
-		border var-border-style !important
-		.head
-			background var-background-1 !important
-			.title
-				color var-text-1 !important
-		.postElement
-			background var-background-1 !important
-			border var-border-style !important
-			.karma
-				color var-text-1 !important
-				border none !important
-			.select
-				border none !important
-			.summary
-				color var-text-2 !important
-				border none !important
-			.username
-				color var-theme !important
-				border none !important
-		.siblingCommand
-			.label
-				color var-theme !important
-				&:hover
-					text-decoration var-hover-text !important
-					opacity var-hover-opacity !important
-		.treeNode
-			.treeLine
-				filter var-theme-filter !important
-			&.hasChildren
-				&.isCollapsed
-					& > .treeCommand
-						background-color var-highlight !important
-	.profileHeader
-		.cell
-			background transparent !important
-		.meta
-			dd
-				color var-text-2 !important
-			dt
-				color var-text-2 !important
-		.statistics
-			.label
-				color var-text-2 !important
-			a
-				color var-theme !important
-				text-decoration none !important
-				&:hover
-					text-decoration var-hover-text !important
-					opacity var-hover-opacity !important
-		.title
-			color var-text-2 !important
-		h1
-			color var-text-1 !important
-	.quickReply
-		label
-			color var-text-2 !important
-		h4
-			color var-theme !important
-		*[id^='__laika_cnt.textarea.']
-			background var-background-2 !important
-			border var-border-style !important
-			border-radius var-border-radius !important
-			color var-text-2 !important
-			&:focus
-				color var-text-1 !important
-		.tanukiButton
-			background var-on-background-1 !important
-			border var-border-style !important
-			border-radius var-border-radius-button !important
-	.readMoreArchive
-		color var-theme !important
-		text-decoration none !important
-		&:hover
-			text-decoration var-hover-text !important
-			opacity var-hover-opacity !important
-	.rulesList
-		color var-text-2
-		a
-			color var-warning !important
-			text-decoration none !important
-			&:hover
-				text-decoration var-hover-text !important
-				opacity var-hover-opacity !important
-		h4
-			color var-text-1 !important
-		li
-			&:before
-				color var-warning !important
-	.s5fieldset
-		border var-border-style-light
-		legend
-			color var-text-1 !important
-	.selectBox-dropdown .selectBox-arrow
-		border-left none !important
-		filter var-light-filter !important
-	.selectBox-options
-		background-color var-background-1 !important
-		color var-text-2 !important
-		li
-			background-color var-background-1 !important
-			color var-text-2 !important
-			a
-				background-color var-background-1 !important
-				color var-text-2 !important
-				&:hover
-					background-color var-highlight !important
-					color var-text-1 !important
-			&:hover
-				background-color var-highlight !important
-				color var-text-1 !important
-		&:hover
-			background-color var-highlight !important
-			color var-text-1 !important
-	.sideBox
-		&.articleByline
-			h5
-				border-bottom none
-				color var-text-1
-			.author a
-				color var-theme
-				&:hover
-					text-decoration var-hover-text
-					opacity var-hover-opacity
-			.crediter a
-				color var-theme
-				&:hover
-					text-decoration var-hover-text
-					opacity var-hover-opacity
-		&.sideShare
-			h5
-				border-bottom var-border-style
-				color var-text-1
-			.menuItem a
-				color var-text-2
-				&:hover,
-				&:hover .label
-					text-decoration var-hover-text
-					opacity var-hover-opacity
-				.icon
-					filter var-theme-filter
-		&.videoPush
-			h5
-				border-bottom var-border-style
-				a
-					color var-text-1
-					&:hover
-						text-decoration var-hover-text
-						opacity var-hover-opacity
-			img
-				box-shadow var-box-shadow
-			h3 a
-				color var-text-2
-				&:hover
-					text-decoration var-hover-text
-					opacity var-hover-opacity
-		&.popularGalleries
-			h5
-				border-bottom var-border-style
-				a
-					color var-text-1
-					&:hover
-						text-decoration var-hover-text
-						opacity var-hover-opacity
-			.image
-				box-shadow var-box-shadow
-			h3 a
-				color var-theme
-				&:hover
-					text-decoration var-hover-text
-					opacity var-hover-opacity
-			.author,
-			.cat,
-			.rating
-				color var-text-2
-				a
-					&:hover
-						text-decoration var-hover-text
-						opacity var-hover-opacity
-		&.sideBox
-			h5
-				border-bottom none
-				color var-theme !important
-			form
-				label
-					color var-text-1
-				input,
-				select,
-				button
-					background-color var-on-background-1 !important
-					border var-border-style
-					color var-text-2
-				button:hover
-					background-color var-highlight !important
-				.checkboxItem label
-					color var-text-2
-				*[id^='__laika_cnt.textbox.']
-					background-color var-on-background-1 !important
-					border-radius var-border-radius-button !important
-			.menuItem a
-				color var-text-2
-				&:hover,
-				&:hover .label
-					text-decoration var-hover-text
-					opacity var-hover-opacity
-				.icon
-					filter var-theme-filter
-	.sideMenu
-		#searchForm
-			*[id^='__laika_cnt.textbox.'],
-			*[id^='__laika_cnt.select.']
-				background-color var-on-background-1 !important
-				border-radius var-border-radius-button !important
-			button
-				background-color var-on-background-1 !important
-				&:hover
-					background-color var-highlight !important
-		.isSelected
-			.link
-				.label
-					text-decoration var-hover-text !important
-					opacity var-hover-opacity !important
-		.link
-			.label
-				color var-text-1 !important
-		h5
-			color var-text-1 !important
-	.sideShare
-		&.sideBox
-			.icon
-				filter var-theme-filter !important
-			.link
-				color var-text-2 !important
-			.menuItem
-				a
-					&:hover
-						.label
-							text-decoration var-hover-text !important
-							opacity var-hover-opacity !important
-	.staff-list
-		.sl-profile
-			border-bottom-color var-border-light
-			.slp-image
-				img
-					opacity var-image-opacity !important
-					border-radius var-border-radius !important
-					box-shadow var-box-shadow !important
-				&:hover
-					opacity var-hover-opacity !important
-			.slp-meta
-				.slpm-item
-					color var-text-2 !important
-					&.slpmi-name a
-						color var-theme !important
-					a
-						color var-text-1 !important
-						&:hover
-							opacity var-hover-opacity !important
-		p a
-			color var-theme
-			&:hover
-				opacity var-hover-opacity !important
-	.sorter
-		.isCurrent
-			color var-theme !important
-		a
-			.label
-				color var-text-1 !important
-		.label
-			color var-text-1 !important
-		.column
-			color var-text-2 !important
-			border-radius var-border-radius-button
-			&.is-current
-				color var-theme !important
-			&:hover
-				background-color var-highlight !important
-	.sponsoredArticle
-		background-color transparent
-		color var-text-1
-		font-weight 700
-	.subforums
-		.title h2 a
-			color var-theme
-		.bg-grey-secondary
-			background-color var-on-background-2 !important
-			color var-text-2
-			padding 4px 8px !important
-			font-weight 700 !important
-			font-family Arial !important
-			border-radius var-border-radius-button
-			&:hover
-				color var-theme
-				background-color var-highlight !important
-	.table
-		.head .row .cell
-			color var-white
-			background none !important
-		.body
-			.row
-				.cell
-					background-color var-background-2
-					color var-text-1
-					border-bottom 2px solid var-background-2 !important
-					&.numReplies a
-						color var-text-1 !important
-						text-decoration none
-					&.alt2
-						background-color var-background-2 !important
-					&.isGreyscale .cell.alt2
-						color var-text-2 !important
-						a
-							color var-text-2 !important
-				&.isSticky
-					.cell
-						background-color lighten(var-background-2, 2%) !important
-					&.allPostsRead
-						.cell.title h2 a
-							color var-text-1 !important
-							opacity 1 !important
-							&:hover
-								opacity var-hover-opacity !important
-				&.hasUnreadPosts
-					.cell.title h2 a
-						color var-text-1 !important
-						opacity 1 !important
-						&:hover
-							opacity var-hover-opacity !important
-				&.allPostsRead
-					.cell.title h2 a
-						color darken(var-text-2, 25%) !important
-				&.isSelected .cell
-					background-color var-highlight !important
-				&:last-child .cell
-					border-bottom 0 !important
-			.lastReply
-				.time
-					color var-text-1 !important
-				.date
-					color var-text-2 !important
-				.name
-					text-decoration none
-					color var-theme !important
-		.cell
-			&.lastThread h3
-				color var-text-1
-				text-decoration none
-			&.title h2 a
-				color var-theme !important
-		.title h2 a
-			color var-theme !important
-		.dateline
-			color var-text-2
-			.date .time,
-			a
-				color var-theme
-	.tanukiButton
-		background-color darken(var-background-1, 40%) !important
-		color var-text-2
-		border var-border-style !important
-		&:hover
-			background-color var-highlight !important
-		&:focus
-			outline none !important
-	.tanukiCombobox
-		.tcbPanelItem
-			background var-background-1 !important
-			color var-text-2 !important
-			&.isSelected
-				background var-highlight !important
-				color var-text-1 !important
-		.tcbPanelTrigger
-			background var-background-1 !important
-			color var-text-2 !important
-	.tanukiControl
-		.tcHint
-			color var-text-2 !important
-			a
-				color var-theme !important
-				text-decoration none !important
-				&:hover
-					text-decoration var-hover-text !important
-					opacity var-hover-opacity !important
-		&.isRequired
-			.tcLabel
-				&:after
-					color var-warning !important
-	.tanukiError
-		.error
-			border var-border-style !important
-			color var-white !important
-			background-color var-warning !important
-	.tanukiSelect
-		select
-			background var-background-2 !important
-			&:focus
-				box-shadow 0 0 0 !important
-	.tanukiTextbox
-		input
-			background-color darken(var-background-1, 40%) !important
-			color var-text-2
-			&:focus
-				color var-text-1 !important
-				box-shadow 0 0 0 !important
-		select
-			background-color darken(var-background-1, 40%) !important
-			color var-text-2 !important
-	.tcbTriggerFrame
-		border none !important
-	.tipsportal
-		.tipsportal-header
-			background-color var-on-background-1
-			box-shadow var-box-shadow
-			h1
-				color var-theme
-			p
-				color var-text-2
-				a
-					color var-theme
-					&:hover
-						opacity var-hover-opacity !important
-		.vendor-products
-			background-color var-background-2
-			border-top var-border-style
-			border-left var-border-style
-			.product
-				border-bottom var-border-style
-				border-right var-border-style
-			.product-footer
-				background-color var-background-2
-			.product-name
-				color var-theme
-				&:hover
-					opacity var-hover-opacity !important
-			.product-descr
-				color var-text-2
-			.product-price-offer
-				color var-text-1
-			.product-price-regular
-				color var-text-2
-			.product-price-savings
-				background-color var-theme
-				text-shadow var-text-shadow
-		.vendor-campaign-link
-			a
-				color var-text-1
-		.vendor-name
-			a
-				color var-text-1
-		.tips-title
-			color var-text-1
-			a
-				color var-theme
-		.tips
-			.num-comments
-				a
-					color var-theme
-			.col-product-inner-wrapper
-				color var-theme
-			.col-category
-				color var-text-1
-			.col-user
-				color var-text-1
-			a
-				&.cell-product
-					&:hover
-						.col-product,
-						.col-user
-							text-decoration none !important
-				&.cell-user
-					&:hover
-						.col-product,
-						.col-user
-							text-decoration none !important
-		.tips-row
-			background-color var-background-2
-			border var-border-style
-			border-top none
-			&:first-child
-				border-top-left-radius var-border-radius !important
-				border-top-right-radius var-border-radius !important
-				border-top var-border-style
-				&:hover
-					.col-wrapper
-						&.cell-product
-							border-top-left-radius var-border-radius !important
-						&.cell-user
-							border-top-right-radius var-border-radius !important
-			&:last-child
-				border-bottom-left-radius var-border-radius !important
-				border-bottom-right-radius var-border-radius !important
-				&:hover
-					.col-wrapper
-						&.cell-product
-							border-bottom-left-radius var-border-radius !important
-						&.cell-user
-							border-bottom-right-radius var-border-radius !important
-			&:nth-child(odd)
-				background-color var-background-2
-			&:hover
-				.col-wrapper
-					background-color var-highlight
-		.tips-header
-			border-bottom none
-		.tips-meta
-			select
-				background-color var-on-background-1
-				color var-text-1
-				border var-border-style
-				border-radius var-border-radius-button
-				&:focus
-					background-color var-highlight !important
-		.tips-data
-			border-radius var-border-radius !important
-			.col-vendor
-				color var-text-1
-			.col-price
-				color var-theme
-			.col-score
-				.label
-					background-color var-theme
-					text-shadow var-text-shadow
-		a
-			&:hover
-				text-decoration none !important
-				opacity 1 !important
-		#guide-wrapper
+							#better-sweclockers-editing-tools
+								.button
+									background-color var-on-background-2
+									&:hover
+										background-color var-highlight
+						.controls
+							.button
+								background-color var-on-background-2
+								&:hover
+									background-color var-highlight
+	/* End Content */
+	/* Footer */
+	#footer
+		.bottom
 			background-color var-background-2
 			color var-text-2
-			border var-border-style
-			border-radius var-border-radius
-		.vendor-guides
-			h2
-				color var-theme
-			.guide
-				span
-					color var-text-1
-				.icon
-					img
-						filter var-grey-filter !important
-						&:hover
-							opacity 0.8
-	#forumList-1
-		.table
-			.head
-				.cell
-					color var-text-2 !important
-					border none !important
-			.body:not(.categoryItem)
-				border none !important
-				box-shadow var-box-shadow !important
-				border-radius var-border-radius !important
-				.row
-					&:first-child
-						.cell
-							&.status
-								border-top-left-radius var-border-radius !important
-							&.numReplies
-								border-top-right-radius var-border-radius !important
-					&:last-child
-						.cell
-							&.status
-								border-bottom-left-radius var-border-radius !important
-							&.numReplies
-								border-bottom-right-radius var-border-radius !important
-					.cell
-						&.status
-							.icon-0
-								filter var-grey-filter !important
-			.categoryItem
-				.cell
-					background-color transparent !important
-					color var-text-1 !important
-					border none !important
-				a
-					color var-text-1 !important
-					&:hover
-						text-decoration var-hover-text !important
-						opacity var-hover-opacity !important
-				&.title
-					border-left var-border-style !important
-				&.toggle
-					border-right var-border-style !important
-				&.isCollapsed
-					.cell
-						border-bottom var-border-style-light !important
-					.toggle .arrow
-						transform rotate(0)
-				.toggle .arrow
-					border-color transparent !important
-					border-bottom-color var-theme !important
-					border-top-color var-theme !important
-					transform rotate(60deg)
-	#threadList-1
-		.head
-			.cell
-				color var-text-1 !important
-				border none !important
-		.body
-			border none !important
-			box-shadow var-box-shadow !important
-			border-radius var-border-radius !important
-			.row
-				&:first-child
-					.cell
-						&.status
-							border-top-left-radius var-border-radius !important
-						&.select
-							border-top-right-radius var-border-radius !important
-				&:last-child
-					.cell
-						&.status
-							border-bottom-left-radius var-border-radius !important
-						&.select
-							border-bottom-right-radius var-border-radius !important
-				&.isSticky
-					.cell
-						background-color lighten(var-background-2, 2%) !important
-					&.allPostsRead
-						.cell.title h2 a
-							color var-text-1 !important
-							opacity 1 !important
-							&:hover
-								opacity var-hover-opacity !important
-				&.hasUnreadPosts
-					.cell.title h2 a
-						color var-text-1 !important
-						opacity 1 !important
-						&:hover
-							opacity var-hover-opacity !important
-				&.allPostsRead
-					.cell.title h2 a
-						color darken(var-text-2, 25%) !important
-				.title
-					h2
-						a
-							color var-text-2 !important
-							text-decoration none !important
-							&:hover
-								text-decoration var-hover-text !important
-								opacity var-hover-opacity !important
-				.pageLinks
-					.link
-						color var-theme !important
-						text-decoration none !important
-						&:hover
-							text-decoration var-hover-text !important
-							opacity var-hover-opacity !important
-					.icon
-						filter var-grey-filter !important
-				.lastReply
-					.by
-						color var-text-2 !important
-					.date
-						color var-text-2 !important
-					.icon
-						filter var-grey-filter !important
-					.name
-						color var-theme !important
-						text-decoration none !important
-						&:hover
-							text-decoration var-hover-text !important
-							opacity var-hover-opacity !important
-					.time
-						color var-text-1 !important
-				.numReplies,
-				.numViews
-					a
-						color var-text-2 !important
-						text-decoration none !important
-						text-decoration-color transparent !important
-						&:hover
-							text-decoration var-hover-text !important
-							opacity var-hover-opacity !important
-							text-decoration-color transparent !important
-				.isSelected
-					.cell
-						background var-highlight !important
-						background-color var-highlight !important
-						border-bottom none !important
-	.threadMap
-		.naviView
-			.shortcut
-				background-color var-background-1 !important
-				border var-border-style !important
-				color var-text-1 !important
-				a
-					&:hover
-						text-decoration var-hover-text !important
-						opacity var-hover-opacity !important
-	.threadStatus
-		&.icon-0,
-		&.icon-2,
-		&.icon-8,
-		&.icon-16,
-		&.icon-17,
-		&.icon-32
-			filter var-grey-filter !important
-	.threadsBody
-		.title
-			h2
-				a
-					color var-text-1 !important
-	.threadPages
-		.first-unread
-			&:hover
-				.icon
-					background-position -175px -150px
-	.tv-frame
-		.tvf-bottom
-			background-image url('https://i.imgur.com/gi4NvPE.png') !important
-			height 24px !important
-		.tvf-left
-			background-image url('https://i.imgur.com/y8gWfV1.png') !important
-		.tvf-right
-			background-image url('https://i.imgur.com/fD4VmHu.png') !important
-		.tvf-top
-			background-image url('https://i.imgur.com/hxA5pui.png') !important
-	.uploadPanel
-		.s5fieldset
-			p
-				color var-text-2 !important
-	.videoPush
-		h3
-			& > a
-				color var-text-2 !important
-	.whiteBody
-		.forumWidget
-			background-color var-background-2 !important
-			.mwHead
-				h5
-					color var-theme !important
-					& > a
-						&:hover
-							text-decoration var-hover-text !important
-							opacity var-hover-opacity !important
-				p
-					color var-text-2 !important
-			.mwItem
-				a
-					&:hover
-						.mwLabelDate
-							text-decoration var-hover-text !important
-							opacity var-hover-opacity !important
-						.mwLabelText
-							text-decoration var-hover-text !important
-							opacity var-hover-opacity !important
-			.mwLabel
-				& > .mwLabelDate
-					color var-text-1 !important
-				& > .mwLabelText
-					color var-text-2 !important
-		.sorter
-			.column
-				&.isDesc
-					color var-text-1 !important
-					&.isCurrent
-						color var-theme !important
-						&:hover
-							background-color var-background-1 !important
-							text-decoration var-hover-text !important
-							opacity var-hover-opacity !important
-					&:hover
-						background-color var-background-1 !important
-						text-decoration var-hover-text !important
-						opacity var-hover-opacity !important
-	.whiteFilterBox
-		background-color var-background-2
-		button
-			&.tanukiButton
-				background-color darken(var-background-1, 40%) !important
-				border-radius var-border-radius-button !important
-				&:hover
-					background-color var-highlight !important
-	.whiteHeader
-		.meta
-			.metaItem
-				a
-					color var-text-1 !important
-					&:hover
-						text-decoration var-hover-text !important
-						opacity var-hover-opacity !important
-		.pmThreadPtcps
 			a
-				color var-theme !important
-				&:hover
-					text-decoration var-hover-text !important
-					opacity var-hover-opacity !important
-		div
-			color var-text-2 !important
-		h1
-			color var-text-1
-			.titleSection
-				color var-theme
-	.wrapinner
-		background var-background-1 !important
-		#post17698683
-			h2
-				.bbColor
-					color var-theme !important
-		#searchForm
-			.contentBox
-				select
-					background var-background-1 !important
-					border var-border-style !important
-					color var-text-2 !important
-		.articleComments
-			a
-				color var-theme !important
-		.articleList
-			.metadata
-				.cat
-					color var-theme !important
-				.time
-					color var-text-1 !important
-		.articleStatus
-			&.icon-comment
-				filter var-light-filter !important
-		.contentBox
-			.infoText
-				h5
-					color var-text-1 !important
-			button,
-			.button
-				background-color var-background-1 !important
-				border-radius var-border-radius-button !important
-				border var-border-style !important
-				color var-text-2 !important
-			h6
-				color var-text-1 !important
-			input[type='text']
-				background var-background-1 !important
-				border var-border-style !important
-				color var-text-2 !important
-			input[type='password']
-				background var-background-1 !important
-				border var-border-style !important
-				color var-text-2 !important
-		.contentHeader
-			.descr
-				color var-text-2 !important
-			.description
-				p
-					color var-text-2 !important
-			.preamble
-				.bbParagraph
-					color var-text-2 !important
-			.title
-				h1
-					color var-text-1 !important
-			h1
-				&.title
-					color var-text-1
-		.details
-			color var-text-2 !important
-		.forumList
-			.cell
-				&.status
-					.forumStatus
-						filter none !important
-			.treeNode
-				& > .nodeInner
-					border var-border-style !important
-					background var-background-2 !important
-					background-color var-background-2 !important
-					.descr
-						color var-text-2 !important
-					h2
-						color var-theme !important
-		.galleryComments
-			a
-				color var-theme !important
-		.galleryImage
-			background var-background-2 !important
-			border var-border-style !important
-		.galleryList
-			.descr
-				color var-text-2 !important
-			ul
-				.meta
-					.author
-						color var-text-1 !important
-					.cat
-						color var-text-2 !important
-				h2
-					color var-text-1 !important
-		.header
-			.dateline
-				.mobil
-					color var-theme !important
-				span
-					color var-text-2 !important
-			.headMain
-				border-bottom var-border-style !important
-				padding-bottom 0
-				background var-background-2 !important
-		.itemList
-			background var-background-2 !important
-			border var-border-style !important
-			.cell
-				&.status
-					& > span
-						border-top var-border-style !important
-						color var-text-2 !important
-			.listItem
-				.cat
-					color var-text-1 !important
-				.dateline
-					color var-text-2 !important
-				.icon
-					span
-						filter var-theme-filter !important
-				&.isFocused
-					background var-highlight !important
-					box-shadow inset 1px 1px 1px transparent !important
-			div
-				&.preview
-					div
-						&.bbcode
-							color var-text-2 !important
-			h2
-				color var-theme !important
-		.listItem
-			.inner
-				color var-text-2 !important
-				.dateline
-					b
-						color var-text-1 !important
-				b
-					color var-theme !important
-			&.isFocused
-				.inner
-					color var-text-2 !important
-		.marketFilterBox
-			#searchForm
-				select
-					background var-background-1 !important
-					border var-border-style !important
-					color var-text-2 !important
-				input
-					background var-background-1 !important
-					border var-border-style !important
-					color var-text-2 !important
-		.marketList
-			.price
-				color var-text-1 !important
-		.navi
-			background var-background-2 !important
-			border var-border-style !important
-			.button
-				background var-background-1 !important
-				border var-border-style !important
-				box-shadow 1px 1px 1px transparent !important
-				& > span
-					&:after
-						color var-theme !important
-				span
-					color var-text-2 !important
-			.curPage
-				select
-					background var-background-1 !important
-					border var-border-style !important
-					color var-text-2 !important
-		.profileDetail
-			dt
-				color var-text-2 !important
-			dd
-				color var-text-2 !important
-			h2
-				color var-text-1 !important
-		.thread .body .bbcode
-			h1
-				color var-text-1 !important
-			h3
-				color var-theme !important
-		a.author
-			color var-theme !important
-		button,
-		input[type='button'],
-		input[type='submit'],
-		.tanukiButton
-			box-shadow 1px 1px 1px transparent !important
-			border-radius var-border-radius-button !important
-		div
-			&.plItemRow
-				& > .plLabelText
-					color var-text-2 !important
-				&.plItemSubRow
-					& > .plLabelText
-						color var-theme !important
-			&.plItemSubRow
-				& > .plLabelComponent
-					color var-text-1 !important
-			&.title
-				color var-text-2 !important
-		input[type='text'],
-		input[type='email'],
-		input[type='search'],
-		input[type='number'],
-		input[type='password'],
-		select,
-		textarea
-			background var-background-2 !important
-			border var-border-style !important
-			color var-text-2 !important
-		&.contentHeader > .title .statusIcon + h1
-			color var-text-1 !important
-		&.navi .button > span:before
-			color var-theme !important
-	::-webkit-resizer
-		background-image url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAABB0lEQVQ4jcXSvytHYRQG8I9fZWNg8A8og0wMyKKMFEpZlPxYZaEsysJCFuprUSYs6ptQshlYLUa7JAsGSW+9V7fb/fK9GZzp7X3O8/Q85xx/rZrAfylNFJEJnDU8Ns0dbtcWNFCHElbQGT6KCDTiGDPYwGz4rK+S3IwTDGARWwlQjUAbztGBKRykwd8E2nGBVozgLNvwk0A3TuOcBnGT11RpiEO4wiv6M+QG7GK5ksAkynhAH+5TWIhyifnEfTbCAjZxjWE8p7CuuIkWjMb3t4NwXetxPeUYIU0ej6Kf6E3IaYE9LGEfY3hLkVdxhFv04C5viCFnuK5pfGRivWMnunrKn/m/Fb4AFQsvGVJYWLQAAAAASUVORK5CYII=') !important
-		background-repeat no-repeat !important
-		background-size 12px auto !important
-		background-position 3px 3px !important
-	:focus
-		outline none
-	a
-		&.back_to_cal
-			&:hover
-				color var-warning !important
-				& > i
-					background-color var-warning !important
-		&.selectBox
-			&.selectBox-dropdown
-				background var-background-1 !important
-				box-shadow none !important
-		&:hover
-			text-decoration var-hover-text !important
-			& > .label
-				text-decoration var-hover-text !important
-				opacity var-hover-opacity !important
-	.link:hover
-		text-decoration var-hover-text !important
-		opacity var-hover-opacity !important
-		& > .label
-			text-decoration var-hover-text !important
-			opacity var-hover-opacity !important
-	body
-		background-color var-background-1 !important
-		pre
-			color var-text-2 !important
-	div > .widget
-		&.bg-orange
-			background var-background-2 !important
-			border-bottom-left-radius 8px
-			.widget-body .list .list-item .list-link
-				&:hover
-					opacity var-hover-opacity !important
-				.icon
-					filter var-theme-filter !important
-			.widget-foot > a.color-white
-				color var-text-1 !important
-				&:hover
-					opacity var-hover-opacity !important
-			a
-				& > span
-					&.list-link-text
-						color var-text-2 !important
-					&.text-bold
-						color var-text-1 !important
-				&.title
-					color var-theme !important
-					&:hover
-						opacity var-hover-opacity !important
-		&.articleContent
-			box-shadow var-box-shadow !important
-		&.widget.bg-orange
-			box-shadow var-box-shadow !important
-		&.bg-orange
-			&:hover
-				opacity 1 !important
-		&.content_holder > div > div > strong
-			color var-text-2 !important
-			& > a
-				color var-theme !important
-				text-decoration none
-		&.marketHeader > div.marketMeta.margin-large-bottom > div.left.margin-large-left > a
-			background-color var-background-2
-			color var-text-1 !important
-		&.plBody
-			color var-text-2 !important
-		&.plHead h5
-			color var-theme !important
-		&.whiteHeader.margin-large-bottom > div
-			& > div > a
-				color var-theme !important
-			& > h2 > span.color-orange > span
-				color var-theme !important
-	form#better-sweclockers
-		.better-sweclockers-inlinePreference
-			input[type='text'],
-			input[type='number'],
-			input[type='time']
-				background-color var-background-1 !important
-				color var-text-2 !important
-				border var-border-style !important
-		.s5fieldset
-			background-color var-background-2 !important
-		footer
-			color var-text-2 !important
-			a
-				color var-theme !important
-				&:hover
-					text-decoration var-hover-text !important
-					opacity var-hover-opacity !important
-		input[type='checkbox'],
-		input[type='radio']
-			& + label
-				color var-text-2 !important
-		textarea,
-		input[type='text'],
-		input[type='number'],
-		input[type='time']
-			background-color var-background-1 !important
-			color var-text-2 !important
-	img[src*='/artikel/diagram/']
-		filter invert(85%) !important
-	input[type='url']
-		background var-background-2 !important
-		border var-border-style !important
-		color var-text-2 !important
-	.stepWidget
-		.stepItem
-			&.isSelected
-				background-color transparent !important
-				color var-theme !important
-	.contentHeader
-		h2
-			color var-theme
+				color var-text-1
+			.copyright
+				color var-text-2
+	/* End Footer */

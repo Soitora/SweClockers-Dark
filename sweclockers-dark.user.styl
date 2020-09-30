@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name			SweClockers Dark
 @namespace		https://github.com/Soitora
-@version		4.0.0-alpha.1
+@version		4.0.0-alpha.2
 @description	A modern dark theme for SweClockers
 @author			Soitora <simon.mattila@protonmail.com> (https://soitora.com)
 @homepageURL	https://github.com/Soitora/SweClockers-Dark
@@ -21,6 +21,14 @@
 @var	color		var-theme "Theme color" #F19A57
 @var	color		var-theme-text "Theme color text" #FFFFFF
 @var	number		var-image-opacity "Image opacity" [0.75, 0, 1, 0.05]
+@var	select		var-scrollbar-style "Scrollbar" {
+	"Default": "scrollbar-default",
+	"Custom*": "scrollbar-custom"
+}
+@var	select		var-accessibility-focus "Accessibility: Focus" {
+	"Default*": "accessibility-focus-default",
+	"Disabled": "accessibility-focus-disabled"
+}
 ==/UserStyle== */
 @-moz-document domain("www.sweclockers.com")
 	/* UserCSS */
@@ -35,6 +43,8 @@
 	var-theme ?= #F19A57
 	var-theme-text ?= #FFFFFF
 	var-image-opacity ?= 0.75
+	var-var-accessibility-focus ?= accessibility-focus-default
+	var-scrollbar-style ?= scrollbar-custom
 	/* End UserCSS */
 	/* Variables */
 	var-on-background-1 = var-background-2
@@ -46,7 +56,9 @@
 	var-hover-opacity = 0.8
 	var-hover-text = none
 	var-box-shadow = 0 0 0 1px var-border-color
+	var-box-shadow-light = 0 0 0 1px var-border-color-light
 	var-box-shadow-inset = inset 0 0 0 1px var-border-color
+	var-box-shadow-inset-light = inset 0 0 0 1px var-border-color-light
 	var-box-shadow-warning = 0 0 0 1px var-warning
 	var-text-shadow = 1px 1px 2px var-black
 	var-filter-light = brightness(0) saturate(100%) invert(92%) sepia(0) saturate(489%) hue-rotate(229deg) brightness(90%) contrast(86%)
@@ -56,11 +68,53 @@
 	var-blue = #305d84
 	var-green = #1c5a00
 	var-pink = #b34d84
+	var-purple = #8e78a2
 	/* End Variables */
+	/* Code Variables */
+	if (var-accessibility-focus == 'accessibility-focus-disabled')
+		:focus
+			outline none !important
+	if (var-scrollbar-style == 'scrollbar-custom')
+		::-webkit-scrollbar
+			width 17px
+			height 12px
+		::-webkit-scrollbar-corner
+			background var-background-1
+		::-webkit-scrollbar-thumb
+			background var-theme
+			border-left 4px solid var-background-1 !important
+			border-right 4px solid var-background-1 !important
+		::-webkit-scrollbar-track
+			background var-background-1
 	/* Global */
+	filter()
+		filter arguments
+		-moz-filter arguments
+		-ms-filter arguments
+		-o-filter arguments
+		-webkit-filter arguments
+	border-radius()
+		border-radius arguments
+		-moz-border-radius arguments
+		-ms-border-radius arguments
+		-o-border-radius arguments
+		-webkit-border-radius arguments
+	box-shadow()
+		box-shadow arguments
+		-moz-box-shadow arguments
+		-ms-box-shadow arguments
+		-o-box-shadow arguments
+		-webkit-box-shadow arguments
+	user-select(n)
+		user-select n
+		-moz-user-select n
+		-ms-user-select n
+		-o-user-select n
+		-webkit-user-select n
 	body
 		background-color var-background-1
 		color var-text-2
+		outline-color red !important
 	a,
 	.link
 		color var-theme
@@ -78,33 +132,43 @@
 		background-color var-on-background-1
 		border var-border
 		color var-text-1
-		&:hover
+		&:hover,
+		&:active
+			color var-text-1
 			background-color var-highlight
-	.widget
-		&.content-secondary,
-		&.content-orange,
-		&.bg-dark-grey-primary
-			background-color var-background-2 !important
-			box-shadow var-box-shadow-inset
-			.widget-head
-				.title
-					color var-theme !important
-				.title-secondary
-					color var-text-1
-					a
-						color var-text-2
-			.widget-body
-				.title
-					color var-text-1
-				.list
-					.list-meta
-						&.list-bubble
-							&.date
-								background-color var-blue !important
-								color var-white !important
-								text-shadow var-text-shadow !important
-					.list-link
-						color var-text-2
+			opacity 1
+	select
+		background-color var-on-background-2
+		border-color var-border-color
+		color var-text-2
+		&:focus
+			color var-text-1
+			border-color var-border-color-light
+	input,
+	textarea
+		background-color var-on-background-2
+		border-color var-border-color
+		border-radius var-border-radius
+		color var-text-2
+		&:focus
+			color var-text-1
+			border-color var-border-color-light
+	.hasErrors
+		select,
+		input,
+		textarea
+			border-color var-warning !important
+			outline none !important
+	.error
+		background-color var-warning !important
+		color white !important
+		text-shadow var-text-shadow
+	fieldset
+		.button,
+		.tanukiButton
+			background-color var-on-background-2
+			&:hover
+				background-color var-highlight
 	.bg
 		&-orange
 			color var-theme-text !important
@@ -117,22 +181,22 @@
 			a
 				color red
 		&-grey-primary
-			color #282828 !important
-			background-color purple !important
+			color var-text-2 !important
+			background-color var-on-background-1 !important
 			&:not(.no-hover):hover
 				background-color #fff !important
 			a
-				color #1f5994
+				color var-theme
 		&-grey-secondary
-			color #6a6a6a !important
-			background gold !important
+			color var-text-2 !important
+			background var-on-background-2 !important
 			&:not(.no-hover):hover
 				background-color #efeeec !important
 			a
 				color #1f5994
 		&-dark-grey-primary
-			color #fff !important
-			background-color red !important
+			color var-text-1 !important
+			background-color transparent !important
 			&:not(.no-hover):hover
 				background-color #424242 !important
 			a
@@ -153,7 +217,7 @@
 			background-color var-beige !important
 
 		&-white
-			background-color var-white !important
+			background-color transparent !important
 	.color
 		&-white
 			color var-text-1 !important
@@ -185,8 +249,104 @@
 			fill #fafad9 !important
 			svg
 				fill #fafad9 !important
+	.content
+		&-primary
+			background-color var-on-background-1 !important
+		&-secondary
+			background-color var-on-background-1
+		&-orange
+			background-color var-on-background-1
+	.widget
+		&.content-secondary,
+		&.content-orange,
+		&.bg-blue-secondary,
+		&.bg-dark-grey-primary
+			box-shadow var-box-shadow-inset
+			.widget-head
+				.title
+					color var-theme !important
+				.title-secondary
+					color var-text-1
+					a
+						color var-text-2
+			.widget-body
+				.title
+					color var-text-1
+				.list
+					.list-meta
+						&.list-bubble
+							&.date
+								background-color var-blue !important
+								color var-white !important
+								text-shadow var-text-shadow !important
+					.list-link
+						color var-text-2
+		&.bg-blue-secondary
+			background-color var-on-background-1 !important
+		&.bg-dark-grey-primary
+			box-shadow none
+	.bbcode
+		.bbExpander
+			.expanderHeader
+				border-color var-border-color-light
+				color var-text-1
+			.expanderFrame
+				.expanderFade
+					background -moz-linear-gradient(top, transparent 0, transparent 10%, var-background-1 100%) !important
+					background -webkit-gradient(linear, left top, left bottom, color-stop(0, transparent), color-stop(45%, transparent), color-stop(100%, var-background-1)) !important
+					background -webkit-linear-gradient(top, transparent 0, transparent 10%, var-background-1 100%) !important
+					background -o-linear-gradient(top, transparent 0, transparent 10%, var-background-1 100%) !important
+					background -ms-linear-gradient(top, transparent 0, transparent 10%, var-background-1 100%) !important
+					background linear-gradient(to bottom, transparent 0, transparent 10%, var-background-1 100%) !important
+			.expanderFooter
+				border-color var-border-color-light
+		.bbImage
+			a
+				&:hover
+					opacity 1
+				img
+					border-radius var-border-radius
+		.bbIns
+			background-color var-purple
+			color black
+			border-bottom 1px dotted darken(var-purple, 50%)
+		.bbMark
+			background-color darken(var-blue, 50%)
+		.bbPre
+			background-color var-on-background-2
+			border-color var-border-color
+			::-webkit-scrollbar
+				width auto
+				height auto
+			::-webkit-scrollbar-corner
+				background var-on-background-2
+			::-webkit-scrollbar-thumb
+				background darken(var-text-2, 75%)
+				border-top 4px solid var-on-background-2 !important
+				border-bottom 4px solid var-on-background-2 !important
+				border-left-color var-on-background-2 !important
+				border-right-color var-on-background-2 !important
+			::-webkit-scrollbar-track
+				background var-on-background-2
+		.bbSpoiler
+			.spoilerHeader
+				background-color transparent
+			.spoilerFrame
+				background-color var-on-background-2
+				border-color var-border-color
+		.bbQuote
+			background-color var-on-background-2
+			border-color var-border-color
+			.quoteContent
+				border-top-color var-border-color-light
+			.quoteFade
+				background -moz-linear-gradient(top, transparent 0, transparent 10%, var-background-1 100%) !important
+				background -webkit-gradient(linear, left top, left bottom, color-stop(0, transparent), color-stop(45%, transparent), color-stop(100%, var-background-1)) !important
+				background -webkit-linear-gradient(top, transparent 0, transparent 10%, var-background-1 100%) !important
+				background -o-linear-gradient(top, transparent 0, transparent 10%, var-background-1 100%) !important
+				background -ms-linear-gradient(top, transparent 0, transparent 10%, var-background-1 100%) !important
+				background linear-gradient(to bottom, transparent 0, transparent 10%, var-background-1 100%) !important
 	/* End Global */
-	/* Header */
 	#header
 		.nav-container
 			.nav-top
@@ -241,34 +401,15 @@
 								color var-text-2
 					ul
 						border var-border
-	/* End Header */
-	/* Content */
+
+
 	#content
-		.container
-			.columns
+		> .container
+			> .columns
 				background-color transparent
 				.content-head
 					h1
 						color var-text-1
-				.content-body
-					background-color var-on-background-1
-					.article-body
-						.article-bbcode
-							.bbcode
-								.bbExpander
-									.expanderHeader
-										border-color var-border-color-light
-										color var-text-1
-									.expanderFrame
-										.expanderFade
-											background -moz-linear-gradient(top, transparent 0, transparent 10%, var-background-1 100%) !important
-											background -webkit-gradient(linear, left top, left bottom, color-stop(0, transparent), color-stop(45%, transparent), color-stop(100%, var-background-1)) !important
-											background -webkit-linear-gradient(top, transparent 0, transparent 10%, var-background-1 100%) !important
-											background -o-linear-gradient(top, transparent 0, transparent 10%, var-background-1 100%) !important
-											background -ms-linear-gradient(top, transparent 0, transparent 10%, var-background-1 100%) !important
-											background linear-gradient(to bottom, transparent 0, transparent 10%, var-background-1 100%) !important
-									.expanderFooter
-										border-color var-border-color-light
 				.carousel
 					.section
 						.slide
@@ -293,7 +434,6 @@
 									a
 										opacity 1
 				.cards
-					background-color var-background-2
 					box-shadow var-box-shadow-inset
 					.card
 						border-top 1px solid var-border-color
@@ -339,23 +479,49 @@
 				.forumPosts
 					.forum-post
 						.forum-post-header
-							color inherit !important
+							background-color var-on-background-2
+							color var-text-1
 						.forum-post-body
 							background-color var-on-background-1
-							border-radius var-border-radius
 							.col
 								&.side
 									background-color darken(var-on-background-1, 10%)
+									&.details
+										.activity
+											&.online
+												color var-theme
+											&.offline
+												color darken(var-text-2, 50%)
 									&.profile
+										.person
+											.title
+												color var-text-2
 										.avatar
 											border-radius var-border-radius !important
-						.message
-							.bbcode
-								.bbQuote
-									background-color var-on-background-2
-									border-color var-border-color
-									.quoteContent
-										border-top-color var-border-color-light
+										.meta
+											dt
+												color darken(var-text-2, 20%)
+											dd
+												color var-text-2
+								&.controls
+									.button
+										&.like
+											&:hover
+												svg.icon
+													fill var-theme !important
+											&.is-liked
+												.icon
+													fill var-text-2 !important
+												.score
+													color var-theme
+											&.is-disabled
+												background-color lighten(var-on-background-2, 1%) !important
+												.icon
+													fill darken(var-text-2, 70%) !important
+										&.report
+											&:hover
+												svg
+													fill var-warning
 						.button
 							background-color var-on-background-2
 							color var-text-1
@@ -372,55 +538,94 @@
 										color var-text-2
 									.icon
 										fill var-text-2
-				.forumForm
-					background-color var-on-background-1
-					.body
-						input,
-						textarea
-							background-color var-on-background-2
-							border-color var-border-color
-							border-radius var-border-radius
+						&.is-linked
+							.forum-post-header
+							.forum-post-body
+								border-color var-border-color-light
+						&.is-author
+							.forum-post-header,
+							.forum-post-body
+								border-left 2px solid var-theme
+						&.isReader:not(.is-author)
+							.forum-post-header,
+							.forum-post-body
+								border-left-color var-blue
+						&.is-author.isReader
+							.forum-post-header,
+							.forum-post-body
+								border-left-color var-blue
+				.list-actions
+					.list-search
+						input
+							background-color var-on-background-1
+					.pages
+						.first-page,
+						.prev-page,
+						.next-page,
+						.last-page,
+						.first-unread
+							fill var-text-2
+							&:hover
+								fill var-theme
+						> a
 							color var-text-2
-							&:focus
-								color var-text-1
-						fieldset
-							.button,
-							.tanukiButton
-								background-color var-on-background-2
+							background-color transparent
+							border-color transparent
+							&:hover
+								color var-theme
+								opacity 1
+							&.is-current
+								color var-theme
+								text-decoration underline
 								&:hover
-									background-color var-highlight
+									opacity var-hover-opacity
+					select
+						background-color var-on-background-1
+				.quickReply
+					.controls
+						.tanukiButton
+							background-color var-on-background-2
+							&:hover
+								background-color var-highlight
 				#forumList-1
 					table
 						background-color transparent
 						caption
-							background-color transparent
+							background-color var-background-2
 						.head
 							.cell
 								background-color var-on-background-2
-								&:first-child
-									border-top-left-radius var-border-radius
-								&:last-child
-									border-top-right-radius var-border-radius
 						.body
 							.cell
 								background-color var-on-background-1
+								border-color var-border-color
 								&.title
 									h2 a
 										color var-theme
 									.descr
 										color var-text-2
+									.subforums
+										.button
+											color var-text-1 !important
+											box-shadow var-box-shadow
+											&:hover
+												background-color var-highlight !important
 								&.lastThread
 									h3
 										color var-text-1
-									.by,
-									.date
-										color var-text-2
-										.time
-											color var-text-1
-				.forumThreads
+									.dateline
+										a
+											color var-theme
+										.by,
+										.date
+											color var-text-2
+											.time
+												color var-text-1
+				#threadList-1
 					table
+						background-color transparent
 						caption
-							background-color transparent
+							background-color pink !important
 						.head
 							.cell
 								background-color var-on-background-2
@@ -451,6 +656,8 @@
 									.posts
 										color var-text-2
 								&.lastReply
+									.name
+										color var-theme
 									.date
 										color var-text-2
 										time .time
@@ -460,6 +667,9 @@
 								&.title
 									h2 a
 										color darken(var-text-1, 40%)
+									.pageLinks
+										.link.last
+											color var-theme
 									.descr
 										color darken(var-text-2, 40%)
 								&.status
@@ -472,27 +682,6 @@
 													fill darken(var-text-2, 40%)
 									.posts
 										color darken(var-text-2, 40%)
-				.thread-footer
-					.quickReply
-						background-color var-on-background-1
-						.body
-							textarea
-								background-color var-on-background-2
-								border-color var-border-color
-								border-radius var-border-radius
-								color var-text-2
-								&:focus
-									color var-text-1
-							#better-sweclockers-editing-tools
-								.button
-									background-color var-on-background-2
-									&:hover
-										background-color var-highlight
-						.controls
-							.button
-								background-color var-on-background-2
-								&:hover
-									background-color var-highlight
 	/* End Content */
 	/* Footer */
 	#footer
@@ -504,3 +693,15 @@
 			.copyright
 				color var-text-2
 	/* End Footer */
+	/* Better Sweclockers */
+	#better-sweclockers-document
+		.better-sweclockers-editing-tools
+			.button
+				background-color var-on-background-2
+				&:hover
+					background-color var-highlight
+				mark
+					color var-blue
+				ins
+					color var-purple
+	/* End Better Sweclockers */

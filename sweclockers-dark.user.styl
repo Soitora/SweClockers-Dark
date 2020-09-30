@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name			SweClockers Dark
 @namespace		https://github.com/Soitora
-@version		4.0.0-alpha.2
+@version		4.0.0-alpha.3
 @description	A modern dark theme for SweClockers
 @author			Soitora <simon.mattila@protonmail.com> (https://soitora.com)
 @homepageURL	https://github.com/Soitora/SweClockers-Dark
@@ -256,6 +256,8 @@
 			background-color var-on-background-1
 		&-orange
 			background-color var-on-background-1
+		&-body
+			box-shadow var-box-shadow-inset
 	.widget
 		&.content-secondary,
 		&.content-orange,
@@ -300,6 +302,9 @@
 					background linear-gradient(to bottom, transparent 0, transparent 10%, var-background-1 100%) !important
 			.expanderFooter
 				border-color var-border-color-light
+		.bbChart
+			img[src*='/artikel/diagram/']
+				filter invert(85%) !important
 		.bbImage
 			a
 				&:hover
@@ -334,6 +339,51 @@
 			.spoilerFrame
 				background-color var-on-background-2
 				border-color var-border-color
+		.bbTable
+			background-color var-on-background-2 !important
+			border-color var-border-color !important
+			thead,
+			tbody
+				th
+					background-color darken(var-background-2, 40%) !important
+					color var-theme !important
+			thead
+				tr
+					span
+						color var-text-1 !important
+					&:first-child th
+						border-bottom 1px solid darken(var-background-2, 80%) !important
+						&:first-child
+							border-right 1px solid darken(var-background-2, 80%) !important
+							border-bottom 1px solid darken(var-background-2, 80%) !important
+						&:last-child
+							border-color var-border-color !important
+				th
+					background-color darken(var-background-2, 60%) !important
+			tbody
+				tr
+					th
+
+						border-right 1px solid darken(var-background-2, 50%) !important
+						border-bottom 1px solid var-on-background-2 !important
+						&:first-child span
+							color var-text-1 !important
+					td
+						border-color var-border-color !important
+						border-bottom 1px solid darken(var-background-2, 50%) !important
+					&:last-child
+						th
+							border-color var-border-color !important
+			a
+				color var-theme !important
+				&:hover
+					text-decoration var-hover-text !important
+					opacity var-hover-opacity !important
+		.bbLink
+			text-decoration none
+		.bbRelatedBox
+			background-color var-on-background-2
+			border-color var-border-color
 		.bbQuote
 			background-color var-on-background-2
 			border-color var-border-color
@@ -410,6 +460,27 @@
 				.content-head
 					h1
 						color var-text-1
+				.article-meta
+					.category
+						color var-theme
+					.date
+						color var-text-2
+					.authors a
+						color var-text-1
+				.article-head
+					.article-sponsored
+						background-color transparent
+				.article-keywords
+					.button
+						background-color var-on-background-2
+						&:hover
+							background-color var-highlight
+				.article-authors
+					hr
+						color var-border-color-light
+				.article-proofreading
+					a
+						border-top-color var-border-color-light
 				.carousel
 					.section
 						.slide
@@ -465,13 +536,6 @@
 								border-top var-border-light
 						.article-sponsored
 							background-color transparent
-							&::before
-								color var-theme
-								content "\2605 "
-								position absolute
-								width 0
-								left 10px
-								margin-top -2px
 					.ad
 						border-top var-border-light
 						iframe
@@ -625,7 +689,7 @@
 					table
 						background-color transparent
 						caption
-							background-color pink !important
+							background-color var-background-2
 						.head
 							.cell
 								background-color var-on-background-2
@@ -642,6 +706,7 @@
 										color var-text-1
 									.pageLinks
 										.link.last
+											color var-theme
 											text-decoration none
 									.descr
 										color var-text-2
@@ -669,7 +734,7 @@
 										color darken(var-text-1, 40%)
 									.pageLinks
 										.link.last
-											color var-theme
+											color var-text-2
 									.descr
 										color darken(var-text-2, 40%)
 								&.status

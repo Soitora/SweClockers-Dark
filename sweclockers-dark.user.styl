@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name			SweClockers Dark
 @namespace		https://github.com/Soitora
-@version		4.0.0-alpha.3
+@version		4.0.0-alpha.4
 @description	A modern dark theme for SweClockers
 @author			Soitora <simon.mattila@protonmail.com> (https://soitora.com)
 @homepageURL	https://github.com/Soitora/SweClockers-Dark
@@ -14,7 +14,7 @@
 @var	color		var-background-2 "Background color 2" #1D1D1F
 @var	color		var-text-1 "Text color 1" #C8C8C8
 @var	color		var-text-2 "Text color 2" #AAAAAA
-@var	color		var-border-color "Border color" #08080B
+@var	color		var-border-color "Border color" #101013
 @var	color		var-border-color-light "Border color light" #3B3B3B
 @var	color		var-highlight "Highlight color" #2A2A2D
 @var	color		var-warning "Warning color" #EE4757
@@ -29,6 +29,14 @@
 	"Default*": "accessibility-focus-default",
 	"Disabled": "accessibility-focus-disabled"
 }
+@var	select		var-lemonillusion-width "LemonIllusion: Width" {
+	"Default*": "lemonillusion-width-default",
+	"Custom": "lemonillusion-width-custom"
+}
+@var	select		var-lemonillusion-ad_movement "LemonIllusion: Ad movement" {
+	"Default*": "lemonillusion-ad_movement-default",
+	"Custom": "lemonillusion-ad_movement-custom"
+}
 ==/UserStyle== */
 @-moz-document domain("www.sweclockers.com")
 	/* UserCSS */
@@ -36,15 +44,17 @@
 	var-background-2 ?= #1D1D1F
 	var-text-1 ?= #C8C8C8
 	var-text-2 ?= #AAAAAA
-	var-border-color ?= #08080B
+	var-border-color ?= #101013
 	var-border-color-light ?= #3B3B3B
 	var-highlight ?= #2A2A2D
 	var-warning ?= #EE4757
 	var-theme ?= #F19A57
 	var-theme-text ?= #FFFFFF
 	var-image-opacity ?= 0.75
-	var-var-accessibility-focus ?= accessibility-focus-default
 	var-scrollbar-style ?= scrollbar-custom
+	var-accessibility-focus ?= accessibility-focus-default
+	var-lemonillusion-width ?= lemonillusion-width-default
+	var-lemonillusion-ad_movement ?= lemonillusion-ad_movement-default
 	/* End UserCSS */
 	/* Variables */
 	var-on-background-1 = var-background-2
@@ -71,9 +81,6 @@
 	var-purple = #8e78a2
 	/* End Variables */
 	/* Code Variables */
-	if (var-accessibility-focus == 'accessibility-focus-disabled')
-		:focus
-			outline none !important
 	if (var-scrollbar-style == 'scrollbar-custom')
 		::-webkit-scrollbar
 			width 17px
@@ -86,6 +93,38 @@
 			border-right 4px solid var-background-1 !important
 		::-webkit-scrollbar-track
 			background var-background-1
+	if (var-accessibility-focus == 'accessibility-focus-disabled')
+		:focus
+			outline none !important
+	if (var-lemonillusion-width == 'lemonillusion-width-custom')
+		.col
+			&.col-content
+				margin-right 10px
+				max-width 100%
+
+			&-side
+				margin-right 0 !important
+				margin-left 0 !important
+				display inherit !important
+
+			&-outer-side
+				position relative
+				left 260px
+
+		.container
+			overflow visible
+
+		.tv-frame
+			width auto
+
+		.pw-notifications
+			.display-none
+				&:not(.m-m-r)
+					display inherit !important
+	if (var-lemonillusion-ad_movement == 'lemonillusion-ad_movement-custom')
+		#outsider-1
+			position static !important
+
 	/* Global */
 	filter()
 		filter arguments
@@ -459,7 +498,7 @@
 				background-color transparent
 				.content-head
 					h1
-						color var-text-1
+						color var-text-2
 				.article-meta
 					.category
 						color var-theme
@@ -629,23 +668,22 @@
 						.last-page,
 						.first-unread
 							fill var-text-2
-							&:hover
-								fill var-theme
+							&.is-disabled
+								fill darken(var-text-2, 50%)
 						> a
 							color var-text-2
-							background-color transparent
-							border-color transparent
+
 							&:hover
-								color var-theme
+								background-color var-highlight
 								opacity 1
 							&.is-current
+								background-color var-highlight
+								border-color transparent
 								color var-theme
-								text-decoration underline
-								&:hover
-									opacity var-hover-opacity
 					select
 						background-color var-on-background-1
 				.quickReply
+					box-shadow var-box-shadow-inset
 					.controls
 						.tanukiButton
 							background-color var-on-background-2

@@ -692,6 +692,55 @@
 							background-color var-on-background-2
 							&:hover
 								background-color var-highlight
+				.tipsportal
+					&-header
+						background-color var-on-background-1
+						box-shadow var-box-shadow-inset
+						h1
+							color var-theme
+						p
+							color var-text-2
+						a
+							color var-theme
+					.tips
+						&-header
+							border-color var-border-color-light
+						&-row
+							border-color var-border-color
+							&:nth-child(odd)
+								background-color var-on-background-1
+							&:nth-child(even)
+								background-color var-on-background-2
+							&:hover
+								.col-wrapper
+									background-color var-highlight
+						.col-wrapper
+							&:hover
+								opacity 1
+								.col-product,
+								.col-user
+									text-decoration none
+							.is-desc
+								.label
+									color var-theme
+							.col-product,
+							.col-category,
+							.col-vendor,
+							.col-user
+								color var-text-2
+							.col-price
+								color var-text-1
+							.col-score:not(.is-desc) .label
+								background-color var-theme
+								color var-theme-text
+								text-shadow var-text-shadow
+								&:hover
+									opacity var-hover-opacity
+						.cell-pj-graph
+							filter invert(85%) !important
+						.num-comments a
+							&:hover
+								text-decoration var-hover-text
 				#forumList-1
 					table
 						background-color transparent

@@ -440,7 +440,7 @@
 				background linear-gradient(to bottom, transparent 0, transparent 10%, var-background-1 100%) !important
 	/* End Global */
 	#header
-		.nav-container
+		#navContainer
 			.nav-top
 				background-color var-background-1
 				.container
@@ -493,7 +493,23 @@
 								color var-text-2
 					ul
 						border var-border
-
+		#search-result
+			.resultBody
+				> div
+					background-color var-on-background-1
+					border-color var-border-color
+				.columns
+					h6
+						color var-text-1
+				.noResults
+					p
+						color var-text-2
+				.resultList
+					.list-link
+						.link-text
+							color var-text-2 !important
+						.date
+							color var-text-1 !important
 
 	#content
 		> .container

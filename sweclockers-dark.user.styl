@@ -518,6 +518,15 @@
 				.content-head
 					h1
 						color var-text-2
+					#searchForm
+						.search-query
+							input
+								background-color var-on-background-1
+								color var-text-2
+								&:focus
+									color var-text-1
+								&::placeholder
+									color var-text-2 !important
 				.article-meta
 					.category
 						color var-theme
@@ -680,25 +689,6 @@
 					.list-search
 						input
 							background-color var-on-background-1
-					.pages
-						.first-page,
-						.prev-page,
-						.next-page,
-						.last-page,
-						.first-unread
-							fill var-text-2
-							&.is-disabled
-								fill darken(var-text-2, 50%)
-						> a
-							color var-text-2
-
-							&:hover
-								background-color var-highlight
-								opacity 1
-							&.is-current
-								background-color var-highlight
-								border-color transparent
-								color var-theme
 					select
 						background-color var-on-background-1
 				.quickReply
@@ -708,6 +698,33 @@
 							background-color var-on-background-2
 							&:hover
 								background-color var-highlight
+				.sorter
+					.is-current
+							color var-theme
+					.column,
+					.is-current
+						&:hover
+							border-radius var-border-radius
+							background-color var-highlight
+				.pages
+					.first-page,
+					.prev-page,
+					.next-page,
+					.last-page,
+					.first-unread
+						fill var-text-2 !important
+						&.is-disabled
+							fill darken(var-text-2, 50%) !important
+					> a
+						color var-text-2
+
+						&:hover
+							background-color var-highlight
+							opacity 1
+						&.is-current
+							background-color var-highlight
+							border-color transparent
+							color var-theme
 				.tipsportal
 					&-header
 						background-color var-on-background-1
@@ -853,6 +870,40 @@
 													fill darken(var-text-2, 40%)
 									.posts
 										color darken(var-text-2, 40%)
+				.table
+					&.classifieds
+						.caption
+							background-color var-on-background-1
+							color var-text-1
+						.head
+							.row
+								.cell
+									background-color var-on-background-2
+									color var-text-1
+						.body
+							.row
+								.cell
+									background-color var-on-background-1
+									border-color var-border-color
+									&.classifieds-thumb
+										img
+											border-radius var-border-radius
+										.no-image
+											svg
+												fill var-theme
+										.classifieds-click
+											border-color var-border-color
+										&:hover
+											img
+												opacity var-hover-opacity
+									&.classifieds-body
+										h2
+											color var-text-1
+										.classifieds-meta
+											.color-black
+												color var-text-2 !important
+												&:nth-child(2)
+													color var-theme !important
 	/* End Content */
 	/* Footer */
 	#footer

@@ -5,7 +5,7 @@
 		<img src="https://img.shields.io/badge/SweClockers-Thread-F47447" alt="SweClockers Thread">
 	</a>
 	<a href="https://github.com/Soitora/SweClockers-Dark/tags">
-		<img src="https://img.shields.io/github/tag/Soitora/SweClockers-Dark.svg?label=tag" alt="Tag">
+		<img src="https://img.shields.io/github/v/tag/Soitora/SweClockers-Dark.svg?label=tag&include_prereleases&sort=semver" alt="Tag">
 	</a>
 </p>
 

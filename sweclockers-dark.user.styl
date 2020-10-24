@@ -195,6 +195,11 @@
 		&:focus
 			color var-text-1
 			border-color var-border-color-light
+		&:disabled
+			background-color var-on-background-2-button
+			color var-text-1
+			&:hover
+				cursor not-allowed
 	.hasErrors
 		select,
 		input,
@@ -453,11 +458,6 @@
 								&.color-orange
 									span
 										color var-theme
-								&.m-m-r:hover
-									span
-										color var-warning
-									svg
-										fill var-warning
 								svg
 									fill var-text-2
 								span
@@ -468,6 +468,21 @@
 				background-color var-background-2
 				border-top var-border
 				border-bottom var-border
+				.ninja-search
+					.ns-field
+						background-color var-on-background-2
+						border-color var-border-color-light
+						.nsf-icon
+							fill var-text-2
+						input
+							background-color var-on-background-2
+							color var-text-2
+							&:focus
+								color var-text-1
+								&::placeholder
+									color darken(var-text-2, 50%)
+							&::placeholder
+								color var-text-2
 				ul
 					li
 						@media (min-width 769px)
@@ -481,35 +496,33 @@
 								color var-text-2
 							svg
 								fill var-text-2
-						input
-							background-color var-on-background-2
-							border var-border-light
-							color var-text-2
-							&:focus
-								color var-text-1
-								&::placeholder
-									color darken(var-text-2, 50%)
-							&::placeholder
-								color var-text-2
+						&.menu-lock
+							svg
+								fill darken(var-text-1, 40%) !important
+								&.lock_open
+									fill var-text-2 !important
 					ul
 						border var-border
-		#search-result
-			.resultBody
-				> div
-					background-color var-on-background-1
-					border-color var-border-color
-				.columns
+		.ninja-search-result
+			.nsrt-main
+				background-color var-on-background-1 !important
+				border-color var-border-color
+				border-bottom-left-radius var-border-radius
+				border-bottom-right-radius var-border-radius
+				.nsrg-header
 					h6
-						color var-text-1
-				.noResults
-					p
+						color var-theme
+					a
 						color var-text-2
-				.resultList
-					.list-link
-						.link-text
-							color var-text-2 !important
-						.date
-							color var-text-1 !important
+				.nsrg-result
+					.nsrg-item
+						.nsrg-label
+							color var-text-2
+						.nsrg-date
+							color var-text-1
+					.nsrg-empty
+						p
+							color var-text-2
 
 	#content
 		> .container
@@ -559,14 +572,6 @@
 									opacity 0.65
 								.click:hover
 									opacity 1
-								.comments-bubble
-									.cb-top
-										background-color var-theme !important
-										color var-theme-text !important
-										text-shadow var-text-shadow !important
-
-									.cb-bottom
-										border-color transparent var-theme transparent transparent
 								.front
 									pointer-events none
 									a
@@ -581,14 +586,6 @@
 							img
 								border-radius var-border-radius
 						.card-body
-							.comments-bubble
-								.cb-top
-									background-color var-theme !important
-									color var-theme-text !important
-									text-shadow var-text-shadow !important
-
-								.cb-bottom
-									border-color transparent var-theme transparent transparent
 							.title a
 								color var-text-2
 							.article-meta
@@ -698,6 +695,14 @@
 							background-color var-on-background-2
 							&:hover
 								background-color var-highlight
+				.comments-bubble
+					.cb-top
+						background-color var-theme !important
+						color var-theme-text !important
+						text-shadow var-text-shadow !important
+
+					.cb-bottom
+						border-color transparent var-theme transparent transparent
 				.sorter
 					.is-current
 							color var-theme
@@ -725,6 +730,47 @@
 							background-color var-highlight
 							border-color transparent
 							color var-theme
+				.profileHeader
+					.avatar img
+						border-radius var-border-radius
+					h1
+						color var-theme
+					p
+						color var-text-2
+					.ph-meta
+						span
+							color var-text-2
+							&.label
+								color var-text-1
+					.ph-links
+						a:hover
+							opacity 1
+						li
+							svg
+								background-color var-on-background-2-button
+								border-color var-border-color
+								fill var-text-2
+								&:hover
+										background-color var-highlight
+							&:first-child svg
+								fill var-text-2
+							&:last-child svg
+								fill var-warning
+					.bg-white
+						background-color var-on-background-2 !important
+						box-shadow var-box-shadow-inset
+						a
+							color var-theme
+						span
+							color var-text-2
+				.profileFeed
+					.feedItem
+						border-bottom-color var-border-color-light
+					.feedControl
+						.button
+							background-color var-on-background-2
+							&:hover
+								background-color var-highlight
 				.tipsportal
 					&-header
 						background-color var-on-background-1
@@ -774,6 +820,29 @@
 						.num-comments a
 							&:hover
 								text-decoration var-hover-text
+				#editor
+					.imageForm
+						button
+							background-color var-on-background-2
+							&:hover
+								background-color var-highlight
+				#signatureForm
+					.forum-post-body
+						background-color transparent
+				#replies
+					.forum-post-header
+						.columns
+							background-color var-background-2
+							.author
+								color var-text-2
+								a
+									color var-theme
+							.created
+								color var-text-1
+							&.threadTitle
+								background-color var-on-background-2
+								.label
+									color var-text-1
 				#forumList-1
 					table
 						background-color transparent

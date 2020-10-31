@@ -387,6 +387,38 @@
 				border-right-color var-on-background-2 !important
 			::-webkit-scrollbar-track
 				background var-on-background-2
+		.bbPoll
+			.inner
+				background-color var-on-background-2
+				box-shadow var-box-shadow-inset
+				.pollQuestion
+					color var-text-1
+				.pollBody
+					.pollOptions
+						.votesRel,
+						.votesAbs
+							color var-text-2
+						.optionBar
+							> div
+								background-color var-theme
+					.pollSums
+						.pollControls
+							button
+								background-color var-on-background-2-button
+								color var-text-1
+								&:hover
+									background-color var-highlight
+								&.isDisabled
+									background-color darken(var-on-background-2-button, 25%) !important
+									color var-text-2 !important
+									pointer-events all !important
+									&:hover
+										cursor not-allowed !important
+						.pollMessage
+							color var-text-1
+						.totalVotes
+							border-top-color var-border-color-light
+							color var-text-2
 		.bbSpoiler
 			.spoilerHeader
 				background-color transparent

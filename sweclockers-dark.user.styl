@@ -651,8 +651,11 @@
 													color var-theme
 											&.is-disabled
 												background-color lighten(var-on-background-2, 1%) !important
+												pointer-events all !important
 												.icon
 													fill darken(var-text-2, 70%) !important
+												&:hover
+													cursor not-allowed !important
 										&.report
 											&:hover
 												svg
@@ -668,6 +671,13 @@
 										color var-text-2
 									.icon
 										fill var-theme
+								&.is-disabled
+									background-color lighten(var-on-background-2, 1%) !important
+									pointer-events all !important
+									.icon
+										fill darken(var-text-2, 70%) !important
+									&:hover
+										cursor not-allowed !important
 								&:not(.is-liked)
 									.score
 										color var-text-2

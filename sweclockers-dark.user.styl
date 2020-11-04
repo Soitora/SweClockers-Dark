@@ -306,6 +306,8 @@
 	.content
 		&-primary
 			background-color var-on-background-1 !important
+			.infoText h1
+				color var-text-1
 		&-secondary
 			background-color var-on-background-1
 		&-orange
@@ -503,6 +505,11 @@
 									color var-text-2
 						.pw-link
 							color var-text-1
+						.button
+							background-color var-on-background-1
+							color var-text-2
+							&:hover
+								background-color var-highlight
 			.nav-main
 				background-color var-background-2
 				border-top var-border
@@ -681,13 +688,13 @@
 													fill var-text-2 !important
 												.score
 													color var-theme
-											&.is-disabled
-												background-color lighten(var-on-background-2, 1%) !important
-												pointer-events all !important
-												.icon
-													fill darken(var-text-2, 70%) !important
-												&:hover
-													cursor not-allowed !important
+										&.is-disabled
+											background-color lighten(var-on-background-2, 1%) !important
+											pointer-events all !important
+											.icon
+												fill darken(var-text-2, 70%) !important
+											&:hover
+												cursor not-allowed !important
 										&.report
 											&:hover
 												svg
@@ -703,18 +710,18 @@
 										color var-text-2
 									.icon
 										fill var-theme
-								&.is-disabled
-									background-color lighten(var-on-background-2, 1%) !important
-									pointer-events all !important
-									.icon
-										fill darken(var-text-2, 70%) !important
-									&:hover
-										cursor not-allowed !important
 								&:not(.is-liked)
 									.score
 										color var-text-2
 									.icon
 										fill var-text-2
+							&.is-disabled
+								background-color lighten(var-on-background-2, 1%) !important
+								pointer-events all !important
+								.icon
+									fill darken(var-text-2, 70%) !important
+								&:hover
+									cursor not-allowed !important
 						&.is-linked
 							.forum-post-header
 							.forum-post-body

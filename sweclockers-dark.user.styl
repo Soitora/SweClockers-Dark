@@ -663,12 +663,6 @@
 							.col
 								&.side
 									background-color darken(var-on-background-1, 10%)
-									&.details
-										.activity
-											&.online
-												color var-theme
-											&.offline
-												color darken(var-text-2, 50%)
 									&.profile
 										.person
 											.title
@@ -680,6 +674,12 @@
 												color darken(var-text-2, 20%)
 											dd
 												color var-text-2
+										.details
+											.activity
+												&.online
+													color var-theme
+												&.offline
+													color darken(var-text-2, 50%)
 								&.controls
 									.button
 										&.like

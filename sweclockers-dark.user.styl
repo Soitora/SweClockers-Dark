@@ -754,6 +754,13 @@
 							background-color var-on-background-2
 							&:hover
 								background-color var-highlight
+							&.isDisabled
+								background-color lighten(var-on-background-2, 1%) !important
+								pointer-events all !important
+								.icon
+									fill darken(var-text-2, 70%) !important
+								&:hover
+									cursor not-allowed !important
 				.comments-bubble
 					.cb-top
 						background-color var-theme !important

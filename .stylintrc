@@ -30,7 +30,7 @@
     "quotePref": false,
     "reporterOptions": {
         "columns": ["lineData", "severity", "description", "rule"],
-        "columnSplitter": "  ",
+        "columnSplitter": " ",
         "showHeaders": false,
         "truncate": true
     },

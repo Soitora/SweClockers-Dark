@@ -1,0 +1,72 @@
+{
+	"name": "SweClockers-Dark",
+	"version": "4.0.0-beta.6",
+	"description": "A modern dark theme for SweClockers",
+	"scripts": {
+		"semantic-release": "semantic-release"
+	},
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/Soitora/SweClockers-Dark.git"
+	},
+	"license": "MPL-2.0",
+	"private": true,
+	"bugs": {
+		"url": "https://github.com/Soitora/SweClockers-Dark/issues"
+	},
+	"homepage": "https://github.com/Soitora/SweClockers-Dark#readme",
+	"release": {
+		"branches": [
+			"master"
+		],
+		"plugins": [
+			"@semantic-release/commit-analyzer",
+			"@semantic-release/release-notes-generator",
+			[
+				"@semantic-release/github",
+				{
+					"assets": [
+						{
+							"path": "sweclockers-dark.user.styl",
+							"label": "SweClockers Dark - Stylus"
+						},
+						{
+							"path": "sweclockers-dark.css",
+							"label": "SweClockers Dark - CSS"
+						}
+					]
+				}
+			],
+			[
+				"@semantic-release/exec",
+				{
+					"prepareCmd": "bump ${nextRelease.version} version.info sweclockers-dark.user.styl sweclockers-dark.css sweclockers-dark.min.css package.json package-lock.json"
+				}
+			],
+			[
+				"@semantic-release/git",
+				{
+					"assets": [
+						"version.info",
+						"sweclockers-dark.user.styl",
+						"sweclockers-dark.css",
+						"sweclockers-dark.min.css",
+						"package.json",
+						"package-lock.json"
+					],
+					"message": "chore(release): ${nextRelease.version} [skip ci]\n\n${nextRelease.notes}"
+				}
+			]
+		]
+	},
+	"devDependencies": {
+		"@jsdevtools/version-bump-prompt": "^6.1.0",
+		"@semantic-release/commit-analyzer": "^8.0.1",
+		"@semantic-release/exec": "^5.0.0",
+		"@semantic-release/git": "^9.0.0",
+		"@semantic-release/github": "^7.1.1",
+		"@semantic-release/release-notes-generator": "^9.0.1",
+		"prettier": "2.1.2",
+		"semantic-release": "^17.2.2"
+	}
+}

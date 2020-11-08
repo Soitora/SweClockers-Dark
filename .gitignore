@@ -10,3 +10,4 @@ Thumbs.db
 
 # Ignore Visual Studio Code files
 *.code-workspace
+node_modules

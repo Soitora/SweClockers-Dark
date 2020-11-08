@@ -232,7 +232,7 @@
 			&.color-white
 				color var-theme-text !important
 			&.list-comment-bubble
-				background-color var-theme !important
+				background-color shade(var-theme, 20%) !important
 				color var-white !important
 				text-shadow var-text-shadow !important
 			a
@@ -778,12 +778,12 @@
 									cursor not-allowed !important
 				.comments-bubble
 					.cb-top
-						background-color var-theme !important
+						background-color shade(var-theme, 10%) !important
 						color var-theme-text !important
 						text-shadow var-text-shadow !important
 
 					.cb-bottom
-						border-color transparent var-theme transparent transparent
+						border-color transparent shade(var-theme, 10%) transparent transparent
 				.sorter
 					.is-current
 							color var-theme

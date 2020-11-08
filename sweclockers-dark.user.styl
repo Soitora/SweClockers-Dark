@@ -555,6 +555,13 @@
 									color darken(var-text-2, 50%)
 							&::placeholder
 								color var-text-2
+					.ns-toggle
+						svg
+							fill darken(var-text-1, 40%) !important
+						&:hover
+							cursor pointer
+							svg
+								fill darken(var-text-1, 50%) !important
 					&.is-loading
 						.nsf-icon
 							filter var-filter-light
@@ -579,6 +586,13 @@
 							&:hover
 								svg
 									fill darken(var-text-1, 50%) !important
+						&:not(.no-hover)
+							&:not(.is-mobile)
+								&:hover
+									ul
+										background-color var-on-background-1
+										li a
+											color var-text-2
 					ul
 						border var-border
 		.ninja-search-result

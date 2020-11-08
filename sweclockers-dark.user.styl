@@ -185,6 +185,12 @@
 			color var-text-1
 			background-color var-highlight
 			opacity 1
+		&.isLoading,
+		&.is-loading
+			background-color darken(var-on-background-2-button, 25%) !important
+			color var-text-2 !important
+		.loader
+			filter invert(85%)
 	select
 		background-color var-on-background-2
 		border-color var-border-color
@@ -206,6 +212,17 @@
 			color var-text-1
 			&:hover
 				cursor not-allowed
+	input,
+	select,
+	textarea
+		&[type=text],
+		&[type=email],
+		&[type=url],
+		&[type=search],
+		&[type=number],
+		&[type=password]
+			&.is-loading
+				filter invert(85%)
 	.hasErrors
 		select,
 		input,
@@ -222,6 +239,12 @@
 			background-color var-on-background-2
 			&:hover
 				background-color var-highlight
+			&.isDisabled
+				background-color darken(var-on-background-2-button, 25%) !important
+				color var-text-2 !important
+				pointer-events all !important
+				&:hover
+					cursor not-allowed !important
 	.bg
 		&-orange
 			color var-theme-text !important
@@ -532,6 +555,9 @@
 									color darken(var-text-2, 50%)
 							&::placeholder
 								color var-text-2
+					&.is-loading
+						.nsf-icon
+							filter var-filter-light
 				ul
 					li
 						@media (min-width 769px)

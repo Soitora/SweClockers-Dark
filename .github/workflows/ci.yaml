@@ -27,5 +27,5 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           BRANCH: gh-pages
           FOLDER: dist
-          CLEAN_EXCLUDE: '["LICENSE", "index.html", "assets", "favicon.ico"]'
+          CLEAN_EXCLUDE: '["LICENSE", "index.html", "assets", "images", "favicon.ico"]'
           COMMIT_MESSAGE:  ${{ github.event.head_commit.message }} @ ${{ github.sha }} 🚀

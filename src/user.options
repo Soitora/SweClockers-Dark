@@ -1,0 +1,27 @@
+@var	color		var-background-1 "Background color 1" #121212
+@var	color		var-background-2 "Background color 2" #1D1D1F
+@var	color		var-text-1 "Text color 1" #C8C8C8
+@var	color		var-text-2 "Text color 2" #AAAAAA
+@var	color		var-border-color "Border color" #101013
+@var	color		var-border-color-light "Border color light" #3B3B3B
+@var	color		var-highlight "Highlight color" #2A2A2D
+@var	color		var-warning "Warning color" #EE4757
+@var	color		var-theme "Theme color" #F19A57
+@var	color		var-theme-text "Theme color text" #FFFFFF
+@var	number		var-image-opacity "Image opacity" [0.75, 0, 1, 0.05]
+@var	select		var-scrollbar-style "Scrollbar" {
+	"Default": "scrollbar-default",
+	"Custom*": "scrollbar-custom"
+}
+@var	select		var-accessibility-focus "Accessibility: Focus" {
+	"Default*": "accessibility-focus-default",
+	"Disabled": "accessibility-focus-disabled"
+}
+@var	select		var-lemonillusion-width "LemonIllusion: Width" {
+	"Default*": "lemonillusion-width-default",
+	"Custom": "lemonillusion-width-custom"
+}
+@var	select		var-lemonillusion-ad_movement "LemonIllusion: Ad movement" {
+	"Default*": "lemonillusion-ad_movement-default",
+	"Custom": "lemonillusion-ad_movement-custom"
+}

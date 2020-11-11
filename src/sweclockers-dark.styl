@@ -1,0 +1,1156 @@
+var-background-1 ?= #121212
+var-background-2 ?= #1D1D1F
+var-text-1 ?= #C8C8C8
+var-text-2 ?= #AAAAAA
+var-border-color ?= #101013
+var-border-color-light ?= #3B3B3B
+var-highlight ?= #2A2A2D
+var-warning ?= #EE4757
+var-theme ?= #F19A57
+var-theme-text ?= #FFFFFF
+var-image-opacity ?= 0.75
+var-scrollbar-style ?= scrollbar-default
+var-accessibility-focus ?= accessibility-focus-default
+var-lemonillusion-width ?= lemonillusion-width-default
+var-lemonillusion-ad_movement ?= lemonillusion-ad_movement-default
+var-on-background-1 = var-background-2
+var-on-background-2 = darken(var-background-2, 25%)
+var-on-background-2-button = lighten(var-background-2, 3%)
+var-border = 1px solid var-border-color
+var-border-light = 1px solid var-border-color-light
+var-border-radius = 0.6rem
+var-hover-opacity = 0.8
+var-hover-text = none
+var-box-shadow = 0 0 0 1px var-border-color
+var-box-shadow-light = 0 0 0 1px var-border-color-light
+var-box-shadow-inset = inset 0 0 0 1px var-border-color
+var-box-shadow-inset-light = inset 0 0 0 1px var-border-color-light
+var-box-shadow-warning = 0 0 0 1px var-warning
+var-text-shadow = 1px 1px 2px var-black
+var-filter-light = brightness(0) saturate(100%) invert(92%) sepia(0) saturate(489%) hue-rotate(229deg) brightness(90%) contrast(86%)
+var-black = #000000
+var-white = #ffffff
+var-beige = #9c6500
+var-blue = #305d84
+var-green = #1c5a00
+var-pink = #b34d84
+var-purple = #8e78a2
+
+if (var-scrollbar-style == 'scrollbar-custom')
+	::-webkit-scrollbar
+		width 17px
+		height 12px
+	::-webkit-scrollbar-corner
+		background var-background-1
+	::-webkit-scrollbar-thumb
+		background var-theme
+		border-left 4px solid var-background-1 !important
+		border-right 4px solid var-background-1 !important
+	::-webkit-scrollbar-track
+		background var-background-1
+
+if (var-accessibility-focus == 'accessibility-focus-disabled')
+	:focus
+		outline none !important
+
+if (var-lemonillusion-width == 'lemonillusion-width-custom')
+	.col
+		&.col-content
+			margin-right 10px
+			max-width 100%
+			&-wide
+				margin-right 0
+				padding-right 10px
+		&-side
+			margin-right 0 !important
+			margin-left 0 !important
+			display inherit !important
+		&-outer-side
+			position relative
+			left 260px
+	.container
+		overflow visible
+	.tv-frame
+		width auto
+	.pw-notifications
+		.display-none
+			&:not(.m-m-r)
+				display inherit !important
+
+if (var-lemonillusion-ad_movement == 'lemonillusion-ad_movement-custom')
+	#outsider-1
+		position static !important
+
+filter()
+	filter arguments
+	-moz-filter arguments
+	-ms-filter arguments
+	-o-filter arguments
+	-webkit-filter arguments
+
+border-radius()
+	border-radius arguments
+	-moz-border-radius arguments
+	-ms-border-radius arguments
+	-o-border-radius arguments
+	-webkit-border-radius arguments
+
+box-shadow()
+	box-shadow arguments
+	-moz-box-shadow arguments
+	-ms-box-shadow arguments
+	-o-box-shadow arguments
+	-webkit-box-shadow arguments
+
+user-select(n)
+	user-select n
+	-moz-user-select n
+	-ms-user-select n
+	-o-user-select n
+	-webkit-user-select n
+
+body
+	background-color var-background-1 !important
+	color var-text-2 !important
+
+a,
+.link
+	color var-theme
+
+a:hover,
+a:hover>.label,
+.link:hover,
+.link:hover>.label
+	text-decoration var-hover-text
+	opacity var-hover-opacity
+
+img,
+.ad
+	opacity var-image-opacity
+
+.ad
+	&.adPanorama,
+	&.adModule,
+	&.adInsider,
+	&.adOutsider
+		iframe
+			border-radius var-border-radius
+
+.button,
+.tanukiButton
+	background-color var-on-background-1
+	border var-border
+	color var-text-1
+	&:hover,
+	&:active
+		color var-text-1
+		background-color var-highlight
+		opacity 1
+	&.isLoading,
+	&.is-loading
+		background-color darken(var-on-background-2-button, 25%) !important
+		color var-text-2 !important
+	.loader
+		filter invert(85%)
+
+select
+	background-color var-on-background-2
+	border-color var-border-color
+	color var-text-2
+	&:focus
+		color var-text-1
+		border-color var-border-color-light
+
+input,
+textarea
+	background-color var-on-background-2
+	border-color var-border-color
+	border-radius var-border-radius
+	color var-text-2
+	&:focus
+		color var-text-1
+		border-color var-border-color-light
+	&:disabled
+		background-color var-on-background-2-button
+		color var-text-1
+		&:hover
+			cursor not-allowed
+
+input,
+select,
+textarea
+	&[type=text],
+	&[type=email],
+	&[type=url],
+	&[type=search],
+	&[type=number],
+	&[type=password]
+		&.is-loading
+			filter invert(85%)
+
+.hasErrors
+	select,
+	input,
+	textarea
+		border-color var-warning !important
+		outline none !important
+
+.error
+	background-color var-warning !important
+	color white !important
+	text-shadow var-text-shadow
+
+fieldset
+	.button,
+	.tanukiButton
+		background-color var-on-background-2
+		&:hover
+			background-color var-highlight
+		&.isDisabled
+			background-color darken(var-on-background-2-button, 25%) !important
+			color var-text-2 !important
+			pointer-events all !important
+			&:hover
+				cursor not-allowed !important
+
+.bg
+	&-orange
+		color var-theme-text !important
+		background-color var-theme !important
+		text-shadow var-text-shadow !important
+		&:not(.no-hover):hover
+			background-color darken(var-theme, 10%) !important
+		&.color-white
+			color var-theme-text !important
+		&.list-comment-bubble
+			background-color shade(var-theme, 20%) !important
+			color var-white !important
+			text-shadow var-text-shadow !important
+		a
+			color red
+	&-grey-primary
+		color var-text-2 !important
+		background-color var-on-background-1 !important
+		&:not(.no-hover):hover
+			background-color #fff !important
+		a
+			color var-theme
+	&-grey-secondary
+		color var-text-2 !important
+		background var-on-background-2 !important
+		&:not(.no-hover):hover
+			background-color #efeeec !important
+		a
+			color #1f5994
+	&-dark-grey-primary
+		color var-text-1 !important
+		background-color transparent !important
+		&:not(.no-hover):hover
+			background-color #424242 !important
+		a
+			color #ccc
+	&-blue
+		background-color var-blue !important
+	&-blue-secondary
+		background-color darken(var-blue, 20%) !important
+	&-green
+		background-color var-green !important
+	&-pink
+		background-color var-pink !important
+	&-beige
+		background-color var-beige !important
+	&-white
+		background-color transparent !important
+
+.color
+	&-white
+		color var-text-1 !important
+		fill var-text-1 !important
+		svg
+			fill var-text-1 !important
+	&-black
+		color var-black !important
+		fill var-black !important
+		svg
+			fill var-black !important
+	&-orange
+		color var-theme !important
+		fill var-theme !important
+		svg
+			fill var-theme !important
+	&-grey-primary
+		color #f1efec !important
+		fill #f1efec !important
+		svg
+			fill #f1efec !important
+	&-dark-grey-primary
+		color #282828 !important
+		fill #282828 !important
+		svg
+			fill #282828 !important
+	&-yellow
+		color #fafad9 !important
+		fill #fafad9 !important
+		svg
+			fill #fafad9 !important
+
+.content
+	&-primary
+		background-color var-on-background-1 !important
+		.infoText h1
+			color var-text-1
+	&-secondary
+		background-color var-on-background-1 !important
+	&-orange
+		background-color var-on-background-1 !important
+	&-body
+		box-shadow var-box-shadow-inset
+
+.widget
+	&.content-secondary,
+	&.content-orange,
+	&.bg-blue-secondary,
+	&.bg-dark-grey-primary
+		box-shadow var-box-shadow-inset
+		.widget-head
+			.title
+				color var-theme !important
+			.title-secondary
+				color var-text-1
+				a
+					color var-text-2
+		.widget-body
+			.title
+				color var-text-1
+			.list
+				.list-meta
+					&.list-bubble
+						&.date
+							background-color var-blue !important
+							color var-white !important
+							text-shadow var-text-shadow !important
+				.list-link
+					color var-text-2
+	&.bg-blue-secondary
+		background-color var-on-background-1 !important
+	&.bg-dark-grey-primary
+		box-shadow none
+
+.bbcode
+	.bbExpander
+		.expanderHeader
+			border-color var-border-color-light
+			color var-text-1
+		.expanderFrame
+			.expanderFade
+				background -moz-linear-gradient(top, transparent 0, transparent 10%, var-background-1 100%) !important
+				background -webkit-gradient(linear, left top, left bottom, color-stop(0, transparent), color-stop(45%, transparent), color-stop(100%, var-background-1)) !important
+				background -webkit-linear-gradient(top, transparent 0, transparent 10%, var-background-1 100%) !important
+				background -o-linear-gradient(top, transparent 0, transparent 10%, var-background-1 100%) !important
+				background -ms-linear-gradient(top, transparent 0, transparent 10%, var-background-1 100%) !important
+				background linear-gradient(to bottom, transparent 0, transparent 10%, var-background-1 100%) !important
+		.expanderFooter
+			border-color var-border-color-light
+	.bbChart
+		img[src*='/artikel/diagram/']
+			filter invert(85%) !important
+	.bbImage
+		a
+			&:hover
+				opacity 1
+			img
+				border-radius var-border-radius
+	.bbVideo
+		iframe
+			border-radius var-border-radius
+	.bbIns
+		background-color var-purple
+		color black
+		border-bottom 1px dotted darken(var-purple, 50%)
+	.bbMark
+		background-color darken(var-blue, 50%)
+	.bbPre
+		background-color var-on-background-2
+		border-color var-border-color
+		::-webkit-scrollbar
+			width auto
+			height auto
+		::-webkit-scrollbar-corner
+			background var-on-background-2
+		::-webkit-scrollbar-thumb
+			background darken(var-text-2, 75%)
+			border-top 4px solid var-on-background-2 !important
+			border-bottom 4px solid var-on-background-2 !important
+			border-left-color var-on-background-2 !important
+			border-right-color var-on-background-2 !important
+		::-webkit-scrollbar-track
+			background var-on-background-2
+	.bbPoll
+		.inner
+			background-color var-on-background-2
+			box-shadow var-box-shadow-inset
+			.pollQuestion
+				color var-text-1
+			.pollBody
+				.pollOptions
+					.votesRel,
+					.votesAbs
+						color var-text-2
+					.optionBar
+						> div
+							background-color var-theme
+				.pollSums
+					.pollControls
+						button
+							background-color var-on-background-2-button
+							color var-text-1
+							&:hover
+								background-color var-highlight
+							&.isDisabled
+								background-color darken(var-on-background-2-button, 25%) !important
+								color var-text-2 !important
+								pointer-events all !important
+								&:hover
+									cursor not-allowed !important
+					.pollMessage
+						color var-text-1
+					.totalVotes
+						border-top-color var-border-color-light
+						color var-text-2
+	.bbSpoiler
+		.spoilerHeader
+			background-color transparent
+		.spoilerFrame
+			background-color var-on-background-2
+			border-color var-border-color
+	.bbTable
+		background-color var-on-background-2 !important
+		border-color var-border-color !important
+		thead,
+		tbody
+			th
+				background-color darken(var-background-2, 40%) !important
+				color var-theme !important
+		thead
+			tr
+				span,
+				p
+					color var-text-1 !important
+				&:first-child th
+					border-bottom 1px solid darken(var-background-2, 80%) !important
+					&:first-child
+						border-right 1px solid darken(var-background-2, 80%) !important
+						border-bottom 1px solid darken(var-background-2, 80%) !important
+					&:last-child
+						border-color var-border-color
+				th
+					border-color darken(var-background-2, 80%)
+			th
+				background-color darken(var-background-2, 60%) !important
+				border-right-color darken(var-background-2, 80%)
+		tbody
+			tr
+				th
+					border-right 1px solid darken(var-background-2, 50%) !important
+					border-bottom 1px solid var-on-background-2 !important
+					&:first-child
+						span,
+						p
+							color var-text-1 !important
+				td
+					background-color darken(var-background-2, 20%) !important
+					border-color var-border-color !important
+					border-bottom 1px solid darken(var-background-2, 50%) !important
+				&:last-child
+					th
+						border-color var-border-color !important
+		a
+			color var-theme !important
+			&:hover
+				text-decoration var-hover-text !important
+				opacity var-hover-opacity !important
+	.bbLink
+		text-decoration none
+	.bbRelatedBox
+		background-color var-on-background-2
+		border-color var-border-color
+	.bbQuote
+		background-color var-on-background-2
+		border-color var-border-color
+		.quoteContent
+			border-top-color var-border-color-light
+		.quoteFade
+			background -moz-linear-gradient(top, transparent 0, transparent 10%, var-background-1 100%) !important
+			background -webkit-gradient(linear, left top, left bottom, color-stop(0, transparent), color-stop(45%, transparent), color-stop(100%, var-background-1)) !important
+			background -webkit-linear-gradient(top, transparent 0, transparent 10%, var-background-1 100%) !important
+			background -o-linear-gradient(top, transparent 0, transparent 10%, var-background-1 100%) !important
+			background -ms-linear-gradient(top, transparent 0, transparent 10%, var-background-1 100%) !important
+			background linear-gradient(to bottom, transparent 0, transparent 10%, var-background-1 100%) !important
+
+#header
+	#navContainer
+		.nav-top
+			background-color var-background-1
+			.container
+				.logo
+					a:hover img
+						opacity unset
+				.profile-wrapper
+					.pw-notifications
+						a
+							&.color-orange
+								span
+									color var-theme
+							svg
+								fill var-text-2
+							span
+								color var-text-2
+					.pw-link
+						color var-text-1
+					.button
+						background-color var-on-background-1
+						color var-text-2
+						&:hover
+							background-color var-highlight
+		.nav-main
+			background-color var-background-2
+			border-top var-border
+			border-bottom var-border
+			.ninja-search
+				.ns-field
+					background-color var-on-background-2
+					border-color var-border-color-light
+					.nsf-icon
+						fill var-text-2
+					input
+						background-color var-on-background-2
+						color var-text-2
+						&:focus
+							color var-text-1
+							&::placeholder
+								color darken(var-text-2, 50%)
+						&::placeholder
+							color var-text-2
+				.ns-toggle
+					svg
+						fill darken(var-text-1, 40%) !important
+					&:hover
+						cursor pointer
+						svg
+							fill darken(var-text-1, 50%) !important
+				&.is-loading
+					.nsf-icon
+						filter var-filter-light
+			ul
+				li
+					@media (min-width 769px)
+						&:hover:not(.is-selected)>ul
+							background-color var-background-2
+					a
+						color var-text-2
+						&:hover
+							background-color var-highlight
+						span
+							color var-text-2
+						svg
+							fill var-text-2
+					&.menu-lock
+						svg
+							fill darken(var-text-1, 40%) !important
+							&.lock_open
+								fill var-text-2 !important
+						&:hover
+							svg
+								fill darken(var-text-1, 50%) !important
+					&:not(.no-hover)
+						&:not(.is-mobile)
+							&:hover
+								ul
+									background-color var-on-background-1
+									li a
+										color var-text-2
+				ul
+					border var-border
+	.ninja-search-result
+		.nsrt-main
+			background-color var-on-background-1 !important
+			border-color var-border-color
+			border-bottom-left-radius var-border-radius
+			border-bottom-right-radius var-border-radius
+			.nsrg-header
+				h6
+					color var-theme
+				a
+					color var-text-2
+			.nsrg-result
+				.nsrg-item
+					.nsrg-label
+						color var-text-2
+					.nsrg-date
+						color var-text-1
+				.nsrg-empty
+					p
+						color var-text-2
+
+#content
+	> .container
+		> .columns
+			background-color transparent !important
+			.content-head
+				h1
+					color var-text-2
+				#searchForm
+					.search-query
+						input
+							background-color var-on-background-1
+							color var-text-2
+							&:focus
+								color var-text-1
+							&::placeholder
+								color var-text-2 !important
+			.article-meta
+				.category
+					color var-theme
+				.date
+					color var-text-2
+				.authors a
+					color var-text-1
+			.article-head
+				.article-sponsored
+					background-color transparent
+			.article-keywords
+				.button
+					background-color var-on-background-2
+					&:hover
+						background-color var-highlight
+			.article-authors
+				hr
+					color var-border-color-light
+			.article-proofreading
+				a
+					border-top-color var-border-color-light
+			.article-navigation
+				.head
+					border-bottom-color var-border-color-light
+					h5
+						color var-text-1
+				.page-item
+					&::before
+						color var-text-2
+					&.is-current
+						background-color var-on-background-2
+						box-shadow var-box-shadow-inset
+						&::before
+							color var-text-1
+						svg
+							fill var-text-1
+			.carousel
+				.section
+					.slide
+						&:hover
+							.front a
+								text-decoration var-hover-text
+						.inner
+							&:hover img
+								opacity 0.65
+							.click:hover
+								opacity 1
+							.front
+								pointer-events none
+								a
+									opacity 1
+			.cards
+				box-shadow var-box-shadow-inset
+				.card
+					border-top 1px solid var-border-color
+					&:first-child
+						border-top none
+					.card-banner
+						img
+							border-radius var-border-radius
+					.card-body
+						.title a
+							color var-text-2
+						.article-meta
+							.category
+								color var-theme
+							.date
+								color var-text-1
+					.cards-related
+						legend
+							color var-text-1
+						li
+							border-top var-border-light
+					.article-sponsored
+						background-color transparent
+				.ad
+					border-top var-border-light
+					iframe
+						border-radius var-border-radius
+			.forumPosts
+				.forum-post
+					.forum-post-header
+						background-color var-on-background-2
+						color var-text-1
+					.forum-post-body
+						background-color var-on-background-1
+						.col
+							&.side
+								background-color darken(var-on-background-1, 10%)
+								&.profile
+									.person
+										.title
+											color var-text-2
+									.avatar
+										border-radius var-border-radius !important
+									.meta
+										dt
+											color darken(var-text-2, 20%)
+										dd
+											color var-text-2
+									.details
+										.activity
+											&.online
+												color var-theme
+											&.offline
+												color darken(var-text-2, 50%)
+							&.controls
+								.button
+									&.like
+										&:hover
+											svg.icon
+												fill var-theme !important
+										&.is-liked
+											.icon
+												fill var-text-2 !important
+											.score
+												color var-theme !important
+									&.is-disabled
+										background-color lighten(var-on-background-2, 1%) !important
+										pointer-events all !important
+										.icon
+											fill darken(var-text-2, 70%) !important
+										&:hover
+											cursor not-allowed !important
+									&.report
+										&:hover
+											svg
+												fill var-warning
+					.button
+						background-color var-on-background-2
+						color var-text-1
+						&:hover
+							background-color var-highlight
+						&.like
+							&.is-liked
+								.score
+									color var-text-2
+								.icon
+									fill var-theme !important
+							&:not(.is-liked)
+								.score
+									color var-text-2
+								.icon
+									fill var-text-2 !important
+						&.is-disabled
+							background-color lighten(var-on-background-2, 1%) !important
+							pointer-events all !important
+							.icon
+								fill darken(var-text-2, 70%) !important
+							&:hover
+								cursor not-allowed !important
+					&.is-linked
+						.forum-post-header,
+						.forum-post-body
+							border-color var-border-color-light
+					&.is-author
+						.forum-post-header,
+						.forum-post-body
+							border-left 2px solid var-theme
+					&.isReader:not(.is-author)
+						.forum-post-header,
+						.forum-post-body
+							border-left-color var-blue
+					&.is-author.isReader
+						.forum-post-header,
+						.forum-post-body
+							border-left-color var-blue
+			.list-actions
+				.list-search
+					input
+						background-color var-on-background-1
+				select
+					background-color var-on-background-1
+			.quickReply
+				box-shadow var-box-shadow-inset
+				.controls
+					.tanukiButton
+						background-color var-on-background-2
+						&:hover
+							background-color var-highlight
+						&.isDisabled
+							background-color lighten(var-on-background-2, 1%) !important
+							pointer-events all !important
+							.icon
+								fill darken(var-text-2, 70%) !important
+							&:hover
+								cursor not-allowed !important
+			.comments-bubble
+				.cb-top
+					background-color shade(var-theme, 10%) !important
+					color var-theme-text !important
+					text-shadow var-text-shadow !important
+				.cb-bottom
+					border-color transparent shade(var-theme, 10%) transparent transparent
+			.sorter
+				.is-current
+					color var-theme
+				.column,
+				.is-current
+					&:hover
+						border-radius var-border-radius
+						background-color var-highlight
+			.pages
+				.first-page,
+				.prev-page,
+				.next-page,
+				.last-page,
+				.first-unread
+					fill var-text-2 !important
+					&.is-disabled
+						fill darken(var-text-2, 50%) !important
+				> a
+					color var-text-2
+					&:hover
+						background-color var-highlight
+						opacity 1
+					&.is-current
+						background-color var-highlight
+						border-color transparent
+						color var-theme
+			.profileHeader
+				.avatar img
+					border-radius var-border-radius
+				h1
+					color var-theme
+				p
+					color var-text-2
+				.ph-meta
+					span
+						color var-text-2
+						&.label
+							color var-text-1
+				.ph-links
+					a:hover
+						opacity 1
+					li
+						svg
+							background-color var-on-background-2-button
+							border-color var-border-color
+							fill var-text-2
+							&:hover
+								background-color var-highlight
+						&:first-child svg
+							fill var-text-2
+						&:last-child svg
+							fill var-warning
+				.bg-white
+					background-color var-on-background-2 !important
+					box-shadow var-box-shadow-inset
+					a
+						color var-theme
+					span
+						color var-text-2
+			.profileFeed
+				.feedItem
+					border-bottom-color var-border-color-light
+				.feedControl
+					.button
+						background-color var-on-background-2
+						&:hover
+							background-color var-highlight
+			.tipsportal
+				&-header
+					background-color var-on-background-1
+					box-shadow var-box-shadow-inset
+					h1
+						color var-theme
+					p
+						color var-text-2
+					a
+						color var-theme
+				.tips
+					&-header
+						border-color var-border-color-light
+					&-row
+						border-color var-border-color
+						&:nth-child(odd)
+							background-color var-on-background-1
+						&:nth-child(even)
+							background-color var-on-background-2
+						&:hover
+							.col-wrapper
+								background-color var-highlight
+					.col-wrapper
+						&:hover
+							opacity 1
+							.col-product,
+							.col-user
+								text-decoration none
+						.is-desc
+							.label
+								color var-theme
+						.col-product,
+						.col-category,
+						.col-vendor,
+						.col-user
+							color var-text-2
+						.col-price
+							color var-text-1
+						.col-score:not(.is-desc) .label
+							background-color var-theme
+							color var-theme-text
+							text-shadow var-text-shadow
+							&:hover
+								opacity var-hover-opacity
+					.cell-pj-graph
+						filter invert(85%) !important
+					.num-comments a
+						&:hover
+							text-decoration var-hover-text
+			#editor
+				.imageForm
+					button
+						background-color var-on-background-2
+						&:hover
+							background-color var-highlight
+			#signatureForm
+				.forum-post-body
+					background-color transparent
+			#replies
+				.forum-post-header
+					.columns
+						background-color var-background-2
+						.author
+							color var-text-2
+							a
+								color var-theme
+						.created
+							color var-text-1
+						&.threadTitle
+							background-color var-on-background-2
+							.label
+								color var-text-1
+			#forumList-1
+				table
+					background-color transparent
+					caption
+						background-color var-background-2
+					.head
+						.cell
+							background-color var-on-background-2
+					.body
+						.cell
+							background-color var-on-background-1
+							border-color var-border-color
+							&.title
+								h2 a
+									color var-theme
+								.descr
+									color var-text-2
+								.subforums
+									.button
+										color var-text-1 !important
+										box-shadow var-box-shadow
+										&:hover
+											background-color var-highlight !important
+							&.lastThread
+								h3
+									color var-text-1
+								.dateline
+									a
+										color var-theme
+									.by,
+									.date
+										color var-text-2
+										.time
+											color var-text-1
+			#threadList-1
+				table
+					background-color transparent
+					caption
+						background-color var-background-2
+					.head
+						.cell
+							background-color var-on-background-2
+							&:first-child
+								border-top-left-radius var-border-radius
+							&:last-child
+								border-top-right-radius var-border-radius
+					.body
+						.cell
+							background-color var-on-background-1
+							border-bottom var-border
+							&.title
+								h2 a
+									color var-text-1
+								.pageLinks
+									.link.last
+										color var-theme
+										text-decoration none
+								.descr
+									color var-text-2
+							&.status
+								.thread-status
+									.icon
+										fill var-theme
+										&.thread
+											&_locked,
+											&_pinned
+												fill var-text-2
+								.posts
+									color var-text-2
+							&.lastReply
+								.name
+									color var-theme
+								.date
+									color var-text-2
+									time .time
+										color var-text-1
+					.allPostsRead
+						.cell
+							&.title
+								h2 a
+									color darken(var-text-1, 40%)
+								.pageLinks
+									.link.last
+										color var-text-2
+								.descr
+									color darken(var-text-2, 40%)
+							&.status
+								.thread-status
+									.icon
+										fill darken(var-text-2, 40%)
+										&.thread
+											&_locked,
+											&_pinned
+												fill darken(var-text-2, 40%)
+								.posts
+									color darken(var-text-2, 40%)
+			.table
+				&.classifieds
+					.caption
+						background-color var-on-background-1
+						color var-text-1
+					.head
+						.row
+							.cell
+								background-color var-on-background-2
+								color var-text-1
+					.body
+						.row
+							.cell
+								background-color var-on-background-1
+								border-color var-border-color
+								&.classifieds-thumb
+									img
+										border-radius var-border-radius
+									.no-image
+										svg
+											fill var-theme
+									.classifieds-click
+										border-color var-border-color
+									&:hover
+										img
+											opacity var-hover-opacity
+								&.classifieds-body
+									h2
+										color var-text-1
+									.classifieds-meta
+										.color-black
+											color var-text-2 !important
+											&:nth-child(2)
+												color var-theme !important
+
+.lightbox
+	.lbSlide
+		&Contents
+			background-color black !important
+
+#footer
+	.bottom
+		background-color var-background-2
+		color var-text-2
+		a
+			color var-text-1
+		.copyright
+			color var-text-2
+
+#onetrust-consent-sdk
+	#onetrust-banner-sdk
+		background-color var-background-2 !important
+	#onetrust-pc-btn-handler
+		&.cookie-setting-link
+			background-color var-on-background-2 !important
+			box-shadow var-box-shadow-inset !important
+			color var-text-1 !important
+			text-decoration none !important
+	#onetrust-accept-btn-handler
+		background-color var-theme !important
+		text-shadow var-text-shadow !important
+	#onetrust-pc-sdk
+		background-color var-background-2 !important
+		#ot-pc-content
+			&::-webkit-scrollbar-track
+				background transparent !important
+			#ot-pc-title
+				color var-text-1 !important
+			#ot-pc-desc
+				color var-text-2 !important
+				a
+					color var-theme !important
+					text-decoration none !important
+			#accept-recommended-btn-handler
+				background-color var-theme !important
+				border-color var-theme !important
+				text-shadow var-text-shadow !important
+			.ot-sdk-row
+				#ot-category-title
+					color var-theme !important
+				.ot-cat-item
+					border-color var-border-color-light !important
+				.ot-cat-header
+					color var-text-1 !important
+				.ot-acc-grpcntr
+					background-color var-on-background-2 !important
+				.ot-plus-minus
+					filter invert(60%) !important
+				.ot-always-active
+					color var-theme !important
+				.ot-switch-nob
+					filter invert(100%) !important
+		.ot-pc-header
+			border-color var-border-color-light !important
+		.ot-pc-footer
+			border-color var-border-color-light !important
+			&-logo
+				background-color transparent !important
+				a
+					filter invert(85%) !important
+		.save-preference-btn-handler
+			background-color var-theme !important
+			border-color var-theme !important
+			text-shadow var-text-shadow !important
+	p
+		color var-text-2 !important
+
+#better-sweclockers-document
+	.better-sweclockers-editing-tools
+		.button
+			background-color var-on-background-2
+			&:hover
+				background-color var-highlight
+			mark
+				color var-blue
+			ins
+				color var-purple

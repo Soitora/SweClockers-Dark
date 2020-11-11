@@ -1,9 +1,13 @@
 {
 	"name": "SweClockers-Dark",
-	"version": "4.1.0",
 	"description": "A modern dark theme for SweClockers",
 	"scripts": {
-		"semantic-release": "semantic-release"
+		"compile": "npm run clean & stylus src/sweclockers-dark.styl -o dist/sweclockers-dark.css && node scripts/compile.js",
+		"compile-windows": "npm run clean-windows & stylus src/sweclockers-dark.styl -o dist/sweclockers-dark.css && node scripts/compile.js",
+		"clean": "rm -rf dist",
+		"clean-windows": "rmdir dist /s /q",
+		"watch": "stylus -w src/sweclockers-dark.styl -o dist/sweclockers-dark.css",
+		"local": "node scripts/local-env.js"
 	},
 	"repository": {
 		"type": "git",
@@ -15,58 +19,14 @@
 		"url": "https://github.com/Soitora/SweClockers-Dark/issues"
 	},
 	"homepage": "https://github.com/Soitora/SweClockers-Dark#readme",
-	"release": {
-		"branches": [
-			"master"
-		],
-		"plugins": [
-			"@semantic-release/commit-analyzer",
-			"@semantic-release/release-notes-generator",
-			[
-				"@semantic-release/github",
-				{
-					"assets": [
-						{
-							"path": "sweclockers-dark.user.styl",
-							"label": "SweClockers Dark - Stylus"
-						},
-						{
-							"path": "sweclockers-dark.css",
-							"label": "SweClockers Dark - CSS"
-						}
-					]
-				}
-			],
-			[
-				"@semantic-release/exec",
-				{
-					"prepareCmd": "bump ${nextRelease.version} version.info sweclockers-dark.user.styl sweclockers-dark.css sweclockers-dark.min.css package.json package-lock.json"
-				}
-			],
-			[
-				"@semantic-release/git",
-				{
-					"assets": [
-						"version.info",
-						"sweclockers-dark.user.styl",
-						"sweclockers-dark.css",
-						"sweclockers-dark.min.css",
-						"package.json",
-						"package-lock.json"
-					],
-					"message": "chore(release): ${nextRelease.version} [skip ci]\n\n${nextRelease.notes}"
-				}
-			]
-		]
-	},
 	"devDependencies": {
-		"@jsdevtools/version-bump-prompt": "^6.1.0",
-		"@semantic-release/commit-analyzer": "^8.0.1",
-		"@semantic-release/exec": "^5.0.0",
-		"@semantic-release/git": "^9.0.0",
-		"@semantic-release/github": "^7.1.1",
-		"@semantic-release/release-notes-generator": "^9.0.1",
+		"browser-sync": "^2.26.13",
+		"gulp": "^4.0.2",
+		"moment-timezone": "^0.5.31",
+		"prepend-file": "^2.0.0",
 		"prettier": "2.1.2",
-		"semantic-release": "^17.2.2"
+		"stylus": "^0.54.8",
+		"stylus-supremacy": "^2.14.5",
+		"write": "^2.0.0"
 	}
 }

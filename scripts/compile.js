@@ -13,7 +13,7 @@ const header = `/* ==UserStyle==
 @namespace		https://github.com/Soitora
 @homepageURL	https://github.com/Soitora/SweClockers-Dark
 @supportURL		https://github.com/Soitora/SweClockers-Dark/issues
-@updateURL		https://raw.githubusercontent.com/Soitora/SweClockers-Dark/main/`;
+@updateURL		https://raw.githubusercontent.com/Soitora/SweClockers-Dark/gh-pages/`;
 const headerConfig = `\n\n` + fs.readFileSync("src/user.options", "utf8");
 const headerEnd = `\n==/UserStyle== */\n`;
 

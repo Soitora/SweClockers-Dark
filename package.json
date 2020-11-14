@@ -7,7 +7,7 @@
 		"clean": "rm -rf dist",
 		"clean-windows": "rmdir dist /s /q",
 		"watch": "stylus -w src/sweclockers-dark.styl -o dist/sweclockers-dark.css",
-		"local": "node scripts/local-env.js"
+		"local": "node scripts/local.js"
 	},
 	"repository": {
 		"type": "git",

@@ -7,6 +7,7 @@ var-border-color-light ?= #3B3B3B
 var-highlight ?= #2A2A2D
 var-warning ?= #EE4757
 var-theme ?= #F19A57
+var-theme-shade ?= shade(var-theme, 20%)
 var-theme-text ?= #FFFFFF
 var-image-opacity ?= 0.75
 var-scrollbar-style ?= scrollbar-default
@@ -215,16 +216,16 @@ fieldset
 
 .bg
 	&-orange
+		background-color var-theme-shade !important
 		color var-theme-text !important
-		background-color var-theme !important
 		text-shadow var-text-shadow !important
 		&:not(.no-hover):hover
 			background-color darken(var-theme, 10%) !important
 		&.color-white
 			color var-theme-text !important
 		&.list-comment-bubble
-			background-color shade(var-theme, 20%) !important
-			color var-white !important
+			background-color var-theme-shade !important
+			color var-theme-text !important
 			text-shadow var-text-shadow !important
 		a
 			color red
@@ -251,14 +252,26 @@ fieldset
 			color #ccc
 	&-blue
 		background-color var-blue !important
+		&.list-classified-button,
+		&.compact
+			text-shadow var-text-shadow
 	&-blue-secondary
 		background-color darken(var-blue, 20%) !important
 	&-green
 		background-color var-green !important
+		&.list-classified-button,
+		&.compact
+			text-shadow var-text-shadow
 	&-pink
 		background-color var-pink !important
+		&.list-classified-button,
+		&.compact
+			text-shadow var-text-shadow
 	&-beige
 		background-color var-beige !important
+		&.list-classified-button,
+		&.compact
+			text-shadow var-text-shadow
 	&-white
 		background-color transparent !important
 
@@ -398,7 +411,7 @@ fieldset
 						color var-text-2
 					.optionBar
 						> div
-							background-color var-theme
+							background-color var-theme-shade
 				.pollSums
 					.pollControls
 						button
@@ -797,11 +810,11 @@ fieldset
 								cursor not-allowed !important
 			.comments-bubble
 				.cb-top
-					background-color shade(var-theme, 10%) !important
+					background-color var-theme-shade !important
 					color var-theme-text !important
 					text-shadow var-text-shadow !important
 				.cb-bottom
-					border-color transparent shade(var-theme, 10%) transparent transparent
+					border-color transparent var-theme-shade transparent transparent
 			.sorter
 				.is-current
 					color var-theme
@@ -908,7 +921,7 @@ fieldset
 						.col-price
 							color var-text-1
 						.col-score:not(.is-desc) .label
-							background-color var-theme
+							background-color var-theme-shade
 							color var-theme-text
 							text-shadow var-text-shadow
 							&:hover
@@ -1086,8 +1099,21 @@ fieldset
 		.copyright
 			color var-text-2
 
+#adblockBanner
+	background-color var-background-2
+	border-bottom-color var-border-color-light
+	.table .row .cell
+		background-color transparent
+		.button
+			background-color var-theme-shade
+			color var-theme-text
+			text-shadow var-text-shadow
+			&:hover
+				background-color var-highlight
+
 #onetrust-consent-sdk
 	#onetrust-banner-sdk
+		box-shadow 1px -1px 0px #3b3b3b
 		background-color var-background-2 !important
 	#onetrust-pc-btn-handler
 		&.cookie-setting-link
@@ -1096,7 +1122,9 @@ fieldset
 			color var-text-1 !important
 			text-decoration none !important
 	#onetrust-accept-btn-handler
-		background-color var-theme !important
+		background-color var-theme-shade !important
+		border-color var-theme-shade !important
+		color var-theme-text !important
 		text-shadow var-text-shadow !important
 	#onetrust-pc-sdk
 		background-color var-background-2 !important
@@ -1111,8 +1139,9 @@ fieldset
 					color var-theme !important
 					text-decoration none !important
 			#accept-recommended-btn-handler
-				background-color var-theme !important
-				border-color var-theme !important
+				background-color var-theme-shade !important
+				border-color var-theme-shade !important
+				color var-theme-text !important
 				text-shadow var-text-shadow !important
 			.ot-sdk-row
 				#ot-category-title
@@ -1130,17 +1159,21 @@ fieldset
 				.ot-switch-nob
 					filter invert(100%) !important
 		.ot-pc-header
-			border-color var-border-color-light !important
+			border-color transparent !important
 		.ot-pc-footer
-			border-color var-border-color-light !important
+			border-color transparent !important
 			&-logo
 				background-color transparent !important
 				a
 					filter invert(85%) !important
 		.save-preference-btn-handler
-			background-color var-theme !important
-			border-color var-theme !important
+			background-color var-theme-shade !important
+			border-color var-theme-shade !important
+			color var-theme-text !important
 			text-shadow var-text-shadow !important
+		&.otPcCenter
+			box-shadow var-box-shadow-inset-light
+			border-radius var-border-radius
 	p
 		color var-text-2 !important
 

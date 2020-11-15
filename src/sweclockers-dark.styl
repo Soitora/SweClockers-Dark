@@ -865,8 +865,10 @@ fieldset
 								background-color var-highlight
 						&:first-child svg
 							fill var-text-2
-						&:last-child svg
-							fill var-warning
+						&:last-child
+							a:not(.pm-link)
+								svg
+									fill var-warning
 				.bg-white
 					background-color var-on-background-2 !important
 					box-shadow var-box-shadow-inset

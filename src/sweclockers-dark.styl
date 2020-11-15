@@ -372,32 +372,44 @@ fieldset
 			&:hover
 				opacity 1
 			img
+				box-shadow var-box-shadow
 				border-radius var-border-radius
 	.bbVideo
 		iframe
 			border-radius var-border-radius
 	.bbIns
-		background-color var-purple
-		color black
-		border-bottom 1px dotted darken(var-purple, 50%)
+		background-color darken(desaturate(var-blue, 25%), 50%) // #243125
+		border-bottom 1px dotted darken(var-blue, 25%)
+		text-shadow var-text-shadow
 	.bbMark
-		background-color darken(var-blue, 50%)
+		background-color darken(var-purple, 60%)
+		text-shadow var-text-shadow
 	.bbPre
-		background-color var-on-background-2
-		border-color var-border-color
-		::-webkit-scrollbar
-			width auto
-			height auto
-		::-webkit-scrollbar-corner
-			background var-on-background-2
-		::-webkit-scrollbar-thumb
-			background darken(var-text-2, 75%)
-			border-top 4px solid var-on-background-2 !important
-			border-bottom 4px solid var-on-background-2 !important
-			border-left-color var-on-background-2 !important
-			border-right-color var-on-background-2 !important
-		::-webkit-scrollbar-track
-			background var-on-background-2
+		&.showFrame
+			background-color var-on-background-2
+			border-color var-border-color
+			border-radius var-border-radius
+			::-webkit-scrollbar
+				width auto
+				height auto
+			::-webkit-scrollbar-corner
+				background var-on-background-2
+			::-webkit-scrollbar-thumb
+				background darken(var-text-2, 75%)
+				border-top 4px solid var-on-background-2 !important
+				border-bottom 4px solid var-on-background-2 !important
+				border-left-color var-on-background-2 !important
+				border-right-color var-on-background-2 !important
+			::-webkit-scrollbar-track
+				background var-on-background-2
+	.bbVar,
+	.bbKbd,
+	.bbSamp,
+	.bbCmd
+		background-color #222222
+		border-radius 4px
+		box-shadow 0 0 0 1px #222222, 0 0 0 2px #393939
+		color var-text-1
 	.bbPoll
 		.inner
 			background-color var-on-background-2
@@ -436,6 +448,7 @@ fieldset
 		.spoilerFrame
 			background-color var-on-background-2
 			border-color var-border-color
+			border-radius var-border-radius
 	.bbTable
 		background-color var-on-background-2 !important
 		border-color var-border-color !important

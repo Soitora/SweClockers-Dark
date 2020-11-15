@@ -815,6 +815,10 @@ fieldset
 				.list-search
 					input
 						background-color var-on-background-1
+						&:focus
+							border-color var-border-color
+							&::placeholder
+								color darken(var-text-2, 60%)
 				select
 					background-color var-on-background-1
 			.quickReply

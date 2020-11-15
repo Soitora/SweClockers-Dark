@@ -189,6 +189,12 @@ textarea
 		&.is-loading
 			filter invert(85%)
 
+input
+	&[type=checkbox]
+		filter invert(70%) brightness(0.50)
+		&:checked
+			filter invert(100%) brightness(0.5)
+
 .hasErrors
 	select,
 	input,

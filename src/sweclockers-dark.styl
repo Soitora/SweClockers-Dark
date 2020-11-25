@@ -29,6 +29,7 @@ var-box-shadow-inset-light = inset 0 0 0 1px var-border-color-light
 var-box-shadow-warning = 0 0 0 1px var-warning
 var-text-shadow = 1px 1px 2px var-black
 var-filter-light = brightness(0) saturate(100%) invert(92%) sepia(0) saturate(489%) hue-rotate(229deg) brightness(90%) contrast(86%)
+var-filter-grey = sepia(0) saturate(0.29) brightness(67%) contrast(184%) hue-rotate(179deg) invert(8%)
 var-black = #000000
 var-white = #ffffff
 var-beige = #9c6500
@@ -939,6 +940,8 @@ fieldset
 						&:hover
 							.col-wrapper
 								background-color var-highlight
+					&-title
+						color var-text-1
 					.col-wrapper
 						&:hover
 							opacity 1
@@ -966,6 +969,46 @@ fieldset
 					.num-comments a
 						&:hover
 							text-decoration var-hover-text
+				.vendor
+					&-header
+						.vendor-name
+							color var-text-1
+						.ad-info
+							color var-text-2
+					&-products
+						background-color var-on-background-2
+						border-color var-border-color
+						.product
+							border-color var-border-color
+							&-header
+								.product-price
+									&-offer
+										color var-text-1
+									&-regular
+										color var-text-2
+									&-savings
+										background-color var-theme-shade
+										color var-theme-text
+										text-shadow var-text-shadow
+							&-footer
+								background-color var-on-background-1
+					&-guides
+						h2
+							color var-text-1
+						p
+							color var-text-2
+						.guide
+							.icon
+								img
+									filter var-filter-grey !important
+									&:hover
+										opacity 0.8
+							span
+								color var-text-2
+				#guide-wrapper
+					background-color var-on-background-1
+					border-color var-border-color
+					border-radius var-border-radius
 			#editor
 				.imageForm
 					button

@@ -876,16 +876,9 @@ fieldset
 						border-radius var-border-radius
 						background-color var-highlight
 			.pages
-				.first-page,
-				.prev-page,
-				.next-page,
-				.last-page,
-				.first-unread
-					fill var-text-2 !important
-					&.is-disabled
-						fill darken(var-text-2, 50%) !important
 				> a
 					color var-text-2
+					fill var-text-2 !important
 					&:hover
 						background-color var-highlight
 						opacity 1
@@ -893,6 +886,9 @@ fieldset
 						background-color var-highlight
 						border-color transparent
 						color var-theme
+				> span
+					&.is-disabled
+						fill darken(var-text-2, 50%) !important
 			.profileHeader
 				.avatar img
 					border-radius var-border-radius

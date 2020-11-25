@@ -161,6 +161,24 @@ img,
 	.loader
 		filter invert(85%)
 
+.tanukiCombobox
+	.tcbTriggerFrame
+		background-color transparent
+		border-color transparent
+		input
+			box-shadow var-box-shadow-inset
+			&:focus
+				box-shadow var-box-shadow-inset-light
+	.tcbSelectedItem
+		background-color var-on-background-2
+		border-color var-border-color-light
+		border-radius var-border-radius
+		&:hover
+			background-color var-highlight
+	.tcbPanel
+		background-color var-on-background-2
+		border-color var-border-color
+
 select
 	background-color var-on-background-2
 	border-color var-border-color

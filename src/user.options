@@ -1,5 +1,6 @@
 @var	color		var-background-1 "Background color 1" #121212
 @var	color		var-background-2 "Background color 2" #1D1D1F
+@var	color		var-background-3 "Background color 3" #2A2A2C
 @var	color		var-text-1 "Text color 1" #C8C8C8
 @var	color		var-text-2 "Text color 2" #AAAAAA
 @var	color		var-border-color "Border color" #101013

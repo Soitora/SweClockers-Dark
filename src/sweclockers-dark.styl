@@ -404,7 +404,6 @@ fieldset
 			&:hover
 				opacity 1
 			img
-				box-shadow var-box-shadow
 				border-radius var-border-radius
 	.bbVideo
 		iframe
@@ -676,6 +675,12 @@ fieldset
 								color var-text-1
 							&::placeholder
 								color var-text-2 !important
+			.article-body
+				.article-bbcode
+					.bbcode,
+					.expanderContent
+						> .bbImage.alignRight a img
+							filter invert(85%)
 			.article-meta
 				.category
 					color var-theme

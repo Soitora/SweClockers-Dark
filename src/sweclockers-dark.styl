@@ -737,6 +737,8 @@ fieldset
 								pointer-events none
 								a
 									opacity 1
+				.border-radius-none
+					border-radius var-border-radius !important
 			.cards
 				box-shadow var-box-shadow-inset
 				.card
@@ -1204,6 +1206,34 @@ fieldset
 											color var-text-2 !important
 											&:nth-child(2)
 												color var-theme !important
+			.market-box
+				background-color var-on-background-1
+				.button
+					background-color var-on-background-2-button
+					color var-text-1
+					&.market-button
+						fill var-text-1
+						&:hover
+							background-color var-highlight
+					&.report
+						fill var-text-1
+						&:hover svg
+							fill var-warning
+			.market-edit-image__container,
+			.market-edit-upload,
+			.checkboxItem label
+				background-color var-on-background-2
+				border-color var-border-color
+				.tcLabel
+					color var-text-1
+					background-color var-on-background-2-button
+					&:hover
+						background-color var-highlight
+			.checkboxItem label,
+			.market-edit-image__container
+				&:hover
+					background-color var-highlight
+
 
 .lightbox
 	.lbSlide

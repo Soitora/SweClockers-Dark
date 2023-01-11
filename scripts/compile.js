@@ -3,7 +3,7 @@ const fs = require("fs");
 const write = require("write");
 const prependFile = require("prepend-file");
 
-const version = moment(new Date()).tz("Europe/Stockholm").format("YY.DDD.kmm").replace(/^([0-9]{2}\.[0-9]{0,3}\.).*(24)([0-9]{1,2})$/g, "$1$3").replace(/\.0+?/g, ".")
+const version = moment(new Date()).tz("Europe/Stockholm").format("YY.DDD.HHmm")
 const header = `/* ==UserStyle==
 @name			SweClockers Dark
 @description	A modern dark theme for SweClockers

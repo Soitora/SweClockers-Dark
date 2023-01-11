@@ -531,6 +531,10 @@ fieldset
 				border-right-color darken(var-background-2, 80%)
 		tbody
 			tr
+				&:last-child
+					th
+						border-color var-border-color !important
+
 				th
 					border-right 1px solid darken(var-background-2, 50%) !important
 					border-bottom 1px solid var-on-background-2 !important
@@ -542,9 +546,15 @@ fieldset
 					background-color darken(var-background-2, 20%) !important
 					border-color var-border-color !important
 					border-bottom 1px solid darken(var-background-2, 50%) !important
-				&:last-child
-					th
-						border-color var-border-color !important
+
+					.bbMark
+						padding: 4px
+						border-radius: 2px
+						font-weight: 600
+						background-color: #9f4d17
+						color: #fff !important
+						text-shadow: 1px 1px 2px #000
+
 		a
 			color var-theme !important
 			&:hover

@@ -3,6 +3,7 @@
 	"description": "A modern dark theme for SweClockers",
 	"scripts": {
 		"compile": "npm run clean && stylus src/sweclockers-dark.styl -o dist/sweclockers-dark.css && node scripts/compile.js",
+		"compile-single": "node scripts/compile.js",
 		"local": "stylus src/sweclockers-dark.styl -o dist/sweclockers-dark.css && gulp --gulpfile scripts/local.js",
 		"clean": "node scripts/clean.js",
 		"stylus": "stylus src/sweclockers-dark.styl -o dist/sweclockers-dark.css",

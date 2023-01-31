@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>SweClockers Dark - Ett modernt mörkt tema</title>
+	<meta charset="utf-8" />
+	<meta content="text/html; charset=utf-8" http-equiv="content-type" />
+	<link href="favicon.ico" rel="shortcut icon" />
+	<link href="assets/style.css" rel="stylesheet" type="text/css" />
+	<link href="assets/fonts.css" rel="stylesheet" />
+	<script src="assets/switch.js" type="text/javascript"></script>
+	<script src="assets/jquery.min.js"></script>
+</head>
+<body>
+	<div class="boxcontainer">
+		<div class="box" id="box" style="display: block">
+			<header>
+				<a href="https://github.com/Soitora/SweClockers-Dark" target="_blank">
+					<img src="images/banner.png">
+				</a>
+			</header>
+			<footer>
+				<p class="desc">
+					<a href="https://soitora.com/SweClockers-Dark/sweclockers-dark.user.styl" target="_blank">
+						<span style="color: #4687bf">sweclockers-dark.user.styl</span>
+					</a>
+					<br>
+					<a href="https://soitora.com/SweClockers-Dark/sweclockers-dark.css" target="_blank">
+						<span style="color: #b34d84">sweclockers-dark.css</span>
+					</a>
+				</p>
+				<p class="link">Version <span id="container">not found</span></p>
+			</footer>
+		</div>
+	</div>
+	<script>
+		$("#container").load("version.info");
+	</script>
+</body>
+</html>

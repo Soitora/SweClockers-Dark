@@ -1,0 +1,140 @@
+/*
+==========================
+
+		BASE
+
+==========================
+*/
+
+html {
+	height:100%;
+}
+
+body {
+	min-height: 100%;
+	margin: 0;
+	padding: 0;
+	background-color: #1D1D1F;
+	text-align: center;
+	font-size: 1em;
+	font-family: Roboto Mono;
+	font-weight: 400;
+	cursor: default;
+}
+
+a {
+	color: inherit;
+	text-decoration: none;
+	outline: 0;
+	cursor: pointer;
+}
+
+/*
+==========================
+
+		MAIN
+
+==========================
+*/
+.MainPic:hover {
+    content: url('red.gif');
+    height: 150px;
+    width: 150px;
+}
+
+.boxcontainer {
+	height: 100%;
+	width: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	position: absolute;
+}
+
+.box {
+	height: auto;
+	width: 375px;
+	max-width: 95%;
+	display: inline-block;
+	position: relative;
+	text-align: center;
+	animation:slide 0.8s ease;
+	animation-fill-mode: forwards;
+}
+
+#dirbox {
+	display: none;
+}
+
+img {
+	height: auto;
+	width: 100%;
+}
+
+h1 {
+	line-height: 1em;
+	color: #f19a57;
+	display: block;
+	cursor: pointer;
+	margin-bottom: 8px;
+}
+
+h3 {
+	line-height: 1em;
+	color: #C8C8C8;
+	display: block;
+	margin-top: 8px;
+}
+
+h1:hover,
+h3:hover,
+a:hover {
+	filter: brightness(.8);
+}
+
+.desc {
+	line-height: 25px;
+	margin:  10px 0;
+	color: #808080;
+	transition: all 0.4s ease;
+	animation-fill-mode: forwards;
+}
+
+.link {
+	line-height: 25px;
+	margin:  10px 0;
+	color: #aaa;
+	transition: filter 0.2s ease, transform 0.4s ease;
+}
+
+.linkcont {
+	margin: 0 auto;
+	width: auto;
+	display: inline-block;
+	position: relative;
+	margin: 0;
+	transition: filter 0.2s ease, transform 0.4s ease;
+
+}
+
+.linksquare {
+	height: 50px;
+	width: 50px;
+	display: inline-block;
+	position: relative;
+	margin: 0;
+	transition: all 0.2s ease;
+}
+
+/*
+==========================
+
+		ANIM
+
+==========================
+*/
+
+@keyframes slide {
+0% {transform: translate(0, 2.5em); opacity: 0;}
+100% {transform: translate(0, 0); opacity: 1;}
+}

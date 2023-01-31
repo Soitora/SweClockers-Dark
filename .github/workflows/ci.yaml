@@ -35,7 +35,7 @@ jobs:
         with:
           folder: dist
           token: ${{ secrets.ACCESS_TOKEN }}
-          branch: deployed
+          branch: gh-pages
           clean-exclude: |
             assets
             images

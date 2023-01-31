@@ -10,7 +10,7 @@ var-warning ?= #EE4757
 var-theme ?= #F19A57
 var-theme-shade ?= shade(var-theme, 20%)
 var-theme-text ?= #FFFFFF
-var-image-opacity ?= 0.75
+var-image-brightness ?= 0.75
 var-scrollbar-style ?= scrollbar-default
 var-accessibility-focus ?= accessibility-focus-default
 var-lemonillusion-width ?= lemonillusion-width-default
@@ -136,7 +136,7 @@ a:hover>.label,
 	opacity var-hover-opacity
 
 img
-	opacity var-image-opacity
+	filter brightness(var-image-brightness)
 
 .ad
 	&.adPanorama,

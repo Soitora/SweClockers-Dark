@@ -9,7 +9,7 @@
 @var	color		var-warning "Warning color" #EE4757
 @var	color		var-theme "Theme color" #F19A57
 @var	color		var-theme-text "Theme color text" #FFFFFF
-@var	number		var-image-opacity "Image opacity" [0.75, 0, 1, 0.05]
+@var	number		var-image-brightness "Image brightness" [0.75, 0, 1, 0.05]
 @var	select		var-scrollbar-style "Scrollbar" {
 	"Default": "scrollbar-default",
 	"Custom*": "scrollbar-custom"

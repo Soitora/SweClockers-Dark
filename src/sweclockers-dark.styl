@@ -1361,7 +1361,19 @@ fieldset
 			background-color var-on-background-2
 			&:hover
 				background-color var-highlight
-			mark
-				color var-blue
-			ins
-				color var-purple
+			&[title="Markerad/framhävd text"]
+				background linear-gradient(0deg, darken(var-purple, 40%) 0%, darken(var-purple, 40%) 100%) content-box, linear-gradient(0deg, var-on-background-2 0%, var-on-background-2 100%) padding-box
+				border-radius: 4px
+				background-color darken(var-purple, 60%)
+				text-shadow var-text-shadow
+				font-weight: 600
+				&:hover
+					background linear-gradient(0deg, darken(var-purple, 40%) 0%, darken(var-purple, 40%) 100%) content-box, linear-gradient(0deg, var-highlight 0%, var-highlight 100%) padding-box
+				mark
+					color var-text-1
+			&[title="Tillagd text"]
+				background linear-gradient(0deg, darken(desaturate(var-blue, 25%), 20%) 0%, darken(desaturate(var-blue, 25%), 20%) 100%) content-box, linear-gradient(0deg, var-on-background-2 0%, var-on-background-2 100%) padding-box
+				&:hover
+					background linear-gradient(0deg, darken(desaturate(var-blue, 25%), 20%) 0%, darken(desaturate(var-blue, 25%), 20%) 100%) content-box, linear-gradient(0deg, var-highlight 0%, var-highlight 100%) padding-box
+				ins
+					color var-text-1

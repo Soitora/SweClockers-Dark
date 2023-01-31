@@ -39,1341 +39,2366 @@ var-green = #1c5a00
 var-pink = #b34d84
 var-purple = #8e78a2
 
-if (var-scrollbar-style == 'scrollbar-custom')
-	::-webkit-scrollbar
-		width 17px
-		height 12px
-	::-webkit-scrollbar-corner
-		background var-background-1
-	::-webkit-scrollbar-thumb
-		background var-theme
-		border-left 4px solid var-background-1 !important
-		border-right 4px solid var-background-1 !important
-	::-webkit-scrollbar-track
-		background var-background-1
-	::-webkit-resizer
-		background-image url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAABB0lEQVQ4jcXSvytHYRQG8I9fZWNg8A8og0wMyKKMFEpZlPxYZaEsysJCFuprUSYs6ptQshlYLUa7JAsGSW+9V7fb/fK9GZzp7X3O8/Q85xx/rZrAfylNFJEJnDU8Ns0dbtcWNFCHElbQGT6KCDTiGDPYwGz4rK+S3IwTDGARWwlQjUAbztGBKRykwd8E2nGBVozgLNvwk0A3TuOcBnGT11RpiEO4wiv6M+QG7GK5ksAkynhAH+5TWIhyifnEfTbCAjZxjWE8p7CuuIkWjMb3t4NwXetxPeUYIU0ej6Kf6E3IaYE9LGEfY3hLkVdxhFv04C5viCFnuK5pfGRivWMnunrKn/m/Fb4AFQsvGVJYWLQAAAAASUVORK5CYII=') !important
-		background-repeat no-repeat !important
-		background-size 12px auto !important
-		background-position 3px 3px !important
+if (var-scrollbar-style == 'scrollbar-custom') {
+	::-webkit-scrollbar {
+		width: 17px
+		height: 12px
+	}
 
-if (var-accessibility-focus == 'accessibility-focus-disabled')
-	:focus
-		outline none !important
+	::-webkit-scrollbar-corner {
+		background: var-background-1
+	}
 
-if (var-lemonillusion-width == 'lemonillusion-width-custom')
-	.col
-		&.col-content
-			margin-right 10px
-			max-width 100%
-			&-wide
-				margin-right 0
-				padding-right 10px
-			.card-banner
-				img
-					width 100%
-		&-side
-			margin-right 0 !important
-			margin-left 0 !important
-			display inherit !important
-		&-outer-side
-			position relative
-			left 260px
-	.container
-		overflow visible
-	.tv-frame
-		width auto
-	.pw-notifications
-		.display-none
-			&:not(.m-m-r)
-				display inherit !important
+	::-webkit-scrollbar-thumb {
+		border-right: 4px solid var-background-1 !important
+		border-left: 4px solid var-background-1 !important
+		background: var-theme
+	}
 
-if (var-lemonillusion-ad_movement == 'lemonillusion-ad_movement-custom')
-	#outsider-1
-		position static !important
+	::-webkit-scrollbar-track {
+		background: var-background-1
+	}
 
-filter()
-	filter arguments
-	-moz-filter arguments
-	-ms-filter arguments
-	-o-filter arguments
-	-webkit-filter arguments
+	::-webkit-resizer {
+		background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAABB0lEQVQ4jcXSvytHYRQG8I9fZWNg8A8og0wMyKKMFEpZlPxYZaEsysJCFuprUSYs6ptQshlYLUa7JAsGSW+9V7fb/fK9GZzp7X3O8/Q85xx/rZrAfylNFJEJnDU8Ns0dbtcWNFCHElbQGT6KCDTiGDPYwGz4rK+S3IwTDGARWwlQjUAbztGBKRykwd8E2nGBVozgLNvwk0A3TuOcBnGT11RpiEO4wiv6M+QG7GK5ksAkynhAH+5TWIhyifnEfTbCAjZxjWE8p7CuuIkWjMb3t4NwXetxPeUYIU0ej6Kf6E3IaYE9LGEfY3hLkVdxhFv04C5viCFnuK5pfGRivWMnunrKn/m/Fb4AFQsvGVJYWLQAAAAASUVORK5CYII=') !important
+		background-position: 3px 3px !important
+		background-size: 12px auto !important
+		background-repeat: no-repeat !important
+	}
+}
 
-border-radius()
-	border-radius arguments
-	-moz-border-radius arguments
-	-ms-border-radius arguments
-	-o-border-radius arguments
-	-webkit-border-radius arguments
+if (var-accessibility-focus == 'accessibility-focus-disabled') {
+	:focus {
+		outline: none !important
+	}
+}
 
-box-shadow()
-	box-shadow arguments
-	-moz-box-shadow arguments
-	-ms-box-shadow arguments
-	-o-box-shadow arguments
-	-webkit-box-shadow arguments
+if (var-lemonillusion-width == 'lemonillusion-width-custom') {
+	.col {
+		&.col-content {
+			margin-right: 10px
+			max-width: 100%
 
-user-select(n)
-	user-select n
-	-moz-user-select n
-	-ms-user-select n
-	-o-user-select n
-	-webkit-user-select n
+			&-wide {
+				margin-right: 0
+				padding-right: 10px
+			}
 
-body
-	background-color var-background-1 !important
-	color var-text-2 !important
+			.card-banner {
+				img {
+					width: 100%
+				}
+			}
+		}
+
+		&-side {
+			display: inherit !important
+			margin-right: 0 !important
+			margin-left: 0 !important
+		}
+
+		&-outer-side {
+			position: relative
+			left: 260px
+		}
+	}
+
+	.container {
+		overflow: visible
+	}
+
+	.tv-frame {
+		width: auto
+	}
+
+	.pw-notifications {
+		.display-none {
+			&:not(.m-m-r) {
+				display: inherit !important
+			}
+		}
+	}
+}
+
+if (var-lemonillusion-ad_movement == 'lemonillusion-ad_movement-custom') {
+	#outsider-1 {
+		position: static !important
+	}
+}
+
+filter() {
+	filter: arguments
+	-moz-filter: arguments
+	-ms-filter: arguments
+	-o-filter: arguments
+	-webkit-filter: arguments
+}
+
+border-radius() {
+	border-radius: arguments
+	-moz-border-radius: arguments
+	-ms-border-radius: arguments
+	-o-border-radius: arguments
+	-webkit-border-radius: arguments
+}
+
+box-shadow() {
+	box-shadow: arguments
+	-moz-box-shadow: arguments
+	-ms-box-shadow: arguments
+	-o-box-shadow: arguments
+	-webkit-box-shadow: arguments
+}
+
+user-select(n) {
+	user-select: n
+	-moz-user-select: n
+	-ms-user-select: n
+	-o-user-select: n
+	-webkit-user-select: n
+}
+
+body {
+	background-color: var-background-1 !important
+	color: var-text-2 !important
+}
 
 a,
-.link
-	color var-theme
+.link {
+	color: var-theme
+}
 
 a:hover,
 a:hover>.label,
 .link:hover,
-.link:hover>.label
-	text-decoration var-hover-text
-	opacity var-hover-opacity
+.link:hover>.label {
+	text-decoration: var-hover-text
+	opacity: var-hover-opacity
+}
 
-img
-	filter brightness(var-image-brightness)
+img {
+	filter: brightness(var-image-brightness)
+}
 
-.ad
+.ad {
 	&.adPanorama,
 	&.adModule,
 	&.adInsider,
-	&.adOutsider
-		iframe
-			background-color darken(var-background-1, 40%)
-			border-radius var-border-radius
+	&.adOutsider {
+		iframe {
+			border-radius: var-border-radius
+			background-color: darken(var-background-1, 40%)
+		}
+	}
+}
 
 .button,
-.tanukiButton
-	background-color var-on-background-1
-	border var-border
-	color var-text-1
+.tanukiButton {
+	border: var-border
+	background-color: var-on-background-1
+	color: var-text-1
+
 	&:hover,
-	&:active
-		color var-text-1
-		background-color var-highlight
-		opacity 1
+	&:active {
+		background-color: var-highlight
+		color: var-text-1
+		opacity: 1
+	}
+
 	&.isLoading,
-	&.is-loading
-		background-color darken(var-on-background-2-button, 25%) !important
-		color var-text-2 !important
-	.loader
-		filter invert(85%)
+	&.is-loading {
+		background-color: darken(var-on-background-2-button, 25%) !important
+		color: var-text-2 !important
+	}
 
-.tanukiCombobox
-	.tcbTriggerFrame
-		background-color transparent
-		border-color transparent
-		input
-			box-shadow var-box-shadow-inset
-			&:focus
-				box-shadow var-box-shadow-inset-light
-	.tcbSelectedItem
-		background-color var-on-background-2
-		border-color var-border-color-light
-		border-radius var-border-radius
-		&:hover
-			background-color var-highlight
-	.tcbPanel
-		background-color var-on-background-2
-		border-color var-border-color
+	.loader {
+		filter: invert(85%)
+	}
+}
 
-select
-	background-color var-on-background-2
-	border-color var-border-color
-	color var-text-2
-	&:focus
-		color var-text-1
-		border-color var-border-color-light
+.tanukiCombobox {
+	.tcbTriggerFrame {
+		border-color: transparent
+		background-color: transparent
+
+		input {
+			box-shadow: var-box-shadow-inset
+
+			&:focus {
+				box-shadow: var-box-shadow-inset-light
+			}
+		}
+	}
+
+	.tcbSelectedItem {
+		border-color: var-border-color-light
+		border-radius: var-border-radius
+		background-color: var-on-background-2
+
+		&:hover {
+			background-color: var-highlight
+		}
+	}
+
+	.tcbPanel {
+		border-color: var-border-color
+		background-color: var-on-background-2
+	}
+}
+
+select {
+	border-color: var-border-color
+	background-color: var-on-background-2
+	color: var-text-2
+
+	&:focus {
+		border-color: var-border-color-light
+		color: var-text-1
+	}
+}
 
 input,
-textarea
-	background-color var-on-background-2
-	border-color var-border-color
-	border-radius var-border-radius
-	color var-text-2
-	&:focus
-		color var-text-1
-		border-color var-border-color-light
-	&:disabled
-		background-color var-on-background-2-button
-		color var-text-1
-		&:hover
-			cursor not-allowed
+textarea {
+	border-color: var-border-color
+	border-radius: var-border-radius
+	background-color: var-on-background-2
+	color: var-text-2
+
+	&:focus {
+		border-color: var-border-color-light
+		color: var-text-1
+	}
+
+	&:disabled {
+		background-color: var-on-background-2-button
+		color: var-text-1
+
+		&:hover {
+			cursor: not-allowed
+		}
+	}
+}
 
 input,
 select,
-textarea
+textarea {
 	&[type=text],
 	&[type=email],
 	&[type=url],
 	&[type=search],
 	&[type=number],
-	&[type=password]
-		&.is-loading
-			filter invert(85%)
+	&[type=password] {
+		&.is-loading {
+			filter: invert(85%)
+		}
+	}
+}
 
-input
-	&[type=checkbox]
-		filter invert(70%) brightness(0.5)
-		&:checked
-			filter invert(100%) brightness(0.9)
+input {
+	&[type=checkbox] {
+		filter: invert(70%) brightness(0.5)
 
-.hasErrors
+		&:checked {
+			filter: invert(100%) brightness(0.9)
+		}
+	}
+}
+
+.hasErrors {
 	select,
 	input,
-	textarea
-		border-color var-warning !important
-		outline none !important
+	textarea {
+		outline: none !important
+		border-color: var-warning !important
+	}
+}
 
-.error
-	background-color var-warning !important
-	color white !important
-	text-shadow var-text-shadow
+.error {
+	background-color: var-warning !important
+	color: white !important
+	text-shadow: var-text-shadow
+}
 
-fieldset
+fieldset {
 	.button,
-	.tanukiButton
-		background-color var-on-background-2
-		&:hover
-			background-color var-highlight
-		&.isDisabled
-			background-color darken(var-on-background-2-button, 25%) !important
-			color var-text-2 !important
-			pointer-events all !important
-			&:hover
-				cursor not-allowed !important
+	.tanukiButton {
+		background-color: var-on-background-2
 
-.bg
-	&-orange
-		background-color var-theme-shade !important
-		color var-theme-text !important
-		text-shadow var-text-shadow !important
-		&:not(.no-hover):hover
-			background-color darken(var-theme, 10%) !important
-		&.color-white
-			color var-theme-text !important
-		&.list-comment-bubble
-			background-color var-theme-shade !important
-			color var-theme-text !important
-			text-shadow var-text-shadow !important
-		a
-			color red
-	&-grey-primary
-		color var-text-2 !important
-		background-color var-on-background-1 !important
-		&:not(.no-hover):hover
-			background-color #fff !important
-		a
-			color var-theme
-	&-grey-secondary
-		color var-text-2 !important
-		background var-on-background-2 !important
-		&:not(.no-hover):hover
-			background-color #efeeec !important
-		a
-			color #1f5994
-	&-dark-grey-primary
-		color var-text-1 !important
-		background-color transparent !important
-		&:not(.no-hover):hover
-			background-color #424242 !important
-		a
-			color #ccc
-	&-blue
-		background-color var-blue !important
-		&.list-classified-button,
-		&.compact
-			text-shadow var-text-shadow
-	&-blue-secondary
-		background-color darken(var-blue, 20%) !important
-	&-green
-		background-color var-green !important
-		&.list-classified-button,
-		&.compact
-			text-shadow var-text-shadow
-	&-pink
-		background-color var-pink !important
-		&.list-classified-button,
-		&.compact
-			text-shadow var-text-shadow
-	&-beige
-		background-color var-beige !important
-		&.list-classified-button,
-		&.compact
-			text-shadow var-text-shadow
-	&-white
-		background-color transparent !important
+		&:hover {
+			background-color: var-highlight
+		}
 
-.color
-	&-white
-		color var-text-1 !important
-		fill var-text-1 !important
-		svg
-			fill var-text-1 !important
-	&-black
-		color var-black !important
-		fill var-black !important
-		svg
-			fill var-black !important
-	&-orange
-		color var-theme !important
-		fill var-theme !important
-		svg
-			fill var-theme !important
-	&-grey-primary
-		color #f1efec !important
-		fill #f1efec !important
-		svg
-			fill #f1efec !important
-	&-dark-grey-primary
-		color #282828 !important
-		fill #282828 !important
-		svg
-			fill #282828 !important
-	&-yellow
-		color #fafad9 !important
-		fill #fafad9 !important
-		svg
-			fill #fafad9 !important
+		&.isDisabled {
+			background-color: darken(var-on-background-2-button, 25%) !important
+			color: var-text-2 !important
+			pointer-events: all !important
 
-.content
-	&-primary
-		background-color var-on-background-1 !important
-		.infoText h1
-			color var-text-1
-	&-secondary
-		background-color var-on-background-1 !important
-	&-orange
-		background-color var-on-background-1 !important
-	&-body
-		box-shadow var-box-shadow-inset
+			&:hover {
+				cursor: not-allowed !important
+			}
+		}
+	}
+}
 
-.widget
+.bg {
+	&-orange {
+		background-color: var-theme-shade !important
+		color: var-theme-text !important
+		text-shadow: var-text-shadow !important
+
+		&:not(.no-hover):hover {
+			background-color: darken(var-theme, 10%) !important
+		}
+
+		&.color-white {
+			color: var-theme-text !important
+		}
+
+		&.list-comment-bubble {
+			background-color: var-theme-shade !important
+			color: var-theme-text !important
+			text-shadow: var-text-shadow !important
+		}
+
+		a {
+			color: red
+		}
+	}
+
+	&-grey-primary {
+		background-color: var-on-background-1 !important
+		color: var-text-2 !important
+
+		&:not(.no-hover):hover {
+			background-color: #fff !important
+		}
+
+		a {
+			color: var-theme
+		}
+	}
+
+	&-grey-secondary {
+		background: var-on-background-2 !important
+		color: var-text-2 !important
+
+		&:not(.no-hover):hover {
+			background-color: #efeeec !important
+		}
+
+		a {
+			color: #1f5994
+		}
+	}
+
+	&-dark-grey-primary {
+		background-color: transparent !important
+		color: var-text-1 !important
+
+		&:not(.no-hover):hover {
+			background-color: #424242 !important
+		}
+
+		a {
+			color: #ccc
+		}
+	}
+
+	&-blue {
+		background-color: var-blue !important
+
+		&.list-classified-button,
+		&.compact {
+			text-shadow: var-text-shadow
+		}
+	}
+
+	&-blue-secondary {
+		background-color: darken(var-blue, 20%) !important
+	}
+
+	&-green {
+		background-color: var-green !important
+
+		&.list-classified-button,
+		&.compact {
+			text-shadow: var-text-shadow
+		}
+	}
+
+	&-pink {
+		background-color: var-pink !important
+
+		&.list-classified-button,
+		&.compact {
+			text-shadow: var-text-shadow
+		}
+	}
+
+	&-beige {
+		background-color: var-beige !important
+
+		&.list-classified-button,
+		&.compact {
+			text-shadow: var-text-shadow
+		}
+	}
+
+	&-white {
+		background-color: transparent !important
+	}
+}
+
+.color {
+	&-white {
+		color: var-text-1 !important
+		fill: var-text-1 !important
+
+		svg {
+			fill: var-text-1 !important
+		}
+	}
+
+	&-black {
+		color: var-black !important
+		fill: var-black !important
+
+		svg {
+			fill: var-black !important
+		}
+	}
+
+	&-orange {
+		color: var-theme !important
+		fill: var-theme !important
+
+		svg {
+			fill: var-theme !important
+		}
+	}
+
+	&-grey-primary {
+		color: #f1efec !important
+		fill: #f1efec !important
+
+		svg {
+			fill: #f1efec !important
+		}
+	}
+
+	&-dark-grey-primary {
+		color: #282828 !important
+		fill: #282828 !important
+
+		svg {
+			fill: #282828 !important
+		}
+	}
+
+	&-yellow {
+		color: #fafad9 !important
+		fill: #fafad9 !important
+
+		svg {
+			fill: #fafad9 !important
+		}
+	}
+}
+
+.content {
+	&-primary {
+		background-color: var-on-background-1 !important
+
+		.infoText h1 {
+			color: var-text-1
+		}
+	}
+
+	&-secondary {
+		background-color: var-on-background-1 !important
+	}
+
+	&-orange {
+		background-color: var-on-background-1 !important
+	}
+
+	&-body {
+		box-shadow: var-box-shadow-inset
+	}
+}
+
+.widget {
 	&.content-secondary,
 	&.content-orange,
 	&.bg-blue-secondary,
-	&.bg-dark-grey-primary
-		box-shadow var-box-shadow-inset
-		.widget-head
-			.title
-				color var-theme !important
-			.title-secondary
-				color var-text-1
-				a
-					color var-text-2
-		.widget-body
-			.title
-				color var-text-1
-			.list
-				.list-meta
-					&.list-bubble
-						&.date
-							background-color var-blue !important
-							color var-white !important
-							text-shadow var-text-shadow !important
-				.list-link
-					color var-text-2
-	&.bg-blue-secondary
-		background-color var-on-background-1 !important
-	&.bg-dark-grey-primary
-		box-shadow none
+	&.bg-dark-grey-primary {
+		box-shadow: var-box-shadow-inset
 
-.bbcode
-	.bbExpander
-		.expanderHeader
-			border-color var-border-color-light
-			color var-text-1
-		.expanderFrame
-			.expanderFade
-				background -moz-linear-gradient(top, transparent 0, transparent 10%, var-background-1 100%) !important
-				background -webkit-gradient(linear, left top, left bottom, color-stop(0, transparent), color-stop(45%, transparent), color-stop(100%, var-background-1)) !important
-				background -webkit-linear-gradient(top, transparent 0, transparent 10%, var-background-1 100%) !important
-				background -o-linear-gradient(top, transparent 0, transparent 10%, var-background-1 100%) !important
-				background -ms-linear-gradient(top, transparent 0, transparent 10%, var-background-1 100%) !important
-				background linear-gradient(to bottom, transparent 0, transparent 10%, var-background-1 100%) !important
-		.expanderFooter
-			border-color var-border-color-light
-	.bbChart
-		img[src*='/artikel/diagram/']
-			filter invert(85%) !important
-	.bbColor
-		&[style='color: #c15200;']
-		&[style='color: #c45e0b;']
-			color var-theme !important
-		&[style='color: #5c5c68;']
-			color #aaaab5 !important
-		&[style='color: #d00;']
-		&[style='color: red;']
-			color #ff4949 !important
-		&[style='color: green;']
-			color #3fff62 !important
-		&[style='color: blue;']
-			color #3f76ff !important
-	.bbImage
-		a
-			&:hover
-				opacity 1
-			img
-				border-radius var-border-radius
-	.bbVideo
-		iframe
-			border-radius var-border-radius
-	.bbIns
-		background-color darken(desaturate(var-blue, 25%), 50%) // #243125
-		border-bottom 1px dotted darken(var-blue, 25%)
-		text-shadow var-text-shadow
-	.bbMark
-		color var-text-1
-		padding 3px 2px
+		.widget-head {
+			.title {
+				color: var-theme !important
+			}
+
+			.title-secondary {
+				color: var-text-1
+
+				a {
+					color: var-text-2
+				}
+			}
+		}
+
+		.widget-body {
+			.title {
+				color: var-text-1
+			}
+
+			.list {
+				.list-meta {
+					&.list-bubble {
+						&.date {
+							background-color: var-blue !important
+							color: var-white !important
+							text-shadow: var-text-shadow !important
+						}
+					}
+				}
+
+				.list-link {
+					color: var-text-2
+				}
+			}
+		}
+	}
+
+	&.bg-blue-secondary {
+		background-color: var-on-background-1 !important
+	}
+
+	&.bg-dark-grey-primary {
+		box-shadow: none
+	}
+}
+
+.bbcode {
+	.bbExpander {
+		.expanderHeader {
+			border-color: var-border-color-light
+			color: var-text-1
+		}
+
+		.expanderFrame {
+			.expanderFade {
+				background: -moz-linear-gradient(top, transparent 0, transparent 10%, var-background-1 100%) !important
+				background: -webkit-gradient(linear, left top, left bottom, color-stop(0, transparent), color-stop(45%, transparent), color-stop(100%, var-background-1)) !important
+				background: -webkit-linear-gradient(top, transparent 0, transparent 10%, var-background-1 100%) !important
+				background: -o-linear-gradient(top, transparent 0, transparent 10%, var-background-1 100%) !important
+				background: -ms-linear-gradient(top, transparent 0, transparent 10%, var-background-1 100%) !important
+				background: linear-gradient(to bottom, transparent 0, transparent 10%, var-background-1 100%) !important
+			}
+		}
+
+		.expanderFooter {
+			border-color: var-border-color-light
+		}
+	}
+
+	.bbChart {
+		img[src*='/artikel/diagram/'] {
+			filter: invert(85%) !important
+		}
+	}
+
+	.bbColor {
+		&[style='color: #c15200;'],
+		&[style='color: #c45e0b;'] {
+			color: var-theme !important
+		}
+
+		&[style='color: #5c5c68;'] {
+			color: #aaaab5 !important
+		}
+
+		&[style='color: #d00;'],
+		&[style='color: red;'] {
+			color: #ff4949 !important
+		}
+
+		&[style='color: green;'] {
+			color: #3fff62 !important
+		}
+
+		&[style='color: blue;'] {
+			color: #3f76ff !important
+		}
+	}
+
+	.bbImage {
+		a {
+			&:hover {
+				opacity: 1
+			}
+
+			img {
+				border-radius: var-border-radius
+			}
+		}
+	}
+
+	.bbVideo {
+		iframe {
+			border-radius: var-border-radius
+		}
+	}
+
+	.bbIns {
+		border-bottom: 1px dotted darken(var-blue, 25%)
+		background-color: darken(desaturate(var-blue, 25%), 50%) // #243125
+		text-shadow: var-text-shadow
+	}
+
+	.bbMark {
+		padding: 3px 2px
 		border-radius: 4px
-		background-color darken(var-purple, 60%)
-		text-shadow var-text-shadow
+		background-color: darken(var-purple, 60%)
+		color: var-text-1
+		text-shadow: var-text-shadow
 		font-weight: 600
-	.bbMarketBid
-		background-color var-on-background-2
-		border-color var-border-color
-		border-radius var-border-radius
-		.bbMarketBid
-			&__title
-				color var-text-1
-			&__text
-				color var-text-2
-	.bbPre
-		&.showFrame
-			background-color var-on-background-2
-			border-color var-border-color
-			border-radius var-border-radius
-			::-webkit-scrollbar
-				width auto
-				height auto
-			::-webkit-scrollbar-corner
-				background var-on-background-2
-			::-webkit-scrollbar-thumb
-				background darken(var-text-2, 75%)
-				border-top 4px solid var-on-background-2 !important
-				border-bottom 4px solid var-on-background-2 !important
-				border-left-color var-on-background-2 !important
-				border-right-color var-on-background-2 !important
-			::-webkit-scrollbar-track
-				background var-on-background-2
+	}
+
+	.bbMarketBid {
+		border-color: var-border-color
+		border-radius: var-border-radius
+		background-color: var-on-background-2
+
+		.bbMarketBid {
+			&__title {
+				color: var-text-1
+			}
+
+			&__text {
+				color: var-text-2
+			}
+		}
+	}
+
+	.bbPre {
+		&.showFrame {
+			border-color: var-border-color
+			border-radius: var-border-radius
+			background-color: var-on-background-2
+
+			::-webkit-scrollbar {
+				width: auto
+				height: auto
+			}
+
+			::-webkit-scrollbar-corner {
+				background: var-on-background-2
+			}
+
+			::-webkit-scrollbar-thumb {
+				border-top: 4px solid var-on-background-2 !important
+				border-right-color: var-on-background-2 !important
+				border-bottom: 4px solid var-on-background-2 !important
+				border-left-color: var-on-background-2 !important
+				background: darken(var-text-2, 75%)
+			}
+
+			::-webkit-scrollbar-track {
+				background: var-on-background-2
+			}
+		}
+	}
+
 	.bbVar,
 	.bbKbd,
 	.bbSamp,
-	.bbCmd
-		background-color #222222
-		border-radius 4px
-		box-shadow 0 0 0 1px #222222, 0 0 0 2px #393939
-		color var-text-1
-	.bbPoll
-		.inner
-			background-color var-on-background-2
-			box-shadow var-box-shadow-inset
-			.pollQuestion
-				color var-text-1
-			.pollBody
-				.pollOptions
+	.bbCmd {
+		border-radius: 4px
+		background-color: #222222
+		box-shadow: 0 0 0 1px #222222, 0 0 0 2px #393939
+		color: var-text-1
+	}
+
+	.bbPoll {
+		.inner {
+			background-color: var-on-background-2
+			box-shadow: var-box-shadow-inset
+
+			.pollQuestion {
+				color: var-text-1
+			}
+
+			.pollBody {
+				.pollOptions {
 					.votesRel,
-					.votesAbs
-						color var-text-2
-					.optionBar
-						> div
-							background-color var-theme-shade
-				.pollSums
-					.pollControls
-						button
-							background-color var-on-background-2-button
-							color var-text-1
-							&:hover
-								background-color var-highlight
-							&.isDisabled
-								background-color darken(var-on-background-2-button, 25%) !important
-								color var-text-2 !important
-								pointer-events all !important
-								&:hover
-									cursor not-allowed !important
-					.pollMessage
-						color var-text-1
-					.totalVotes
-						border-top-color var-border-color-light
-						color var-text-2
-	.bbSpoiler
-		.spoilerHeader
-			background-color transparent
-		.spoilerFrame
-			background-color var-on-background-2
-			border-color var-border-color
-			border-radius var-border-radius
-	.bbTable
-		background-color var-on-background-2 !important
-		border-color var-border-color !important
+					.votesAbs {
+						color: var-text-2
+					}
+
+					.optionBar {
+						> div {
+							background-color: var-theme-shade
+						}
+					}
+				}
+
+				.pollSums {
+					.pollControls {
+						button {
+							background-color: var-on-background-2-button
+							color: var-text-1
+
+							&:hover {
+								background-color: var-highlight
+							}
+
+							&.isDisabled {
+								background-color: darken(var-on-background-2-button, 25%) !important
+								color: var-text-2 !important
+								pointer-events: all !important
+
+								&:hover {
+									cursor: not-allowed !important
+								}
+							}
+						}
+					}
+
+					.pollMessage {
+						color: var-text-1
+					}
+
+					.totalVotes {
+						border-top-color: var-border-color-light
+						color: var-text-2
+					}
+				}
+			}
+		}
+	}
+
+	.bbSpoiler {
+		.spoilerHeader {
+			background-color: transparent
+		}
+
+		.spoilerFrame {
+			border-color: var-border-color
+			border-radius: var-border-radius
+			background-color: var-on-background-2
+		}
+	}
+
+	.bbTable {
+		border-color: var-border-color !important
+		background-color: var-on-background-2 !important
+
 		thead,
-		tbody
-			th
-				background-color darken(var-background-2, 40%) !important
-				color var-theme !important
-		thead
-			tr
+		tbody {
+			th {
+				background-color: darken(var-background-2, 40%) !important
+				color: var-theme !important
+			}
+		}
+
+		thead {
+			tr {
 				span,
-				p
-					color var-text-1 !important
-				&:first-child th
-					border-bottom 1px solid darken(var-background-2, 80%) !important
-					&:first-child
-						border-right 1px solid darken(var-background-2, 80%) !important
-						border-bottom 1px solid darken(var-background-2, 80%) !important
-					&:last-child
-						border-color var-border-color
-				th
-					border-color darken(var-background-2, 80%)
-			th
-				background-color darken(var-background-2, 60%) !important
-				border-right-color darken(var-background-2, 80%)
-		tbody
-			tr
-				&:last-child
-					th
-						border-color var-border-color !important
+				p {
+					color: var-text-1 !important
+				}
 
-				th
-					border-right 1px solid darken(var-background-2, 50%) !important
-					border-bottom 1px solid var-on-background-2 !important
-					&:first-child
+				&:first-child th {
+					border-bottom: 1px solid darken(var-background-2, 80%) !important
+
+					&:first-child {
+						border-right: 1px solid darken(var-background-2, 80%) !important
+						border-bottom: 1px solid darken(var-background-2, 80%) !important
+					}
+
+					&:last-child {
+						border-color: var-border-color
+					}
+				}
+
+				th {
+					border-color: darken(var-background-2, 80%)
+				}
+			}
+
+			th {
+				border-right-color: darken(var-background-2, 80%)
+				background-color: darken(var-background-2, 60%) !important
+			}
+		}
+
+		tbody {
+			tr {
+				&:last-child {
+					th {
+						border-color: var-border-color !important
+					}
+				}
+
+				th {
+					border-right: 1px solid darken(var-background-2, 50%) !important
+					border-bottom: 1px solid var-on-background-2 !important
+
+					&:first-child {
 						span,
-						p
-							color var-text-1 !important
-				td
-					background-color darken(var-background-2, 20%) !important
-					border-color var-border-color !important
-					border-bottom 1px solid darken(var-background-2, 50%) !important
+						p {
+							color: var-text-1 !important
+						}
+					}
+				}
 
-		a
-			color var-theme !important
-			&:hover
-				text-decoration var-hover-text !important
-				opacity var-hover-opacity !important
-	.bbLink
-		text-decoration none
-	.bbRelatedBox
-		background-color var-on-background-2
-		border-color var-border-color
-	.bbQuote
-		background-color var-on-background-2
-		border-color var-border-color
-		.quoteContent
-			border-top-color var-border-color-light
-		.quoteFade
-			background -moz-linear-gradient(top, transparent 0, transparent 10%, var-background-1 100%) !important
-			background -webkit-gradient(linear, left top, left bottom, color-stop(0, transparent), color-stop(45%, transparent), color-stop(100%, var-background-1)) !important
-			background -webkit-linear-gradient(top, transparent 0, transparent 10%, var-background-1 100%) !important
-			background -o-linear-gradient(top, transparent 0, transparent 10%, var-background-1 100%) !important
-			background -ms-linear-gradient(top, transparent 0, transparent 10%, var-background-1 100%) !important
-			background linear-gradient(to bottom, transparent 0, transparent 10%, var-background-1 100%) !important
+				td {
+					border-color: var-border-color !important
+					border-bottom: 1px solid darken(var-background-2, 50%) !important
+					background-color: darken(var-background-2, 20%) !important
+				}
+			}
+		}
 
-#header
-	.nav-top
-		background-color var-background-1
-		.container
-			.logo
-				a:hover img
-					opacity unset
-			.profile-wrapper
-				.pw-notifications
-					a
-						&.color-orange
-							span
-								color var-theme
-						svg
-							fill var-text-2
-						span
-							color var-text-2
-				.pw-link
-					color var-text-1
-				.button
-					background-color var-on-background-1
-					color var-text-2
-					&:hover
-						background-color var-highlight
-	.nav-main
-		background-color var-background-2
-		border-top var-border
-		border-bottom var-border
-		.ninja-search
-			.ns-field
-				background-color var-on-background-2
-				border-color var-border-color-light
-				.nsf-icon
-					fill var-text-2
-				input
-					background-color var-on-background-2
-					color var-text-2
-					&:focus
-						color var-text-1
-						&::placeholder
-							color darken(var-text-2, 50%)
-					&::placeholder
-						color var-text-2
-			.ns-toggle
-				svg
-					fill darken(var-text-1, 40%) !important
-				&:hover
-					cursor pointer
-					svg
-						fill darken(var-text-1, 50%) !important
-			&.is-loading
-				.nsf-icon
-					filter var-filter-light
-		ul
-			li
-				@media (min-width 769px)
-					&:hover:not(.is-selected)>ul
-						background-color var-background-2
-				a
-					color var-text-2
-					&:hover
-						background-color var-highlight
-					span
-						color var-text-2
-					svg
-						fill var-text-2
-				&.menu-lock
-					svg
-						fill darken(var-text-1, 40%) !important
-						&.lock_open
-							fill var-text-2 !important
-					&:hover
-						svg
-							fill darken(var-text-1, 50%) !important
-				&:not(.no-hover)
-					&:not(.is-mobile)
-						&:hover
-							ul
-								background-color var-on-background-1
-								li a
-									color var-text-2
-			ul
-				border var-border
+		a {
+			color: var-theme !important
 
-#content-container
-	.ninja-search-result
-		.nsrt-main
-			background-color var-on-background-1 !important
-			border-color var-border-color
-			border-bottom-left-radius var-border-radius
-			border-bottom-right-radius var-border-radius
-			.nsrg-header
-				h6
-					color var-theme
-				a
-					color var-text-2
-			.nsrg-result
-				.nsrg-item
-					.nsrg-label
-						color var-text-2
-					.nsrg-date
-						color var-text-1
-				.nsrg-empty
-					p
-						color var-text-2
-	.notification
-		background-color var-background-3
-		box-shadow var-box-shadow-inset
-		border-radius 6px
-		color var-text-1
-		&:hover
+			&:hover {
+				text-decoration: var-hover-text !important
+				opacity: var-hover-opacity !important
+			}
+		}
+	}
+
+	.bbLink {
+		text-decoration: none
+	}
+
+	.bbRelatedBox {
+		border-color: var-border-color
+		background-color: var-on-background-2
+	}
+
+	.bbQuote {
+		border-color: var-border-color
+		background-color: var-on-background-2
+
+		.quoteContent {
+			border-top-color: var-border-color-light
+		}
+
+		.quoteFade {
+			background: -moz-linear-gradient(top, transparent 0, transparent 10%, var-background-1 100%) !important
+			background: -webkit-gradient(linear, left top, left bottom, color-stop(0, transparent), color-stop(45%, transparent), color-stop(100%, var-background-1)) !important
+			background: -webkit-linear-gradient(top, transparent 0, transparent 10%, var-background-1 100%) !important
+			background: -o-linear-gradient(top, transparent 0, transparent 10%, var-background-1 100%) !important
+			background: -ms-linear-gradient(top, transparent 0, transparent 10%, var-background-1 100%) !important
+			background: linear-gradient(to bottom, transparent 0, transparent 10%, var-background-1 100%) !important
+		}
+	}
+}
+
+#header {
+	.nav-top {
+		background-color: var-background-1
+
+		.container {
+			.logo {
+				a:hover img {
+					opacity: unset
+				}
+			}
+
+			.profile-wrapper {
+				.pw-notifications {
+					a {
+						&.color-orange {
+							span {
+								color: var-theme
+							}
+						}
+
+						svg {
+							fill: var-text-2
+						}
+
+						span {
+							color: var-text-2
+						}
+					}
+				}
+
+				.pw-link {
+					color: var-text-1
+				}
+
+				.button {
+					background-color: var-on-background-1
+					color: var-text-2
+
+					&:hover {
+						background-color: var-highlight
+					}
+				}
+			}
+		}
+	}
+
+	.nav-main {
+		border-top: var-border
+		border-bottom: var-border
+		background-color: var-background-2
+
+		.ninja-search {
+			.ns-field {
+				border-color: var-border-color-light
+				background-color: var-on-background-2
+
+				.nsf-icon {
+					fill: var-text-2
+				}
+
+				input {
+					background-color: var-on-background-2
+					color: var-text-2
+
+					&:focus {
+						color: var-text-1
+
+						&::placeholder {
+							color: darken(var-text-2, 50%)
+						}
+					}
+
+					&::placeholder {
+						color: var-text-2
+					}
+				}
+			}
+
+			.ns-toggle {
+				svg {
+					fill: darken(var-text-1, 40%) !important
+				}
+
+				&:hover {
+					cursor: pointer
+
+					svg {
+						fill: darken(var-text-1, 50%) !important
+					}
+				}
+			}
+
+			&.is-loading {
+				.nsf-icon {
+					filter: var-filter-light
+				}
+			}
+		}
+
+		ul {
+			li {
+				@media (min-width: 769px) {
+					&:hover:not(.is-selected)>ul {
+						background-color: var-background-2
+					}
+				}
+
+				a {
+					color: var-text-2
+
+					&:hover {
+						background-color: var-highlight
+					}
+
+					span {
+						color: var-text-2
+					}
+
+					svg {
+						fill: var-text-2
+					}
+				}
+
+				&.menu-lock {
+					svg {
+						fill: darken(var-text-1, 40%) !important
+
+						&.lock_open {
+							fill: var-text-2 !important
+						}
+					}
+
+					&:hover {
+						svg {
+							fill: darken(var-text-1, 50%) !important
+						}
+					}
+				}
+
+				&:not(.no-hover) {
+					&:not(.is-mobile) {
+						&:hover {
+							ul {
+								background-color: var-on-background-1
+
+								li a {
+									color: var-text-2
+								}
+							}
+						}
+					}
+				}
+			}
+
+			ul {
+				border: var-border
+			}
+		}
+	}
+}
+
+#content-container {
+	.ninja-search-result {
+		.nsrt-main {
+			border-color: var-border-color
+			border-bottom-right-radius: var-border-radius
+			border-bottom-left-radius: var-border-radius
+			background-color: var-on-background-1 !important
+
+			.nsrg-header {
+				h6 {
+					color: var-theme
+				}
+
+				a {
+					color: var-text-2
+				}
+			}
+
+			.nsrg-result {
+				.nsrg-item {
+					.nsrg-label {
+						color: var-text-2
+					}
+
+					.nsrg-date {
+						color: var-text-1
+					}
+				}
+
+				.nsrg-empty {
+					p {
+						color: var-text-2
+					}
+				}
+			}
+		}
+	}
+
+	.notification {
+		border-radius: 6px
+		background-color: var-background-3
+		box-shadow: var-box-shadow-inset
+		color: var-text-1
+
+		&:hover {
 			background-color: var-highlight
-		svg
-			fill var-theme
+		}
 
-#content
-	> .container
-		background-color transparent !important
-		> .container-padding
-			> .columns
-				.content-background
-					background-color transparent
-				.content-head
-					h1
-						color var-text-2
-					#searchForm
-						.search-query
-							input
-								background-color var-on-background-1
-								color var-text-2
-								&:focus
-									color var-text-1
-								&::placeholder
-									color var-text-2 !important
-				.article-body
-					.article-bbcode
+		svg {
+			fill: var-theme
+		}
+	}
+}
+
+#content {
+	> .container {
+		background-color: transparent !important
+
+		> .container-padding {
+			> .columns {
+				.content-background {
+					background-color: transparent
+				}
+
+				.content-head {
+					h1 {
+						color: var-text-2
+					}
+
+					#searchForm {
+						.search-query {
+							input {
+								background-color: var-on-background-1
+								color: var-text-2
+
+								&:focus {
+									color: var-text-1
+								}
+
+								&::placeholder {
+									color: var-text-2 !important
+								}
+							}
+						}
+					}
+				}
+
+				.article-body {
+					.article-bbcode {
 						.bbcode,
-						.expanderContent
-							> .bbImage.alignRight a img
-								filter invert(85%)
-				.article-meta
-					.category
-						color var-theme
-					.date
-						color var-text-2
-					.authors a
-						color var-text-1
-				.article-head
-					.article-sponsored
-						background-color transparent
-				.article-keywords
-					.button
-						background-color var-on-background-2
-						&:hover
-							background-color var-highlight
-				.article-authors
-					hr
-						color var-border-color-light
-				.article-proofreading
-					a
-						border-top-color var-border-color-light
-				.article-navigation
-					.head
-						border-bottom-color var-border-color-light
-						h5
-							color var-text-1
-					.page-item
-						&::before
-							color var-text-2
-						&.is-current
-							background-color var-on-background-2
-							box-shadow var-box-shadow-inset
-							&::before
-								color var-text-1
-							svg
-								fill var-text-1
-				.carousel
-					.section
-						.slide
-							&:hover
-								.front a
-									text-decoration var-hover-text
-							.inner
-								&:hover img
-									opacity 0.65
-								.click:hover
-									opacity 1
-								.front
-									pointer-events none
-									a
-										opacity 1
-					.border-radius-none
-						border-radius var-border-radius !important
-				.cards
-					box-shadow var-box-shadow-inset
-					.card
-						border-top 1px solid var-border-color
-						&:first-child
-							border-top none
-						.card-banner
-							img
-								border-radius var-border-radius
-								box-shadow var-box-shadow
-						.card-body
-							.title a
-								color var-text-2
-							.article-meta
-								.category
-									color var-theme
-								.date
-									color var-text-1
-							.card-text
-								a
-									color var-theme
-						.cards-related
-							legend
-								color var-text-1
-							li
-								border-top var-border-light
-						.article-sponsored
-							background-color transparent
-					.ad
-						border-top-color var-border-color
-						iframe
-							border-radius var-border-radius
-				.forum-posts
-					.forum-post
-						.forum-post-header
-							background-color var-on-background-2
-							color var-text-1
-						.forum-post-body
-							background-color var-on-background-1
-							.col
-								&.side
-									background-color darken(var-on-background-1, 10%)
-									&.profile
-										.person
-											.title
-												color var-text-2
-										.avatar
-											border-radius var-border-radius !important
-										.meta
-											dt
-												color darken(var-text-2, 20%)
-											dd
-												color var-text-2
-										.details
-											.activity
-												&.online
-													color var-theme
-												&.offline
-													color darken(var-text-2, 50%)
-								&.controls
-									.button
-										&.like
-											&:hover
-												svg.icon
-													fill var-theme !important
-											&.is-liked
-												.icon
-													fill var-text-2 !important
-												.score
-													color var-theme !important
-										&.is-disabled
-											background-color lighten(var-on-background-2, 1%) !important
-											pointer-events all !important
-											.icon
-												fill darken(var-text-2, 70%) !important
-											&:hover
-												cursor not-allowed !important
-										&.report
-											&:hover
-												svg
-													fill var-warning
-						.button
-							background-color var-on-background-2
-							color var-text-1
-							&:hover
-								background-color var-highlight
-							&.like
-								&.is-liked
-									.score
-										color var-text-2
-									.icon
-										fill var-theme !important
-								&:not(.is-liked)
-									.score
-										color var-text-2
-									.icon
-										fill var-text-2 !important
-							&.is-disabled
-								background-color lighten(var-on-background-2, 1%) !important
-								pointer-events all !important
-								.icon
-									fill darken(var-text-2, 70%) !important
-								&:hover
-									cursor not-allowed !important
-						&.is-linked
+						.expanderContent {
+							> .bbImage.alignRight a img {
+								filter: invert(85%)
+							}
+						}
+					}
+				}
+
+				.article-meta {
+					.category {
+						color: var-theme
+					}
+
+					.date {
+						color: var-text-2
+					}
+
+					.authors a {
+						color: var-text-1
+					}
+				}
+
+				.article-head {
+					.article-sponsored {
+						background-color: transparent
+					}
+				}
+
+				.article-keywords {
+					.button {
+						background-color: var-on-background-2
+
+						&:hover {
+							background-color: var-highlight
+						}
+					}
+				}
+
+				.article-authors {
+					hr {
+						color: var-border-color-light
+					}
+				}
+
+				.article-proofreading {
+					a {
+						border-top-color: var-border-color-light
+					}
+				}
+
+				.article-navigation {
+					.head {
+						border-bottom-color: var-border-color-light
+
+						h5 {
+							color: var-text-1
+						}
+					}
+
+					.page-item {
+						&::before {
+							color: var-text-2
+						}
+
+						&.is-current {
+							background-color: var-on-background-2
+							box-shadow: var-box-shadow-inset
+
+							&::before {
+								color: var-text-1
+							}
+
+							svg {
+								fill: var-text-1
+							}
+						}
+					}
+				}
+
+				.carousel {
+					.section {
+						.slide {
+							&:hover {
+								.front a {
+									text-decoration: var-hover-text
+								}
+							}
+
+							.inner {
+								&:hover img {
+									opacity: 0.65
+								}
+
+								.click:hover {
+									opacity: 1
+								}
+
+								.front {
+									pointer-events: none
+
+									a {
+										opacity: 1
+									}
+								}
+							}
+						}
+					}
+
+					.border-radius-none {
+						border-radius: var-border-radius !important
+					}
+				}
+
+				.cards {
+					box-shadow: var-box-shadow-inset
+
+					.card {
+						border-top: 1px solid var-border-color
+
+						&:first-child {
+							border-top: none
+						}
+
+						.card-banner {
+							img {
+								border-radius: var-border-radius
+								box-shadow: var-box-shadow
+							}
+						}
+
+						.card-body {
+							.title a {
+								color: var-text-2
+							}
+
+							.article-meta {
+								.category {
+									color: var-theme
+								}
+
+								.date {
+									color: var-text-1
+								}
+							}
+
+							.card-text {
+								a {
+									color: var-theme
+								}
+							}
+						}
+
+						.cards-related {
+							legend {
+								color: var-text-1
+							}
+
+							li {
+								border-top: var-border-light
+							}
+						}
+
+						.article-sponsored {
+							background-color: transparent
+						}
+					}
+
+					.ad {
+						border-top-color: var-border-color
+
+						iframe {
+							border-radius: var-border-radius
+						}
+					}
+				}
+
+				.forum-posts {
+					.forum-post {
+						.forum-post-header {
+							background-color: var-on-background-2
+							color: var-text-1
+						}
+
+						.forum-post-body {
+							background-color: var-on-background-1
+
+							.col {
+								&.side {
+									background-color: darken(var-on-background-1, 10%)
+
+									&.profile {
+										.person {
+											.title {
+												color: var-text-2
+											}
+										}
+
+										.avatar {
+											border-radius: var-border-radius !important
+										}
+
+										.meta {
+											dt {
+												color: darken(var-text-2, 20%)
+											}
+
+											dd {
+												color: var-text-2
+											}
+										}
+
+										.details {
+											.activity {
+												&.online {
+													color: var-theme
+												}
+
+												&.offline {
+													color: darken(var-text-2, 50%)
+												}
+											}
+										}
+									}
+								}
+
+								&.controls {
+									.button {
+										&.like {
+											&:hover {
+												svg.icon {
+													fill: var-theme !important
+												}
+											}
+
+											&.is-liked {
+												.icon {
+													fill: var-text-2 !important
+												}
+
+												.score {
+													color: var-theme !important
+												}
+											}
+										}
+
+										&.is-disabled {
+											background-color: lighten(var-on-background-2, 1%) !important
+											pointer-events: all !important
+
+											.icon {
+												fill: darken(var-text-2, 70%) !important
+											}
+
+											&:hover {
+												cursor: not-allowed !important
+											}
+										}
+
+										&.report {
+											&:hover {
+												svg {
+													fill: var-warning
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+
+						.button {
+							background-color: var-on-background-2
+							color: var-text-1
+
+							&:hover {
+								background-color: var-highlight
+							}
+
+							&.like {
+								&.is-liked {
+									.score {
+										color: var-text-2
+									}
+
+									.icon {
+										fill: var-theme !important
+									}
+								}
+
+								&:not(.is-liked) {
+									.score {
+										color: var-text-2
+									}
+
+									.icon {
+										fill: var-text-2 !important
+									}
+								}
+							}
+
+							&.is-disabled {
+								background-color: lighten(var-on-background-2, 1%) !important
+								pointer-events: all !important
+
+								.icon {
+									fill: darken(var-text-2, 70%) !important
+								}
+
+								&:hover {
+									cursor: not-allowed !important
+								}
+							}
+						}
+
+						&.is-linked {
 							.forum-post-header,
-							.forum-post-body
-								border-color var-border-color-light
-						&.is-author
+							.forum-post-body {
+								border-color: var-border-color-light
+							}
+						}
+
+						&.is-author {
 							.forum-post-header,
-							.forum-post-body
-								border-left 2px solid var-theme
-						&.isReader:not(.is-author)
+							.forum-post-body {
+								border-left: 2px solid var-theme
+							}
+						}
+
+						&.isReader:not(.is-author) {
 							.forum-post-header,
-							.forum-post-body
-								border-left-color var-blue
-						&.is-author.isReader
+							.forum-post-body {
+								border-left-color: var-blue
+							}
+						}
+
+						&.is-author.isReader {
 							.forum-post-header,
-							.forum-post-body
-								border-left-color var-blue
-				.list-actions
-					.list-search
-						input
-							background-color var-on-background-1
-							&:focus
-								border-color var-border-color
-								&::placeholder
-									color darken(var-text-2, 60%)
-					select
-						background-color var-on-background-1
-						color var-text-2
-				.quick-reply
-					box-shadow var-box-shadow-inset
-					.controls
-						.tanukiButton
-							background-color var-on-background-2
-							&:hover
-								background-color var-highlight
-							&.isDisabled
-								background-color lighten(var-on-background-2, 1%) !important
-								pointer-events all !important
-								.icon
-									fill darken(var-text-2, 70%) !important
-								&:hover
-									cursor not-allowed !important
-				.comments-bubble
-					.cb-top
-						background-color var-theme-shade !important
-						color var-theme-text !important
-						text-shadow var-text-shadow !important
-					.cb-bottom
-						border-color transparent var-theme-shade transparent transparent
-				.sorter
-					.is-current
-						color var-theme
+							.forum-post-body {
+								border-left-color: var-blue
+							}
+						}
+					}
+				}
+
+				.list-actions {
+					.list-search {
+						input {
+							background-color: var-on-background-1
+
+							&:focus {
+								border-color: var-border-color
+
+								&::placeholder {
+									color: darken(var-text-2, 60%)
+								}
+							}
+						}
+					}
+
+					select {
+						background-color: var-on-background-1
+						color: var-text-2
+					}
+				}
+
+				.quick-reply {
+					box-shadow: var-box-shadow-inset
+
+					.controls {
+						.tanukiButton {
+							background-color: var-on-background-2
+
+							&:hover {
+								background-color: var-highlight
+							}
+
+							&.isDisabled {
+								background-color: lighten(var-on-background-2, 1%) !important
+								pointer-events: all !important
+
+								.icon {
+									fill: darken(var-text-2, 70%) !important
+								}
+
+								&:hover {
+									cursor: not-allowed !important
+								}
+							}
+						}
+					}
+				}
+
+				.comments-bubble {
+					.cb-top {
+						background-color: var-theme-shade !important
+						color: var-theme-text !important
+						text-shadow: var-text-shadow !important
+					}
+
+					.cb-bottom {
+						border-color: transparent var-theme-shade transparent transparent
+					}
+				}
+
+				.sorter {
+					.is-current {
+						color: var-theme
+					}
+
 					.column,
-					.is-current
-						&:hover
-							border-radius var-border-radius
-							background-color var-highlight
-				.pages
-					> a
-						color var-text-2
-						fill var-text-2 !important
-						&:hover
-							background-color var-highlight
-							opacity 1
-						&.is-current
-							background-color var-highlight
-							border-color transparent
-							color var-theme
-					> span
-						&.is-disabled
-							fill darken(var-text-2, 50%) !important
-				.profileHeader
-					.avatar img
-						border-radius var-border-radius
-					h1
-						color var-theme
-					p
-						color var-text-2
-					.ph-meta
-						span
-							color var-text-2
-							&.label
-								color var-text-1
-					.ph-links
-						a:hover
-							opacity 1
-						li
-							svg
-								background-color var-on-background-2-button
-								border-color var-border-color
-								fill var-text-2
-								&:hover
-									background-color var-highlight
-							&:first-child svg
-								fill var-text-2
-							&:last-child
-								a:not(.pm-link)
-									svg
-										fill var-warning
-					.bg-white
-						background-color var-on-background-2 !important
-						box-shadow var-box-shadow-inset
-						a
-							color var-theme
-						span
-							color var-text-2
-				.profileFeed
-					.feedItem
-						border-bottom-color var-border-color-light
-					.feedControl
-						.button
-							background-color var-on-background-2
-							&:hover
-								background-color var-highlight
-				.tipsportal
-					&-header
-						background-color var-on-background-1
-						box-shadow var-box-shadow-inset
-						h1
-							color var-theme
-						p
-							color var-text-2
-						a
-							color var-theme
-					.tips
-						&-header
-							border-color var-border-color-light
-						&-row
-							border-color var-border-color
-							&:nth-child(odd)
-								background-color var-on-background-1
-							&:nth-child(even)
-								background-color var-on-background-2
-							&:hover
-								.col-wrapper
-									background-color var-highlight
-						&-title
-							color var-text-1
-						.col-wrapper
-							&:hover
-								opacity 1
+					.is-current {
+						&:hover {
+							border-radius: var-border-radius
+							background-color: var-highlight
+						}
+					}
+				}
+
+				.pages {
+					> a {
+						color: var-text-2
+						fill: var-text-2 !important
+
+						&:hover {
+							background-color: var-highlight
+							opacity: 1
+						}
+
+						&.is-current {
+							border-color: transparent
+							background-color: var-highlight
+							color: var-theme
+						}
+					}
+
+					> span {
+						&.is-disabled {
+							fill: darken(var-text-2, 50%) !important
+						}
+					}
+				}
+
+				.profileHeader {
+					.avatar img {
+						border-radius: var-border-radius
+					}
+
+					h1 {
+						color: var-theme
+					}
+
+					p {
+						color: var-text-2
+					}
+
+					.ph-meta {
+						span {
+							color: var-text-2
+
+							&.label {
+								color: var-text-1
+							}
+						}
+					}
+
+					.ph-links {
+						a:hover {
+							opacity: 1
+						}
+
+						li {
+							svg {
+								border-color: var-border-color
+								background-color: var-on-background-2-button
+								fill: var-text-2
+
+								&:hover {
+									background-color: var-highlight
+								}
+							}
+
+							&:first-child svg {
+								fill: var-text-2
+							}
+
+							&:last-child {
+								a:not(.pm-link) {
+									svg {
+										fill: var-warning
+									}
+								}
+							}
+						}
+					}
+
+					.bg-white {
+						background-color: var-on-background-2 !important
+						box-shadow: var-box-shadow-inset
+
+						a {
+							color: var-theme
+						}
+
+						span {
+							color: var-text-2
+						}
+					}
+				}
+
+				.profileFeed {
+					.feedItem {
+						border-bottom-color: var-border-color-light
+					}
+
+					.feedControl {
+						.button {
+							background-color: var-on-background-2
+
+							&:hover {
+								background-color: var-highlight
+							}
+						}
+					}
+				}
+
+				.tipsportal {
+					&-header {
+						background-color: var-on-background-1
+						box-shadow: var-box-shadow-inset
+
+						h1 {
+							color: var-theme
+						}
+
+						p {
+							color: var-text-2
+						}
+
+						a {
+							color: var-theme
+						}
+					}
+
+					.tips {
+						&-header {
+							border-color: var-border-color-light
+						}
+
+						&-row {
+							border-color: var-border-color
+
+							&:nth-child(odd) {
+								background-color: var-on-background-1
+							}
+
+							&:nth-child(even) {
+								background-color: var-on-background-2
+							}
+
+							&:hover {
+								.col-wrapper {
+									background-color: var-highlight
+								}
+							}
+						}
+
+						&-title {
+							color: var-text-1
+						}
+
+						.col-wrapper {
+							&:hover {
+								opacity: 1
+
 								.col-product,
-								.col-user
-									text-decoration none
-							.is-desc
-								.label
-									color var-theme
+								.col-user {
+									text-decoration: none
+								}
+							}
+
+							.is-desc {
+								.label {
+									color: var-theme
+								}
+							}
+
 							.col-product,
 							.col-category,
 							.col-vendor,
-							.col-user
-								color var-text-2
-							.col-price
-								color var-text-1
-							.col-score:not(.is-desc) .label
-								background-color var-theme-shade
-								color var-theme-text
-								text-shadow var-text-shadow
-								&:hover
-									opacity var-hover-opacity
-						.cell-pj-graph
-							filter invert(85%) !important
-						.num-comments a
-							&:hover
-								text-decoration var-hover-text
-					.vendor
-						&-header
-							.vendor-name
-								color var-text-1
-							.ad-info
-								color var-text-2
-						&-products
-							background-color var-on-background-2
-							border-color var-border-color
-							.product
-								border-color var-border-color
-								&-header
-									.product-price
-										&-offer
-											color var-text-1
-										&-regular
-											color var-text-2
-										&-savings
-											background-color var-theme-shade
-											color var-theme-text
-											text-shadow var-text-shadow
-								&-footer
-									background-color var-on-background-1
-									.product-descr
-										color var-text-2
-						&-guides
-							h2
-								color var-text-1
-							p
-								color var-text-2
-							.guide
-								.icon
-									img
-										filter var-filter-grey !important
-										&:hover
-											opacity 0.8
-								span
-									color var-text-2
-					#guide-wrapper
-						background-color var-on-background-1
-						border-color var-border-color
-						border-radius var-border-radius
-				#editor
-					.imageForm
-						button
-							background-color var-on-background-2
-							&:hover
-								background-color var-highlight
-				#signatureForm
-					.forum-post-body
-						background-color transparent
-				#replies
-					.forum-post-header
-						.columns
-							background-color var-background-2
-							.author
-								color var-text-2
-								a
-									color var-theme
-							.created
-								color var-text-1
-							&.threadTitle
-								background-color var-on-background-2
-								.label
-									color var-text-1
-				#forumList-1
-					table
-						background-color transparent
-						caption
-							background-color var-background-2
-						.head
-							.cell
-								background-color var-on-background-2
-						.body
-							.cell
-								background-color var-on-background-1
-								border-color var-border-color
-								&.title
-									h2 a
-										color var-theme
-									.descr
-										color var-text-2
-									.subforums
-										.button
-											color var-text-1 !important
-											box-shadow var-box-shadow
-											&:hover
-												background-color var-highlight !important
-								&.lastThread
-									h3
-										color var-text-1
-									.dateline
-										a
-											color var-theme
+							.col-user {
+								color: var-text-2
+							}
+
+							.col-price {
+								color: var-text-1
+							}
+
+							.col-score:not(.is-desc) .label {
+								background-color: var-theme-shade
+								color: var-theme-text
+								text-shadow: var-text-shadow
+
+								&:hover {
+									opacity: var-hover-opacity
+								}
+							}
+						}
+
+						.cell-pj-graph {
+							filter: invert(85%) !important
+						}
+
+						.num-comments a {
+							&:hover {
+								text-decoration: var-hover-text
+							}
+						}
+					}
+
+					.vendor {
+						&-header {
+							.vendor-name {
+								color: var-text-1
+							}
+
+							.ad-info {
+								color: var-text-2
+							}
+						}
+
+						&-products {
+							border-color: var-border-color
+							background-color: var-on-background-2
+
+							.product {
+								border-color: var-border-color
+
+								&-header {
+									.product-price {
+										&-offer {
+											color: var-text-1
+										}
+
+										&-regular {
+											color: var-text-2
+										}
+
+										&-savings {
+											background-color: var-theme-shade
+											color: var-theme-text
+											text-shadow: var-text-shadow
+										}
+									}
+								}
+
+								&-footer {
+									background-color: var-on-background-1
+
+									.product-descr {
+										color: var-text-2
+									}
+								}
+							}
+						}
+
+						&-guides {
+							h2 {
+								color: var-text-1
+							}
+
+							p {
+								color: var-text-2
+							}
+
+							.guide {
+								.icon {
+									img {
+										filter: var-filter-grey !important
+
+										&:hover {
+											opacity: 0.8
+										}
+									}
+								}
+
+								span {
+									color: var-text-2
+								}
+							}
+						}
+					}
+
+					#guide-wrapper {
+						border-color: var-border-color
+						border-radius: var-border-radius
+						background-color: var-on-background-1
+					}
+				}
+
+				#editor {
+					.imageForm {
+						button {
+							background-color: var-on-background-2
+
+							&:hover {
+								background-color: var-highlight
+							}
+						}
+					}
+				}
+
+				#signatureForm {
+					.forum-post-body {
+						background-color: transparent
+					}
+				}
+
+				#replies {
+					.forum-post-header {
+						.columns {
+							background-color: var-background-2
+
+							.author {
+								color: var-text-2
+
+								a {
+									color: var-theme
+								}
+							}
+
+							.created {
+								color: var-text-1
+							}
+
+							&.threadTitle {
+								background-color: var-on-background-2
+
+								.label {
+									color: var-text-1
+								}
+							}
+						}
+					}
+				}
+
+				#forumList-1 {
+					table {
+						background-color: transparent
+
+						caption {
+							background-color: var-background-2
+						}
+
+						.head {
+							.cell {
+								background-color: var-on-background-2
+							}
+						}
+
+						.body {
+							.cell {
+								border-color: var-border-color
+								background-color: var-on-background-1
+
+								&.title {
+									h2 a {
+										color: var-theme
+									}
+
+									.descr {
+										color: var-text-2
+									}
+
+									.subforums {
+										.button {
+											box-shadow: var-box-shadow
+											color: var-text-1 !important
+
+											&:hover {
+												background-color: var-highlight !important
+											}
+										}
+									}
+								}
+
+								&.lastThread {
+									h3 {
+										color: var-text-1
+									}
+
+									.dateline {
+										a {
+											color: var-theme
+										}
+
 										.by,
-										.date
-											color var-text-2
-											.time
-												color var-text-1
-				#threadList-1
-					table
-						background-color transparent
-						caption
-							background-color var-background-2
-						.head
-							.cell
-								background-color var-on-background-2
-								&:first-child
-									border-top-left-radius var-border-radius
-								&:last-child
-									border-top-right-radius var-border-radius
-						.body
-							.row
-								&.isSelected
-									.cell
-										background-color var-highlight !important
-							.cell
-								background-color var-on-background-1
-								border-bottom var-border
-								&.title
-									h2 a
-										color var-text-1
-									.pageLinks
-										.link.last
-											color var-theme
-											text-decoration none
-									.descr
-										color var-text-2
-								&.status
-									.thread-status
-										.icon
-											fill var-theme
-											&.thread
+										.date {
+											color: var-text-2
+
+											.time {
+												color: var-text-1
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+
+				#threadList-1 {
+					table {
+						background-color: transparent
+
+						caption {
+							background-color: var-background-2
+						}
+
+						.head {
+							.cell {
+								background-color: var-on-background-2
+
+								&:first-child {
+									border-top-left-radius: var-border-radius
+								}
+
+								&:last-child {
+									border-top-right-radius: var-border-radius
+								}
+							}
+						}
+
+						.body {
+							.row {
+								&.isSelected {
+									.cell {
+										background-color: var-highlight !important
+									}
+								}
+							}
+
+							.cell {
+								border-bottom: var-border
+								background-color: var-on-background-1
+
+								&.title {
+									h2 a {
+										color: var-text-1
+									}
+
+									.pageLinks {
+										.link.last {
+											color: var-theme
+											text-decoration: none
+										}
+									}
+
+									.descr {
+										color: var-text-2
+									}
+								}
+
+								&.status {
+									.thread-status {
+										.icon {
+											fill: var-theme
+
+											&.thread {
 												&_locked,
-												&_pinned
-													fill var-text-2
-									.posts
-										color var-text-2
-								&.lastReply
-									.name
-										color var-theme
-									.date
-										color var-text-2
-										time .time
-											color var-text-1
-						.allPostsRead
-							.cell
-								&.title
-									h2 a
-										color darken(var-text-1, 40%)
-									.pageLinks
-										.link.last
-											color var-text-2
-									.descr
-										color darken(var-text-2, 40%)
-								&.status
-									.thread-status
-										.icon
-											fill darken(var-text-2, 40%)
-											&.thread
+												&_pinned {
+													fill: var-text-2
+												}
+											}
+										}
+									}
+
+									.posts {
+										color: var-text-2
+									}
+								}
+
+								&.lastReply {
+									.name {
+										color: var-theme
+									}
+
+									.date {
+										color: var-text-2
+
+										time .time {
+											color: var-text-1
+										}
+									}
+								}
+							}
+						}
+
+						.allPostsRead {
+							.cell {
+								&.title {
+									h2 a {
+										color: darken(var-text-1, 40%)
+									}
+
+									.pageLinks {
+										.link.last {
+											color: var-text-2
+										}
+									}
+
+									.descr {
+										color: darken(var-text-2, 40%)
+									}
+								}
+
+								&.status {
+									.thread-status {
+										.icon {
+											fill: darken(var-text-2, 40%)
+
+											&.thread {
 												&_locked,
-												&_pinned
-													fill darken(var-text-2, 40%)
-									.posts
-										color darken(var-text-2, 40%)
-				.table
-					&.classifieds
-						.caption
-							background-color var-on-background-1
-							color var-text-1
-						.head
-							.row
-								.cell
-									background-color var-on-background-2
-									color var-text-1
-						.body
-							.row
-								.cell
-									background-color var-on-background-1
-									border-color var-border-color
-									&.classifieds-thumb
-										img
-											border-radius var-border-radius
-										.no-image
-											svg
-												fill var-theme
-										.classifieds-click
-											border-color var-border-color
-										&:hover
-											img
-												opacity var-hover-opacity
-									&.classifieds-body
-										h2
-											color var-text-1
-										.classifieds-meta
-											.color-black
-												color var-text-2 !important
-												&:nth-child(2)
-													color var-theme !important
-				.market-box
-					background-color var-on-background-1
-					.button
-						background-color var-on-background-2-button
-						color var-text-1
-						&.market-button
-							fill var-text-1
-							&:hover
-								background-color var-highlight
-						&.report
-							fill var-text-1
-							&:hover svg
-								fill var-warning
+												&_pinned {
+													fill: darken(var-text-2, 40%)
+												}
+											}
+										}
+									}
+
+									.posts {
+										color: darken(var-text-2, 40%)
+									}
+								}
+							}
+						}
+					}
+				}
+
+				.table {
+					&.classifieds {
+						.caption {
+							background-color: var-on-background-1
+							color: var-text-1
+						}
+
+						.head {
+							.row {
+								.cell {
+									background-color: var-on-background-2
+									color: var-text-1
+								}
+							}
+						}
+
+						.body {
+							.row {
+								.cell {
+									border-color: var-border-color
+									background-color: var-on-background-1
+
+									&.classifieds-thumb {
+										img {
+											border-radius: var-border-radius
+										}
+
+										.no-image {
+											svg {
+												fill: var-theme
+											}
+										}
+
+										.classifieds-click {
+											border-color: var-border-color
+										}
+
+										&:hover {
+											img {
+												opacity: var-hover-opacity
+											}
+										}
+									}
+
+									&.classifieds-body {
+										h2 {
+											color: var-text-1
+										}
+
+										.classifieds-meta {
+											.color-black {
+												color: var-text-2 !important
+
+												&:nth-child(2) {
+													color: var-theme !important
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+
+				.market-box {
+					background-color: var-on-background-1
+
+					.button {
+						background-color: var-on-background-2-button
+						color: var-text-1
+
+						&.market-button {
+							fill: var-text-1
+
+							&:hover {
+								background-color: var-highlight
+							}
+						}
+
+						&.report {
+							fill: var-text-1
+
+							&:hover svg {
+								fill: var-warning
+							}
+						}
+					}
+				}
+
 				.market-edit-image__container,
 				.market-edit-upload,
-				.checkboxItem label
-					background-color var-on-background-2
-					border-color var-border-color
-					.tcLabel
-						color var-text-1
-						background-color var-on-background-2-button
-						&:hover
-							background-color var-highlight
+				.checkboxItem label {
+					border-color: var-border-color
+					background-color: var-on-background-2
+
+					.tcLabel {
+						background-color: var-on-background-2-button
+						color: var-text-1
+
+						&:hover {
+							background-color: var-highlight
+						}
+					}
+				}
+
 				.checkboxItem label,
-				.market-edit-image__container
-					&:hover
-						background-color var-highlight
+				.market-edit-image__container {
+					&:hover {
+						background-color: var-highlight
+					}
+				}
+			}
+		}
+	}
+}
 
+.lightbox {
+	.lbSlide {
+		&Contents {
+			background-color: black !important
+		}
+	}
+}
 
-.lightbox
-	.lbSlide
-		&Contents
-			background-color black !important
+#footer {
+	.bottom {
+		background-color: var-background-2
+		color: var-text-2
 
-#footer
-	.bottom
-		background-color var-background-2
-		color var-text-2
-		a
-			color var-text-1
-		.copyright
-			color var-text-2
+		a {
+			color: var-text-1
+		}
 
-#adblockBanner
-	background-color var-background-2
-	border-bottom-color var-border-color-light
-	.table .row .cell
-		background-color transparent
-		.button
-			background-color var-theme-shade
-			color var-theme-text
-			text-shadow var-text-shadow
-			&:hover
-				background-color var-highlight
+		.copyright {
+			color: var-text-2
+		}
+	}
+}
 
-#onetrust-consent-sdk
-	#onetrust-banner-sdk
-		box-shadow 1px -1px 0px #3b3b3b
-		background-color var-background-2 !important
-	#onetrust-pc-btn-handler
-		&.cookie-setting-link
-			background-color var-on-background-2 !important
-			box-shadow var-box-shadow-inset !important
-			color var-text-1 !important
-			text-decoration none !important
-	#onetrust-accept-btn-handler
-		background-color var-theme-shade !important
-		border-color var-theme-shade !important
-		color var-theme-text !important
-		text-shadow var-text-shadow !important
-	#onetrust-pc-sdk
-		background-color var-background-2 !important
-		#ot-pc-content
-			&::-webkit-scrollbar-track
-				background transparent !important
-			#ot-pc-title
-				color var-text-1 !important
-			#ot-pc-desc
-				color var-text-2 !important
-				a
-					color var-theme !important
-					text-decoration none !important
-			#accept-recommended-btn-handler
-				background-color var-theme-shade !important
-				border-color var-theme-shade !important
-				color var-theme-text !important
-				text-shadow var-text-shadow !important
-			.ot-sdk-row
-				#ot-category-title
-					color var-theme !important
-				.ot-cat-item
-					border-color var-border-color-light !important
-				.ot-cat-header
-					color var-text-1 !important
-				.ot-acc-grpcntr
-					background-color var-on-background-2 !important
-				.ot-plus-minus
-					filter invert(60%) !important
-				.ot-always-active
-					color var-theme !important
-				.ot-switch-nob
-					filter invert(100%) !important
-		.ot-pc-header
-			border-color transparent !important
-		.ot-pc-footer
-			border-color transparent !important
-			&-logo
-				background-color transparent !important
-				a
-					filter invert(85%) !important
-		.save-preference-btn-handler
-			background-color var-theme-shade !important
-			border-color var-theme-shade !important
-			color var-theme-text !important
-			text-shadow var-text-shadow !important
-		&.otPcCenter
-			box-shadow var-box-shadow-inset-light
-			border-radius var-border-radius
-	p
-		color var-text-2 !important
+#adblockBanner {
+	border-bottom-color: var-border-color-light
+	background-color: var-background-2
 
-#better-sweclockers-document
-	.better-sweclockers-editing-tools
-		.button
-			background-color var-on-background-2
-			&:hover
-				background-color var-highlight
-			&[title="Markerad/framhävd text"]
-				background linear-gradient(0deg, darken(var-purple, 40%) 0%, darken(var-purple, 40%) 100%) content-box, linear-gradient(0deg, var-on-background-2 0%, var-on-background-2 100%) padding-box
+	.table .row .cell {
+		background-color: transparent
+
+		.button {
+			background-color: var-theme-shade
+			color: var-theme-text
+			text-shadow: var-text-shadow
+
+			&:hover {
+				background-color: var-highlight
+			}
+		}
+	}
+}
+
+#onetrust-consent-sdk {
+	#onetrust-banner-sdk {
+		background-color: var-background-2 !important
+		box-shadow: 1px -1px 0px #3b3b3b
+	}
+
+	#onetrust-pc-btn-handler {
+		&.cookie-setting-link {
+			background-color: var-on-background-2 !important
+			box-shadow: var-box-shadow-inset !important
+			color: var-text-1 !important
+			text-decoration: none !important
+		}
+	}
+
+	#onetrust-accept-btn-handler {
+		border-color: var-theme-shade !important
+		background-color: var-theme-shade !important
+		color: var-theme-text !important
+		text-shadow: var-text-shadow !important
+	}
+
+	#onetrust-pc-sdk {
+		background-color: var-background-2 !important
+
+		#ot-pc-content {
+			&::-webkit-scrollbar-track {
+				background: transparent !important
+			}
+
+			#ot-pc-title {
+				color: var-text-1 !important
+			}
+
+			#ot-pc-desc {
+				color: var-text-2 !important
+
+				a {
+					color: var-theme !important
+					text-decoration: none !important
+				}
+			}
+
+			#accept-recommended-btn-handler {
+				border-color: var-theme-shade !important
+				background-color: var-theme-shade !important
+				color: var-theme-text !important
+				text-shadow: var-text-shadow !important
+			}
+
+			.ot-sdk-row {
+				#ot-category-title {
+					color: var-theme !important
+				}
+
+				.ot-cat-item {
+					border-color: var-border-color-light !important
+				}
+
+				.ot-cat-header {
+					color: var-text-1 !important
+				}
+
+				.ot-acc-grpcntr {
+					background-color: var-on-background-2 !important
+				}
+
+				.ot-plus-minus {
+					filter: invert(60%) !important
+				}
+
+				.ot-always-active {
+					color: var-theme !important
+				}
+
+				.ot-switch-nob {
+					filter: invert(100%) !important
+				}
+			}
+		}
+
+		.ot-pc-header {
+			border-color: transparent !important
+		}
+
+		.ot-pc-footer {
+			border-color: transparent !important
+
+			&-logo {
+				background-color: transparent !important
+
+				a {
+					filter: invert(85%) !important
+				}
+			}
+		}
+
+		.save-preference-btn-handler {
+			border-color: var-theme-shade !important
+			background-color: var-theme-shade !important
+			color: var-theme-text !important
+			text-shadow: var-text-shadow !important
+		}
+
+		&.otPcCenter {
+			border-radius: var-border-radius
+			box-shadow: var-box-shadow-inset-light
+		}
+	}
+
+	p {
+		color: var-text-2 !important
+	}
+}
+
+#better-sweclockers-document {
+	.better-sweclockers-editing-tools {
+		.button {
+			background-color: var-on-background-2
+
+			&:hover {
+				background-color: var-highlight
+			}
+
+			&[title='Markerad/framhävd text'] {
 				border-radius: 4px
-				background-color darken(var-purple, 60%)
-				text-shadow var-text-shadow
+				background: linear-gradient(0deg, darken(var-purple, 40%) 0%, darken(var-purple, 40%) 100%) content-box, linear-gradient(0deg, var-on-background-2 0%, var-on-background-2 100%) padding-box
+				background-color: darken(var-purple, 60%)
+				text-shadow: var-text-shadow
 				font-weight: 600
-				&:hover
-					background linear-gradient(0deg, darken(var-purple, 40%) 0%, darken(var-purple, 40%) 100%) content-box, linear-gradient(0deg, var-highlight 0%, var-highlight 100%) padding-box
-				mark
-					color var-text-1
-			&[title="Tillagd text"]
-				background linear-gradient(0deg, darken(desaturate(var-blue, 25%), 20%) 0%, darken(desaturate(var-blue, 25%), 20%) 100%) content-box, linear-gradient(0deg, var-on-background-2 0%, var-on-background-2 100%) padding-box
-				&:hover
-					background linear-gradient(0deg, darken(desaturate(var-blue, 25%), 20%) 0%, darken(desaturate(var-blue, 25%), 20%) 100%) content-box, linear-gradient(0deg, var-highlight 0%, var-highlight 100%) padding-box
-				ins
-					color var-text-1
+
+				&:hover {
+					background: linear-gradient(0deg, darken(var-purple, 40%) 0%, darken(var-purple, 40%) 100%) content-box, linear-gradient(0deg, var-highlight 0%, var-highlight 100%) padding-box
+				}
+
+				mark {
+					color: var-text-1
+				}
+			}
+
+			&[title='Tillagd text'] {
+				background: linear-gradient(0deg, darken(desaturate(var-blue, 25%), 20%) 0%, darken(desaturate(var-blue, 25%), 20%) 100%) content-box, linear-gradient(0deg, var-on-background-2 0%, var-on-background-2 100%) padding-box
+
+				&:hover {
+					background: linear-gradient(0deg, darken(desaturate(var-blue, 25%), 20%) 0%, darken(desaturate(var-blue, 25%), 20%) 100%) content-box, linear-gradient(0deg, var-highlight 0%, var-highlight 100%) padding-box
+				}
+
+				ins {
+					color: var-text-1
+				}
+			}
+		}
+	}
+}

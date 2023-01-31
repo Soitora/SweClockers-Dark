@@ -1,6 +1,7 @@
 {
 	"name": "SweClockers-Dark",
 	"description": "A modern dark theme for SweClockers",
+	"type": "module",
 	"scripts": {
 		"compile": "npm run clean && stylus src/sweclockers-dark.styl -o dist/sweclockers-dark.css && node scripts/compile.js",
 		"compile-single": "node scripts/compile.js",
@@ -21,15 +22,15 @@
 	},
 	"homepage": "https://github.com/Soitora/SweClockers-Dark#readme",
 	"devDependencies": {
-		"browser-sync": "^2.26.13",
-		"del": "^6.0.0",
+		"browser-sync": "^2.27.11",
+		"del": "^7.0.0",
 		"gulp": "^4.0.2",
-		"gulp-stylus": "^2.7.0",
-		"moment-timezone": "^0.5.31",
-		"prepend-file": "^2.0.0",
-		"prettier": "2.1.2",
-		"stylus": "^0.54.8",
-		"stylus-supremacy": "^2.14.5",
+		"gulp-stylus": "^3.0.0",
+		"moment-timezone": "^0.5.40",
+		"prepend-file": "^2.0.1",
+		"prettier": "2.8.3",
+		"stylus": "^0.59.0",
+		"stylus-supremacy": "^2.17.5",
 		"write": "^2.0.0"
 	}
 }

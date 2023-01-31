@@ -1,4 +1,12 @@
-const del = require('del');
+import fs from "fs";
+const deleteDirectory = "dist"
 
-del.sync(["dist"]);
-console.log("Deleted the \"dist\" directory.")
+fs.rm(deleteDirectory, { recursive: true }, (err) => {
+
+    if (err){
+        console.error(err.message)
+        return
+    }
+
+    console.log(`Deleted the ${deleteDirectory} directory.`)
+})

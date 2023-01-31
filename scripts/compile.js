@@ -1,7 +1,7 @@
-const moment = require("moment-timezone");
-const fs = require("fs");
-const write = require("write");
-const prependFile = require("prepend-file");
+import moment from "moment-timezone";
+import fs from "fs";
+import write from "write";
+import prependFile from "prepend-file";
 
 const version = moment(new Date()).tz("Europe/Stockholm").format("YY.DDD.HHmm")
 const header = `/* ==UserStyle==

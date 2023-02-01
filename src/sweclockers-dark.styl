@@ -190,6 +190,17 @@ img {
 			background-color: darken(var-background-1, 40%)
 		}
 	}
+
+	&.adPanorama {
+		+ #content-columns {
+			.col {
+				&.col-content-wide {
+					background-color var-background-1
+					border-radius var-border-radius
+				}
+			}
+		}
+	}
 }
 
 .button,
@@ -1573,6 +1584,7 @@ fieldset {
 					> a {
 						color: var-text-2
 						fill: var-text-2 !important
+						text-shadow: 1px 1px 1px var-background-1
 
 						&:hover {
 							background-color: var-highlight
@@ -1583,6 +1595,10 @@ fieldset {
 							border-color: transparent
 							background-color: var-highlight
 							color: var-theme
+						}
+
+						svg {
+							filter: drop-shadow(1px 1px 1px var-background-1)
 						}
 					}
 

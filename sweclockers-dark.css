@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name			SweClockers Dark
 @description	A modern dark theme for SweClockers
-@version		23.31.2207
+@version		23.32.1857
 @license		MPL-2.0
 @author			Soitora <simon.mattila@protonmail.com> (https://soitora.com)
 @namespace		https://github.com/Soitora
@@ -41,6 +41,14 @@ img {
   -o-border-radius: 0.6rem;
   -webkit-border-radius: 0.6rem;
   background-color: #0b0b0b;
+}
+.ad.adPanorama + #content-columns .col.col-content-wide {
+  background-color: #121212;
+  border-radius: 0.6rem;
+  -moz-border-radius: 0.6rem;
+  -ms-border-radius: 0.6rem;
+  -o-border-radius: 0.6rem;
+  -webkit-border-radius: 0.6rem;
 }
 .button,
 .tanukiButton {
@@ -1118,6 +1126,7 @@ fieldset .tanukiButton.isDisabled:hover {
 #content > .container > .container-padding > .columns .pages > a {
   color: #aaa;
   fill: #aaa !important;
+  text-shadow: 1px 1px 1px #121212;
 }
 #content > .container > .container-padding > .columns .pages > a:hover {
   background-color: #2a2a2d;
@@ -1127,6 +1136,13 @@ fieldset .tanukiButton.isDisabled:hover {
   border-color: transparent;
   background-color: #2a2a2d;
   color: #f19a57;
+}
+#content > .container > .container-padding > .columns .pages > a svg {
+  filter: drop-shadow(1px 1px 1px #121212);
+  -moz-filter: drop-shadow(1px 1px 1px #121212);
+  -ms-filter: drop-shadow(1px 1px 1px #121212);
+  -o-filter: drop-shadow(1px 1px 1px #121212);
+  -webkit-filter: drop-shadow(1px 1px 1px #121212);
 }
 #content > .container > .container-padding > .columns .pages > span.is-disabled {
   fill: #555 !important;

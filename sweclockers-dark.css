@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name			SweClockers Dark
 @description	A modern dark theme for SweClockers
-@version		23.36.1854
+@version		23.36.1938
 @license		MPL-2.0
 @author			Soitora <simon.mattila@protonmail.com> (https://soitora.com)
 @namespace		https://github.com/Soitora
@@ -431,28 +431,28 @@ fieldset .tanukiButton.isDisabled:hover {
 .bbcode .bbExpander .expanderFooter {
   border-color: #3b3b3b;
 }
-.bbcode .bbChart img[src*='/artikel/diagram/'] {
+.bbcode .bbChart img[src*="/artikel/diagram/"] {
   filter: invert(85%) !important;
   -moz-filter: invert(85%) !important;
   -ms-filter: invert(85%) !important;
   -o-filter: invert(85%) !important;
   -webkit-filter: invert(85%) !important;
 }
-.bbcode .bbColor[style='color: #c15200;'],
-.bbcode .bbColor[style='color: #c45e0b;'] {
+.bbcode .bbColor[style="color: #c15200;"],
+.bbcode .bbColor[style="color: #c45e0b;"] {
   color: #f19a57 !important;
 }
-.bbcode .bbColor[style='color: #5c5c68;'] {
+.bbcode .bbColor[style="color: #5c5c68;"] {
   color: #aaaab5 !important;
 }
-.bbcode .bbColor[style='color: #d00;'],
-.bbcode .bbColor[style='color: red;'] {
+.bbcode .bbColor[style="color: #d00;"],
+.bbcode .bbColor[style="color: red;"] {
   color: #ff4949 !important;
 }
-.bbcode .bbColor[style='color: green;'] {
+.bbcode .bbColor[style="color: green;"] {
   color: #3fff62 !important;
 }
-.bbcode .bbColor[style='color: blue;'] {
+.bbcode .bbColor[style="color: blue;"] {
   color: #3f76ff !important;
 }
 .bbcode .bbImage a:hover {
@@ -1700,7 +1700,7 @@ fieldset .tanukiButton.isDisabled:hover {
 #better-sweclockers-document .better-sweclockers-editing-tools .button:hover {
   background-color: #2a2a2d;
 }
-#better-sweclockers-document .better-sweclockers-editing-tools .button[title='Markerad/framhävd text'] {
+#better-sweclockers-document .better-sweclockers-editing-tools .button[title="Markerad/framhävd text"] {
   border-radius: 4px;
   -moz-border-radius: 4px;
   -ms-border-radius: 4px;
@@ -1711,18 +1711,18 @@ fieldset .tanukiButton.isDisabled:hover {
   text-shadow: 1px 1px 2px #000;
   font-weight: 600;
 }
-#better-sweclockers-document .better-sweclockers-editing-tools .button[title='Markerad/framhävd text']:hover {
+#better-sweclockers-document .better-sweclockers-editing-tools .button[title="Markerad/framhävd text"]:hover {
   background: linear-gradient(0deg, #554564 0%, #554564 100%) content-box, linear-gradient(0deg, #2a2a2d 0%, #2a2a2d 100%) padding-box;
 }
-#better-sweclockers-document .better-sweclockers-editing-tools .button[title='Markerad/framhävd text'] mark {
+#better-sweclockers-document .better-sweclockers-editing-tools .button[title="Markerad/framhävd text"] mark {
   color: #c8c8c8;
 }
-#better-sweclockers-document .better-sweclockers-editing-tools .button[title='Tillagd text'] {
+#better-sweclockers-document .better-sweclockers-editing-tools .button[title="Tillagd text"] {
   background: linear-gradient(0deg, #2e4a62 0%, #2e4a62 100%) content-box, linear-gradient(0deg, #161617 0%, #161617 100%) padding-box;
 }
-#better-sweclockers-document .better-sweclockers-editing-tools .button[title='Tillagd text']:hover {
+#better-sweclockers-document .better-sweclockers-editing-tools .button[title="Tillagd text"]:hover {
   background: linear-gradient(0deg, #2e4a62 0%, #2e4a62 100%) content-box, linear-gradient(0deg, #2a2a2d 0%, #2a2a2d 100%) padding-box;
 }
-#better-sweclockers-document .better-sweclockers-editing-tools .button[title='Tillagd text'] ins {
+#better-sweclockers-document .better-sweclockers-editing-tools .button[title="Tillagd text"] ins {
   color: #c8c8c8;
 }

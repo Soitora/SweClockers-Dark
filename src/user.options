@@ -18,6 +18,10 @@
 	"Default*": "accessibility-focus-default",
 	"Disabled": "accessibility-focus-disabled"
 }
+@var	select		var-accessibility-row_contrast "Accessibility: Row contrast" {
+	"Enabled": "accessibility-row_contrast-enabled",
+	"Disabled (Default)*": "accessibility-row_contrast-disabled"
+}
 @var	select		var-lemonillusion-width "LemonIllusion: Width" {
 	"Default*": "lemonillusion-width-default",
 	"Custom": "lemonillusion-width-custom"

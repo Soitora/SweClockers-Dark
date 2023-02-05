@@ -13,6 +13,7 @@ var-theme-text ?= #FFFFFF
 var-image-brightness ?= 0.75
 var-scrollbar-style ?= scrollbar-default
 var-accessibility-focus ?= accessibility-focus-default
+var-accessibility-row_contrast ?= accessibility-row_contrast-disabled
 var-lemonillusion-width ?= lemonillusion-width-default
 var-lemonillusion-ad_movement ?= lemonillusion-ad_movement-default
 var-on-background-1 = var-background-2
@@ -70,6 +71,24 @@ if (var-scrollbar-style == 'scrollbar-custom') {
 if (var-accessibility-focus == 'accessibility-focus-disabled') {
 	:focus {
 		outline: none !important
+	}
+}
+
+if (var-accessibility-row_contrast == 'accessibility-row_contrast-enabled') {
+	table {
+		tr {
+			&:nth-child(odd) {
+				td {
+					background: var-on-background-1 !important
+				}
+			}
+
+			&:nth-child(even) {
+				td {
+					background: darken(var-on-background-1, 20%) !important
+				}
+			}
+		}
 	}
 }
 

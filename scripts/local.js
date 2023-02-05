@@ -1,8 +1,9 @@
-const gulp = require("gulp");
-const stylus = require("gulp-stylus");
-const browserSync = require("browser-sync").create();
+import gulp from "gulp"
+import stylus from "gulp-stylus"
+import { create as bsCreate } from "browser-sync"
+const browserSync = bsCreate()
 
-gulp.task('default', function (done) {
+gulp.task("default", function (done) {
 	browserSync.init({
 		proxy: "https://www.sweclockers.com",
 		serveStatic: ["../dist"],
@@ -11,18 +12,18 @@ gulp.task('default', function (done) {
 			rule: {
 				match: /<\/head>/i,
 				fn: function (snippet, match) {
-					return `<link rel="stylesheet" type="text/css" href="/sweclockers-dark.css"/>` + snippet + match;
+					return `<link rel="stylesheet" type="text/css" href="/sweclockers-dark.css"/>` + snippet + match
 				}
 			}
 		}
-	});
-	gulp.watch("../src/sweclockers-dark.styl", gulp.series("styl"));
-	done();
-});
+	})
+	gulp.watch("../src/sweclockers-dark.styl", gulp.series("styl"))
+	done()
+})
 
 gulp.task("styl", function () {
 	return gulp.src("../src/sweclockers-dark.styl")
 		.pipe(stylus())
 		.pipe(gulp.dest("../dist/"))
-		.pipe(browserSync.reload({stream: true}));
-});
+		.pipe(browserSync.reload({ stream: true }))
+})

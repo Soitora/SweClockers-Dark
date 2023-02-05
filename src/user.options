@@ -11,11 +11,11 @@
 @var	color		var-theme-text "Theme color text" #FFFFFF
 @var	number		var-image-brightness "Image brightness" [0.75, 0, 1, 0.05]
 @var	select		var-scrollbar-style "Scrollbar" {
-	"Default": "scrollbar-default",
-	"Custom*": "scrollbar-custom"
+	"Original": "scrollbar-original",
+	"Custom (Default)*": "scrollbar-custom"
 }
 @var	select		var-accessibility-focus "Accessibility: Focus" {
-	"Default*": "accessibility-focus-default",
+	"Original (Default)*": "accessibility-focus-original",
 	"Disabled": "accessibility-focus-disabled"
 }
 @var	select		var-accessibility-row_contrast "Accessibility: Row contrast" {
@@ -23,10 +23,10 @@
 	"Disabled (Default)*": "accessibility-row_contrast-disabled"
 }
 @var	select		var-lemonillusion-width "LemonIllusion: Width" {
-	"Default*": "lemonillusion-width-default",
-	"Custom": "lemonillusion-width-custom"
+	"Enabled": "lemonillusion-width-enabled",
+	"Disabled (Default)*": "lemonillusion-width-disabled"
 }
 @var	select		var-lemonillusion-ad_movement "LemonIllusion: Ad movement" {
-	"Default*": "lemonillusion-ad_movement-default",
-	"Custom": "lemonillusion-ad_movement-custom"
+	"Enabled": "lemonillusion-ad_movement-enabled",
+	"Disabled (Default)*": "lemonillusion-ad_movement-disabled"
 }

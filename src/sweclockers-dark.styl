@@ -11,11 +11,11 @@ var-theme ?= #F19A57
 var-theme-shade ?= shade(var-theme, 20%)
 var-theme-text ?= #FFFFFF
 var-image-brightness ?= 0.75
-var-scrollbar-style ?= scrollbar-default
-var-accessibility-focus ?= accessibility-focus-default
+var-scrollbar-style ?= scrollbar-original
+var-accessibility-focus ?= accessibility-focus-original
 var-accessibility-row_contrast ?= accessibility-row_contrast-disabled
-var-lemonillusion-width ?= lemonillusion-width-default
-var-lemonillusion-ad_movement ?= lemonillusion-ad_movement-default
+var-lemonillusion-width ?= lemonillusion-width-disabled
+var-lemonillusion-ad_movement ?= lemonillusion-ad_movement-disabled
 var-on-background-1 = var-background-2
 var-on-background-2 = darken(var-background-2, 25%)
 var-on-background-2-button = lighten(var-background-2, 3%)
@@ -40,7 +40,7 @@ var-green = #1c5a00
 var-pink = #b34d84
 var-purple = #8e78a2
 
-if (var-scrollbar-style == 'scrollbar-custom') {
+if (var-scrollbar-style == "scrollbar-custom") {
 	::-webkit-scrollbar {
 		width: 17px
 		height: 12px
@@ -61,20 +61,20 @@ if (var-scrollbar-style == 'scrollbar-custom') {
 	}
 
 	::-webkit-resizer {
-		background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAABB0lEQVQ4jcXSvytHYRQG8I9fZWNg8A8og0wMyKKMFEpZlPxYZaEsysJCFuprUSYs6ptQshlYLUa7JAsGSW+9V7fb/fK9GZzp7X3O8/Q85xx/rZrAfylNFJEJnDU8Ns0dbtcWNFCHElbQGT6KCDTiGDPYwGz4rK+S3IwTDGARWwlQjUAbztGBKRykwd8E2nGBVozgLNvwk0A3TuOcBnGT11RpiEO4wiv6M+QG7GK5ksAkynhAH+5TWIhyifnEfTbCAjZxjWE8p7CuuIkWjMb3t4NwXetxPeUYIU0ej6Kf6E3IaYE9LGEfY3hLkVdxhFv04C5viCFnuK5pfGRivWMnunrKn/m/Fb4AFQsvGVJYWLQAAAAASUVORK5CYII=') !important
+		background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAABB0lEQVQ4jcXSvytHYRQG8I9fZWNg8A8og0wMyKKMFEpZlPxYZaEsysJCFuprUSYs6ptQshlYLUa7JAsGSW+9V7fb/fK9GZzp7X3O8/Q85xx/rZrAfylNFJEJnDU8Ns0dbtcWNFCHElbQGT6KCDTiGDPYwGz4rK+S3IwTDGARWwlQjUAbztGBKRykwd8E2nGBVozgLNvwk0A3TuOcBnGT11RpiEO4wiv6M+QG7GK5ksAkynhAH+5TWIhyifnEfTbCAjZxjWE8p7CuuIkWjMb3t4NwXetxPeUYIU0ej6Kf6E3IaYE9LGEfY3hLkVdxhFv04C5viCFnuK5pfGRivWMnunrKn/m/Fb4AFQsvGVJYWLQAAAAASUVORK5CYII=") !important
 		background-position: 3px 3px !important
 		background-size: 12px auto !important
 		background-repeat: no-repeat !important
 	}
 }
 
-if (var-accessibility-focus == 'accessibility-focus-disabled') {
+if (var-accessibility-focus == "accessibility-focus-disabled") {
 	:focus {
 		outline: none !important
 	}
 }
 
-if (var-accessibility-row_contrast == 'accessibility-row_contrast-enabled') {
+if (var-accessibility-row_contrast == "accessibility-row_contrast-enabled") {
 	table {
 		tr {
 			&:nth-child(odd) {
@@ -92,7 +92,7 @@ if (var-accessibility-row_contrast == 'accessibility-row_contrast-enabled') {
 	}
 }
 
-if (var-lemonillusion-width == 'lemonillusion-width-custom') {
+if (var-lemonillusion-width == "lemonillusion-width-enabled") {
 	.col {
 		&.col-content {
 			margin-right: 10px
@@ -139,7 +139,7 @@ if (var-lemonillusion-width == 'lemonillusion-width-custom') {
 	}
 }
 
-if (var-lemonillusion-ad_movement == 'lemonillusion-ad_movement-custom') {
+if (var-lemonillusion-ad_movement == "lemonillusion-ad_movement-enabled") {
 	#outsider-1 {
 		position: static !important
 	}
@@ -634,31 +634,31 @@ fieldset {
 	}
 
 	.bbChart {
-		img[src*='/artikel/diagram/'] {
+		img[src*="/artikel/diagram/"] {
 			filter: invert(85%) !important
 		}
 	}
 
 	.bbColor {
-		&[style='color: #c15200;'],
-		&[style='color: #c45e0b;'] {
+		&[style="color: #c15200;"],
+		&[style="color: #c45e0b;"] {
 			color: var-theme !important
 		}
 
-		&[style='color: #5c5c68;'] {
+		&[style="color: #5c5c68;"] {
 			color: #aaaab5 !important
 		}
 
-		&[style='color: #d00;'],
-		&[style='color: red;'] {
+		&[style="color: #d00;"],
+		&[style="color: red;"] {
 			color: #ff4949 !important
 		}
 
-		&[style='color: green;'] {
+		&[style="color: green;"] {
 			color: #3fff62 !important
 		}
 
-		&[style='color: blue;'] {
+		&[style="color: blue;"] {
 			color: #3f76ff !important
 		}
 	}
@@ -2407,7 +2407,7 @@ fieldset {
 				background-color: var-highlight
 			}
 
-			&[title='Markerad/framhävd text'] {
+			&[title="Markerad/framhävd text"] {
 				border-radius: 4px
 				background: linear-gradient(0deg, darken(var-purple, 40%) 0%, darken(var-purple, 40%) 100%) content-box, linear-gradient(0deg, var-on-background-2 0%, var-on-background-2 100%) padding-box
 				background-color: darken(var-purple, 60%)
@@ -2423,7 +2423,7 @@ fieldset {
 				}
 			}
 
-			&[title='Tillagd text'] {
+			&[title="Tillagd text"] {
 				background: linear-gradient(0deg, darken(desaturate(var-blue, 25%), 20%) 0%, darken(desaturate(var-blue, 25%), 20%) 100%) content-box, linear-gradient(0deg, var-on-background-2 0%, var-on-background-2 100%) padding-box
 
 				&:hover {

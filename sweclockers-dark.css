@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name			SweClockers Dark
 @description	A modern dark theme for SweClockers
-@version		23.36.1938
+@version		23.63.1702
 @license		MPL-2.0
 @author			Soitora <simon.mattila@protonmail.com> (https://soitora.com)
 @namespace		https://github.com/Soitora
@@ -586,6 +586,9 @@ fieldset .tanukiButton.isDisabled:hover {
 .bbcode .bbPoll .inner .pollBody .pollSums .totalVotes {
   border-top-color: #3b3b3b;
   color: #aaa;
+}
+.bbcode .bbPullQuote {
+  color: #f19a57;
 }
 .bbcode .bbSpoiler .spoilerHeader {
   background-color: transparent;

@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name			SweClockers Dark
 @description	A modern dark theme for SweClockers
-@version		23.63.1702
+@version		23.86.1402
 @license		MPL-2.0
 @author			Soitora <simon.mattila@protonmail.com> (https://soitora.com)
 @namespace		https://github.com/Soitora
@@ -686,27 +686,49 @@
 			}
 		}
 
+		// Recolor SweClockers user signature custom colors
 		.bbColor {
+			// SweClockers Orange
 			&[style="color: #c15200;"],
 			&[style="color: #c45e0b;"] {
 				color: var-theme !important
 			}
 
+			// Some gray variant
 			&[style="color: #5c5c68;"] {
 				color: #aaaab5 !important
 			}
 
+			// Red variants
+			&[style="color: #690000;"],
 			&[style="color: #d00;"],
 			&[style="color: red;"] {
 				color: #ff4949 !important
 			}
 
+			// Black variants
+			&[style="color: #000;"],
+			&[style="color: #000000;"],
+			&[style="color: black;"] {
+				color: #fff !important
+			}
+
+			// Green variants
 			&[style="color: green;"] {
 				color: #3fff62 !important
 			}
 
+			// Blue variants
+			&[style="color: #1f5994;"]
+			&[style="color: #0000ff;"]
 			&[style="color: blue;"] {
 				color: #3f76ff !important
+			}
+
+			// Yellow variants
+			&[style="color: #ffff00;"],
+			&[style="color: yellow;"] {
+				color: #faed2f !important
 			}
 		}
 

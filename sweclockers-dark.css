@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name			SweClockers Dark
 @description	A modern dark theme for SweClockers
-@version		23.63.1702
+@version		23.86.1402
 @license		MPL-2.0
 @author			Soitora <simon.mattila@protonmail.com> (https://soitora.com)
 @namespace		https://github.com/Soitora
@@ -445,15 +445,27 @@ fieldset .tanukiButton.isDisabled:hover {
 .bbcode .bbColor[style="color: #5c5c68;"] {
   color: #aaaab5 !important;
 }
+.bbcode .bbColor[style="color: #690000;"],
 .bbcode .bbColor[style="color: #d00;"],
 .bbcode .bbColor[style="color: red;"] {
   color: #ff4949 !important;
 }
+.bbcode .bbColor[style="color: #000;"],
+.bbcode .bbColor[style="color: #000000;"],
+.bbcode .bbColor[style="color: black;"] {
+  color: #fff !important;
+}
 .bbcode .bbColor[style="color: green;"] {
   color: #3fff62 !important;
 }
+.bbcode .bbColor[style="color: #1f5994;"],
+.bbcode .bbColor[style="color: #0000ff;"],
 .bbcode .bbColor[style="color: blue;"] {
   color: #3f76ff !important;
+}
+.bbcode .bbColor[style="color: #ffff00;"],
+.bbcode .bbColor[style="color: yellow;"] {
+  color: #faed2f !important;
 }
 .bbcode .bbImage a:hover {
   opacity: 1;

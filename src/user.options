@@ -30,3 +30,7 @@
 	"Enabled": "lemonillusion-ad_movement-enabled",
 	"Disabled (Default)*": "lemonillusion-ad_movement-disabled"
 }
+@var	number		var-lagers-signature "Lagers: Signature removal" {
+	"Enabled": "lagers-signature-removal-enabled",
+	"Disabled (Default)*": "lagers-signature-removal-disabled"
+}

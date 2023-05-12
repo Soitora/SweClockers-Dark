@@ -16,6 +16,7 @@ var-accessibility-focus ?= accessibility-focus-original
 var-accessibility-row_contrast ?= accessibility-row_contrast-disabled
 var-lemonillusion-width ?= lemonillusion-width-disabled
 var-lemonillusion-ad_movement ?= lemonillusion-ad_movement-disabled
+var-lagers-signature ?= lagers-signature-removal-disabled
 var-on-background-1 = var-background-2
 var-on-background-2 = darken(var-background-2, 25%)
 var-on-background-2-button = lighten(var-background-2, 3%)
@@ -142,6 +143,12 @@ if (var-lemonillusion-width == "lemonillusion-width-enabled") {
 if (var-lemonillusion-ad_movement == "lemonillusion-ad_movement-enabled") {
 	#outsider-1 {
 		position: static !important
+	}
+}
+
+if (var-lagers-signature == "lagers-signature-removal-enabled") {
+	.forum-post-body .signature {
+		display: none
 	}
 }
 

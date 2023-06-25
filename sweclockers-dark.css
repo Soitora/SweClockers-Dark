@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name			SweClockers Dark
 @description	A modern dark theme for SweClockers
-@version		23.176.1411
+@version		23.176.1415
 @license		MPL-2.0
 @author			Soitora <simon.mattila@protonmail.com> (https://soitora.com)
 @namespace		https://github.com/Soitora
@@ -1601,15 +1601,21 @@ fieldset .tanukiButton.isDisabled:hover {
 #adblockBanner .table .row .cell .button:hover {
   background-color: #2a2a2d;
 }
+.form-mfa .form-mfa__code-manually,
+#signinForm .form-mfa__code-manually,
 #mfaForm .form-mfa__code-manually,
 #totpForm .form-mfa__code-manually {
   background-color: #161617;
   border-color: #101013;
 }
+.form-mfa .form-mfa__seperator,
+#signinForm .form-mfa__seperator,
 #mfaForm .form-mfa__seperator,
 #totpForm .form-mfa__seperator {
   border-color: #3b3b3b;
 }
+.form-mfa .form-mfa__code,
+#signinForm .form-mfa__code,
 #mfaForm .form-mfa__code,
 #totpForm .form-mfa__code {
   border-color: #101013;
@@ -1619,6 +1625,8 @@ fieldset .tanukiButton.isDisabled:hover {
   -o-border-radius: 0.6rem;
   -webkit-border-radius: 0.6rem;
 }
+.form-mfa .form-mfa__code input,
+#signinForm .form-mfa__code input,
 #mfaForm .form-mfa__code input,
 #totpForm .form-mfa__code input {
   background: repeating-linear-gradient(90deg, #161617 0, #161617 29px, #3b3b3b 30px);

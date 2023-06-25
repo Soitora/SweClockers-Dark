@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name			SweClockers Dark
 @description	A modern dark theme for SweClockers
-@version		23.155.2055
+@version		23.176.1411
 @license		MPL-2.0
 @author			Soitora <simon.mattila@protonmail.com> (https://soitora.com)
 @namespace		https://github.com/Soitora
@@ -70,6 +70,10 @@ img {
 .tanukiButton.is-loading {
   background-color: #1b1b1c !important;
   color: #aaa !important;
+}
+.button[title="Avbryt"][href*="/sakerhet"],
+.tanukiButton[title="Avbryt"][href*="/sakerhet"] {
+  color: #ee4757;
 }
 .button .loader,
 .tanukiButton .loader {
@@ -1596,6 +1600,28 @@ fieldset .tanukiButton.isDisabled:hover {
 }
 #adblockBanner .table .row .cell .button:hover {
   background-color: #2a2a2d;
+}
+#mfaForm .form-mfa__code-manually,
+#totpForm .form-mfa__code-manually {
+  background-color: #161617;
+  border-color: #101013;
+}
+#mfaForm .form-mfa__seperator,
+#totpForm .form-mfa__seperator {
+  border-color: #3b3b3b;
+}
+#mfaForm .form-mfa__code,
+#totpForm .form-mfa__code {
+  border-color: #101013;
+  border-radius: 0.6rem;
+  -moz-border-radius: 0.6rem;
+  -ms-border-radius: 0.6rem;
+  -o-border-radius: 0.6rem;
+  -webkit-border-radius: 0.6rem;
+}
+#mfaForm .form-mfa__code input,
+#totpForm .form-mfa__code input {
+  background: repeating-linear-gradient(90deg, #161617 0, #161617 29px, #3b3b3b 30px);
 }
 #onetrust-consent-sdk #onetrust-banner-sdk {
   background-color: #1d1d1f !important;

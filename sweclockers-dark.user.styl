@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name			SweClockers Dark
 @description	A modern dark theme for SweClockers
-@version		23.155.2055
+@version		23.176.1411
 @license		MPL-2.0
 @author			Soitora <simon.mattila@protonmail.com> (https://soitora.com)
 @namespace		https://github.com/Soitora
@@ -297,6 +297,12 @@
 		&.is-loading {
 			background-color: darken(var-on-background-2-button, 25%) !important
 			color: var-text-2 !important
+		}
+
+		&[title="Avbryt"] {
+			&[href*="/sakerhet"] {
+				color: var-warning
+			}
 		}
 
 		.loader {
@@ -2363,6 +2369,27 @@
 				&:hover {
 					background-color: var-highlight
 				}
+			}
+		}
+	}
+
+	#mfaForm,
+	#totpForm {
+		.form-mfa__code-manually {
+			background-color: var-on-background-2
+			border-color: var-border-color
+		}
+
+		.form-mfa__seperator {
+			border-color: var-border-color-light
+		}
+
+		.form-mfa__code {
+			border-color: var-border-color
+			border-radius: var-border-radius
+
+			input {
+				background: repeating-linear-gradient(90deg, var-on-background-2 0, var-on-background-2 29px, var-border-color-light 30px)
 			}
 		}
 	}

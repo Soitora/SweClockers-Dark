@@ -2316,6 +2316,27 @@ fieldset {
 	}
 }
 
+#mfaForm,
+#totpForm {
+	.form-mfa__code-manually {
+		background-color: var-on-background-2
+		border-color: var-border-color
+	}
+
+	.form-mfa__seperator {
+		border-color: var-border-color-light
+	}
+
+	.form-mfa__code {
+		border-color: var-border-color
+		border-radius: var-border-radius
+
+		input {
+			background: repeating-linear-gradient(90deg, var-on-background-2 0, var-on-background-2 29px, var-border-color-light 30px)
+		}
+	}
+}
+
 #onetrust-consent-sdk {
 	#onetrust-banner-sdk {
 		background-color: var-background-2 !important

@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name			SweClockers Dark
 @description	A modern dark theme for SweClockers
-@version		23.176.1415
+@version		23.181.1718
 @license		MPL-2.0
 @author			Soitora <simon.mattila@protonmail.com> (https://soitora.com)
 @namespace		https://github.com/Soitora
@@ -692,6 +692,92 @@ fieldset .tanukiButton.isDisabled:hover {
   background: -o-linear-gradient(top, transparent 0, transparent 10%, #121212 100%) !important;
   background: -ms-linear-gradient(top, transparent 0, transparent 10%, #121212 100%) !important;
   background: linear-gradient(to bottom, transparent 0, transparent 10%, #121212 100%) !important;
+}
+.wndSimpleWindow .wndSimpleWindowDecorator {
+  background-color: #1d1d1f;
+  border-radius: 0.6rem;
+  -moz-border-radius: 0.6rem;
+  -ms-border-radius: 0.6rem;
+  -o-border-radius: 0.6rem;
+  -webkit-border-radius: 0.6rem;
+  border-color: #3b3b3b;
+}
+.wndSimpleWindow .wndSimpleWindowDecorator .wndSimpleWindowHeader {
+  border-color: #3b3b3b;
+}
+.wndSimpleWindow .wndSimpleWindowDecorator .wndSimpleWindowHeader .wndSimpleWindowTitle h4,
+.wndSimpleWindow .wndSimpleWindowDecorator .wndSimpleWindowHeader .wndToolbarControls svg {
+  color: #c8c8c8;
+  fill: #c8c8c8;
+}
+.wndSimpleWindow .wndSimpleWindowDecorator .wndSimpleWindowContent .forum-files__loader .loading .loader {
+  filter: brightness(0) saturate(100%) invert(92%) sepia(0) saturate(489%) hue-rotate(229deg) brightness(90%) contrast(86%);
+  -moz-filter: brightness(0) saturate(100%) invert(92%) sepia(0) saturate(489%) hue-rotate(229deg) brightness(90%) contrast(86%);
+  -ms-filter: brightness(0) saturate(100%) invert(92%) sepia(0) saturate(489%) hue-rotate(229deg) brightness(90%) contrast(86%);
+  -o-filter: brightness(0) saturate(100%) invert(92%) sepia(0) saturate(489%) hue-rotate(229deg) brightness(90%) contrast(86%);
+  -webkit-filter: brightness(0) saturate(100%) invert(92%) sepia(0) saturate(489%) hue-rotate(229deg) brightness(90%) contrast(86%);
+}
+.wndSimpleWindow .wndSimpleWindowDecorator .wndSimpleWindowContent .forum-files__error .error,
+.wndSimpleWindow .wndSimpleWindowDecorator .wndSimpleWindowContent .forum-files__error .errorBox {
+  background-color: #ee4757 !important;
+  color: #fff !important;
+  text-shadow: 1px 1px 2px #000;
+}
+.wndSimpleWindow .wndSimpleWindowDecorator .wndSimpleWindowContent .forum-files__error button {
+  background-color: #161617 !important;
+  color: #aaa !important;
+  border-color: #3b3b3b;
+}
+.wndSimpleWindow .wndSimpleWindowDecorator .wndSimpleWindowContent .forum-files__error button:hover {
+  background-color: #2a2a2d !important;
+}
+.wndSimpleWindow .wndSimpleWindowDecorator .wndSimpleWindowContent .forum-files__upload-wrapper .files-upload__dropzone {
+  background-color: #161617;
+  border-color: #3b3b3b;
+}
+.wndSimpleWindow .wndSimpleWindowDecorator .wndSimpleWindowContent .forum-files__upload-wrapper .files-upload__dropzone--active {
+  background-color: #2c231d;
+}
+.wndSimpleWindow .wndSimpleWindowDecorator .wndSimpleWindowContent .forum-files__upload-wrapper .files-upload__dropzone .files-upload__input .tcLabel {
+  background-color: #1d1d1f !important;
+  color: #aaa !important;
+  border-color: #3b3b3b;
+}
+.wndSimpleWindow .wndSimpleWindowDecorator .wndSimpleWindowContent .forum-files__upload-wrapper .files-upload__dropzone .files-upload__input .tcLabel:hover {
+  background-color: #2a2a2d !important;
+}
+.wndSimpleWindow .wndSimpleWindowDecorator .wndSimpleWindowContent .forum-files__upload-wrapper .files-upload__dropzone .files-upload__preview img {
+  border-radius: 4px;
+  -moz-border-radius: 4px;
+  -ms-border-radius: 4px;
+  -o-border-radius: 4px;
+  -webkit-border-radius: 4px;
+}
+.wndSimpleWindow .wndSimpleWindowDecorator .wndSimpleWindowContent .forum-files__upload-wrapper .files-upload .forum-files__text {
+  color: #aaa;
+}
+.wndSimpleWindow .wndSimpleWindowDecorator .wndSimpleWindowContent .forum-files__upload-wrapper .forum-files__footer {
+  border-color: #3b3b3b;
+}
+.wndSimpleWindow .wndSimpleWindowDecorator .wndSimpleWindowContent .forum-files__upload-wrapper .forum-files__footer button {
+  background-color: #161617 !important;
+  color: #aaa !important;
+}
+.wndSimpleWindow .wndSimpleWindowDecorator .wndSimpleWindowContent .forum-files__upload-wrapper .forum-files__footer button:hover {
+  background-color: #2a2a2d !important;
+}
+.wndSimpleWindow .wndSimpleWindowDecorator .wndSimpleWindowContent .forum-files__upload-wrapper .forum-files__footer button[disabled],
+.wndSimpleWindow .wndSimpleWindowDecorator .wndSimpleWindowContent .forum-files__upload-wrapper .forum-files__footer button.isDisabled {
+  background-color: #181819 !important;
+  pointer-events: all !important;
+}
+.wndSimpleWindow .wndSimpleWindowDecorator .wndSimpleWindowContent .forum-files__upload-wrapper .forum-files__footer button[disabled] .icon,
+.wndSimpleWindow .wndSimpleWindowDecorator .wndSimpleWindowContent .forum-files__upload-wrapper .forum-files__footer button.isDisabled .icon {
+  fill: #333 !important;
+}
+.wndSimpleWindow .wndSimpleWindowDecorator .wndSimpleWindowContent .forum-files__upload-wrapper .forum-files__footer button[disabled]:hover,
+.wndSimpleWindow .wndSimpleWindowDecorator .wndSimpleWindowContent .forum-files__upload-wrapper .forum-files__footer button.isDisabled:hover {
+  cursor: not-allowed !important;
 }
 #header .nav-top {
   background-color: #121212;

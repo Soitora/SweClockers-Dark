@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name			SweClockers Dark
 @description	A modern dark theme for SweClockers
-@version		23.176.1415
+@version		23.181.1718
 @license		MPL-2.0
 @author			Soitora <simon.mattila@protonmail.com> (https://soitora.com)
 @namespace		https://github.com/Soitora
@@ -1016,6 +1016,117 @@
 				background: -o-linear-gradient(top, transparent 0, transparent 10%, var-background-1 100%) !important
 				background: -ms-linear-gradient(top, transparent 0, transparent 10%, var-background-1 100%) !important
 				background: linear-gradient(to bottom, transparent 0, transparent 10%, var-background-1 100%) !important
+			}
+		}
+	}
+
+	.wndSimpleWindow {
+		.wndSimpleWindowDecorator {
+			background-color: var-on-background-1
+			border-radius: var-border-radius
+			border-color: var-border-color-light
+
+			.wndSimpleWindowHeader {
+				border-color: var-border-color-light
+
+				.wndSimpleWindowTitle h4,
+				.wndToolbarControls svg {
+					color: var-text-1
+					fill: var-text-1
+				}
+			}
+
+			.wndSimpleWindowContent {
+				.forum-files {
+					&__loader {
+						.loading .loader {
+							filter: var-filter-light
+						}
+					}
+
+					&__error {
+						.error,
+						.errorBox {
+							background-color: var-warning !important
+							color: white !important
+							text-shadow: var-text-shadow
+						}
+
+						button {
+							background-color: var-on-background-2 !important
+							color: var-text-2 !important
+							border-color: var-border-color-light
+
+							&:hover {
+								background-color: var-highlight !important
+							}
+						}
+					}
+
+					&__upload-wrapper {
+						.files-upload {
+							&__dropzone {
+								background-color: var-on-background-2
+								border-color: var-border-color-light
+
+								&--active {
+									background-color: blend(rgba(var-theme,.10), var-on-background-2)
+								}
+
+								.files-upload {
+									&__input {
+										.tcLabel {
+											background-color: var-on-background-1 !important
+											color: var-text-2 !important
+											border-color: var-border-color-light
+
+											&:hover {
+												background-color: var-highlight !important
+											}
+										}
+									}
+
+									&__preview {
+										img {
+											border-radius: 4px
+										}
+									}
+								}
+							}
+
+							.forum-files__text {
+								color: var-text-2
+							}
+						}
+
+						.forum-files__footer {
+							border-color: var-border-color-light
+
+							button {
+								background-color: var-on-background-2 !important
+								color: var-text-2 !important
+
+								&:hover {
+									background-color: var-highlight !important
+								}
+
+								&[disabled],
+								&.isDisabled {
+									background-color: lighten(var-on-background-2, 1%) !important
+									pointer-events: all !important
+
+									.icon {
+										fill: darken(var-text-2, 70%) !important
+									}
+
+									&:hover {
+										cursor: not-allowed !important
+									}
+								}
+							}
+						}
+					}
+				}
 			}
 		}
 	}

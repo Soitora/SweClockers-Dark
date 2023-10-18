@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name			SweClockers Dark
 @description	A modern dark theme for SweClockers
-@version		23.213.1838
+@version		23.291.0914
 @license		MPL-2.0
 @author			Soitora <simon.mattila@protonmail.com> (https://soitora.com)
 @namespace		https://github.com/Soitora
@@ -943,48 +943,56 @@ fieldset .tanukiButton.isDisabled:hover {
 #content > .container > .container-padding > .columns .content-head #searchForm .search-query input::placeholder {
   color: #aaa !important;
 }
-#content > .container > .container-padding > .columns .article-body .article-bbcode .bbcode > .bbImage.alignRight a img,
-#content > .container > .container-padding > .columns .article-body .article-bbcode .expanderContent > .bbImage.alignRight a img {
+#content > .container > .container-padding > .columns .content-head .article-head .article-meta .category {
+  color: #f19a57;
+}
+#content > .container > .container-padding > .columns .content-head .article-head .article-meta .date {
+  color: #aaa;
+}
+#content > .container > .container-padding > .columns .content-head .article-head .article-meta .authors a {
+  color: #c8c8c8;
+}
+#content > .container > .container-padding > .columns .content-head .article-head .article-sponsored {
+  background-color: transparent;
+}
+#content > .container > .container-padding > .columns .content-head .article-head .article-bbcode .bbImage .inner a:has(+ .caption:not([style*="display: none;"])) img {
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+}
+#content > .container > .container-padding > .columns .content-head .article-head .article-bbcode .bbImage .inner a + .caption {
+  background-color: #1d1d1f;
+  color: #c8c8c8;
+  border-bottom-left-radius: 0.6rem;
+  border-bottom-right-radius: 0.6rem;
+}
+#content > .container > .container-padding > .columns .content-body .article-body .article-bbcode .bbImage .inner a:has(+ .caption:not([style*="display: none;"])) img {
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+}
+#content > .container > .container-padding > .columns .content-body .article-body .article-bbcode .bbImage .inner a + .caption {
+  background-color: #161617;
+  color: #aaa;
+  border-bottom-left-radius: 0.6rem;
+  border-bottom-right-radius: 0.6rem;
+}
+#content > .container > .container-padding > .columns .content-body .article-body .bbcode > .bbImage.alignRight a img,
+#content > .container > .container-padding > .columns .content-body .article-body .expanderContent > .bbImage.alignRight a img {
   filter: invert(85%);
   -moz-filter: invert(85%);
   -ms-filter: invert(85%);
   -o-filter: invert(85%);
   -webkit-filter: invert(85%);
 }
-#content > .container > .container-padding > .columns .article-meta .category {
-  color: #f19a57;
-}
-#content > .container > .container-padding > .columns .article-meta .date {
-  color: #aaa;
-}
-#content > .container > .container-padding > .columns .article-meta .authors a {
-  color: #c8c8c8;
-}
-#content > .container > .container-padding > .columns .article-head .article-sponsored {
-  background-color: transparent;
-}
-#content > .container > .container-padding > .columns .article-keywords .button {
-  background-color: #161617;
-}
-#content > .container > .container-padding > .columns .article-keywords .button:hover {
-  background-color: #2a2a2d;
-}
-#content > .container > .container-padding > .columns .article-authors hr {
-  color: #3b3b3b;
-}
-#content > .container > .container-padding > .columns .article-proofreading a {
-  border-top-color: #3b3b3b;
-}
-#content > .container > .container-padding > .columns .article-navigation .head {
+#content > .container > .container-padding > .columns .content-body .article-navigation .head {
   border-bottom-color: #3b3b3b;
 }
-#content > .container > .container-padding > .columns .article-navigation .head h5 {
+#content > .container > .container-padding > .columns .content-body .article-navigation .head h5 {
   color: #c8c8c8;
 }
-#content > .container > .container-padding > .columns .article-navigation .page-item::before {
+#content > .container > .container-padding > .columns .content-body .article-navigation .page-item::before {
   color: #aaa;
 }
-#content > .container > .container-padding > .columns .article-navigation .page-item.is-current {
+#content > .container > .container-padding > .columns .content-body .article-navigation .page-item.is-current {
   background-color: #161617;
   box-shadow: inset 0 0 0 1px #101013;
   -moz-box-shadow: inset 0 0 0 1px #101013;
@@ -992,11 +1000,69 @@ fieldset .tanukiButton.isDisabled:hover {
   -o-box-shadow: inset 0 0 0 1px #101013;
   -webkit-box-shadow: inset 0 0 0 1px #101013;
 }
-#content > .container > .container-padding > .columns .article-navigation .page-item.is-current::before {
+#content > .container > .container-padding > .columns .content-body .article-navigation .page-item.is-current::before {
   color: #c8c8c8;
 }
-#content > .container > .container-padding > .columns .article-navigation .page-item.is-current svg {
+#content > .container > .container-padding > .columns .content-body .article-navigation .page-item.is-current svg {
   fill: #c8c8c8;
+}
+#content > .container > .container-padding > .columns .content-body .article-keywords .button {
+  background-color: #161617;
+}
+#content > .container > .container-padding > .columns .content-body .article-keywords .button:hover {
+  background-color: #2a2a2d;
+}
+#content > .container > .container-padding > .columns .content-body .article-authors hr {
+  color: #3b3b3b;
+}
+#content > .container > .container-padding > .columns .content-body .article-proofreading a {
+  border-top-color: #3b3b3b;
+}
+#content > .container > .container-padding > .columns .market-header .is-verified {
+  color: #aaa;
+}
+#content > .container > .container-padding > .columns .market-header .margin-medium-bottom {
+  color: #aaa;
+}
+#content > .container > .container-padding > .columns .market-box {
+  background-color: #1d1d1f;
+}
+#content > .container > .container-padding > .columns .market-box .button {
+  background-color: #242426;
+  color: #c8c8c8;
+}
+#content > .container > .container-padding > .columns .market-box .button.market-button {
+  fill: #c8c8c8;
+}
+#content > .container > .container-padding > .columns .market-box .button.market-button:hover {
+  background-color: #2a2a2d;
+}
+#content > .container > .container-padding > .columns .market-box .button.report {
+  fill: #c8c8c8;
+}
+#content > .container > .container-padding > .columns .market-box .button.report:hover svg {
+  fill: #ee4757;
+}
+#content > .container > .container-padding > .columns .market-edit-image__container,
+#content > .container > .container-padding > .columns .market-edit-upload,
+#content > .container > .container-padding > .columns .checkboxItem label {
+  border-color: #101013;
+  background-color: #161617;
+}
+#content > .container > .container-padding > .columns .market-edit-image__container .tcLabel,
+#content > .container > .container-padding > .columns .market-edit-upload .tcLabel,
+#content > .container > .container-padding > .columns .checkboxItem label .tcLabel {
+  background-color: #242426;
+  color: #c8c8c8;
+}
+#content > .container > .container-padding > .columns .market-edit-image__container .tcLabel:hover,
+#content > .container > .container-padding > .columns .market-edit-upload .tcLabel:hover,
+#content > .container > .container-padding > .columns .checkboxItem label .tcLabel:hover {
+  background-color: #2a2a2d;
+}
+#content > .container > .container-padding > .columns .checkboxItem label:hover,
+#content > .container > .container-padding > .columns .market-edit-image__container:hover {
+  background-color: #2a2a2d;
 }
 #content > .container > .container-padding > .columns .carousel .section .slide:hover .front a {
   text-decoration: none;
@@ -1622,46 +1688,6 @@ fieldset .tanukiButton.isDisabled:hover {
 #content > .container > .container-padding > .columns .table.classifieds .body .row .cell.classifieds-body .classifieds-meta .color-black:nth-child(2) {
   color: #f19a57 !important;
 }
-#content > .container > .container-padding > .columns .market-box {
-  background-color: #1d1d1f;
-}
-#content > .container > .container-padding > .columns .market-box .button {
-  background-color: #242426;
-  color: #c8c8c8;
-}
-#content > .container > .container-padding > .columns .market-box .button.market-button {
-  fill: #c8c8c8;
-}
-#content > .container > .container-padding > .columns .market-box .button.market-button:hover {
-  background-color: #2a2a2d;
-}
-#content > .container > .container-padding > .columns .market-box .button.report {
-  fill: #c8c8c8;
-}
-#content > .container > .container-padding > .columns .market-box .button.report:hover svg {
-  fill: #ee4757;
-}
-#content > .container > .container-padding > .columns .market-edit-image__container,
-#content > .container > .container-padding > .columns .market-edit-upload,
-#content > .container > .container-padding > .columns .checkboxItem label {
-  border-color: #101013;
-  background-color: #161617;
-}
-#content > .container > .container-padding > .columns .market-edit-image__container .tcLabel,
-#content > .container > .container-padding > .columns .market-edit-upload .tcLabel,
-#content > .container > .container-padding > .columns .checkboxItem label .tcLabel {
-  background-color: #242426;
-  color: #c8c8c8;
-}
-#content > .container > .container-padding > .columns .market-edit-image__container .tcLabel:hover,
-#content > .container > .container-padding > .columns .market-edit-upload .tcLabel:hover,
-#content > .container > .container-padding > .columns .checkboxItem label .tcLabel:hover {
-  background-color: #2a2a2d;
-}
-#content > .container > .container-padding > .columns .checkboxItem label:hover,
-#content > .container > .container-padding > .columns .market-edit-image__container:hover {
-  background-color: #2a2a2d;
-}
 .lightbox .lbSlideContents {
   background-color: #000 !important;
 }
@@ -1719,6 +1745,53 @@ fieldset .tanukiButton.isDisabled:hover {
 #mfaForm .form-mfa__code input,
 #totpForm .form-mfa__code input {
   background: repeating-linear-gradient(90deg, #161617 0, #161617 29px, #3b3b3b 30px);
+}
+.form-mfa .frc-captcha,
+#signinForm .frc-captcha,
+#mfaForm .frc-captcha,
+#totpForm .frc-captcha {
+  background-color: #2a2a2c;
+  border-color: #3b3b3b;
+}
+.form-mfa .frc-captcha .frc-icon,
+#signinForm .frc-captcha .frc-icon,
+#mfaForm .frc-captcha .frc-icon,
+#totpForm .frc-captcha .frc-icon {
+  filter: brightness(0) saturate(100%) invert(92%) sepia(0) saturate(489%) hue-rotate(229deg) brightness(90%) contrast(86%) !important;
+  -moz-filter: brightness(0) saturate(100%) invert(92%) sepia(0) saturate(489%) hue-rotate(229deg) brightness(90%) contrast(86%) !important;
+  -ms-filter: brightness(0) saturate(100%) invert(92%) sepia(0) saturate(489%) hue-rotate(229deg) brightness(90%) contrast(86%) !important;
+  -o-filter: brightness(0) saturate(100%) invert(92%) sepia(0) saturate(489%) hue-rotate(229deg) brightness(90%) contrast(86%) !important;
+  -webkit-filter: brightness(0) saturate(100%) invert(92%) sepia(0) saturate(489%) hue-rotate(229deg) brightness(90%) contrast(86%) !important;
+}
+.form-mfa .frc-captcha .frc-button,
+#signinForm .frc-captcha .frc-button,
+#mfaForm .frc-captcha .frc-button,
+#totpForm .frc-captcha .frc-button {
+  background-color: #3f3f42;
+}
+.form-mfa .frc-captcha .frc-button:hover,
+#signinForm .frc-captcha .frc-button:hover,
+#mfaForm .frc-captcha .frc-button:hover,
+#totpForm .frc-captcha .frc-button:hover {
+  background-color: #1d1d1f;
+}
+.form-mfa .frc-captcha .frc-progress::-webkit-progress-bar,
+#signinForm .frc-captcha .frc-progress::-webkit-progress-bar,
+#mfaForm .frc-captcha .frc-progress::-webkit-progress-bar,
+#totpForm .frc-captcha .frc-progress::-webkit-progress-bar {
+  background: #121212;
+}
+.form-mfa .frc-captcha .frc-progress::-webkit-progress-value,
+#signinForm .frc-captcha .frc-progress::-webkit-progress-value,
+#mfaForm .frc-captcha .frc-progress::-webkit-progress-value,
+#totpForm .frc-captcha .frc-progress::-webkit-progress-value {
+  background: #f19a57;
+}
+.form-mfa .frc-captcha *,
+#signinForm .frc-captcha *,
+#mfaForm .frc-captcha *,
+#totpForm .frc-captcha * {
+  color: #c8c8c8;
 }
 #onetrust-consent-sdk #onetrust-banner-sdk {
   background-color: #1d1d1f !important;

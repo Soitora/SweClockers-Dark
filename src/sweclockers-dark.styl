@@ -2510,6 +2510,37 @@ fieldset {
 			background: repeating-linear-gradient(90deg, var-on-background-2 0, var-on-background-2 29px, var-border-color-light 30px)
 		}
 	}
+
+	.frc-captcha {
+		background-color: var-background-3
+		border-color: var-border-color-light
+
+		.frc-icon {
+			filter: var-filter-light !important
+		}
+
+		.frc-button {
+			background-color: lighten(var-background-3, 10%)
+
+			&:hover {
+				background-color: var-background-2
+			}
+		}
+
+		.frc-progress {
+			&::-webkit-progress-bar {
+				background: var-background-1
+			}
+
+			&::-webkit-progress-value {
+				background: var-theme
+			}
+		}
+
+		* {
+			color: var-text-1
+		}
+	}
 }
 
 #onetrust-consent-sdk {

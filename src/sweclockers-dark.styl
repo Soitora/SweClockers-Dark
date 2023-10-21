@@ -1367,6 +1367,15 @@ fieldset {
 										color: var-text-1
 										border-bottom-left-radius: var-border-radius
 										border-bottom-right-radius: var-border-radius
+
+										a {
+											color: var-text-2
+
+											&:hover {
+												text-decoration: var-hover-text !important
+												opacity: var-hover-opacity !important
+											}
+										}
 									}
 								}
 							}
@@ -1392,6 +1401,13 @@ fieldset {
 										border-bottom-left-radius: var-border-radius
 										border-bottom-right-radius: var-border-radius
 									}
+								}
+							}
+
+							.bbAward {
+								.reason {
+									background-color: var-on-background-1
+									color: var-text-2
 								}
 							}
 						}

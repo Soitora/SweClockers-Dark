@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name			SweClockers Dark
 @description	A modern dark theme for SweClockers
-@version		23.291.0914
+@version		23.294.2346
 @license		MPL-2.0
 @author			Soitora <simon.mattila@protonmail.com> (https://soitora.com)
 @namespace		https://github.com/Soitora
@@ -965,6 +965,13 @@ fieldset .tanukiButton.isDisabled:hover {
   border-bottom-left-radius: 0.6rem;
   border-bottom-right-radius: 0.6rem;
 }
+#content > .container > .container-padding > .columns .content-head .article-head .article-bbcode .bbImage .inner a + .caption a {
+  color: #aaa;
+}
+#content > .container > .container-padding > .columns .content-head .article-head .article-bbcode .bbImage .inner a + .caption a:hover {
+  text-decoration: none !important;
+  opacity: 0.8 !important;
+}
 #content > .container > .container-padding > .columns .content-body .article-body .article-bbcode .bbImage .inner a:has(+ .caption:not([style*="display: none;"])) img {
   border-bottom-left-radius: 0;
   border-bottom-right-radius: 0;
@@ -974,6 +981,10 @@ fieldset .tanukiButton.isDisabled:hover {
   color: #aaa;
   border-bottom-left-radius: 0.6rem;
   border-bottom-right-radius: 0.6rem;
+}
+#content > .container > .container-padding > .columns .content-body .article-body .article-bbcode .bbAward .reason {
+  background-color: #1d1d1f;
+  color: #aaa;
 }
 #content > .container > .container-padding > .columns .content-body .article-body .bbcode > .bbImage.alignRight a img,
 #content > .container > .container-padding > .columns .content-body .article-body .expanderContent > .bbImage.alignRight a img {

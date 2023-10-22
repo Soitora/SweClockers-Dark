@@ -1,11 +1,14 @@
 {
 	"name": "sweclockers-dark",
 	"description": "A modern dark theme for SweClockers",
+	"license": "MPL-2.0",
+	"private": true,
 	"type": "module",
 	"engines": {
 		"node": ">=16",
 		"pnpm": ">=8"
 	},
+	"homepage": "https://github.com/Soitora/SweClockers-Dark#readme",
 	"repository": {
 		"type": "git",
 		"url": "https://github.com/Soitora/SweClockers-Dark.git"
@@ -23,9 +26,6 @@
 		"stylus-watch": "stylus -w src/sweclockers-dark.styl -o dist/sweclockers-dark.css",
 		"browser-sync": "node scripts/browser-sync.js"
 	},
-	"license": "MPL-2.0",
-	"private": true,
-	"homepage": "https://github.com/Soitora/SweClockers-Dark#readme",
 	"devDependencies": {
 		"browser-sync": "^2.27.11",
 		"del": "^7.0.0",

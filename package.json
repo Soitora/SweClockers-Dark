@@ -2,8 +2,20 @@
 	"name": "sweclockers-dark",
 	"description": "A modern dark theme for SweClockers",
 	"type": "module",
+	"engines": {
+		"node": ">=16",
+		"pnpm": ">=8"
+	},
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/Soitora/SweClockers-Dark.git"
+	},
+	"bugs": {
+		"url": "https://github.com/Soitora/SweClockers-Dark/issues"
+	},
 	"scripts": {
-		"compile": "npm run clean && stylus src/sweclockers-dark.styl -o dist/sweclockers-dark.css && node scripts/compile.js",
+		"preinstall": "npx only-allow pnpm",
+		"compile": "pnpm clean && stylus src/sweclockers-dark.styl -o dist/sweclockers-dark.css && node scripts/compile.js",
 		"compile-single": "node scripts/compile.js",
 		"local": "stylus src/sweclockers-dark.styl -o dist/sweclockers-dark.css && gulp --gulpfile scripts/local.js",
 		"clean": "node scripts/clean.js",
@@ -11,15 +23,8 @@
 		"stylus-watch": "stylus -w src/sweclockers-dark.styl -o dist/sweclockers-dark.css",
 		"browser-sync": "node scripts/browser-sync.js"
 	},
-	"repository": {
-		"type": "git",
-		"url": "https://github.com/Soitora/SweClockers-Dark.git"
-	},
 	"license": "MPL-2.0",
 	"private": true,
-	"bugs": {
-		"url": "https://github.com/Soitora/SweClockers-Dark/issues"
-	},
 	"homepage": "https://github.com/Soitora/SweClockers-Dark#readme",
 	"devDependencies": {
 		"browser-sync": "^2.27.11",

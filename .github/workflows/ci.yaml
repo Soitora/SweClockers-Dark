@@ -1,45 +1,69 @@
 name: CI/CD
 
 on:
-  push:
-    branches:
-      - main
+    push:
+        branches:
+            - main
 
 jobs:
-  compile-and-publish:
-    name: Compile and Publish
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout project
-        uses: actions/checkout@v3
-        with:
-          token: ${{ secrets.ACCESS_TOKEN }}
-      - name: Setup Node.js
-        uses: actions/setup-node@v3
-        with:
-          node-version: 16.x
-      - name: Install dependencies
-        run: |
-          npm ci
-      - name: Clean files
-        run: |
-          npm run clean
-      - name: Convert Stylus to CSS
-        run: |
-          npm run stylus
-      - name: Compile files
-        run: |
-          npm run compile-single
-      - name: Deploy files
-        uses: JamesIves/github-pages-deploy-action@v4
-        with:
-          folder: dist
-          token: ${{ secrets.ACCESS_TOKEN }}
-          branch: gh-pages
-          clean-exclude: |
-            assets
-            images
-            LICENSE
-            favicon.ico
-            index.html
-          commit-message: ${{ github.event.head_commit.message }} @ ${{ github.sha }} 🚀
+    compile-and-publish:
+        name: Compile and Publish
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checkout project
+              uses: actions/checkout@v3
+              with:
+                  token: ${{ secrets.ACCESS_TOKEN }}
+
+            - name: Setup Node.js
+              uses: actions/setup-node@v3
+              with:
+                  node-version: 16
+
+            - name: Install pnpm
+              uses: pnpm/action-setup@v2
+              with:
+                  version: 8
+                  run_install: false
+
+            - name: Get pnpm store directory
+              shell: bash
+              run: |
+                  echo "STORE_PATH=$(pnpm store path --silent)" >> $GITHUB_ENV
+
+            - uses: actions/cache@v3
+              name: Setup pnpm cache
+              with:
+                  path: ${{ env.STORE_PATH }}
+                  key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
+                  restore-keys: |
+                      ${{ runner.os }}-pnpm-store-
+
+            - name: Install dependencies
+              run: pnpm install
+
+            - name: Clean files
+              run: |
+                  pnpm clean
+
+            - name: Convert Stylus to CSS
+              run: |
+                  pnpm stylus
+
+            - name: Compile files
+              run: |
+                  pnpm compile-single
+
+            - name: Deploy files
+              uses: JamesIves/github-pages-deploy-action@v4
+              with:
+                  folder: dist
+                  token: ${{ secrets.ACCESS_TOKEN }}
+                  branch: gh-pages
+                  clean-exclude: |
+                      assets
+                      images
+                      LICENSE
+                      favicon.ico
+                      index.html
+                  commit-message: ${{ github.event.head_commit.message }} @ ${{ github.sha }} 🚀

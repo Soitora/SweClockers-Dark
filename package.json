@@ -27,11 +27,11 @@
 		"browser-sync": "node scripts/browser-sync.js"
 	},
 	"devDependencies": {
-		"browser-sync": "^2.27.11",
-		"del": "^7.0.0",
+		"browser-sync": "^2.29.3",
+		"del": "^7.1.0",
 		"gulp": "^4.0.2",
-		"gulp-stylus": "^3.0.0",
-		"moment-timezone": "^0.5.40",
+		"gulp-stylus": "^3.0.1",
+		"moment-timezone": "^0.5.43",
 		"prepend-file": "^2.0.1",
 		"prettier": "2.8.3",
 		"stylus": "^0.59.0",

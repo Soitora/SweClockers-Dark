@@ -6,19 +6,19 @@ settings:
 
 devDependencies:
   browser-sync:
-    specifier: ^2.27.11
+    specifier: ^2.29.3
     version: 2.29.3
   del:
-    specifier: ^7.0.0
+    specifier: ^7.1.0
     version: 7.1.0
   gulp:
     specifier: ^4.0.2
     version: 4.0.2
   gulp-stylus:
-    specifier: ^3.0.0
+    specifier: ^3.0.1
     version: 3.0.1
   moment-timezone:
-    specifier: ^0.5.40
+    specifier: ^0.5.43
     version: 0.5.43
   prepend-file:
     specifier: ^2.0.1

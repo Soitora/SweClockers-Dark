@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name			SweClockers Dark
 @description	A modern dark theme for SweClockers
-@version		23.295.1655
+@version		24.91.1451
 @license		MPL-2.0
 @author			Soitora <simon.mattila@protonmail.com> (https://soitora.com)
 @namespace		https://github.com/Soitora
@@ -1185,14 +1185,17 @@ fieldset .tanukiButton.isDisabled:hover {
 #content > .container > .container-padding > .columns .forum-posts .forum-post .forum-post-body .col.side.profile .details .activity.offline {
   color: #555;
 }
-#content > .container > .container-padding > .columns .forum-posts .forum-post .forum-post-body .col.controls .button.like:hover svg.icon {
+#content > .container > .container-padding > .columns .forum-posts .forum-post .forum-post-body .col.controls .button.like.is-popular .score {
+  color: #f19a57 !important;
+}
+#content > .container > .container-padding > .columns .forum-posts .forum-post .forum-post-body .col.controls .button.like:not(.is-popular) .score {
+  color: #aaa !important;
+}
+#content > .container > .container-padding > .columns .forum-posts .forum-post .forum-post-body .col.controls .button.like .icon.is-liked {
   fill: #f19a57 !important;
 }
-#content > .container > .container-padding > .columns .forum-posts .forum-post .forum-post-body .col.controls .button.like.is-liked .icon {
+#content > .container > .container-padding > .columns .forum-posts .forum-post .forum-post-body .col.controls .button.like .icon:not(.is-liked) .icon {
   fill: #aaa !important;
-}
-#content > .container > .container-padding > .columns .forum-posts .forum-post .forum-post-body .col.controls .button.like.is-liked .score {
-  color: #f19a57 !important;
 }
 #content > .container > .container-padding > .columns .forum-posts .forum-post .forum-post-body .col.controls .button.is-disabled {
   background-color: #181819 !important;
@@ -1214,16 +1217,16 @@ fieldset .tanukiButton.isDisabled:hover {
 #content > .container > .container-padding > .columns .forum-posts .forum-post .button:hover {
   background-color: #2a2a2d;
 }
-#content > .container > .container-padding > .columns .forum-posts .forum-post .button.like.is-liked .score {
-  color: #aaa;
+#content > .container > .container-padding > .columns .forum-posts .forum-post .button.like.is-popular .score {
+  color: #f19a57 !important;
 }
-#content > .container > .container-padding > .columns .forum-posts .forum-post .button.like.is-liked .icon {
+#content > .container > .container-padding > .columns .forum-posts .forum-post .button.like:not(.is-popular) .score {
+  color: #aaa !important;
+}
+#content > .container > .container-padding > .columns .forum-posts .forum-post .button.like .icon.is-liked {
   fill: #f19a57 !important;
 }
-#content > .container > .container-padding > .columns .forum-posts .forum-post .button.like:not(.is-liked) .score {
-  color: #aaa;
-}
-#content > .container > .container-padding > .columns .forum-posts .forum-post .button.like:not(.is-liked) .icon {
+#content > .container > .container-padding > .columns .forum-posts .forum-post .button.like .icon:not(.is-liked) .icon {
   fill: #aaa !important;
 }
 #content > .container > .container-padding > .columns .forum-posts .forum-post .button.is-disabled {

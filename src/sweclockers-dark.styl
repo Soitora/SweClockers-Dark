@@ -1679,19 +1679,27 @@ fieldset {
 								&.controls {
 									.button {
 										&.like {
-											&:hover {
-												svg.icon {
-													fill: var-theme !important
+											&.is-popular {
+												.score {
+													color: var-theme !important
 												}
 											}
 
-											&.is-liked {
-												.icon {
-													fill: var-text-2 !important
+											&:not(.is-popular) {
+												.score {
+													color: var-text-2 !important
+												}
+											}
+
+											.icon {
+												&.is-liked {
+													fill: var-theme !important
 												}
 
-												.score {
-													color: var-theme !important
+												&:not(.is-liked) {
+													.icon {
+														fill: var-text-2 !important
+													}
 												}
 											}
 										}
@@ -1730,26 +1738,30 @@ fieldset {
 							}
 
 							&.like {
-								&.is-liked {
-									.score {
-										color: var-text-2
+									&.is-popular {
+										.score {
+											color: var-theme !important
+										}
+									}
+
+									&:not(.is-popular) {
+										.score {
+											color: var-text-2 !important
+										}
 									}
 
 									.icon {
-										fill: var-theme !important
+										&.is-liked {
+											fill: var-theme !important
+										}
+
+										&:not(.is-liked) {
+											.icon {
+												fill: var-text-2 !important
+											}
+										}
 									}
 								}
-
-								&:not(.is-liked) {
-									.score {
-										color: var-text-2
-									}
-
-									.icon {
-										fill: var-text-2 !important
-									}
-								}
-							}
 
 							&.is-disabled {
 								background-color: lighten(var-on-background-2, 1%) !important
